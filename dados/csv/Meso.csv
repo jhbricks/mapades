@@ -1,0 +1,400 @@
+Número,Município,Mesorregiões
+1,Altamira do Paraná,Centro Ocidental Paranaense
+2,Araruna,Centro Ocidental Paranaense
+3,Barbosa Ferraz,Centro Ocidental Paranaense
+4,Boa Esperança,Centro Ocidental Paranaense
+5,Campina da Lagoa,Centro Ocidental Paranaense
+6,Campo Mourão,Centro Ocidental Paranaense
+7,Corumbataí do Sul,Centro Ocidental Paranaense
+8,Engenheiro Beltrão,Centro Ocidental Paranaense
+9,Farol,Centro Ocidental Paranaense
+10,Fênix,Centro Ocidental Paranaense
+11,Goioerê,Centro Ocidental Paranaense
+12,Iretama,Centro Ocidental Paranaense
+13,Janiópolis,Centro Ocidental Paranaense
+14,Juranda,Centro Ocidental Paranaense
+15,Luiziana,Centro Ocidental Paranaense
+16,Mamborê,Centro Ocidental Paranaense
+17,Moreira Sales,Centro Ocidental Paranaense
+18,Nova Cantu,Centro Ocidental Paranaense
+19,Peabiru,Centro Ocidental Paranaense
+20,Quarto Centenário,Centro Ocidental Paranaense
+21,Quinta do Sol,Centro Ocidental Paranaense
+22,Rancho Alegre D'Oeste,Centro Ocidental Paranaense
+23,Roncador,Centro Ocidental Paranaense
+24,Terra Boa,Centro Ocidental Paranaense
+25,Ubiratã,Centro Ocidental Paranaense
+26,Arapoti,Centro Oriental Paranaense
+27,Carambeí,Centro Oriental Paranaense
+28,Castro,Centro Oriental Paranaense
+29,Imbaú,Centro Oriental Paranaense
+30,Jaguariaíva,Centro Oriental Paranaense
+31,Ortigueira,Centro Oriental Paranaense
+32,Palmeira,Centro Oriental Paranaense
+33,Piraí do Sul,Centro Oriental Paranaense
+34,Ponta Grossa,Centro Oriental Paranaense
+35,Reserva,Centro Oriental Paranaense
+36,Sengés,Centro Oriental Paranaense
+37,Telêmaco Borba,Centro Oriental Paranaense
+38,Tibagi,Centro Oriental Paranaense
+39,Ventania,Centro Oriental Paranaense
+40,Boa Ventura de São Roque,Centro-Sul Paranaense
+41,Campina do Simão,Centro-Sul Paranaense
+42,Candói,Centro-Sul Paranaense
+43,Cantagalo,Centro-Sul Paranaense
+44,Clevelândia,Centro-Sul Paranaense
+45,Coronel Domingos Soares,Centro-Sul Paranaense
+46,Espigão Alto do Iguaçu,Centro-Sul Paranaense
+47,Foz do Jordão,Centro-Sul Paranaense
+48,Goioxim,Centro-Sul Paranaense
+49,Guarapuava,Centro-Sul Paranaense
+50,Honório Serpa,Centro-Sul Paranaense
+51,Inácio Martins,Centro-Sul Paranaense
+52,Laranjal,Centro-Sul Paranaense
+53,Laranjeiras do Sul,Centro-Sul Paranaense
+54,Mangueirinha,Centro-Sul Paranaense
+55,Marquinho,Centro-Sul Paranaense
+56,Mato Rico,Centro-Sul Paranaense
+57,Nova Laranjeiras,Centro-Sul Paranaense
+58,Palmas,Centro-Sul Paranaense
+59,Palmital,Centro-Sul Paranaense
+60,Pinhão,Centro-Sul Paranaense
+61,Pitanga,Centro-Sul Paranaense
+62,Porto Barreiro,Centro-Sul Paranaense
+63,Quedas do Iguaçu,Centro-Sul Paranaense
+64,Reserva do Iguaçu,Centro-Sul Paranaense
+65,Rio Bonito do Iguaçu,Centro-Sul Paranaense
+66,Santa Maria do Oeste,Centro-Sul Paranaense
+67,Turvo,Centro-Sul Paranaense
+68,Virmond,Centro-Sul Paranaense
+69,Adrianópolis,Metropolitana de Curitiba
+70,Agudos do Sul,Metropolitana de Curitiba
+71,Almirante Tamandaré,Metropolitana de Curitiba
+72,Antonina,Metropolitana de Curitiba
+73,Araucária,Metropolitana de Curitiba
+74,Balsa Nova,Metropolitana de Curitiba
+75,Bocaiúva do Sul,Metropolitana de Curitiba
+76,Campina Grande do Sul,Metropolitana de Curitiba
+77,Campo do Tenente,Metropolitana de Curitiba
+78,Campo Largo,Metropolitana de Curitiba
+79,Campo Magro,Metropolitana de Curitiba
+80,Cerro Azul,Metropolitana de Curitiba
+81,Colombo,Metropolitana de Curitiba
+82,Contenda,Metropolitana de Curitiba
+83,Curitiba,Metropolitana de Curitiba
+84,Fazenda Rio Grande,Metropolitana de Curitiba
+85,Guaraqueçaba,Metropolitana de Curitiba
+86,Guaratuba,Metropolitana de Curitiba
+87,Itaperuçu,Metropolitana de Curitiba
+88,Lapa,Metropolitana de Curitiba
+89,Mandirituba,Metropolitana de Curitiba
+90,Matinhos,Metropolitana de Curitiba
+91,Morretes,Metropolitana de Curitiba
+92,Paranaguá,Metropolitana de Curitiba
+93,Piên,Metropolitana de Curitiba
+94,Pinhais,Metropolitana de Curitiba
+95,Piraquara,Metropolitana de Curitiba
+96,Pontal do Paraná,Metropolitana de Curitiba
+97,Porto Amazonas,Metropolitana de Curitiba
+98,Quatro Barras,Metropolitana de Curitiba
+99,Quitandinha,Metropolitana de Curitiba
+100,Rio Branco do Sul,Metropolitana de Curitiba
+101,Rio Negro,Metropolitana de Curitiba
+102,São José dos Pinhais,Metropolitana de Curitiba
+103,Tijucas do Sul,Metropolitana de Curitiba
+104,Tunas do Paraná,Metropolitana de Curitiba
+105,Doutor Ulysses,Metropolitana de Curitiba
+106,Altônia,Noroeste Paranaense
+107,Alto Paraná,Noroeste Paranaense
+108,Alto Piquiri,Noroeste Paranaense
+109,Amaporã,Noroeste Paranaense
+110,Brasilândia do Sul,Noroeste Paranaense
+111,Cafezal do Sul,Noroeste Paranaense
+112,Cianorte,Noroeste Paranaense
+113,Cidade Gaúcha,Noroeste Paranaense
+114,Cruzeiro do Oeste,Noroeste Paranaense
+115,Cruzeiro do Sul,Noroeste Paranaense
+116,Diamante do Norte,Noroeste Paranaense
+117,Douradina,Noroeste Paranaense
+118,Esperança Nova,Noroeste Paranaense
+119,Francisco Alves,Noroeste Paranaense
+120,Guairaçá,Noroeste Paranaense
+121,Guaporema,Noroeste Paranaense
+122,Icaraíma,Noroeste Paranaense
+123,Inajá,Noroeste Paranaense
+124,Indianópolis,Noroeste Paranaense
+125,Iporã,Noroeste Paranaense
+126,Itaúna do Sul,Noroeste Paranaense
+127,Ivaté,Noroeste Paranaense
+128,Japurá,Noroeste Paranaense
+129,Jardim Olinda,Noroeste Paranaense
+130,Jussara,Noroeste Paranaense
+131,Loanda,Noroeste Paranaense
+132,Maria Helena,Noroeste Paranaense
+133,Marilena,Noroeste Paranaense
+134,Mariluz,Noroeste Paranaense
+135,Mirador,Noroeste Paranaense
+136,Nova Aliança do Ivaí,Noroeste Paranaense
+137,Nova Londrina,Noroeste Paranaense
+138,Nova Olímpia,Noroeste Paranaense
+139,Paraíso do Norte,Noroeste Paranaense
+140,Paranacity,Noroeste Paranaense
+141,Paranapoema,Noroeste Paranaense
+142,Paranavaí,Noroeste Paranaense
+143,Perobal,Noroeste Paranaense
+144,Pérola,Noroeste Paranaense
+145,Planaltina do Paraná,Noroeste Paranaense
+146,Porto Rico,Noroeste Paranaense
+147,Querência do Norte,Noroeste Paranaense
+148,Rondon,Noroeste Paranaense
+149,Santa Cruz de Monte Castelo,Noroeste Paranaense
+150,Santa Isabel do Ivaí,Noroeste Paranaense
+151,Santa Mônica,Noroeste Paranaense
+152,Santo Antônio do Caiuá,Noroeste Paranaense
+153,São Carlos do Ivaí,Noroeste Paranaense
+154,São João do Caiuá,Noroeste Paranaense
+155,São Jorge do Patrocínio,Noroeste Paranaense
+156,São Manoel do Paraná,Noroeste Paranaense
+157,São Pedro do Paraná,Noroeste Paranaense
+158,São Tomé,Noroeste Paranaense
+159,Tamboara,Noroeste Paranaense
+160,Tapejara,Noroeste Paranaense
+161,Tapira,Noroeste Paranaense
+162,Terra Rica,Noroeste Paranaense
+163,Tuneiras do Oeste,Noroeste Paranaense
+164,Umuarama,Noroeste Paranaense
+165,Alto Paraíso,Noroeste Paranaense
+166,Xambrê,Noroeste Paranaense
+167,Alvorada do Sul,Norte Central Paranaense
+168,Ângulo,Norte Central Paranaense
+169,Apucarana,Norte Central Paranaense
+170,Arapongas,Norte Central Paranaense
+171,Arapuã,Norte Central Paranaense
+172,Ariranha do Ivaí,Norte Central Paranaense
+173,Astorga,Norte Central Paranaense
+174,Atalaia,Norte Central Paranaense
+175,Bela Vista do Paraíso,Norte Central Paranaense
+176,Bom Sucesso,Norte Central Paranaense
+177,Borrazópolis,Norte Central Paranaense
+178,Cafeara,Norte Central Paranaense
+179,Califórnia,Norte Central Paranaense
+180,Cambé,Norte Central Paranaense
+181,Cambira,Norte Central Paranaense
+182,Cândido de Abreu,Norte Central Paranaense
+183,Centenário do Sul,Norte Central Paranaense
+184,Colorado,Norte Central Paranaense
+185,Cruzmaltina,Norte Central Paranaense
+186,Doutor Camargo,Norte Central Paranaense
+187,Faxinal,Norte Central Paranaense
+188,Floraí,Norte Central Paranaense
+189,Floresta,Norte Central Paranaense
+190,Florestópolis,Norte Central Paranaense
+191,Flórida,Norte Central Paranaense
+192,Godoy Moreira,Norte Central Paranaense
+193,Grandes Rios,Norte Central Paranaense
+194,Guaraci,Norte Central Paranaense
+195,Ibiporã,Norte Central Paranaense
+196,Iguaraçu,Norte Central Paranaense
+197,Itaguajé,Norte Central Paranaense
+198,Itambé,Norte Central Paranaense
+199,Ivaiporã,Norte Central Paranaense
+200,Ivatuba,Norte Central Paranaense
+201,Jaguapitã,Norte Central Paranaense
+202,Jandaia do Sul,Norte Central Paranaense
+203,Jardim Alegre,Norte Central Paranaense
+204,Kaloré,Norte Central Paranaense
+205,Lidianópolis,Norte Central Paranaense
+206,Lobato,Norte Central Paranaense
+207,Londrina,Norte Central Paranaense
+208,Lunardelli,Norte Central Paranaense
+209,Lupionópolis,Norte Central Paranaense
+210,Mandaguaçu,Norte Central Paranaense
+211,Mandaguari,Norte Central Paranaense
+212,Manoel Ribas,Norte Central Paranaense
+213,Marialva,Norte Central Paranaense
+214,Marilândia do Sul,Norte Central Paranaense
+215,Maringá,Norte Central Paranaense
+216,Marumbi,Norte Central Paranaense
+217,Mauá da Serra,Norte Central Paranaense
+218,Miraselva,Norte Central Paranaense
+219,Munhoz de Melo,Norte Central Paranaense
+220,Nossa Senhora das Graças,Norte Central Paranaense
+221,Nova Esperança,Norte Central Paranaense
+222,Nova Tebas,Norte Central Paranaense
+223,Novo Itacolomi,Norte Central Paranaense
+224,Ourizona,Norte Central Paranaense
+225,Paiçandu,Norte Central Paranaense
+226,Pitangueiras,Norte Central Paranaense
+227,Porecatu,Norte Central Paranaense
+228,Prado Ferreira,Norte Central Paranaense
+229,Presidente Castelo Branco,Norte Central Paranaense
+230,Primeiro de Maio,Norte Central Paranaense
+231,Rio Bom,Norte Central Paranaense
+232,Rio Branco do Ivaí,Norte Central Paranaense
+233,Rolândia,Norte Central Paranaense
+234,Rosário do Ivaí,Norte Central Paranaense
+235,Sabáudia,Norte Central Paranaense
+236,Santa Fé,Norte Central Paranaense
+237,Santa Inês,Norte Central Paranaense
+238,Santo Inácio,Norte Central Paranaense
+239,São João do Ivaí,Norte Central Paranaense
+240,São Jorge do Ivaí,Norte Central Paranaense
+241,São Pedro do Ivaí,Norte Central Paranaense
+242,Sarandi,Norte Central Paranaense
+243,Sertanópolis,Norte Central Paranaense
+244,Tamarana,Norte Central Paranaense
+245,Uniflor,Norte Central Paranaense
+246,Abatiá,Norte Pioneiro Paranaense
+247,Andirá,Norte Pioneiro Paranaense
+248,Assaí,Norte Pioneiro Paranaense
+249,Bandeirantes,Norte Pioneiro Paranaense
+250,Barra do Jacaré,Norte Pioneiro Paranaense
+251,Cambará,Norte Pioneiro Paranaense
+252,Carlópolis,Norte Pioneiro Paranaense
+253,Congonhinhas,Norte Pioneiro Paranaense
+254,Conselheiro Mairinck,Norte Pioneiro Paranaense
+255,Cornélio Procópio,Norte Pioneiro Paranaense
+256,Curiúva,Norte Pioneiro Paranaense
+257,Figueira,Norte Pioneiro Paranaense
+258,Guapirama,Norte Pioneiro Paranaense
+259,Ibaiti,Norte Pioneiro Paranaense
+260,Itambaracá,Norte Pioneiro Paranaense
+261,Jaboti,Norte Pioneiro Paranaense
+262,Jacarezinho,Norte Pioneiro Paranaense
+263,Japira,Norte Pioneiro Paranaense
+264,Jataizinho,Norte Pioneiro Paranaense
+265,Joaquim Távora,Norte Pioneiro Paranaense
+266,Jundiaí do Sul,Norte Pioneiro Paranaense
+267,Leópolis,Norte Pioneiro Paranaense
+268,Nova América da Colina,Norte Pioneiro Paranaense
+269,Nova Fátima,Norte Pioneiro Paranaense
+270,Nova Santa Bárbara,Norte Pioneiro Paranaense
+271,Pinhalão,Norte Pioneiro Paranaense
+272,Quatiguá,Norte Pioneiro Paranaense
+273,Rancho Alegre,Norte Pioneiro Paranaense
+274,Ribeirão Claro,Norte Pioneiro Paranaense
+275,Ribeirão do Pinhal,Norte Pioneiro Paranaense
+276,Salto do Itararé,Norte Pioneiro Paranaense
+277,Santa Amélia,Norte Pioneiro Paranaense
+278,Santa Cecília do Pavão,Norte Pioneiro Paranaense
+279,Santa Mariana,Norte Pioneiro Paranaense
+280,Santana do Itararé,Norte Pioneiro Paranaense
+281,Santo Antônio da Platina,Norte Pioneiro Paranaense
+282,Santo Antônio do Paraíso,Norte Pioneiro Paranaense
+283,São Jerônimo da Serra,Norte Pioneiro Paranaense
+284,São José da Boa Vista,Norte Pioneiro Paranaense
+285,São Sebastião da Amoreira,Norte Pioneiro Paranaense
+286,Sapopema,Norte Pioneiro Paranaense
+287,Sertaneja,Norte Pioneiro Paranaense
+288,Siqueira Campos,Norte Pioneiro Paranaense
+289,Tomazina,Norte Pioneiro Paranaense
+290,Uraí,Norte Pioneiro Paranaense
+291,Wenceslau Braz,Norte Pioneiro Paranaense
+292,Anahy,Oeste Paranaense
+293,Assis Chateaubriand,Oeste Paranaense
+294,Boa Vista da Aparecida,Oeste Paranaense
+295,Braganey,Oeste Paranaense
+296,Cafelândia,Oeste Paranaense
+297,Campo Bonito,Oeste Paranaense
+298,Capitão Leônidas Marques,Oeste Paranaense
+299,Cascavel,Oeste Paranaense
+300,Catanduvas,Oeste Paranaense
+301,Céu Azul,Oeste Paranaense
+302,Corbélia,Oeste Paranaense
+303,Diamante do Sul,Oeste Paranaense
+304,Diamante D'Oeste,Oeste Paranaense
+305,Entre Rios do Oeste,Oeste Paranaense
+306,Formosa do Oeste,Oeste Paranaense
+307,Foz do Iguaçu,Oeste Paranaense
+308,Guaíra,Oeste Paranaense
+309,Guaraniaçu,Oeste Paranaense
+310,Ibema,Oeste Paranaense
+311,Iguatu,Oeste Paranaense
+312,Iracema do Oeste,Oeste Paranaense
+313,Itaipulândia,Oeste Paranaense
+314,Jesuítas,Oeste Paranaense
+315,Lindoeste,Oeste Paranaense
+316,Marechal Cândido Rondon,Oeste Paranaense
+317,Maripá,Oeste Paranaense
+318,Matelândia,Oeste Paranaense
+319,Medianeira,Oeste Paranaense
+320,Mercedes,Oeste Paranaense
+321,Missal,Oeste Paranaense
+322,Nova Aurora,Oeste Paranaense
+323,Nova Santa Rosa,Oeste Paranaense
+324,Ouro Verde do Oeste,Oeste Paranaense
+325,Palotina,Oeste Paranaense
+326,Pato Bragado,Oeste Paranaense
+327,Quatro Pontes,Oeste Paranaense
+328,Ramilândia,Oeste Paranaense
+329,Santa Helena,Oeste Paranaense
+330,Santa Lúcia,Oeste Paranaense
+331,Santa Tereza do Oeste,Oeste Paranaense
+332,Santa Terezinha de Itaipu,Oeste Paranaense
+333,São José das Palmeiras,Oeste Paranaense
+334,São Miguel do Iguaçu,Oeste Paranaense
+335,São Pedro do Iguaçu,Oeste Paranaense
+336,Serranópolis do Iguaçu,Oeste Paranaense
+337,Terra Roxa,Oeste Paranaense
+338,Toledo,Oeste Paranaense
+339,Três Barras do Paraná,Oeste Paranaense
+340,Tupãssi,Oeste Paranaense
+341,Vera Cruz do Oeste,Oeste Paranaense
+342,Antônio Olinto,Sudeste Paranaense
+343,Bituruna,Sudeste Paranaense
+344,Cruz Machado,Sudeste Paranaense
+345,Fernandes Pinheiro,Sudeste Paranaense
+346,General Carneiro,Sudeste Paranaense
+347,Guamiranga,Sudeste Paranaense
+348,Imbituva,Sudeste Paranaense
+349,Ipiranga,Sudeste Paranaense
+350,Irati,Sudeste Paranaense
+351,Ivaí,Sudeste Paranaense
+352,Mallet,Sudeste Paranaense
+353,Paula Freitas,Sudeste Paranaense
+354,Paulo Frontin,Sudeste Paranaense
+355,Porto Vitória,Sudeste Paranaense
+356,Prudentópolis,Sudeste Paranaense
+357,Rebouças,Sudeste Paranaense
+358,Rio Azul,Sudeste Paranaense
+359,São João do Triunfo,Sudeste Paranaense
+360,São Mateus do Sul,Sudeste Paranaense
+361,Teixeira Soares,Sudeste Paranaense
+362,União da Vitória,Sudeste Paranaense
+363,Ampére,Sudoeste Paranaense
+364,Barracão,Sudoeste Paranaense
+365,Bela Vista da Caroba,Sudoeste Paranaense
+366,Boa Esperança do Iguaçu,Sudoeste Paranaense
+367,Bom Jesus do Sul,Sudoeste Paranaense
+368,Bom Sucesso do Sul,Sudoeste Paranaense
+369,Capanema,Sudoeste Paranaense
+370,Chopinzinho,Sudoeste Paranaense
+371,Coronel Vivida,Sudoeste Paranaense
+372,Cruzeiro do Iguaçu,Sudoeste Paranaense
+373,Dois Vizinhos,Sudoeste Paranaense
+374,Enéas Marques,Sudoeste Paranaense
+375,Flor da Serra do Sul,Sudoeste Paranaense
+376,Francisco Beltrão,Sudoeste Paranaense
+377,Itapejara d'Oeste,Sudoeste Paranaense
+378,Manfrinópolis,Sudoeste Paranaense
+379,Mariópolis,Sudoeste Paranaense
+380,Marmeleiro,Sudoeste Paranaense
+381,Nova Esperança do Sudoeste,Sudoeste Paranaense
+382,Nova Prata do Iguaçu,Sudoeste Paranaense
+383,Pato Branco,Sudoeste Paranaense
+384,Pérola d'Oeste,Sudoeste Paranaense
+385,Pinhal de São Bento,Sudoeste Paranaense
+386,Planalto,Sudoeste Paranaense
+387,Pranchita,Sudoeste Paranaense
+388,Realeza,Sudoeste Paranaense
+389,Renascença,Sudoeste Paranaense
+390,Salgado Filho,Sudoeste Paranaense
+391,Salto do Lontra,Sudoeste Paranaense
+392,Santa Izabel do Oeste,Sudoeste Paranaense
+393,Santo Antônio do Sudoeste,Sudoeste Paranaense
+394,São João,Sudoeste Paranaense
+395,São Jorge d'Oeste,Sudoeste Paranaense
+396,Saudade do Iguaçu,Sudoeste Paranaense
+397,Sulina,Sudoeste Paranaense
+398,Verê,Sudoeste Paranaense
+399,Vitorino,Sudoeste Paranaense
