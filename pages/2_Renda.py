@@ -8,6 +8,8 @@ st.markdown("<h3><font size='8'  color='red'>Renda</font></font></h3>", unsafe_a
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
+#Arquivos
+
 
 if area == "Paraná":
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
