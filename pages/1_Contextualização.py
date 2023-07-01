@@ -19,7 +19,7 @@ if area == "Paraná":
   with t3:
     label= "Nice title"
     description="Cool description"
-    color_name = "red-70"
+    color_name = "red"
     st.subheader(label)
     st.write(
         f'<hr style="background-color: {color(color_name)}; margin-top: 0;'
