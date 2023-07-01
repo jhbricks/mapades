@@ -1,9 +1,9 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 
-st.set_page_config(
-    page_title="Mapa da Desigualdade"
-)
+#Layout da página
+name = "Mapa da Desigualdade"
+st.set_page_config(layout="wide", page_title=name)
 
 st.write("# Mapa da Desigualdade")
 
