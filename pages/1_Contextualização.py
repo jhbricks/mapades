@@ -9,6 +9,16 @@ st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;pa
 
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 
+st.markdown(
+    """
+    <style>
+    div.row-widget.stRadio > div{flex-direction:row;justify-content: center;}
+    div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 if area == "Paraná":
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "População feminina", "População preta/parda", "Densidade demográfica", "Grau de urbanização", "Razão de dependência"])
   with t1:
