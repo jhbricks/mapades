@@ -18,6 +18,50 @@ if area == "Paraná":
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
 
+
+    df_csv = pd.read_csv(ren)
+    gdf_geojson = gpd.read_file(PR)
+    merged_gdf = gdf_geojson.merge(df_csv, on="Município")
+    if not isinstance(merged_gdf, gpd.GeoDataFrame):
+      print("merged_gdf não é um GeoDataFrame")
+      exit()
+      
+    max_value = merged_gdf["GINI"].max()
+    min_value = merged_gdf["GINI"].min()
+    max_municipio = merged_gdf.loc[merged_gdf["GINI"] == max_value, "Município"].iloc[0]
+    min_municipio = merged_gdf.loc[merged_gdf["GINI"] == min_value, "Município"].iloc[0]
+    m = leafmap.Map(center=[-24.7, -51.8],
+                    zoom= 7,
+                    draw_control=False,
+                    measure_control=False,
+                    fullscreen_control=False,
+                    attribution_control=True)
+    folium.Marker(
+      [merged_gdf.loc[merged_gdf["GINI"] == max_value, "Y"].iloc[0],
+       merged_gdf.loc[merged_gdf["GINI"] == max_value, "X"].iloc[0]],
+      popup=f"Maior valor Gini: {max_value}<br>{max_municipio}",
+      icon=folium.Icon(color="green", icon="arrow-up"),
+    ).add_to(m)
+    folium.Marker(
+      [merged_gdf.loc[merged_gdf["GINI"] == min_value, "Y"].iloc[0],
+       merged_gdf.loc[merged_gdf["GINI"] == min_value, "X"].iloc[0]],
+      popup=f"Menor valor Gini: {min_value}<br>{min_municipio}",
+      icon=folium.Icon(color="red", icon="arrow-down"),
+    ).add_to(m)
+    m.add_data(
+      merged_gdf,
+      column='GINI',
+      scheme='FisherJenks',
+      k = 3,
+      cmap= 'RdPu',
+      fields= ['Município','GINI'],
+      legend_title='Índice de Gini da Renda Domiciliar per Capita (2010)',
+      legend_position = "bottomright",
+      layer_name = "'Índice de Gini da Renda Domiciliar per Capita (2010)",
+      style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
+    )
+    m.to_streamlit()
+
   
   with t2:
     colored_header(label="Rendimento médio da população feminina",
