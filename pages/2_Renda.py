@@ -35,8 +35,8 @@ if area == "Paraná":
       
     max_value = ren_PR["GINI"].max()
     min_value = ren_PR["GINI"].min()
-    max_municipio = ren_PR.loc[merged_gdf["GINI"] == max_value, "Município"].iloc[0]
-    min_municipio = ren_PR.loc[merged_gdf["GINI"] == min_value, "Município"].iloc[0]
+    max_municipio = ren_PR.loc[ren_PR["GINI"] == max_value, "Município"].iloc[0]
+    min_municipio = ren_PR.loc[ren_PR"GINI"] == min_value, "Município"].iloc[0]
     m = leafmap.Map(center=[-24.7, -51.8],
                     zoom= 7,
                     draw_control=False,
