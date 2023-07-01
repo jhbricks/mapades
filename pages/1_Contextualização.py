@@ -11,23 +11,69 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 
 if area == "Paraná":
-  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "População feminina", "População preta/parda", "Densidade demográfica", "Grau de urbanização", "Razão de dependência"])
+  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "População feminina", "População preta/parda", "Grau de urbanização", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
-                   description="População total do Paraná",
+                   description="População residente do Paraná",
                    color_name="red-70",)
-    
+
   with t2:
+    colored_header(label="Densidade demográfica",
+                   description="Número de pessoas por km² no Paraná",
+                   color_name="red-70",)
+  with t3:
+    colored_header(label="Grau de urbanização",
+                   description="Percentual da população residente em áreas urbanas no Paraná",
+                   color_name="red-70",)
+  
+  with t4:
     colored_header(label="População feminina",
-                   description="Percentagem da população feminina no Paraná",
+                   description="Percentual da população feminina no Paraná",
                    color_name="red-70",)
     
-  with t3:
-    colored_header(label="My New Pretty Colored Header",
-                   description="This is a description",
+  with t5:
+    colored_header(label="População preta ou parda",
+                   description="Percentual da população preta ou parda no Paraná",
+                   color_name="red-70",)
+    
+  with t6:
+    colored_header(label="Razão de dependência",
+                   description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                    color_name="red-70",)
     
     
 
+if area == "Núcleo Territorial Central":
+  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "População feminina", "População preta/parda", "Taxa de urbanização", "Razão de dependência"])
+  with t1:
+    colored_header(label="População residente",
+                   description="População residente do Núcleo Territorial Central",
+                   color_name="red-70",)
+
+  with t2:
+    colored_header(label="Densidade demográfica",
+                   description="Número de pessoas por km² no Núcleo Territorial Central",
+                   color_name="red-70",)
+  with t3:
+    colored_header(label="Taxa de urbanização",
+                   description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
+                   color_name="red-70",)
+  
+  with t4:
+    colored_header(label="População feminina",
+                   description="Percentual da população feminina no Núcleo Territorial Central",
+                   color_name="red-70",)
+    
+  with t5:
+    colored_header(label="População preta ou parda",
+                   description="Percentual da população preta ou parda no Núcleo Territorial Central",
+                   color_name="red-70",)
+    
+  with t6:
+    colored_header(label="Razão de dependência",
+                   description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Núcleo Territorial Central",
+                   color_name="red-70",)
+    
+    
 
 
