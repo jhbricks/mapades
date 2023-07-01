@@ -1,11 +1,6 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 st.header(":red[Contextualização]") 
-st.markdown(
-  """
-  ### Escolha uma das áreas 
-  """)
-
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
 if area == "Paraná":
@@ -17,17 +12,9 @@ if area == "Paraná":
     st.subheader(":red[População feminina]")
     st.caption("Percentagem da população feminina no Paraná")
   with t3:
-    label= "Nice title"
-    description="Cool description"
-    color_name = "red"
-    st.subheader(label)
-    st.write(
-        f'<hr style="background-color: '#fc0b03'; margin-top: 0;'
-        ' margin-bottom: 0; height: 3px; border: none; border-radius: 3px;">',
-        unsafe_allow_html=True,
-    )
-    if description:
-        st.caption(description)
+    colored_header(label="My New Pretty Colored Header",
+                   description="This is a description",
+                   color_name="violet-70",)
     
     
 
