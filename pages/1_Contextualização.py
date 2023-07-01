@@ -3,35 +3,7 @@ from streamlit_extras.colored_header import colored_header
 st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 
 #area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central
-
-
-# Define a flag para controlar o estilo horizontal
-estilo_horizontal = True
-# Verifica se o estilo horizontal está ativado
-if estilo_horizontal:
-    # Define o estilo para tornar o widget horizontal
-    st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
-    st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
-
-# Define a área
-area = st.radio("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
-
-# Verifica se o estilo horizontal está ativado e desliga-o
-if estilo_horizontal:
-    st.markdown(
-        """
-        <style>
-        .radio-horizontal > label{display:block;margin-bottom:0px;}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-# Resto do seu código
-
-estilo_horizontal = False
-
-#area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
+area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 
 st.markdown(
     """
