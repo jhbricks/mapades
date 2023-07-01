@@ -1,6 +1,13 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
-st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
+#st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
+# Define o estilo com margem inferior menor
+st.write('<style>.custom-heading {margin-bottom: 0.2em;}</style>', unsafe_allow_html=True)
+
+# Cria a linha com estilo personalizado
+st.markdown("<h3 class='custom-heading'><font size='8' color='red'>Contextualização</font></h3>", unsafe_allow_html=True)
+
+# Resto do seu código
 
 #area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
