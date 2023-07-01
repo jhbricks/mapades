@@ -16,15 +16,9 @@ if area == "Paraná":
     label = "População residente"
     description = "População total do estado do Paraná"
     color_name  = "red-70"
-
-    if color_name is None:
-        color_name = next(HEADER_COLOR_CYCLE)
     st.subheader(label)
-    st.write(
-        f'<hr style="background-color: {color(color_name)}; margin-top: 0;'
-        ' margin-bottom: 0; height: 3px; border: none; border-radius: 3px;">',
-        unsafe_allow_html=True,
-    )
+    st.write(f'<hr style="background-color: {color(color_name)}; margin-top: 0;'margin-bottom: 0; height: 3px; border: none; border-radius: 3px;">',
+    unsafe_allow_html=True,)
     if description:
         st.caption(description)
 
