@@ -4,6 +4,7 @@ st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h
 
 #area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 if area == "Paraná":
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "População feminina", "População preta/parda", "Densidade demográfica", "Grau de urbanização", "Razão de dependência"])
