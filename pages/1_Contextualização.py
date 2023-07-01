@@ -1,5 +1,7 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
+from streamlit_extras.colored_header import colored_header
+
 st.header(":red[Contextualização]") 
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
