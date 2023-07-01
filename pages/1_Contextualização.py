@@ -4,7 +4,7 @@ from streamlit_extras.colored_header import colored_header
 import streamlit as st
 
 # Define o estilo com CSS personalizado para diminuir a distância entre as linhas
-st.markdown("<style>.custom-heading {line-height: 0.8;}</style>", unsafe_allow_html=True)
+st.markdown("<style>.custom-heading {line-height: 0.2;}</style>", unsafe_allow_html=True)
 
 # Cria a linha com estilo personalizado
 st.markdown("<h3 class='custom-heading'><font size='8' color='red'>Contextualização</font></h3>", unsafe_allow_html=True)
