@@ -41,7 +41,7 @@ if area == "Paraná":
 if area == "Núcleo Territorial Central":
   
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
- with t1:
+  with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central",
                    color_name="red-70",)
