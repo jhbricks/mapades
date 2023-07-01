@@ -10,7 +10,6 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 
 if area == "Paraná":
-  st.header("Renda do Paraná")
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população", "Renda dos declarantes do IRPF", "Renda da população feminina"])
   with t1:
     colored_header(label="Coeficiente de Gini",
@@ -39,7 +38,7 @@ if area == "Paraná":
 
 
 if area == "Núcleo Territorial Central":
-  st.header("Renda do Núcleo Territorial Central")
+  
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população", "Renda dos declarantes do IRPF", "Renda da população feminina"])
   with t1:
     colored_header(label="Coeficiente de Gini",
