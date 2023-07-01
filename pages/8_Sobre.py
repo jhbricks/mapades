@@ -3,8 +3,15 @@ from streamlit_extras.colored_header import colored_header
 
 colored_header(
     label="Sobre",
-    description="This is a description",
-    color_name="green-70",
+    description="   ",
+    color_name="blue-green-70",
+)
+st.markdown("""texto texto""")
+
+colored_header(
+    label="Realizadores",
+    description="   ",
+    color_name="blue-green-70",
 )
 
-st.subheader("Realizadores")
+st.markdown("""texto texto""")
