@@ -4,15 +4,32 @@ st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h
 
 #area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central
 
-st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
-st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
 
-area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
+
+# Define o estilo para tornar o widget horizontal
+st.write('<style>.radio-horizontal > label{display:inline-block;margin-right:10px;}</style>', unsafe_allow_html=True)
+
+# Define a área
+area = st.radio("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"), format_func=lambda x: x, key='radio', index=0, help='')
+
+# Restaura o estilo original
+st.markdown(
+    """
+    <style>
+    .radio-horizontal > label{display:block;margin-bottom:0px;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
+#area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 
 st.markdown(
     """
     <style>
-    div.row-widget.stRadio > div{flex-direction:row;justify-content: center;}
+    div.row-widget.stempty > div{flex-direction:row;justify-content: center;}
     div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}
     </style>
     """,
