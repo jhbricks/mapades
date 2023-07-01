@@ -22,7 +22,7 @@ if area == "Paraná":
     color_name = "red"
     st.subheader(label)
     st.write(
-        f'<hr style="background-color: {color(color_name)}; margin-top: 0;'
+        f'<hr style="background-color: (color_name); margin-top: 0;'
         ' margin-bottom: 0; height: 3px; border: none; border-radius: 3px;">',
         unsafe_allow_html=True,
     )
