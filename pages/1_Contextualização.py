@@ -6,6 +6,7 @@ st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h
 
 
 # Define a flag para controlar o estilo horizontal
+estilo_horizontal = True
 # Verifica se o estilo horizontal está ativado
 if estilo_horizontal:
     # Define o estilo para tornar o widget horizontal
@@ -13,7 +14,6 @@ if estilo_horizontal:
     st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
 
 # Define a área
-estilo_horizontal = True
 area = st.radio("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
 # Verifica se o estilo horizontal está ativado e desliga-o
