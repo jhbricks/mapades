@@ -44,14 +44,14 @@ if area == "Paraná":
                     fullscreen_control=False,
                     attribution_control=True)
     folium.Marker(
-      [ren_PR.loc[merged_gdf["GINI"] == max_value, "Y"].iloc[0],
-       ren_PR.loc[merged_gdf["GINI"] == max_value, "X"].iloc[0]],
+      [ren_PR.loc[ren_PR["GINI"] == max_value, "Y"].iloc[0],
+       ren_PR.loc[ren_PR["GINI"] == max_value, "X"].iloc[0]],
       popup=f"Maior valor Gini: {max_value}<br>{max_municipio}",
       icon=folium.Icon(color="green", icon="arrow-up"),
     ).add_to(m)
     folium.Marker(
-      [ren_PR.loc[merged_gdf["GINI"] == min_value, "Y"].iloc[0],
-       ren_PR.loc[merged_gdf["GINI"] == min_value, "X"].iloc[0]],
+      [ren_PR.loc[ren_PR["GINI"] == min_value, "Y"].iloc[0],
+       ren_PR.loc[ren_PR["GINI"] == min_value, "X"].iloc[0]],
       popup=f"Menor valor Gini: {min_value}<br>{min_municipio}",
       icon=folium.Icon(color="red", icon="arrow-down"),
     ).add_to(m)
