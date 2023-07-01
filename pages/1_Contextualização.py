@@ -9,8 +9,7 @@ st.markdown(
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
 if area == "Paraná":
-  t1, t2, t3, t4, t5 = st.tabs(["População residente", "População feminina", "População preta/parda",
-                                "Densidade demográfica", "Grau de urbanização", "Razão de dependência"])
+  t1, t2, t3, t4, t5 = st.tabs(["População residente", "População feminina", "População preta/parda", "Densidade demográfica", "Grau de urbanização", "Razão de dependência"])
 
 
   with t1:
