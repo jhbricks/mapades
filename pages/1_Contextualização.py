@@ -14,9 +14,9 @@ if area == "Paraná":
 
 
   with t1:
-    label: "População residente"
-    description: "População total do estado do Paraná"
-    color_name: _SUPPORTED_COLORS = "red-70"
+    label = "População residente"
+    description = "População total do estado do Paraná"
+    color_name  = "red-70"
 
     if color_name is None:
         color_name = next(HEADER_COLOR_CYCLE)
