@@ -1,8 +1,8 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 
-#st.markdown(f"<p style='line-height: 0.2;'><font size='+16' color='red'>Contextualização</font>, unsafe_allow_html=True)
-st.markdown("<h3><font size='5'  color='black'>Contextualização</font></font></h3>", unsafe_allow_html=True)
+st.markdown(f"<p style='line-height: 0.2;'><font size='+16' color='red'>Contextualização</font></p>, unsafe_allow_html=True)
+st.markdown("<h3><font size='5'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 
 st.header(":red[Contextualização]") 
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
