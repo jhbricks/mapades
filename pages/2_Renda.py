@@ -39,7 +39,7 @@ if area == "Paraná":
     max_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Município"].iloc[0]
     min_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Município"].iloc[0]
     m = leafmap.Map(center=[-24.7, -51.8],
-                    zoom= 7,
+                    #zoom= 7,
                     draw_control=False,
                     measure_control=False,
                     fullscreen_control=False,
@@ -66,7 +66,8 @@ if area == "Paraná":
       legend_title='Índice de Gini da Renda Domiciliar per Capita',
       legend_position = "bottomright",
       layer_name = "'Índice de Gini da Renda Domiciliar per Capita",
-      style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
+      style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1},
+      fit_bounds=True
     )
     m.to_streamlit()
 
