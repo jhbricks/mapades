@@ -18,6 +18,14 @@ PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.g
 NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
 ren = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/renda.csv'
 
+#Unir o csv e o geojson
+ren_csv = pd.read_csv(ren)
+PR_geojson = gpd.read_file(PR)
+ren_PR = PR_geojson.merge(ren_csv, on="Município")
+if not isinstance(ren_PR, gpd.GeoDataFrame):
+  print("merged_gdf não é um GeoDataFrame")
+  exit()
+
 if area == "Paraná":
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
   with t1:
@@ -25,18 +33,11 @@ if area == "Paraná":
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
 
-#Unir o csv e o geojson
-    ren_csv = pd.read_csv(ren)
-    PR_geojson = gpd.read_file(PR)
-    ren_PR = PR_geojson.merge(ren_csv, on="Município")
-    if not isinstance(ren_PR, gpd.GeoDataFrame):
-      print("merged_gdf não é um GeoDataFrame")
-      exit()
-      
-    max_value = ren_PR["GINI"].max()
-    min_value = ren_PR["GINI"].min()
-    max_municipio = ren_PR.loc[ren_PR["GINI"] == max_value, "Município"].iloc[0]
-    min_municipio = ren_PR.loc[ren_PR["GINI"] == min_value, "Município"].iloc[0]
+     
+    max_value = ren_PR["Coeficiente de Gini"].max()
+    min_value = ren_PR["Coeficiente de Gini"].min()
+    max_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Município"].iloc[0]
+    min_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Município"].iloc[0]
     m = leafmap.Map(center=[-24.7, -51.8],
                     zoom= 7,
                     draw_control=False,
@@ -44,25 +45,25 @@ if area == "Paraná":
                     fullscreen_control=False,
                     attribution_control=True)
     folium.Marker(
-      [ren_PR.loc[ren_PR["GINI"] == max_value, "Y"].iloc[0],
-       ren_PR.loc[ren_PR["GINI"] == max_value, "X"].iloc[0]],
-      popup=f"Maior valor Gini: {max_value}<br>{max_municipio}",
+      [ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Y"].iloc[0],
+       ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "X"].iloc[0]],
+      popup=f"Maior valor: {max_value}<br>{max_municipio}",
       icon=folium.Icon(color="green", icon="arrow-up"),
     ).add_to(m)
     folium.Marker(
-      [ren_PR.loc[ren_PR["GINI"] == min_value, "Y"].iloc[0],
-       ren_PR.loc[ren_PR["GINI"] == min_value, "X"].iloc[0]],
-      popup=f"Menor valor Gini: {min_value}<br>{min_municipio}",
+      [ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Y"].iloc[0],
+       ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "X"].iloc[0]],
+      popup=f"Menor valor: {min_value}<br>{min_municipio}",
       icon=folium.Icon(color="red", icon="arrow-down"),
     ).add_to(m)
     m.add_data(
       ren_PR,
-      column='GINI',
+      column='Coeficiente de Gini',
       scheme='FisherJenks',
       k = 3,
       cmap= 'RdPu',
-      fields= ['Município','GINI'],
-      legend_title='Índice de Gini da Renda Domiciliar per Capita (2010)',
+      fields= ['Município','Coeficiente de Gini'],
+      legend_title='Índice de Gini da Renda Domiciliar per Capita',
       legend_position = "bottomright",
       layer_name = "'Índice de Gini da Renda Domiciliar per Capita (2010)",
       style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
