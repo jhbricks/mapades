@@ -79,7 +79,7 @@ if area == "Paraná":
                   ind_mn = f"{min_value}"
                   ind_mx = f"{max_value}"
                   column_name = ind
-                  media = data[column].mean().round(2)
+                  media = data[ind].mean().round(2)
             
                   st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='green'>maior</font> e <font size='+5' color='red'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
                   st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
