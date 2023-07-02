@@ -125,18 +125,14 @@ if area == "Paraná":
       max_str = f"{max_municipio}"
       ind_mn = f"{min_value}"
       ind_mx = f"{max_value}"
-      st.markdown(f"<p style='line-height: 0.7;'><font size='+14' color='green'>{arrow_u}</font> <font size='+12'{max_str} = {ind_mx}</font></p>",
-                    unsafe_allow_html=True)
-      st.markdown(f"<p style='line-height: 0.5;'><font size='+14' color='red'>{arrow_d}</font> <font size='+12'{min_str} = {ind_mn}</font></p>",
-                    unsafe_allow_html=True)
       media = ren_PR["Coeficiente de Gini"].mean().round(2)
-      st.markdown(f"<font size='+10' Média: {media}</font>")
+      
       
 
       st.markdown("<h3><font size='5'Municípios com o <font color='green'>maior</font> e <font color='red'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.7;'><font size='+12' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.5;'><font size='+12' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
-      st.markdown(f"<p style='font-size: 10pt;'>Média: {media}</p>", unsafe_allow_html=True))
+      st.markdown(f"<p style='font-size: 10pt;'>Média: {media}</p>", unsafe_allow_html=True)
 
   
   with t3:
