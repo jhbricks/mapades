@@ -155,7 +155,6 @@ if area == "Paraná":
                                    cmap=cmap,
                                    fields=fields,
                                    legend_title=legend_title,
-                                   legend_position=legend_position,
                                    legend_position= 'Bottomright',
                                    layer_name=legend_title,
                                    style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
