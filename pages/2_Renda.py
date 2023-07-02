@@ -204,6 +204,28 @@ if area == "Paraná":
        
         m.to_streamlit()
 
+        c1, c2 = st.columns(2)
+        with 1:
+          arrow_d = '\U0001F82B'  
+          arrow_u = '\U0001F829'  
+          min_str = f"{min_municipio}"
+          max_str = f"{max_municipio}"
+          ind_mn = f"{min_value}"
+          ind_mx = f"{max_value}"
+          ind_nm = f"{column}
+          media = data[column].mean().round(2)
+            
+          st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='green'>maior</font> e <font size='+5' color='red'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
+          st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
+          st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
+          st.markdown("<h3><font size='+5'> Média do {ind_nm} no Paraná:</font></h3>", unsafe_allow_html= True)
+          st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
+
+        with 2:
+          st.writer("TEXTO")
+
+
+    
 # Lista com os argumentos específicos para cada mapa
     #mapa = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
     A(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
