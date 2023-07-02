@@ -70,7 +70,7 @@ if area == "Paraná":
 
                m.to_streamlit()
 
-               c1,c2 = st.columns(1.5,0.5)
+               c1,c2 = st.columns([1.5,0.5])
                with c1:
                   arrow_d = '\U0001F82B'  
                   arrow_u = '\U0001F829'  
