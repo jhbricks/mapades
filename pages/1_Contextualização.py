@@ -95,7 +95,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     Ateste = st.subheader("teste nlablanakjan")
-    mapa_PR(pop,População,FisherJenks,7,YlGnBu, ['Município','População'],População residente do Paraná,hab,Ateste)
+    mapa_PR(pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente do Paraná','hab',Ateste)
 
   with t2:
     colored_header(label="Densidade demográfica",
