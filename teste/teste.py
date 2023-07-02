@@ -62,5 +62,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=No
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
                 icon=folium.Icon(color="red", icon="arrow-down"),
                ).add_to(m)
-
+  m.to_streamlit()
+  
   return m 
