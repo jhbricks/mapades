@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
-from teste.teste import mapa 
+from teste import mapa 
 import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
