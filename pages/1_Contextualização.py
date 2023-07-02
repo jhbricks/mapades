@@ -121,7 +121,7 @@ if area == "Paraná":
 
     m = mapa('PR', pop, 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
     
-    folium_static(m)
+    m.to_streamlit()
   
   with t3:
     colored_header(label="Grau de urbanização",
