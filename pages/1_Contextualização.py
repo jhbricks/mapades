@@ -20,6 +20,8 @@ PR = "./dados/geojson/PR.geojson"
 NTC = "./dados/geojson/NTC.geojson"
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
+renda = "./dados/csv/renda.csv"
+riqueza = "./dados/csv/riqueza.csv"
 
 
 if area == "Paraná":
@@ -117,7 +119,7 @@ if area == "Paraná":
                    color_name="red-70",)
     
 
-    mapa('PR', 'contexto', 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
+    mapa('PR', contexto, 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
   
   with t3:
     colored_header(label="Grau de urbanização",
