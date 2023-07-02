@@ -23,7 +23,7 @@ pop = "./dados/csv/pop_2021.csv"
 
 
 if area == "Paraná":
-  def mapa_PR (arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=None, texto=None, fonte+None):
+  def mapa_PR (arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=None, texto=None, fonte=None):
                 #Merge
                arq_csv = pd.read_csv(arq)
                PR_geojson = gpd.read_file(PR)
