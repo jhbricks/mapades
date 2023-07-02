@@ -80,7 +80,8 @@ if area == "Paraná":
                   ind_mx = f"{max_value}"
                   column_name = ind
                   if tipo == "inteiro":
-                    media = data[ind].mean().int
+                    #media = data[ind].mean().int
+                    media = int(data[ind].mean())
                   else:
                     media = data[ind].mean().round(2)
             
