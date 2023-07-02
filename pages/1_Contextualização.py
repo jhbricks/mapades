@@ -18,7 +18,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 #####Arquivos
 PR = "./dados/geojson/PR.geojson"
 NTC = "./dados/geojson/NTC.geojson"
-cont = "./dados/csv/contexto.csv"
+contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 
 
