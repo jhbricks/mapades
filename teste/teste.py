@@ -6,6 +6,11 @@ import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
 
+contexto = "./dados/csv/contexto.csv"
+pop = "./dados/csv/pop_2021.csv"
+renda = "./dados/csv/renda.csv"
+riqueza = "./dados/csv/riqueza.csv"
+
 def mapa (area, arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=None, fonte=None):
   
   if area == 'PR':
