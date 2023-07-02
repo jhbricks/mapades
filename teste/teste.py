@@ -11,7 +11,7 @@ pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 
-def mapa (area, arq, ind, scheme, k, cmap, fields, title, tipo, unidade=None, fonte=None):
+def mapa (area, arq, ind, scheme, k, cmap, fields, title, unidade=None):
 
   if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
