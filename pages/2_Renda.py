@@ -82,7 +82,7 @@ if area == "Paraná":
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                    color_name="red-70",)
 
-    c1, c2 = st.columns((1.5,0.5))
+    c1, c2 = st.columns((1.3,0.7))
 
     with c1:
       max_value = ren_PR["Coeficiente de Gini"].max()
@@ -125,12 +125,12 @@ if area == "Paraná":
       max_str = f"{max_municipio}"
       ind_mn = f"{min_value}"
       ind_mx = f"{max_value}"
-      st.markdown(f"<p style='line-height: 0.7;'><font size='+14' color='green'>{arrow_u}</font> <font size='+10'{max_str} = {ind_mx}</font></p>",
+      st.markdown(f"<p style='line-height: 0.7;'><font size='+14' color='green'>{arrow_u}</font> <font size='+12'{max_str} = {ind_mx}</font></p>",
                     unsafe_allow_html=True)
-      st.markdown(f"<p style='line-height: 0.5;'><font size='+14' color='red'>{arrow_d}</font> <font size='+10'{min_str} = {ind_mn}</font></p>",
+      st.markdown(f"<p style='line-height: 0.5;'><font size='+14' color='red'>{arrow_d}</font> <font size='+12'{min_str} = {ind_mn}</font></p>",
                     unsafe_allow_html=True)
       media = ren_PR["Coeficiente de Gini"].mean().round(2)
-      st.markdown(f"<p font size='+10' Média: {media}</font></p>")
+      st.markdown(f"<font size='+10' Média: {media}</font>")
   
   with t3:
     colored_header(label="Renda média da população",
