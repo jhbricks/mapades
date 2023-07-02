@@ -119,7 +119,7 @@ if area == "Paraná":
                    color_name="red-70",)
     
 
-    mapa('PR', pop, 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
+    m = mapa('PR', pop, 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
     m.to_streamlit()
   
   with t3:
