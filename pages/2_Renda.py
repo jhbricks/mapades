@@ -68,9 +68,9 @@ if area == "Paraná":
       k = 3,
       cmap= 'RdPu',
       fields= ['Município','Coeficiente de Gini'],
-      legend_title='Índice de Gini da Renda Domiciliar per Capita',
+      legend_title='Coeficiente de Gini da renda domiciliar per capita',
       legend_position = "bottomright",
-      layer_name = "'Índice de Gini da Renda Domiciliar per Capita",
+      layer_name = "'Coeficiente de Gini da Renda Domiciliar per Capita",
       style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
     )
     #m.fit_bounds(m.get_bounds())
