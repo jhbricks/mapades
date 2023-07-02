@@ -1,5 +1,16 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
+from teste.teste import mapa
+from streamlit_folium import folium_static
+import folium
+import geopandas as gpd
+import leafmap.foliumap as leafmap
+import pandas as pd
+
+contexto = "./dados/csv/contexto.csv"
+pop = "./dados/csv/pop_2021.csv"
+renda = "./dados/csv/renda.csv"
+riqueza = "./dados/csv/riqueza.csv"
 
 st.set_page_config(layout="wide")
 
@@ -16,6 +27,7 @@ if area == "Paraná":
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Paraná",
                    color_name="red-70",)
+    mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'],'inteiro', 'AAA')
 
   
   with t2:
