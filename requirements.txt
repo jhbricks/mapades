@@ -7,3 +7,4 @@ folium
 leafmap
 geopandas
 mapclassify
+leafmap earthengine-api
