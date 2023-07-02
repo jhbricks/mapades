@@ -22,7 +22,7 @@ pop = "./dados/csv/pop_2021.csv"
 
 
 if area == "Paraná":
-  def mapa_PR (arq, ind, scheme, k, cmap, fields, title, fonte, tipo= None, unidade=None, texto=None):
+  def mapa_PR (arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=None, texto=None, fonte):
                 #Merge
                arq_csv = pd.read_csv(arq)
                PR_geojson = gpd.read_file(PR)
@@ -105,11 +105,11 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     
-    Ateste = st.subheader("teste nlablanakjan")
-    AAA = st.write("FONTE")
+
     #arq, ind, scheme, k, cmap, fields, title, fonte, tipo= None, unidade=None, texto=None
     mapa_PR(pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente do Paraná',AAA, 'inteiro', 'hab',Ateste)
-
+    Ateste = (st.subheader("teste nlablanakjan"))
+    AAA = (st.write("FONTE"))
   with t2:
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
