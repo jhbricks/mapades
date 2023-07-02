@@ -73,7 +73,7 @@ if area == "Paraná":
       layer_name = "'Índice de Gini da Renda Domiciliar per Capita",
       style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
     )
-    m.fit_bounds(m.get_bounds())
+    #m.fit_bounds(m.get_bounds())
     m.to_streamlit()
 
   
