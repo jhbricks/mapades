@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from teste.teste import mapa
+from teste.mx_mn import mx_mn
 from streamlit_folium import folium_static
 import folium
 import geopandas as gpd
@@ -27,8 +28,8 @@ if area == "Paraná":
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Paraná",
                    color_name="red-70",)
-    mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'],'inteiro', 'AAA')
-
+    mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'])
+    mx_mn('PR',pop,'População','inteiro')
   
   with t2:
     colored_header(label="Número de veículos por pessoas",
