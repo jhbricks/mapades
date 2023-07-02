@@ -129,7 +129,9 @@ if area == "Paraná":
       st.markdown(f"<p style='line-height: 0.7;'><font size='+12' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.5;'><font size='+12' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.7;'><font size='+12'Média: {media} </font></p>", unsafe_allow_html=True)
-      st.markdown("**Média: {media}**")
+      st.markdown("""Média
+                  : 
+                  ### Texto""")
 
   
   with t3:
