@@ -169,8 +169,44 @@ if area == "Paraná":
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
-    #mapa = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
+     def construir_mapa (data, column, scheme, k, cmap, fields, legend_title):
+                        m = leafmap.Map(center=[-24.7, -51.8],
+                                        min_zoom=7,
+                                        max_zoom=13,
+                                        width=800,
+                                        height=600,
+                                        draw_control=False,
+                                        measure_control=False,
+                                        fullscreen_control=False,
+                                        attribution_control=True)
+                        
+                        max_value = data[column].max()
+                        min_value = data[column].min()
+                        max_municipio = data.loc[ren_PR[column] == max_value, "Município"].iloc[0]
+                        min_municipio = data.loc[ren_PR[column] == min_value, "Município"].iloc[0]
 
+                        folium.Marker([data.loc[ren_PR[column] == max_value, "Y"].iloc[0],
+                                       data.loc[ren_PR[column] == max_value, "X"].iloc[0]],
+                                      popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                                      icon=folium.Icon(color="green", icon="arrow-up"),
+                                      ).add_to(m)
+    
+                        m.add_data(data,
+                                   column=column,
+                                   scheme=scheme,
+                                   k=k,
+                                   cmap=cmap,
+                                   fields=fields,
+                                   legend_title=legend_title,
+                                   legend_position= 'Bottomright',
+                                   layer_name=legend_title,
+                                   style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
+    
+                        m.to_streamlit()
+
+# Lista com os argumentos específicos para cada mapa
+    #mapa = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
+    construir_mapa(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
 
     construir_mapa(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
 
