@@ -26,7 +26,7 @@ if area == "Paraná":
                 #Merge
                arq_csv = pd.read_csv(arq)
                PR_geojson = gpd.read_file(PR)
-               arq_PR = PR_geojson.merge(arq_csv, on="Município")
+               data = PR_geojson.merge(arq_csv, on="Município")
                if not isinstance(arq_PR, gpd.GeoDataFrame):
                   print("O arquivo não é um GeoDataFrame")
                   exit()
@@ -41,7 +41,7 @@ if area == "Paraná":
                                fullscreen_control=False,
                                attribution_control=True)
                 
-               m.add_data(data = arq_PR,
+               m.add_data(data=data,
                           column=ind,
                           scheme=scheme,
                           k=k,
