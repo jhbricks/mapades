@@ -119,7 +119,7 @@ if area == "Paraná":
                    color_name="red-70",)
     
 
-    mapa('PR', contexto, 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
+    mapa('PR', pop, 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
   
   with t3:
     colored_header(label="Grau de urbanização",
