@@ -70,7 +70,7 @@ if area == "Paraná":
 
                m.to_streamlit()
 
-               c1,c2 = st.columns(1,0.4)
+               c1,c2 = st.columns(1.5,0.5)
                with c1:
                   arrow_d = '\U0001F82B'  
                   arrow_u = '\U0001F829'  
@@ -92,14 +92,16 @@ if area == "Paraná":
                      st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>",
                                  unsafe_allow_html=True)
                with c2:
-                  Texto = texto
+                  texto = texto
 
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "População feminina", "População preta/parda", "Grau de urbanização", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
+    
     Ateste = st.subheader("teste nlablanakjan")
+    
     mapa_PR(pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente do Paraná','hab',Ateste)
 
   with t2:
