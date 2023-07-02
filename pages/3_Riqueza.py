@@ -28,7 +28,7 @@ if area == "Paraná":
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Paraná",
                    color_name="red-70",)
-    mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'])
+    mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'],'aaaaa')
     mx_mn('PR',pop,'População','inteiro')
   
   with t2:
