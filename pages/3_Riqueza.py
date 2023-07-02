@@ -36,6 +36,13 @@ if area == "Paraná":
                    description="Número de veículos automotores por pessoa no Paraná",
                    color_name="red-70",)
 
+  c1,c2 = columns([1.5,0.7])
+  with c1:
+    mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'],'aaaaa')
+  with c2:
+    mx_mn('PR',pop,'População','inteiro')
+    
+
 
   
   with t3:
