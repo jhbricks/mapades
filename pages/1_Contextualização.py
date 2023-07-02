@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
+from teste.teste import mapa 
 import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
@@ -114,10 +115,16 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
+    
+
+    mapa('PR', 'contexto', 'População', 'FisherJenks', 7, 'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab')
+  
   with t3:
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
+
+  
   
   with t4:
     colored_header(label="População feminina",
