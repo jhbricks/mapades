@@ -1,4 +1,4 @@
-def mapa (area, arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=None, texto=None, fonte):
+def mapa (area, arq, ind, scheme, k, cmap, fields, title, tipo= None, unidade=None, fonte=None):
   
   if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
