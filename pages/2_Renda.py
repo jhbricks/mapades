@@ -205,7 +205,7 @@ if area == "Paraná":
         m.to_streamlit()
 
         c1, c2 = st.columns(2)
-        with 1:
+        with c1:
           arrow_d = '\U0001F82B'  
           arrow_u = '\U0001F829'  
           min_str = f"{min_municipio}"
@@ -221,7 +221,7 @@ if area == "Paraná":
           st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)
           st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
 
-        with 2:
+        with c2:
           st.writer("TEXTO")
 
 
