@@ -222,7 +222,7 @@ if area == "Paraná":
           st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
 
         with c2:
-          st.writer("TEXTO")
+          st.subheader("TEXTO")
 
 
     
