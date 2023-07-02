@@ -180,16 +180,7 @@ if area == "Paraná":
                                         fullscreen_control=False,
                                         attribution_control=True)
                         
-                        max_value = data[column].max()
-                        min_value = data[column].min()
-                        max_municipio = data.loc[ren_PR[column] == max_value, "Município"].iloc[0]
-                        min_municipio = data.loc[ren_PR[column] == min_value, "Município"].iloc[0]
 
-                        folium.Marker([data.loc[ren_PR[column] == max_value, "Y"].iloc[0],
-                                       data.loc[ren_PR[column] == max_value, "X"].iloc[0]],
-                                      popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                                      icon=folium.Icon(color="green", icon="arrow-up"),
-                                      ).add_to(m)
     
                         m.add_data(data,
                                    column=column,
@@ -201,7 +192,18 @@ if area == "Paraná":
                                    legend_position= 'Bottomright',
                                    layer_name=legend_title,
                                    style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
-    
+
+                        max_value = data[column].max()
+                        min_value = data[column].min()
+                        max_municipio = data.loc[ren_PR[column] == max_value, "Município"].iloc[0]
+                        min_municipio = data.loc[ren_PR[column] == min_value, "Município"].iloc[0]
+
+                        folium.Marker([data.loc[ren_PR[column] == max_value, "Y"].iloc[0],
+                                       data.loc[ren_PR[column] == max_value, "X"].iloc[0]],
+                                      popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                                      icon=folium.Icon(color="green", icon="arrow-up"),
+                                      ).add_to(m)    
+       
                         m.to_streamlit()
 
 # Lista com os argumentos específicos para cada mapa
