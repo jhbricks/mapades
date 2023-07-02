@@ -137,7 +137,7 @@ if area == "Paraná":
                    description="Renda média da população no Paraná",
                    color_name="red-70",)
     
-    def construir_mapa (data, column, scheme, k, cmap, fields, legend_title, legend_position, layer_name)
+    def construir_mapa (data, column, scheme, k, cmap, fields, legend_title, legend_position, layer_name):
                         m = leafmap.Map(center=[-24.7, -51.8],
                                         min_zoom=7,
                                         max_zoom=13,
