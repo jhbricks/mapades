@@ -163,7 +163,7 @@ if area == "Paraná":
 
 # Lista com os argumentos específicos para cada mapa
     mapas = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-    construir_mapa(*mapa)
+    construir_mapa(mapa)
 
   with t4:
     colored_header(label="Renda dos declarantes do IRPF",
