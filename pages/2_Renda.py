@@ -136,30 +136,37 @@ if area == "Paraná":
     colored_header(label="Renda média da população",
                    description="Renda média da população no Paraná",
                    color_name="red-70",)
-    def data_mapa (data, column, scheme, k, cmap, fields, legend_title):
-      m.add_data(
-        data,
-        column=column,
-        scheme=scheme,
-        k=k,
-        cmap=cmap,
-        fields=fields,
-        legend_title=legend_title,
-        legend_position='Bottomright',
-        layer_name=legend_title,
-        style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
-      )
-      m = leafmap.Map(center=[-24.7, -51.8],
-                  min_zoom= 7,
-                  max_zoom = 13,
-                  width = 800,
-                  height = 600,
-                  draw_control=False,
-                  measure_control=False,
-                  fullscreen_control=False,
-                  attribution_control=True)
-      data_mapa(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-      m.to_streamlit()
+    
+
+    def construir_mapa(data, column, scheme, k, cmap, fields, legend_title, legend_position, layer_name)
+        m = leafmap.Map(center=[-24.7, -51.8],
+                        min_zoom=7,
+                        max_zoom=13,
+                        width=800,
+                        height=600,
+                        draw_control=False,
+                        measure_control=False,
+                        fullscreen_control=False,
+                        attribution_control=True)
+    
+        m.add_data(data,
+                   column=column,
+                   scheme=scheme,
+                   k=k,
+                   cmap=cmap,
+                   fields=fields,
+                   legend_title=legend_title,
+                   legend_position=legend_position,
+                   layer_name=layer_name,
+                   style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
+    
+        m.to_streamlit()
+
+# Lista com os argumentos específicos para cada mapa
+    mapas = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
+
+
+    construir_mapa(*mapa)
 
       
 
@@ -172,6 +179,10 @@ if area == "Paraná":
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
+    mapas = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
+
+
+    construir_mapa(mapa)
 
 
 
