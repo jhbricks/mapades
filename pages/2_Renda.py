@@ -169,7 +169,7 @@ if area == "Paraná":
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
-    def A (data, column, scheme, k, cmap, fields, legend_title):
+    def A (data, column, scheme, k, cmap, fields, legend_title, unidade=None):
         m = leafmap.Map(center=[-24.7, -51.8],
                         min_zoom=7,
                         max_zoom=13,
@@ -220,7 +220,12 @@ if area == "Paraná":
           st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
           st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)
           st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
+          if unidade:
+              st.write(f"Média: {media} {unidade}")
+          else:
+              st.write(f"Média: {media}")
 
+      
         with c2:
           st.subheader("TEXTO")
 
@@ -228,7 +233,7 @@ if area == "Paraná":
     
 # Lista com os argumentos específicos para cada mapa
     #mapa = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-    A(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
+    A(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita','m')
 
     #construir_mapa(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
 
