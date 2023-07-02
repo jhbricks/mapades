@@ -129,7 +129,7 @@ if area == "Paraná":
                     unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.5;'><font size='+14' color='red'>{arrow_d}</font> <font color='black'>{min_str} = {ind_mn}</font></p>",
                     unsafe_allow_html=True)
-      media = merged_gdf["Índice de Gini da Renda Domiciliar per Capita (2010)"].mean().round(2)
+      media = ren_PR["Coeficiente de Gini"].mean().round(2)
       st.markdown(f" Média: {media}")
   
   with t3:
