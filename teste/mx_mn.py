@@ -6,7 +6,7 @@ import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
 
-def mx_mn (area,ind,tipo) :
+def mx_mn (area,arq,ind,tipo) :
 
     if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
