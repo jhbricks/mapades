@@ -28,6 +28,16 @@ if not isinstance(ren_PR, gpd.GeoDataFrame):
 
 if area == "Paraná":
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
+  m = leafmap.Map(center=[-24.7, -51.8],
+                  min_zoom= 7,
+                  max_zoom = 13,
+                  width = 800,
+                  height = 600,
+                  draw_control=False,
+                  measure_control=False,
+                  fullscreen_control=False,
+                  attribution_control=True)
+  
   with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
@@ -38,12 +48,7 @@ if area == "Paraná":
     min_value = ren_PR["Coeficiente de Gini"].min()
     max_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Município"].iloc[0]
     min_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Município"].iloc[0]
-    m = leafmap.Map(center=[-24.7, -51.8],
-                    #zoom= 7,
-                    draw_control=False,
-                    measure_control=False,
-                    fullscreen_control=False,
-                    attribution_control=True)
+
     folium.Marker(
       [ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Y"].iloc[0],
        ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "X"].iloc[0]],
@@ -66,9 +71,9 @@ if area == "Paraná":
       legend_title='Índice de Gini da Renda Domiciliar per Capita',
       legend_position = "bottomright",
       layer_name = "'Índice de Gini da Renda Domiciliar per Capita",
-      style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1},
-      fit_bounds=True
+      style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
     )
+    m.fit_bounds(m.get_bounds())
     m.to_streamlit()
 
   
