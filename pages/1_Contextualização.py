@@ -105,11 +105,11 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     
-
-    #arq, ind, scheme, k, cmap, fields, title, fonte, tipo= None, unidade=None, texto=None
-    mapa_PR(pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente do Paraná',AAA, 'inteiro', 'hab',Ateste)
     Ateste = (st.subheader("teste nlablanakjan"))
     AAA = (st.write("FONTE"))
+    #arq, ind, scheme, k, cmap, fields, title, fonte, tipo= None, unidade=None, texto=None
+    mapa_PR(pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente do Paraná','inteiro', 'hab',Ateste,AAA)
+
   with t2:
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
