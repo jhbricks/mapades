@@ -131,6 +131,12 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       DEM = (somapop / somaarea).round().astype(int)
       st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
       st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {DEM} </font> habitantes por km²</font></h3>", unsafe_allow_html=True)
+    elif ind == 'Grau de Urbanização (%)':
+      somaT = data['PCT'].sum()
+      somaU = data['PCU'].sum()
+      TU = (somaU*100)/somaT
+      st.markdown(f"<h3><font size='+5'> Grau de Urbanização no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {TU} </font> %</font></h3>", unsafe_allow_html=True)
     else:
       if tipo == "md_int":
         media = int(data[ind].mean())
