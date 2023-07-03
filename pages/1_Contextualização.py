@@ -37,13 +37,11 @@ if area == "Paraná":
     #mx_mn (area,arq,ind,calc,tipo=None,unidade=None)
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('PR',contexto,'População','Soma da','soma','habitantes')
+      mx_mn ('PR',contexto,'População','habitantes')
+      conta ('PR',contexto,'População',2021,'soma',None,'habitantes')
 
     with c2:
       st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
-      A população residente no estado do Paraná era de XXX habitantes  
-      variando de X e X.
-      """)
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
