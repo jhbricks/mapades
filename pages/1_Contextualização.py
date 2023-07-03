@@ -37,7 +37,7 @@ if area == "Paraná":
     #mx_mn (area,arq,ind,tipo,unidade=None)
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('PR',pop,'População','inteiro','habitantes')
+      mx_mn ('PR',pop,'População','Soma','soma,'habitantes')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -55,6 +55,22 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
+    mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    #mx_mn (area,arq,ind,tipo,unidade=None)
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+      mx_mn ('PR',pop,'População','inteiro','habitantes')
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** População total por município  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)
+    with c2:
+      st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
+      A população residente no estado do Paraná era de XXX habitantes  
+      variando de X e X.
+      """)
     
 
     
