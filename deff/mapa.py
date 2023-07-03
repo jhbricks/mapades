@@ -36,8 +36,8 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   m = leafmap.Map(center=[lat, lon],
                   min_zoom=7,
                   max_zoom=13,
-                  width=5,
-                  height=1,
+                  width=800,
+                  height=500,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
@@ -69,7 +69,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
                 icon=folium.Icon(color="red", icon="arrow-down"),
                ).add_to(m)
-  m.to_streamlit()
+  m.to_streamlit([400,800])
   
   return m 
 
