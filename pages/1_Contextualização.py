@@ -60,7 +60,7 @@ if area == "Paraná":
         mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
       with c2:
-        mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes')
+        mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes por km²')
         conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
         st.markdown("""**Ano-base:** 2021  
                     **Fonte(s):** IBGE  
