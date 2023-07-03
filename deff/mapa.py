@@ -142,6 +142,12 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       TF = (somaF*100)/somaT
       st.markdown(f"<h3><font size='+5'> População feminina total no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
       st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {TF} </font> %</font></h3>", unsafe_allow_html=True)
+    elif ind == 'População preta ou parda (%)'
+      somaPR=data['PCPR'].sum()
+      somaPA=data['PCPA'].sum()
+      TPP= ((somaPR + somaPA)*100)/somaT
+      st.markdown(f"<h3><font size='+5'> População preta ou parda total no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {TPP} </font> %</font></h3>", unsafe_allow_html=True)
     else:
       if tipo == "md_int":
         media = int(data[ind].mean())
