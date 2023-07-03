@@ -16,9 +16,10 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
        min_zoom= 7
-       max_zoom=13
+       
   else:
        arq_g = "./dados/geojson/NTC.geojson"
+       min_zoom= 9
   
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
