@@ -89,8 +89,8 @@ if area == "Núcleo Territorial Central":
     colored_header(label="População residente",
                    description="População residente do Núcleo Territorial Central",
                    color_name="red-70",)
-        mapa('NTC',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
-        mx_mn ('NTC',pop,'População','inteiro','habitantes')
+    mapa('NTC',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mx_mn ('NTC',pop,'População','inteiro','habitantes')
 
 
   with t2:
