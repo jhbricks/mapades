@@ -101,11 +101,11 @@ def mx_mn (area,arq,ind,unidade=None) :
             
     st.markdown("<h3><font size='+4'> Municípios com o <font size='+4' color='#6612b8'>maior</font> e <font size='+4' color='#ba2db4'>menor</font> <font size='+4'> valor:</font></h3>", unsafe_allow_html=True)
     if unidade:
-      st.markdown(f"""<p style='line-height: 0.6;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
-      <font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
+      st.markdown(f"""<p style='line-height: 0.6;'><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx} {unidade}</font>  
+      <font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
     else:
-      st.markdown(f"""<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx}</font>  
-      <font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} </font></p>""", unsafe_allow_html=True)
+      st.markdown(f"""<p style='line-height: 0.7;'><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx}</font>  
+      <font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} </font></p>""", unsafe_allow_html=True)
       #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
       #st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
 
@@ -127,8 +127,8 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       somapop = data['População'].sum()
       somaarea = data['Areakm2'].sum()
       DEM = (somapop / somaarea).round().astype(int)
-      st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} era de:</font></h3>", unsafe_allow_html=True)
-      st.markdown(f"<h3><font style='font-weight: bold;><font size:'+4'> {DEM} </font> habitantes por km² em {ano}</font></h3>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font style='font-weight: bold;><font size:'+4'> {DEM} </font> habitantes por km²</font></h3>", unsafe_allow_html=True)
     else:
       if tipo == "md_int":
         media = int(data[ind].mean())
