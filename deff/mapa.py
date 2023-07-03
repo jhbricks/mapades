@@ -97,7 +97,7 @@ def mx_mn (area,arq,ind,tipo,unidade=None) :
     ind_mn = f"{min_value}"
     ind_mx = f"{max_value}"
     column_name = ind
-    
+        
     if tipo == "md_int":
       media = int(data[ind].mean())
     elif tipo == "soma":
