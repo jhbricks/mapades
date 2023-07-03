@@ -74,7 +74,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   return m 
 
 
-def mx_mn (area,arq,ind,calc,tipo,unidade=None) :
+def mx_mn (area,arq,ind,calc,tipo=None,unidade=None) :
 
     if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
