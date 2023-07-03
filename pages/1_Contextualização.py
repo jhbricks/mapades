@@ -3,6 +3,7 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
 from deff.mapa import mapa
 from deff.mapa import mx_mn
+from deff.mapa import conta
 import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
@@ -32,11 +33,11 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa('PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
     #mx_mn (area,arq,ind,calc,tipo=None,unidade=None)
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('PR',pop,'População','Soma da','soma','habitantes')
+      mx_mn ('PR',contexto,'População','Soma da','soma','habitantes')
 
     with c2:
       st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
@@ -54,28 +55,29 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
-    mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     #mx_mn (area,arq,ind,tipo,unidade=None)
     c1,c2 = st.columns([1.5,0.7])
     with c1:
-      mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
-      mx_mn ('PR',pop,'População','inteiro','habitantes')
+      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mx_mn ('PR',pop,'Densidade Demográfica (hab/km²)','Média da','md_int,'hab/km²')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)
     with c2:
-      mx_mn ('PR',pop,'População','inteiro','habitantes')
+      mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes')
+      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021):
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)
-      st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
-      A população residente no estado do Paraná era de XXX habitantes  
-      variando de X e X.
-      """)
+        
+
+      
+      
     
 
     
