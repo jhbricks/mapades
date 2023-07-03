@@ -125,7 +125,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       somapop = data['População'].sum()
       somaarea = data['Areakm2'].sum()
       DEM = (somapop / somaarea).round().astype(int)
-      st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} era de:</font></h3>, unsafe_allow_html = True)
+      st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} era de:</font></h3>", unsafe_allow_html=True)
       st.markdown(f"<h3><font style='font-weight: bold; font-size: 1.7em;'> {DEM} </font> habitantes por km² em {ano}</font></h3>", unsafe_allow_html=True)
     else:
       if tipo == "md_int":
