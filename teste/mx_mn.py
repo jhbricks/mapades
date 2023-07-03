@@ -36,10 +36,16 @@ def mx_mn (area,arq,ind,tipo,unidade=None) :
       media = data[ind].mean().round(2)
             
     st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='green'>maior</font> e <font size='+5' color='red'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
-    st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
-    st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)
+    #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
+    #st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
+    #st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)
     if unidade:
+      st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)  
       st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media} {unidade}</p>", unsafe_allow_html=True)
     else:
+      st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)  
       st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
