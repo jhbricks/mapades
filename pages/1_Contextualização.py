@@ -33,7 +33,7 @@ if area == "Paraná":
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
-    #mx_mn (area,arq,ind,tipo,unidade=None)
+    #mx_mn (area,arq,ind,calc,tipo=None,unidade=None)
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('PR',pop,'População','Soma da','soma','habitantes')
@@ -66,6 +66,12 @@ if area == "Paraná":
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)
     with c2:
+      mx_mn ('PR',pop,'População','inteiro','habitantes')
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** População total por município  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)
       st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
       A população residente no estado do Paraná era de XXX habitantes  
       variando de X e X.
