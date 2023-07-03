@@ -37,7 +37,7 @@ if area == "Paraná":
     #mx_mn (area,arq,ind,tipo,unidade=None)
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('PR',pop,'População','Soma','soma,'habitantes')
+      mx_mn ('PR',pop,'População','Soma','soma','habitantes')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
