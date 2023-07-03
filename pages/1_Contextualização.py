@@ -38,7 +38,7 @@ if area == "Paraná":
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('PR',contexto,'População','habitantes')
-      conta ('PR',contexto,'População',2021,'soma',None,'habitantes')
+      conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
 
     with c2:
       st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
@@ -49,24 +49,24 @@ if area == "Paraná":
                   """)          
     
 
-  with t2:
-    colored_header(label="Densidade demográfica",
-                   description="Número de pessoas por km² no Paraná",
-                   color_name="red-70",)
-    mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-    #mx_mn (area,arq,ind,tipo,unidade=None)
-    c1,c2 = st.columns([1.5,0.7])
-    with c1:
+    with t2:
+      colored_header(label="Densidade demográfica",
+                     description="Número de pessoas por km² no Paraná",
+                     color_name="red-70",)
       mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    #mx_mn (area,arq,ind,tipo,unidade=None)
+      c1,c2 = st.columns([1.5,0.7])
+      with c1:
+        mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
-    with c2:
-      mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes')
-      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IBGE  
-                  **Fórmula:** (População total/Área total) 
-                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
-                  """)
+      with c2:
+        mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes')
+        conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
+        st.markdown("""**Ano-base:** 2021  
+                    **Fonte(s):** IBGE  
+                    **Fórmula:** (População total/Área total) 
+                    **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                    """)
         
 
       
