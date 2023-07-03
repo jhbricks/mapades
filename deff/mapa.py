@@ -63,12 +63,12 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
                  data.loc[data[ind] == max_value, "X"].iloc[0]],
                 popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                icon=folium.Icon(color="green", icon="arrow-up"),
+                icon=folium.Icon(color="darkpurple", icon="arrow-up"),
                ).add_to(m) 
   folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
                  data.loc[data[ind] == min_value, "X"].iloc[0]],
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
-                icon=folium.Icon(color="red", icon="arrow-down"),
+                icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
   m.to_streamlit()
   
