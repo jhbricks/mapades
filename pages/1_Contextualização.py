@@ -63,7 +63,7 @@ if area == "Paraná":
 
     with c2:
       mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes')
-      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021):
+      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total) 
