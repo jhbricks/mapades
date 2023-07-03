@@ -114,7 +114,7 @@ def mx_mn (area,arq,ind,calc,tipo,unidade=None) :
       st.markdown(f"""<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
       <font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
       #st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>", unsafe_allow_html=True)
-      st.markdown(f"<h3><font size='+5'> {calc} do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)  
+      st.markdown(f"<h3><font size='+5'> {calc} {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)  
       st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media} {unidade}</p>", unsafe_allow_html=True)
     else:
       st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
