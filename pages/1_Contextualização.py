@@ -56,7 +56,7 @@ if area == "Paraná":
                    color_name="red-70",)
     mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
     #mx_mn (area,arq,ind,tipo,unidade=None)
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([1.5,0.7])
     with c1:
       mapa('PR',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
       mx_mn ('PR',pop,'População','inteiro','habitantes')
