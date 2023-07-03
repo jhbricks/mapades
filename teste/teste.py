@@ -15,8 +15,8 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 
   if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
-       #min_zoom= 7
-       #max_zoom=13
+       min_zoom= 7
+       max_zoom=13
   else:
        arq_g = "./dados/geojson/NTC.geojson"
   
