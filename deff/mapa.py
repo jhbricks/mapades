@@ -98,14 +98,14 @@ def mx_mn (area,arq,ind,unidade=None) :
     ind_mn = f"{min_value}"
     ind_mx = f"{max_value}"
 
-            
-    st.markdown("<h3><font size='+4'> Municípios com o <font size='+4' color='#6612b8'>maior</font> e <font size='+4' color='#ba2db4'>menor</font> <font size='+4'> valor:</font></h3>", unsafe_allow_html=True)
+
+    st.markdown("<h3><font size='+4'> Municípios com o <font color='#6612b8'>maior</font> e <font color='#ba2db4'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
     if unidade:
-      st.markdown(f"""<p style='line-height: 0.6;'><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx} {unidade}</font>  
-      <font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
+      st.markdown(f"<p><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx} {unidade}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p><font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} {unidade}</font></p>", unsafe_allow_html=True)
     else:
-      st.markdown(f"""<p style='line-height: 0.7;'><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx}</font>  
-      <font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} </font></p>""", unsafe_allow_html=True)
+      st.markdown(f"<p><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+4'>{max_str} = {ind_mx} </font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p><font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+4'>{min_str} = {ind_mn} </font></p>", unsafe_allow_html=True)
       #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
       #st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
 
