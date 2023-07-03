@@ -3,7 +3,6 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
 from deff.mapa import mapa
 from deff.mapa import mx_mn
-#from deff.mx_mn import mx_mn
 import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
@@ -37,18 +36,18 @@ if area == "Paraná":
     #mx_mn (area,arq,ind,tipo,unidade=None)
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('PR',pop,'População','Soma','soma','habitantes')
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IBGE  
-                  **Fórmula:** População total por município  
-                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
-                  """)
+      mx_mn ('PR',pop,'População','Soma da','soma','habitantes')
+
     with c2:
       st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
       A população residente no estado do Paraná era de XXX habitantes  
       variando de X e X.
       """)
-                  
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** População total por município  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)          
     
 
   with t2:
@@ -106,7 +105,20 @@ if area == "Núcleo Territorial Central":
                    description="População residente do Núcleo Territorial Central",
                    color_name="red-70",)
     mapa('NTC',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
-    mx_mn ('NTC',pop,'População','inteiro','habitantes')
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('NTC',pop,'População','Soma da','soma','habitantes')
+
+    with c2:
+      st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
+      A população residente no Núcleo Territorial Central era de XXX habitantes em 2021,
+      variando de X e X.
+      """)
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** População total por município  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """) 
 
 
   with t2:
