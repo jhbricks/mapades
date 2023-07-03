@@ -108,7 +108,7 @@ def mx_mn (area,arq,ind,unidade=None) :
       st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
 
 
-def conta (area,arq,ind,ano,unidade=None):
+def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     
     if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
@@ -126,21 +126,17 @@ def conta (area,arq,ind,ano,unidade=None):
       somaarea = data['Areakm2'].sum()
       DEM = (somapop / somaarea).round().astype(int)
       st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} era de:</font></h3>, unsafe_allow_html = True)
-      st.markdown(f"<h3><style='font-weight: bold;'> {DEM} </font> habitantes por km² em {ano}</h3>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font style='font-weight: bold; font-size: 1.7em;'> {DEM} </font> habitantes por km² em {ano}</font></h3>", unsafe_allow_html=True)
     else:
-      st.markdown(f"<h3><font size='+5'> {calc} {column_name}:</font></h3>", unsafe_allow_html=True)  
-      st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media} {unidade}</p>", unsafe_allow_html=True)
+      if tipo == "md_int":
+        media = int(data[ind].mean())
+      elif tipo == "soma":
+        media = data[ind].sum()
+      else:
+        media = data[ind].mean().round(2)
+      st.markdown(f"<h3><font size='+5'> {calc} {ind}:</font></h3>", unsafe_allow_html=True)  
+      st.markdown(f"<p style='font-weight: bold;'> <font-size: 1.7em;'>{media} {unidade}</p>", unsafe_allow_html=True)
 
     
         
-    if tipo == "md_int":
-      media = int(data[ind].mean())
-    elif tipo == "soma":
-      media = data[ind].sum()
-    else:
-      media = data[ind].mean().round(2)
-  
-else:
-      
-      st.markdown(f"<h3><font size='+5'> {calc} {column_name}:</font></h3>", unsafe_allow_html=True)  
-      st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
+
