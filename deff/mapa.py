@@ -139,4 +139,4 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       else:
         media = data[ind].mean().round(2)
       st.markdown(f"<h3><font size='+5'> {calc}:</font></h3>", unsafe_allow_html=True)  
-      st.markdown(f"<p style='font-weight: bold;'> <font size: '+5;'>{media} {unidade}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='font-weight: bold;'> <font size: '+5'>{media} {unidade}</font></p>", unsafe_allow_html=True)
