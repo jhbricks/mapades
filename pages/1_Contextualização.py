@@ -55,7 +55,7 @@ if area == "Paraná":
                      color_name="red-70",)
       mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     #mx_mn (area,arq,ind,tipo,unidade=None)
-      c1,c2 = st.columns([1.5,0.7])
+      c1,c2 = st.columns([1.5,0.5])
       with c1:
         mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
