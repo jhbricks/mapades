@@ -75,7 +75,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   return m 
 
 
-def mx_mn (area,arq,ind,calc,tipo=None,unidade=None) :
+def mx_mn (area,arq,ind,unidade=None) :
 
     if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
@@ -97,8 +97,41 @@ def mx_mn (area,arq,ind,calc,tipo=None,unidade=None) :
     max_str = f"{max_municipio}"
     ind_mn = f"{min_value}"
     ind_mx = f"{max_value}"
-    column_name = ind
-    calc = calc
+
+            
+    st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='#6612b8'>maior</font> e <font size='+5' color='#ba2db4'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
+    if unidade:
+      st.markdown(f"""<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
+      <font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
+    else:
+      st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
+
+
+def conta (area,arq,ind,ano,unidade=None):
+    
+    if area == 'PR':
+       arq_g= "./dados/geojson/PR.geojson"
+       nome = 'Paraná'
+    else:
+       arq_g = "./dados/geojson/NTC.geojson"
+       nome = 'Núcleo Territorial Central'
+
+    arq_csv = pd.read_csv(arq)
+    arq_geojson = gpd.read_file(arq_g)
+    data = arq_geojson.merge(arq_csv, on="Município")
+
+    if ind == "Densidade Demográfica (hab/km²)":
+      somapop = data['População'].sum()
+      somaarea = data['Areakm2'].sum()
+      DEM = (somapop / somaarea).round().astype(int)
+      st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} era de:</font></h3>, unsafe_allow_html = True)
+      st.markdown(f"<h3><style='font-weight: bold;'> {DEM} </font> habitantes por km² em {ano}</h3>", unsafe_allow_html=True)
+    else:
+      st.markdown(f"<h3><font size='+5'> {calc} {column_name}:</font></h3>", unsafe_allow_html=True)  
+      st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media} {unidade}</p>", unsafe_allow_html=True)
+
+    
         
     if tipo == "md_int":
       media = int(data[ind].mean())
@@ -106,19 +139,8 @@ def mx_mn (area,arq,ind,calc,tipo=None,unidade=None) :
       media = data[ind].sum()
     else:
       media = data[ind].mean().round(2)
-            
-    st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='#6612b8'>maior</font> e <font size='+5' color='#ba2db4'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
-    #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
-    #st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
-    #st.markdown(f"<h3><font size='+5'> {calc} {column_name}:</font></h3>", unsafe_allow_html=True)
-    if unidade:
-      st.markdown(f"""<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
-      <font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
-      #st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>", unsafe_allow_html=True)
-      st.markdown(f"<h3><font size='+5'> {calc} {column_name}:</font></h3>", unsafe_allow_html=True)  
-      st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media} {unidade}</p>", unsafe_allow_html=True)
-    else:
-      st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
-      st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
+  
+else:
+      
       st.markdown(f"<h3><font size='+5'> {calc} {column_name}:</font></h3>", unsafe_allow_html=True)  
       st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
