@@ -8,5 +8,4 @@ leafmap
 geopandas
 mapclassify
 
-awesome-streamlit
 
