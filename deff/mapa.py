@@ -75,6 +75,9 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
                 icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
+
+  m.fit_bounds(m.bounds())
+  m.zoom_to_bounds(m.bounds()) 
   m.to_streamlit()
   
   return m 
