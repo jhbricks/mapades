@@ -37,8 +37,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   m = leafmap.Map(center=[lat, lon],
                   #min_zoom=7,
                   #max_zoom=13,
-                  width='100%',
-                  height='100%',
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
