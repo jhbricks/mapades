@@ -148,6 +148,13 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       TPP= ((somaPR + somaPA)*100)/somaT
       st.markdown(f"<h3><font size='+5'> População preta ou parda total no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
       st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {TPP} </font> %</font></h3>", unsafe_allow_html=True)
+    elif ind == 'Razão de Dependência (%)':
+      soma65 = data['PP65'].sum()
+      soma14 = data['PP14'].sum()
+      somaPT = data['PPT'].sum()
+      RD = ((soma65 + soma14)*100)/somaPT
+      st.markdown(f"<h3><font size='+5'> Razão de dependência no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+      st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RD} </font> %</font></h3>", unsafe_allow_html=True)
     else:
       if tipo == "md_int":
         media = int(data[ind].mean())
