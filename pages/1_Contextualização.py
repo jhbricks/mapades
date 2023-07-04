@@ -1,7 +1,8 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
-from deff.mapa import mapa, mx_mn
+from deff.mapa import mapa
+from deff.mapa import mx_mn
 from deff.calculos_contexto import conta
 #from deff.mapa import conta
 import folium
