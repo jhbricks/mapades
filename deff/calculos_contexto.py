@@ -118,3 +118,35 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
       st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {media} {unidade}</font></h3>", unsafe_allow_html=True)
       #st.markdown(f"<h3><font size='+5'> {calc}:</font></h3>", unsafe_allow_html=True)  
       #st.markdown(f"<p style='font-weight: bold;'> <font size: '+5'>{media} {unidade}</font></p>", unsafe_allow_html=True)
+
+
+
+#################################RENDA
+
+def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
+     
+    if area == 'PR':
+       arq_g= "./dados/geojson/PR.geojson"
+       nome = 'Paraná'
+    else:
+       arq_g = "./dados/geojson/NTC.geojson"
+       nome = 'Núcleo Territorial Central'
+
+    arq_csv = pd.read_csv(arq)
+    arq_geojson = gpd.read_file(arq_g)
+    data = arq_geojson.merge(arq_csv, on="Município")
+  
+    somaT = data['PCT'].sum()
+
+    if ind == "Rendimento médio da população feminina/masculina (%)":
+        somaF = data['RMF'].sum()
+        somaM = data['RMM'].sum()
+        RFM = (somaF*100)/somaM
+        st.markdown(f"<h3><font size='+5'> Percentual do Rendimento médio mensal da população feminina em relação a masculina no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RFM} % </font> %</font></h3>", unsafe_allow_html=True)
+    elif:
+
+    else:
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
+
