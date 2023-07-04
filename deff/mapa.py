@@ -35,15 +35,20 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     exit()
                 #Mapa
   m = leafmap.Map(center=[lat, lon],
-                  min_zoom=7,
-                  max_zoom=13,
-                  width=800,
-                  height=500,
+                  #min_zoom=7,
+                  #max_zoom=13,
+                  width='100%',
+                  height='100%',
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
-                
+  
+  style_data = {"stroke": True,
+                "color": "#000000",
+                "weight": 1,
+                "fillOpacity": 1}
+
   m.add_data(data=data,
              column=ind,
              scheme=scheme,
@@ -53,7 +58,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_title=title,
              legend_position= 'Bottomright',
              layer_name=title,
-             style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
+             style=style_data
     
   max_value = data[ind].max()
   min_value = data[ind].min()
