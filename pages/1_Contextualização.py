@@ -27,7 +27,7 @@ riqueza = "./dados/csv/riqueza.csv"
 
 
 if area == "Paraná":
-  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "População feminina", "População preta/parda", "Grau de urbanização", "Razão de dependência"])
+  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
                    description="População residente do Paraná",
@@ -100,7 +100,7 @@ if area == "Paraná":
     
 
 if area == "Núcleo Territorial Central":
-  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "População feminina", "População preta/parda", "Taxa de urbanização", "Razão de dependência"])
+  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica",  "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
                    description="População residente do Núcleo Territorial Central",
@@ -127,7 +127,7 @@ if area == "Núcleo Territorial Central":
                    description="Número de pessoas por km² no Núcleo Territorial Central",
                    color_name="red-70",)
   with t3:
-    colored_header(label="Taxa de urbanização",
+    colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
                    color_name="red-70",)
   
