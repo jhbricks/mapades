@@ -58,7 +58,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_title=title,
              legend_position= 'Bottomright',
              layer_name=title,
-             style=style_data
+             style=style_data)
     
   max_value = data[ind].max()
   min_value = data[ind].min()
