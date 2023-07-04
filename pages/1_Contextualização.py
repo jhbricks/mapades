@@ -1,9 +1,9 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
-from deff.mapa import mapa
-from deff.mapa import mx_mn
-from deff.mapa import conta
+from deff.mapa import mapa, mx_mn
+from deff.calculos_contexto import conta
+#from deff.mapa import conta
 import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
@@ -60,7 +60,7 @@ if area == "Paraná":
         mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
       with c2:
-        mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','habitantes por km²')
+        mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
         conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
         st.markdown("""**Ano-base:** 2021  
                     **Fonte(s):** IBGE  
