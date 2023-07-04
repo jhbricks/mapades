@@ -29,21 +29,12 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   ponto_central = arq_geojson.geometry.centroid
   lat = ponto_central.iloc[0].y
   lon = ponto_central.iloc[0].x
-
  
-  min_lat = data['Y'].min()
-  max_lat = data['Y'].max()
-  min_lon = data['X'].min()
-  max_lon = data['X'].max()
-
-# Calcular o ponto central do mapa
-  lat = (min_lat + max_lat) / 2
-  lon = (min_lon + max_lon) / 2
-  
   if not isinstance(data, gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
     exit()
-                #Mapa
+    
+ ######################Mapa
   m = leafmap.Map(center=[lat, lon],
                   #min_zoom=7,
                   #max_zoom=13,
@@ -85,8 +76,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                ).add_to(m)
 
   
-  m.fit_bounds([[min_lat, min_lon], [max_lat, max_lon]])
-  
+   
   m.to_streamlit()
   
   return m 
