@@ -122,7 +122,6 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
 
 
 #################################RENDA
-
 def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
      
     if area == 'PR':
@@ -144,8 +143,11 @@ def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         RFM = (somaF*100)/somaM
         st.markdown(f"<h3><font size='+5'> Percentual do Rendimento médio mensal da população feminina em relação a masculina no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RFM} % </font> %</font></h3>", unsafe_allow_html=True)
-    elif:
+    elif ind == 'Renda Média da População (R$ mil):
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
 
+        
     else:
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
