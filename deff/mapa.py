@@ -79,7 +79,11 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_position= 'Bottomright',
              layer_name=title,
              style=style_data)
-    
+  bounds = layer.getBounds()
+
+# Fit the bounds of the data to the map
+  m.fit_bounds(bounds)
+
   max_value = data[ind].max()
   min_value = data[ind].min()
   max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
