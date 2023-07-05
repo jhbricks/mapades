@@ -68,7 +68,14 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                 "color": "#000000",
                 "weight": 1,
                 "fillOpacity": 1}
-
+  layer = folium.GeoJson(data,
+                       name=title,
+                       style_function=lambda x: style_data)
+  layer.add_to(m)
+ 
+  bounds = gpd.GeoSeries(data.geometry).total_bounds
+  m.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
+  
   m.add_data(data=data,
              column=ind,
              scheme=scheme,
@@ -79,11 +86,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_position= 'Bottomright',
              layer_name=title,
              style=style_data)
-# Get the bounds of the data
-  bounds = gpd.GeoSeries(data.geometry).total_bounds
-
-# Set the initial zoom level based on the bounds
-  m.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 
   max_value = data[ind].max()
   min_value = data[ind].min()
