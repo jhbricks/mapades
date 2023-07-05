@@ -26,7 +26,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 
   if ind == 'Renda Média da População (R$ mil)':
     data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
-  elif ind == 'Renda Média dos Declarantes R$ mil':
+  elif ind == 'Renda Média dos Declarantes (R$ mil)':
     data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
   else:
     data = data 
