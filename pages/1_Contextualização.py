@@ -67,89 +67,88 @@ if area == "Paraná":
                     **Fórmula:** (População total/Área total) 
                     **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                     """)
-  with t3:
-    colored_header(label="Grau de urbanização",
-                   description="Percentual da população residente em áreas urbanas no Paraná",
-                   color_name="red-70",)
-    mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+    with t3:
+      colored_header(label="Grau de urbanização",
+                     description="Percentual da população residente em áreas urbanas no Paraná",
+                     color_name="red-70",)
+      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
   
    
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-     mx_mn ('PR',contexto,'Grau de urbanização (%)','%')
-     conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
-    with c2:
-      st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
-      st.markdown("""**Ano-base:** 2010 
-                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
-                  **Fórmula:** (População censitária urbana*100)/População censitária total  
-                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
-                  """)
+      c1,c2 = st.columns([1.5,1])
+      with c1:
+        mx_mn ('PR',contexto,'Grau de urbanização (%)','%')
+        conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
+      with c2:
+        st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
+        st.markdown("""**Ano-base:** 2010 
+                    **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                    **Fórmula:** (População censitária urbana*100)/População censitária total  
+                    **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                    """)
   
   
-  with t4:
-    colored_header(label="População feminina",
+    with t4:
+      colored_header(label="População feminina",
                    description="Percentual da população feminina no Paraná",
                    color_name="red-70",)
     
-    mapa ('PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa ('PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-      mx_mn ('PR',contexto,'População feminina (%)',unidade=None)
-      conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
+      c1,c2 = st.columns([1.5,1])
+      with c1:
+        mx_mn ('PR',contexto,'População feminina (%)',unidade=None)
+        conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
 
-    with c2:
-      st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
-      st.markdown("""**Ano-base:** 2010 
-                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
-                  **Fórmula:** (População censitária feminina*100)/População censitária total  
-                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
-                  """)
+      with c2:
+        st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
+        st.markdown("""**Ano-base:** 2010 
+                    **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                    **Fórmula:** (População censitária feminina*100)/População censitária total  
+                    **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                    """)
 
-    
-  with t5:
-    colored_header(label="População preta ou parda",
-                   description="Percentual da população preta ou parda no Paraná",
-                   color_name="red-70",)
-    mapa ('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+    with t5:
+      colored_header(label="População preta ou parda",
+                     description="Percentual da população preta ou parda no Paraná",
+                     color_name="red-70",)
+      mapa ('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
         
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-      mx_mn ('PR',contexto,'População preta ou parda (%)',unidade=None)
-      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      c1,c2 = st.columns([1.5,1])
+      with c1:
+        mx_mn ('PR',contexto,'População preta ou parda (%)',unidade=None)
+        conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
 
-    with c2:
-      st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
-      st.markdown("""**Ano-base:** 2010 
-                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
-                  **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
-                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
-                  """)
+      with c2:
+        st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
+        st.markdown("""**Ano-base:** 2010 
+                    **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                    **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
+                    **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                    """)
                    
     
-  with t6:
-    colored_header(label="Razão de dependência",
-                   description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
-                   color_name="red-70",)
-    mapa ('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+    with t6:
+      colored_header(label="Razão de dependência",
+                     description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
+                     color_name="red-70",)
+      mapa ('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
         
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-      mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
-      conta ('PR',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
+      c1,c2 = st.columns([1.5,1])
+      with c1:
+        mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
+        conta ('PR',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
 
-    with c2:
-      st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
-      st.markdown("""**Ano-base:** 2021 (projeção)
-                  **Fonte(s):** IPARDES,2023  
-                  **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total   
-                  **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
-                  """)
+      with c2:
+        st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
+        st.markdown("""**Ano-base:** 2021 (projeção)
+                    **Fonte(s):** IPARDES,2023  
+                    **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total   
+                    **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
+                    """)
     
 
 if area == "Núcleo Territorial Central":
-  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica",  "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
+  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
                    description="População residente do Núcleo Territorial Central",
