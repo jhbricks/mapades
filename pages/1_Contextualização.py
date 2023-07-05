@@ -134,6 +134,7 @@ if area == "Paraná":
       with c1:
         mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
         conta ('PR',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
+        st.text('*População projetada para o ano de 2021') 
 
       with c2:
         st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
