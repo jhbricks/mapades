@@ -6,11 +6,21 @@ import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
 
-
+######ARQUIVOS
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
+
+
+#area = 'PR' ou 'NTC'
+#arq = arquivo csv, ex: contexto
+#ind = indicador conforme está no arquivo csv, ex: 'População'
+#scheme = classificação, lista no leafmap, ex: 'FisherJenks'
+#k = número de classes
+#cmap = paleta de cores, lista no leafmap, ex: 'Oranges'
+#fields = variaveis que aparecem no popup, ex: ['Município','População']
+#title = título do mapa e da legenda
 
 def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 
