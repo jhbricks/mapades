@@ -53,7 +53,7 @@ def mx_mn (area,arq,ind,unidade=None):
       #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.5;'><font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
 
-####CALCULOS PARA CONTEXTO
+####CALCULOS PARA OS INDICADORES
 
 #area = 'PR' ou 'NTC'
 #arq = arquivo csv
@@ -143,12 +143,21 @@ def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         RFM = (somaF*100)/somaM
         st.markdown(f"<h3><font size='+5'> Percentual do Rendimento médio mensal da população feminina em relação a masculina no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RFM} % </font> %</font></h3>", unsafe_allow_html=True)
-    elif ind == 'Renda Média da População (R$ mil):
+    elif ind == 'Renda Média da População (R$ mil)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
-
-        
+    elif ind == 'Renda Média dos Declarantes (R$ mil)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+    elif ind == 'Declarantes do IRPF (%)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade} </font></h3>", unsafe_allow_html=True)
+    elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+    elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
     else:
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
-
