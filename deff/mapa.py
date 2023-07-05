@@ -6,6 +6,7 @@ import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
 
+
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
@@ -15,14 +16,20 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 
   if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
-       min_zoom= 7
-       
+              
   else:
        arq_g = "./dados/geojson/NTC.geojson"
-       min_zoom= 9
-  
+       
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
+  data = arq_geojson.merge(arq_csv, on="Município")
+
+  if ind == 'Renda Média da População (R$ mil)':
+    data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
+  elif ind == 'Renda Média dos Declarantes R$ mil':
+    data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
+  else:
+    data = data 
   data = arq_geojson.merge(arq_csv, on="Município")
 
   #Lat, Lon centrais
