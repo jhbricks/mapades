@@ -57,7 +57,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     
  ######################Mapa
   m = leafmap.Map(center=[lat, lon],
-                  zoom= 13
+                  zoom= 13,
                   #min_zoom=7,
                   #max_zoom=13,
                   draw_control=False,
