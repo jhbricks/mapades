@@ -93,9 +93,7 @@ if area == "Paraná":
     colored_header(label="População feminina",
                    description="Percentual da população feminina no Paraná",
                    color_name="red-70",)
-#mapa (area, arq, ind, scheme, k, cmap, fields, title)
-#mx_mn (area,arq,ind,unidade=None):
-#conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None)
+    #mapa(area,arq,'População feminina (%)','EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
     ind = 'População feminina (%)'
     scheme = 'EqualInterval'
     k = 3
@@ -103,11 +101,11 @@ if area == "Paraná":
     fields = ['Município','População feminina (%)'],
     title = 'População feminina (%)'
     unidade = %
-    mapa ()
+    mapa (area, arq, ind, scheme, k, cmap, fields, title)
         
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ()
+      mx_mn (area,arq,ind,unidade=None)
       conta (area, arq, 'População feminina (%)', 2010, None, None, None)
 
     with c2:
@@ -133,11 +131,11 @@ if area == "Paraná":
     fields = ['Município','População preta ou parda (%)'],
     title = 'População preta ou parda (%)'
     unidade = %
-    mapa ()
+    mapa (area, arq, ind, scheme, k, cmap, fields, title)
         
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ()
+      mx_mn (area,arq,ind,unidade=None)
       conta (area, arq, 'População preta ou parda (%)', 2010, None, None, None)
 
     with c2:
