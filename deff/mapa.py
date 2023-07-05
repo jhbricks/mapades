@@ -57,6 +57,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     
  ######################Mapa
   m = leafmap.Map(center=[lat, lon],
+                  zoom= 13
                   #min_zoom=7,
                   #max_zoom=13,
                   draw_control=False,
@@ -68,13 +69,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                 "color": "#000000",
                 "weight": 1,
                 "fillOpacity": 1}
-  layer = folium.GeoJson(data,
-                       name=title,
-                       style_function=lambda x: style_data)
-  layer.add_to(m)
- 
-  bounds = gpd.GeoSeries(data.geometry).total_bounds
-  m.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
   
   m.add_data(data=data,
              column=ind,
@@ -134,7 +128,7 @@ def mx_mn (area,arq,ind,unidade=None) :
     ind_mx = f"{max_value}"
 
 
-    st.markdown("<h3><font size='+5'> Municípios com o <font color='#6612b8'>maior</font> e <font color='#ba2db4'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
+    st.markdown("<h3><font size='+5'> Municípios com o <font color='darkblue'>maior</font> e <font color='lightblue'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
     if unidade:
       st.markdown(f"""<p><font size='+7' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
       <font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
