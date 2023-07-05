@@ -3,7 +3,6 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
 from deff.mapa import mapa
 from deff.mapa import mx_mn
-from deff.calculos import mx_mn
 from deff.calculos import conta
 import folium
 import geopandas as gpd
@@ -75,7 +74,7 @@ if area == "Paraná":
      
       c1,c2 = st.columns([1.5,1])
       with c1:
-        mx_mn ('PR',contexto,'Grau de urbanização (%)','%')
+        mx_mn ('PR',contexto,'Grau de Urbanização (%)','%')
         conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
       with c2:
         st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
