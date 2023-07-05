@@ -28,9 +28,13 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
   elif ind == 'Renda Média dos Declarantes (R$ mil)':
     data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
+  elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
+    data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
+    data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
   else:
     data = data 
-  data = arq_geojson.merge(arq_csv, on="Município")
+ 
+  
 
   #Lat, Lon centrais
   ponto_central = arq_geojson.geometry.centroid
