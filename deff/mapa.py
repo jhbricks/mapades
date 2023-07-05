@@ -79,10 +79,11 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_position= 'Bottomright',
              layer_name=title,
              style=style_data)
-  bounds = layer.getBounds()
+# Get the bounds of the data
+  bounds = gpd.GeoSeries(data.geometry).total_bounds
 
-# Fit the bounds of the data to the map
-  m.fit_bounds(bounds)
+# Set the initial zoom level based on the bounds
+  m.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 
   max_value = data[ind].max()
   min_value = data[ind].min()
@@ -92,12 +93,12 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
                  data.loc[data[ind] == max_value, "X"].iloc[0]],
                 popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                icon=folium.Icon(color="darkpurple", icon="arrow-up"),
+                icon=folium.Icon(color="darkblue", icon="arrow-up"),
                ).add_to(m) 
   folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
                  data.loc[data[ind] == min_value, "X"].iloc[0]],
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
-                icon=folium.Icon(color="purple", icon="arrow-down"),
+                icon=folium.Icon(color="lightblue", icon="arrow-down"),
                ).add_to(m)
 
   
