@@ -3,8 +3,7 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
 from deff.mapa import mapa
 from deff.mapa import mx_mn
-from deff.calculos_contexto import conta
-#from deff.mapa import conta
+from deff.calculos import conta
 import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
@@ -29,6 +28,8 @@ riqueza = "./dados/csv/riqueza.csv"
 
 if area == "Paraná":
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
+  area = 'PR'
+  arq = 'contexto'
   with t1:
     colored_header(label="População residente",
                    description="População residente do Paraná",
@@ -55,7 +56,7 @@ if area == "Paraná":
                      description="Número de pessoas por km² no Paraná",
                      color_name="red-70",)
       mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-    #mx_mn (area,arq,ind,tipo,unidade=None)
+    
       c1,c2 = st.columns([1.5,0.5])
       with c1:
         mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
@@ -68,30 +69,87 @@ if area == "Paraná":
                     **Fórmula:** (População total/Área total) 
                     **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                     """)
-        
-
-      
-      
-    
-
-    
-  
   with t3:
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
 
+    mapa (area,arq,'Grau de urbanização (%)','FisherJenks',5,'PuBuGn',['Município, 'Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+    
+   
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+     mx_mn (area, arq, 'Grau de urbanização (%), '%')
+     conta (area, arq, 'Grau de urbanização (%)',2010,'Taxa de urbanização', None,'%')
+    
+    with c2:
+      st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
+      st.markdown("""**Ano-base:** 2010 
+                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                  **Fórmula:** (População censitária urbana*100)/População censitária total  
+                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                  """)
   
   
   with t4:
     colored_header(label="População feminina",
                    description="Percentual da população feminina no Paraná",
                    color_name="red-70",)
+#mapa (area, arq, ind, scheme, k, cmap, fields, title)
+#mx_mn (area,arq,ind,unidade=None):
+#conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None)
+    ind = 'População feminina (%)'
+    scheme = 'EqualInterval'
+    k = 3
+    cmap = 'Reds'
+    fields = ['Município','População feminina (%)'],
+    title = 'População feminina (%)'
+    unidade = %
+    mapa ()
+        
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ()
+      conta (area, arq, 'População feminina (%)', 2010, None, None, None)
+
+    with c2:
+      st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
+      st.markdown("""**Ano-base:** 2010 
+                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                  **Fórmula:** (População censitária feminina*100)/População censitária total  
+                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                  """)
+
     
   with t5:
     colored_header(label="População preta ou parda",
                    description="Percentual da população preta ou parda no Paraná",
                    color_name="red-70",)
+#mapa (area, arq, ind, scheme, k, cmap, fields, title)
+#mx_mn (area,arq,ind,unidade=None):
+#conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None)
+    ind = 'População preta ou parda (%)'
+    scheme = 'FisherJenks'
+    k = 5
+    cmap = 'YlGn'
+    fields = ['Município','População preta ou parda (%)'],
+    title = 'População preta ou parda (%)'
+    unidade = %
+    mapa ()
+        
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ()
+      conta (area, arq, 'População preta ou parda (%)', 2010, None, None, None)
+
+    with c2:
+      st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
+      st.markdown("""**Ano-base:** 2010 
+                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                  **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
+                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                  """)
+                   
     
   with t6:
     colored_header(label="Razão de dependência",
