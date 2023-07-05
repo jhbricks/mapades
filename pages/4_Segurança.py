@@ -13,5 +13,3 @@ renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 
 colored_header(label=":orange[Indicadores de Segurança: em breve ⌛]", description="   ", color_name="orange-70",)
-
-mapa('PR', pop, 'População', 'FisherJenks', 5, 'Oranges', ['Município','População'],'inteiro', 'AAA')
