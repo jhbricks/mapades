@@ -3,6 +3,7 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
 from deff.mapa import mapa
 from deff.mapa import mx_mn
+from deff.calculos import mx_mn
 from deff.calculos import conta
 import folium
 import geopandas as gpd
