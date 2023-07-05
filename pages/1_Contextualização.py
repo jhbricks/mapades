@@ -29,7 +29,7 @@ riqueza = "./dados/csv/riqueza.csv"
 if area == "Paraná":
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
   area = 'PR'
-  arq = 'contexto'
+  arq = contexto
   with t1:
     colored_header(label="População residente",
                    description="População residente do Paraná",
