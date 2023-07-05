@@ -47,33 +47,31 @@ if area == "Paraná":
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)          
-    
 
-    with t2:
-      colored_header(label="Densidade demográfica",
-                     description="Número de pessoas por km² no Paraná",
-                     color_name="red-70",)
+  with t2:
+    colored_header(label="Densidade demográfica",
+                   description="Número de pessoas por km² no Paraná",
+                   color_name="red-70",)
+    mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    
+    c1,c2 = st.columns([1.5,0.5])
+    with c1:
       mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-    
-      c1,c2 = st.columns([1.5,0.5])
-      with c1:
-        mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
-      with c2:
-        mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
-        conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
-        st.markdown("""**Ano-base:** 2021  
-                    **Fonte(s):** IBGE  
-                    **Fórmula:** (População total/Área total) 
-                    **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
-                    """)
+    with c2:
+      mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** (População total/Área total) 
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)
     with t3:
       colored_header(label="Grau de urbanização",
                      description="Percentual da população residente em áreas urbanas no Paraná",
                      color_name="red-70",)
       mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
-  
-   
+     
       c1,c2 = st.columns([1.5,1])
       with c1:
         mx_mn ('PR',contexto,'Grau de urbanização (%)','%')
@@ -85,12 +83,11 @@ if area == "Paraná":
                     **Fórmula:** (População censitária urbana*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
-  
-  
+    
     with t4:
       colored_header(label="População feminina",
-                   description="Percentual da população feminina no Paraná",
-                   color_name="red-70",)
+                     description="Percentual da população feminina no Paraná",
+                     color_name="red-70",)
     
       mapa ('PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         
@@ -146,53 +143,52 @@ if area == "Paraná":
                     **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
                     """)
     
+else:
+    t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
+    with t1:
+      colored_header(label="População residente",
+                     description="População residente do Núcleo Territorial Central",
+                     color_name="red-70",)
+      mapa('NTC',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+      c1,c2 = st.columns([1.5,1])
+      with c1:
+        mx_mn ('NTC',pop,'População','Soma da','soma','habitantes')
 
-if area == "Núcleo Territorial Central":
-  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
-  with t1:
-    colored_header(label="População residente",
-                   description="População residente do Núcleo Territorial Central",
-                   color_name="red-70",)
-    mapa('NTC',pop,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-      mx_mn ('NTC',pop,'População','Soma da','soma','habitantes')
-
-    with c2:
-      st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
-      A população residente no Núcleo Territorial Central era de XXX habitantes em 2021,
-      variando de X e X.
-      """)
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IBGE  
-                  **Fórmula:** População total por município  
-                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
-                  """) 
+      with c2:
+        st.markdown("""**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**  
+          A população residente no Núcleo Territorial Central era de XXX habitantes em 2021,
+          variando de X e X.
+          """)
+        st.markdown("""**Ano-base:** 2021  
+                    **Fonte(s):** IBGE  
+                    **Fórmula:** População total por município  
+                    **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                    """) 
 
 
-  with t2:
-    colored_header(label="Densidade demográfica",
-                   description="Número de pessoas por km² no Núcleo Territorial Central",
-                   color_name="red-70",)
-  with t3:
-    colored_header(label="Grau de urbanização",
-                   description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
-                   color_name="red-70",)
+    with t2:
+      colored_header(label="Densidade demográfica",
+                     description="Número de pessoas por km² no Núcleo Territorial Central",
+                     color_name="red-70",)
+    with t3:
+      colored_header(label="Grau de urbanização",
+                     description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
+                     color_name="red-70",)
   
-  with t4:
-    colored_header(label="População feminina",
-                   description="Percentual da população feminina no Núcleo Territorial Central",
-                   color_name="red-70",)
+    with t4:
+      colored_header(label="População feminina",
+                     description="Percentual da população feminina no Núcleo Territorial Central",
+                     color_name="red-70",)
     
-  with t5:
-    colored_header(label="População preta ou parda",
-                   description="Percentual da população preta ou parda no Núcleo Territorial Central",
-                   color_name="red-70",)
+    with t5:
+      colored_header(label="População preta ou parda",
+                     description="Percentual da população preta ou parda no Núcleo Territorial Central",
+                     color_name="red-70",)
     
-  with t6:
-    colored_header(label="Razão de dependência",
-                   description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Núcleo Territorial Central",
-                   color_name="red-70",)
+    with t6:
+      colored_header(label="Razão de dependência",
+                     description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Núcleo Territorial Central",
+                     color_name="red-70",)
     
     
 
