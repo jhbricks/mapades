@@ -100,7 +100,7 @@ if area == "Paraná":
     cmap = 'Reds'
     fields = ['Município','População feminina (%)'],
     title = 'População feminina (%)'
-    unidade = %
+    unidade = '%'
     mapa (area, arq, ind, scheme, k, cmap, fields, title)
         
     c1,c2 = st.columns([1.5,1])
@@ -130,7 +130,7 @@ if area == "Paraná":
     cmap = 'YlGn'
     fields = ['Município','População preta ou parda (%)'],
     title = 'População preta ou parda (%)'
-    unidade = %
+    unidade = '%'
     mapa (area, arq, ind, scheme, k, cmap, fields, title)
         
     c1,c2 = st.columns([1.5,1])
