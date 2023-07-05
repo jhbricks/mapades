@@ -71,13 +71,13 @@ if area == "Paraná":
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
-    mapa('PR',contexto,'Grau de urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de urbanização (%)'],'Grau de urbanização (%)')
+    mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
   
    
     c1,c2 = st.columns([1.5,1])
     with c1:
      mx_mn ('PR',contexto,'Grau de urbanização (%)','%')
-     conta ('PR',contexto,'Grau de urbanização (%)',2010,'Taxa de urbanização', None,'%')
+     conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
     with c2:
       st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
       st.markdown("""**Ano-base:** 2010 
