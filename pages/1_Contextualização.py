@@ -28,15 +28,13 @@ riqueza = "./dados/csv/riqueza.csv"
 
 if area == "Paraná":
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
-  area = 'PR'
-  arq = contexto
   with t1:
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     mapa('PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
-    #mx_mn (area,arq,ind,calc,tipo=None,unidade=None)
+    
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('PR',contexto,'População','habitantes')
@@ -73,13 +71,13 @@ if area == "Paraná":
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
-    mapa(area,arq,'Grau de urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de urbanização (%)'],'Grau de urbanização (%)')
+    mapa('PR',contexto,'Grau de urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de urbanização (%)'],'Grau de urbanização (%)')
   
    
     c1,c2 = st.columns([1.5,1])
     with c1:
-     mx_mn (area,arq,'Grau de urbanização (%)','%')
-     conta (area,arq,'Grau de urbanização (%)',2010,'Taxa de urbanização', None,'%')
+     mx_mn ('PR',contexto,'Grau de urbanização (%)','%')
+     conta ('PR',contexto,'Grau de urbanização (%)',2010,'Taxa de urbanização', None,'%')
     with c2:
       st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
       st.markdown("""**Ano-base:** 2010 
@@ -93,20 +91,13 @@ if area == "Paraná":
     colored_header(label="População feminina",
                    description="Percentual da população feminina no Paraná",
                    color_name="red-70",)
-    #mapa(area,arq,'População feminina (%)','EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
-    ind = 'População feminina (%)'
-    scheme = 'EqualInterval'
-    k = 3
-    cmap = 'Reds'
-    fields = ['Município','População feminina (%)'],
-    title = 'População feminina (%)'
-    unidade = '%'
-    mapa (area, arq, ind, scheme, k, cmap, fields, title)
+    
+    mapa ('PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn (area,arq,ind,unidade=None)
-      conta (area, arq, 'População feminina (%)', 2010, None, None, None)
+      mx_mn ('PR',contexto,'População feminina (%)',unidade=None)
+      conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
 
     with c2:
       st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
@@ -121,22 +112,12 @@ if area == "Paraná":
     colored_header(label="População preta ou parda",
                    description="Percentual da população preta ou parda no Paraná",
                    color_name="red-70",)
-#mapa (area, arq, ind, scheme, k, cmap, fields, title)
-#mx_mn (area,arq,ind,unidade=None):
-#conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None)
-    ind = 'População preta ou parda (%)'
-    scheme = 'FisherJenks'
-    k = 5
-    cmap = 'YlGn'
-    fields = ['Município','População preta ou parda (%)'],
-    title = 'População preta ou parda (%)'
-    unidade = '%'
-    mapa (area, arq, ind, scheme, k, cmap, fields, title)
+    mapa ('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
         
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn (area,arq,ind,unidade=None)
-      conta (area, arq, 'População preta ou parda (%)', 2010, None, None, None)
+      mx_mn ('PR',contexto,'População preta ou parda (%)',unidade=None)
+      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
 
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
@@ -151,7 +132,20 @@ if area == "Paraná":
     colored_header(label="Razão de dependência",
                    description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                    color_name="red-70",)
-    
+    mapa ('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+        
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
+      conta ('PR',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
+
+    with c2:
+      st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
+      st.markdown("""**Ano-base:** 2021 (projeção)
+                  **Fonte(s):** IPARDES,2023  
+                  **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total   
+                  **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
+                  """)
     
 
 if area == "Núcleo Territorial Central":
