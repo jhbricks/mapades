@@ -54,7 +54,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     exit()
 ##########################MAPA
 #######ZOOM TO LAYER
-  if zoom == zoom_to_layer:
+  if zoom == zoomlayer:
     bounds = data.to_crs(epsg="4326").bounds
     west = np.min(bounds["minx"])
     south = np.min(bounds["miny"])
@@ -63,7 +63,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     self.fit_bounds([[south, east], [north, west]])
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon]),
-                  zoom = zoom_to_layer,
+                  zoom = zoomlayer,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
