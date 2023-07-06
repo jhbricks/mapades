@@ -57,11 +57,11 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     
  ######################Mapa
 	m = leafmap.Map(center=[lat, lon],
-					zoom = zoom_to_layer,
-					draw_control=False,
-					measure_control=False,
-					fullscreen_control=False,
-					attribution_control=True)
+			zoom = zoom_to_layer,
+		        draw_control=False,
+		        measure_control=False,
+		        fullscreen_control=False,
+		        attribution_control=True)
   #zoom to layer
 	if zoom == zoom_to_layer:
 		bounds = data.to_crs(epsg="4326").bounds
@@ -71,7 +71,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 		north = np.max(bounds["maxy"])
 		self.fit_bounds([[south, east], [north, west]]  
   
-
 	m.add_data(data=data,
 		   column=ind,
                	   scheme=scheme,
@@ -81,7 +80,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                    legend_title=title,
                    legend_position= 'Bottomright',
                    layer_name=title,
-                   zoom_to_layer=True,
                    style= lambda x: {"stroke": True,
 				     "color": "#000000",
                 		     "weight": 1,
@@ -94,15 +92,15 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 	min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
 
 	folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-				   data.loc[data[ind] == max_value, "X"].iloc[0]],
-                  popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                  icon=folium.Icon(color="darkblue", icon="arrow-up"),
-                 ).add_to(m) 
+		       data.loc[data[ind] == max_value, "X"].iloc[0]],
+                      popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                      icon=folium.Icon(color="darkblue", icon="arrow-up"),
+		     ).add_to(m) 
 	folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-				   data.loc[data[ind] == min_value, "X"].iloc[0]],
-                  popup=f"Menor valor: {min_value}<br>{min_municipio}",
-                  icon=folium.Icon(color="lightblue", icon="arrow-down"),
-                 ).add_to(m)
+	               data.loc[data[ind] == min_value, "X"].iloc[0]],
+                      popup=f"Menor valor: {min_value}<br>{min_municipio}",
+                      icon=folium.Icon(color="lightblue", icon="arrow-down"),
+                     ).add_to(m)
 
   #add_geojson(arq_g,area,style_function = lambda x: style_data)  
    
