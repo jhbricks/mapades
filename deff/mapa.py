@@ -56,15 +56,26 @@ def mapa (z, zmn, zmx,area,arq,ind,scheme,k,cmap,fields,title):
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-		  zoom = z,
-		  zoom_min = zmn,
-		  zoom_max = zmx,
-                  draw_control=False,
+		  #zoom = z,
+		  #zoom_min = zmn,
+		  #zoom_max = zmx,
+		  draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
+  gdf = gpd.GeoDataFrame.from_features(data)
+  if gdf.crs is None:
+	  gdf.crs = "EPSG:4326"
+  bounds = gdf.to_crs(epsg="4326").bounds
+  west = np.min(bounds["minx"])
+  south = np.min(bounds["miny"])
+  east = np.max(bounds["maxx"])
+  north = np.max(bounds["maxy"])
+  #zooml = m.fit_bounds([[south, east], [north, west]])
+  m.zoom_to_bounds(([south, east], [north, west]))  
+
   m.add_data(data = data,
 	     column=ind,
              scheme=scheme,
