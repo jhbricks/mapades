@@ -94,4 +94,4 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                ).add_to(m)
 #########ADICIONAR NO STREAMLIT
   m.to_streamlit()
-	return m
+	
