@@ -5,6 +5,7 @@ import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
+import numpy as np
 
 ######ARQUIVOS
 contexto = "./dados/csv/contexto.csv"
@@ -29,11 +30,14 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
               
   else:
        arq_g = "./dados/geojson/NTC.geojson"
-       
+
+  #####merge geojson com csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
 
+
+  ### adicionar colunas com calculos para a categoria riqueza
   if ind == 'Renda Média da População (R$ mil)':
     data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
   elif ind == 'Renda Média dos Declarantes (R$ mil)':
@@ -44,7 +48,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   else:
     data = data 
  
-  
 
   #Lat, Lon centrais
   ponto_central = arq_geojson.geometry.centroid
@@ -56,10 +59,17 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     exit()
     
  ######################Mapa
+  #zoom to layer
+  if zoom = zoom_to_layer:
+    bounds = data.to_crs(epsg="4326").bounds
+    west = np.min(bounds["minx"])
+    south = np.min(bounds["miny"])
+    east = np.max(bounds["maxx"])
+    north = np.max(bounds["maxy"])
+    self.fit_bounds([[south, east], [north, west]]
+                    
   m = leafmap.Map(center=[lat, lon],
-                  #zoom= 13,
-                  #min_zoom=7,
-                  #max_zoom=13,
+                  zoom = zoom_to_layer,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
@@ -80,7 +90,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_position= 'Bottomright',
              layer_name=title,
              zoom_to_layer=True,
-             style=style_data)
+             style= lambda x: style_data)
 
   max_value = data[ind].max()
   min_value = data[ind].min()
@@ -98,7 +108,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                 icon=folium.Icon(color="lightblue", icon="arrow-down"),
                ).add_to(m)
 
-  
+  #add_geojson(arq_g,area,style_function = lambda x: style_data)  
    
   m.to_streamlit()
   
