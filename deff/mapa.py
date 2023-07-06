@@ -57,18 +57,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon]),
-                  zoom = zoomlayer,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
-  if zoom == zoomlayer:
-    bounds = data.to_crs(epsg="4326").bounds
-    west = np.min(bounds["minx"])
-    south = np.min(bounds["miny"])
-    east = np.max(bounds["maxx"])
-    north = np.max(bounds["maxy"]) 
-    self.fit_bounds([[south, east], [north, west]])
+
 #######ADICIONAR O MERGE GDF
   m.add_data(data = data,
              column=ind,
@@ -99,5 +92,6 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
                 icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
+  zoom_to_gdf(m, data)
 #########ADICIONAR NO STREAMLIT
   m.to_streamlit()
