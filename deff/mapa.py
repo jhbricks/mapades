@@ -65,15 +65,8 @@ def mapa (z, zmn, zmx,area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  #gdf = gpd.GeoDataFrame.from_features(arq_g)
-
-  bounds = arq_g.to_crs(epsg="4326").bounds
-  west = np.min(bounds["minx"])
-  south = np.min(bounds["miny"])
-  east = np.max(bounds["maxx"])
-  north = np.max(bounds["maxy"])
-  #zooml = m.fit_bounds([[south, east], [north, west]])
-  m.zoom_to_bounds(([south, east], [north, west]))  
+  bnds = leafmap.gdf_bounds(data)
+  m.zoom_to_bounds(bnds)
 
   m.add_data(data = data,
 	     column=ind,
