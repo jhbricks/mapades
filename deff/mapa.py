@@ -72,19 +72,23 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 		self.fit_bounds([[south, east], [north, west]]  
   
 
-	style_data = {"stroke": True, "color": "#000000","weight": 1,"fillOpacity": 1}
+	style_dict = {"stroke": True,
+		      "color": "#000000",
+		      "weight": 1,
+		      "fillOpacity": 1,
+		     }
   
 	m.add_data(data=data,
-			   column=ind,
-               scheme=scheme,
-               k=k,
-               cmap=cmap,
-               fields=fields,
-               legend_title=title,
-               legend_position= 'Bottomright',
-               layer_name=title,
-               zoom_to_layer=True,
-               style= lambda x: style_data
+		   column=ind,
+               	   scheme=scheme,
+                   k=k,
+                   cmap=cmap,
+                   fields=fields,
+                   legend_title=title,
+                   legend_position= 'Bottomright',
+                   layer_name=title,
+                   zoom_to_layer=True,
+                   style= lambda x: style_dict)
 
   #VALORES MX E MN 
 	max_value = data[ind].max()
