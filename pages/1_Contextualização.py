@@ -34,7 +34,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    mapa(13,12,19,'PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa(bnds,'PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
     
     c1,c2 = st.columns([1.5,1])
     with c1:
@@ -53,11 +53,11 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
-    mapa(13,12,19,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    mapa(bnds,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     
     c1,c2 = st.columns([1.5,0.5])
     with c1:
-      mapa(13,12,19,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa(bnds,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
     with c2:
       mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
@@ -71,7 +71,7 @@ if area == "Paraná":
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
-    mapa(13,12,19,'PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+    mapa(bnds,'PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
      
     c1,c2 = st.columns([1.5,1])
     with c1:
@@ -90,7 +90,7 @@ if area == "Paraná":
                      description="Percentual da população feminina no Paraná",
                      color_name="red-70",)
     
-      mapa (13,12,19,'PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa (bnds,'PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
@@ -109,7 +109,7 @@ if area == "Paraná":
       colored_header(label="População preta ou parda",
                      description="Percentual da população preta ou parda no Paraná",
                      color_name="red-70",)
-      mapa (13,12,19,'PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      mapa (bnds,'PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
@@ -129,7 +129,7 @@ if area == "Paraná":
       colored_header(label="Razão de dependência",
                      description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                      color_name="red-70",)
-      mapa (13,12,19,'PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+      mapa (bnds,'PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
@@ -151,9 +151,9 @@ else:
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
-                   description="População residente do Paraná",
+                   description="População residente do Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa(13,'NTC',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa(bnds,'NTC',contexto,'População','FisherJenks',4,'YlGnBu', ['Município','População'],'População residente')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'População','habitantes')
@@ -170,10 +170,10 @@ else:
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa(13,'NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    mapa(bnds,'NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     c1,c2 = st.columns([1.5,0.5])
     with c1:
-      mapa(13,'NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa(bnds,'NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     with c2:
       mx_mn ('NTC',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
       conta ('NTC',contexto,'Densidade Demográfica (hab/km²)',2021)
@@ -184,9 +184,9 @@ else:
                   """)
   with t3:
     colored_header(label="Grau de urbanização",
-                   description="Percentual da população residente em áreas urbanas noNúcleo Territorial Central",
+                   description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa(14,'NTC',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+    mapa(bnds,'NTC',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'Grau de Urbanização (%)','%')
@@ -202,7 +202,7 @@ else:
     colored_header(label="População feminina",
                    description="Percentual da população feminina no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa (15,'NTC',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+    mapa (bnds,'NTC',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'População feminina (%)',unidade=None)
@@ -216,9 +216,9 @@ else:
                   """)
   with t5:
     colored_header(label="População preta ou parda",
-                   description="Percentual da população preta ou parda no Paraná",
+                   description="Percentual da população preta ou parda no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa (17,'NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+    mapa (bnds,'NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'População preta ou parda (%)',unidade=None)
@@ -234,7 +234,7 @@ else:
     colored_header(label="Razão de dependência",
                    description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa (18,'NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+    mapa (bnds,'NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'Razão de Dependência (%)','%')
