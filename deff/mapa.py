@@ -64,7 +64,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   
 #######ADICIONAR O MERGE GDF
   style = {
-        "stroke": False,
+        "stroke": True,
         "color": "#000000",
         "weight": 1,
         "opacity": 1,
