@@ -7,5 +7,6 @@ folium
 leafmap
 geopandas
 mapclassify
+numpy
 
 
