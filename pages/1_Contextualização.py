@@ -146,6 +146,8 @@ if area == "Paraná":
                     """)
     
 else:
+  area = 'NTC'
+  NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
   t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
   with t1:
     colored_header(label="População residente",
