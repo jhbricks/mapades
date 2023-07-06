@@ -25,7 +25,6 @@ riqueza = "./dados/csv/riqueza.csv"
 #title = título do mapa e da legenda
 
 def mapa (area, arq, ind, scheme, k, cmap, fields, title):
-
 	if area == 'PR':
 		arq_g= "./dados/geojson/PR.geojson"
 	else:
