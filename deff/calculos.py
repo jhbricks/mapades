@@ -76,7 +76,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     arq_geojson = gpd.read_file(arq_g)
     data = arq_geojson.merge(arq_csv, on="Município")
   
-    somaT = data['PCT'].sum()
+    
   
     if ind == "Densidade Demográfica (hab/km²)":
         somapop = data['População'].sum()
@@ -85,11 +85,13 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font size='+5'> Densidade demográfica no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {DEM} </font> habitantes por km²</font></h3>", unsafe_allow_html=True)
     elif ind == 'Grau de Urbanização (%)':
+        somaT = data['PCT'].sum()
         somaU = data['PCU'].sum()
         TU = ((somaU*100)/somaT).round(2)
         st.markdown(f"<h3><font size='+5'> Grau de Urbanização no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {TU} </font> %</font></h3>", unsafe_allow_html=True)
     elif ind == 'População feminina (%)':
+        somaT = data['PCT'].sum()
         somaF = data['PCF'].sum()
         TF = ((somaF*100)/somaT).round(2)
         st.markdown(f"<h3><font size='+5'> População feminina total no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
