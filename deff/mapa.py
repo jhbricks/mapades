@@ -36,7 +36,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
   arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
 
-
   ### adicionar colunas com calculos para a categoria riqueza
   if ind == 'Renda Média da População (R$ mil)':
     data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
@@ -59,6 +58,12 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     exit()
     
  ######################Mapa
+  m = leafmap.Map(center=[lat, lon],
+                  zoom = zoom_to_layer,
+                  draw_control=False,
+                  measure_control=False,
+                  fullscreen_control=False,
+                  attribution_control=True)
   #zoom to layer
   if zoom == zoom_to_layer:
     bounds = data.to_crs(epsg="4326").bounds
@@ -66,16 +71,10 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     south = np.min(bounds["miny"])
     east = np.max(bounds["maxx"])
     north = np.max(bounds["maxy"])
-    self.fit_bounds([[south, east], [north, west]]
-                    
-  m = leafmap.Map(center=[lat, lon],
-                  zoom = zoom_to_layer,
-                  draw_control=False,
-                  measure_control=False,
-                  fullscreen_control=False,
-                  attribution_control=True)
+    self.fit_bounds([[south, east], [north, west]]  
   
-  style_data = {"stroke": True,
+
+style_data = {"stroke": True,
                 "color": "#000000",
                 "weight": 1,
                 "fillOpacity": 1}
