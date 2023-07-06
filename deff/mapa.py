@@ -23,7 +23,7 @@ riqueza = "./dados/csv/riqueza.csv"
 #fields = variaveis que aparecem no popup, ex: ['Município','População']
 #title = título do mapa e da legenda
 
-def mapa (area,arq,ind,scheme,k,cmap,fields,title):
+def mapa (z,area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
@@ -57,8 +57,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-		  zoom_min = 9,
-		  zoom_max = 14,
+		  zoom = z,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
