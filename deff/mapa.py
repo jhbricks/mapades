@@ -68,10 +68,10 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
         "color": "#000000",
         "weight": 1,
         "opacity": 1,
-        "fill": False,
+        "fill": True,
         "fillOpacity": 1.0,
         "dashArray": "9",
-        "clickable": False,
+        "clickable": True,
     }
 	
   m.add_data(data = data,
