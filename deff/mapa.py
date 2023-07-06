@@ -57,7 +57,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     
  ######################Mapa
   m = leafmap.Map(center=[lat, lon],
-                  zoom= 13,
+                  #zoom= 13,
                   #min_zoom=7,
                   #max_zoom=13,
                   draw_control=False,
@@ -79,6 +79,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
              legend_title=title,
              legend_position= 'Bottomright',
              layer_name=title,
+             zoom_to_layer=True,
              style=style_data)
 
   max_value = data[ind].max()
