@@ -135,8 +135,6 @@ def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     arq_geojson = gpd.read_file(arq_g)
     data = arq_geojson.merge(arq_csv, on="Município")
   
-    somaT = data['PCT'].sum()
-
     if ind == "Rendimento médio da população feminina/masculina (%)":
         somaF = data['RMF'].sum()
         somaM = data['RMM'].sum()
