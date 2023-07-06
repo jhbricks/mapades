@@ -64,35 +64,31 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-   folium.Choropleth(
-	   geo_data=data,
-           name=ind,
-           data=data,
-           columns=fields,
-           key_on='Município',
-           fill_color=cmap,
-           legend_name=title,
-           bins=bins,).add_to(m)
-
-   style_function = lambda x: {'fillColor': '#ffffff',
-			       'color': '#000000',
-                               'fillOpacity': 0,
-                               'weight': 0.1}
-   highlight_function = lambda x: {'fillColor': '#000000',
-				   'color': '#000000',
-                                   'fillOpacity': 1,
-                                    'weight': 0.1}
-   NIL = folium.features.GeoJson(
-	   data,
-           style_function=style_function,
-           control=False,
-           highlight_function=highlight_function,
-           tooltip=folium.features.GeoJsonTooltip(
-		   fields=fields,
-            aliases=fields,
-            style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;")))
-   m.add_child(NIL)
-   m.keep_in_front(NIL)	
+  folium.Choropleth(
+	  geo_data=data,
+          name=ind,
+          data=data,
+          columns=fields,
+          key_on='Município',
+          fill_color=cmap,
+          legend_name=title,
+          bins=bins,).add_to(m)
+  style_function = lambda x: {'fillColor': '#ffffff',
+                       	      'color': '#000000',
+                              'fillOpacity': 0,
+                              'weight': 0.1}
+  highlight_function = lambda x: {'fillColor': '#000000',
+				  'color': '#000000',
+                                  'fillOpacity': 1,
+                                  'weight': 0.1}
+  NIL = folium.features.GeoJson(data,
+				style_function=style_function,
+           			control=False,
+           			highlight_function=highlight_function,
+           			tooltip=folium.features.GeoJsonTooltip(fields=fields, aliases=fields,
+								       style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;")))
+  m.add_child(NIL)
+  m.keep_in_front(NIL)	
 #  m.add_data(data = data,
 #             column=ind,
 #             scheme=scheme,
