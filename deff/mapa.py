@@ -57,6 +57,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
+		  zoom = 13,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
@@ -74,7 +75,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-             style_function= lambda x: style)
+             style_function= style)
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()
