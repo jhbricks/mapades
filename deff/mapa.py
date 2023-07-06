@@ -67,7 +67,7 @@ def mapa (z, zmn, zmx,area,arq,ind,scheme,k,cmap,fields,title):
 #######ADICIONAR O MERGE GDF
   #gdf = gpd.GeoDataFrame.from_features(arq_g)
   if arq_g.crs is None:
-	 arq_g.crs = "EPSG:4326"
+	  arq_g.crs = "EPSG:4326"
   bounds = arq_g.to_crs(epsg="4326").bounds
   west = np.min(bounds["minx"])
   south = np.min(bounds["miny"])
