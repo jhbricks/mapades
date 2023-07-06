@@ -57,7 +57,8 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-		  zoom = 13,
+		  zoom_min = 9,
+		  zoom_max = 14,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
