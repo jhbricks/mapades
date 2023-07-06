@@ -69,7 +69,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
           name=ind,
           data=data,
           columns=fields,
-          key_on='Município',
+          key_on="Município",
           fill_color=cmap,
           legend_name=title).add_to(m)
   style_function = lambda x: {'fillColor': '#ffffff',
