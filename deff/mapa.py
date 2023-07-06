@@ -64,14 +64,16 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  folium.Choropleth(
-	  geo_data=data,
-          name=ind,
-          data=data,
-          columns=fields,
-          key_on="Município",
-          fill_color=cmap,
-          legend_name=title).add_to(m)
+  m.add_data(data = data,
+	     column=ind,
+             scheme=scheme,
+             k=k,
+             cmap=cmap,
+             fields=fields,
+             legend_title=title,
+             legend_position='Bottomright',
+             layer_name=title,
+             )
   style_function = lambda x: {'fillColor': '#ffffff',
                        	      'color': '#000000',
                               'fillOpacity': 0,
@@ -88,16 +90,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 								       style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;")))
   m.add_child(NIL)
   m.keep_in_front(NIL)	
-#  m.add_data(data = data,
-#             column=ind,
-#             scheme=scheme,
-#             k=k,
-#             cmap=cmap,
-#             fields=fields,
-#             legend_title=title,
-#             legend_position='Bottomright',
-#             layer_name=title,
-#             )
+
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()
