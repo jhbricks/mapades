@@ -34,7 +34,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    mapa('PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa('zooml','PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
     
     c1,c2 = st.columns([1.5,1])
     with c1:
@@ -53,7 +53,7 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
-    mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    mapa('zooml','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     
     c1,c2 = st.columns([1.5,0.5])
     with c1:
