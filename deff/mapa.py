@@ -35,16 +35,16 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
   arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
 #######ADICIONAR COLUNAS COM CALCULOS PARA CATEGORIA RIQUEZA
-  if ind == 'Renda Média da População (R$ mil)':
-    data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
-  elif ind == 'Renda Média dos Declarantes (R$ mil)':
-    data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
-  elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
-    data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
-  elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
-    data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
-  else:
-    data = data
+  #if ind == 'Renda Média da População (R$ mil)':
+  #  data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
+  #elif ind == 'Renda Média dos Declarantes (R$ mil)':
+  #  data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
+  #elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
+  #  data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
+  #elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
+  #  data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
+  #else:
+   # data = data
 #######LAT E LON CENTRAIS
   ponto_central = arq_geojson.geometry.centroid
   lat = ponto_central.iloc[0].y
