@@ -25,93 +25,89 @@ riqueza = "./dados/csv/riqueza.csv"
 
 def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 
-  if area == 'PR':
-       arq_g= "./dados/geojson/PR.geojson"
-              
-  else:
-       arq_g = "./dados/geojson/NTC.geojson"
+	if area == 'PR':
+		arq_g= "./dados/geojson/PR.geojson"
+	else:
+		arq_g = "./dados/geojson/NTC.geojson"
 
   #####merge geojson com csv
-  arq_csv = pd.read_csv(arq)
-  arq_geojson = gpd.read_file(arq_g)
-  data = arq_geojson.merge(arq_csv, on="Município")
+	arq_csv = pd.read_csv(arq)
+	arq_geojson = gpd.read_file(arq_g)
+	data = arq_geojson.merge(arq_csv, on="Município")
 
   ### adicionar colunas com calculos para a categoria riqueza
-  if ind == 'Renda Média da População (R$ mil)':
-    data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
-  elif ind == 'Renda Média dos Declarantes (R$ mil)':
-    data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
-  elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
-    data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
-    data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
-  else:
-    data = data 
- 
+	if ind == 'Renda Média da População (R$ mil)':
+		data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
+	elif ind == 'Renda Média dos Declarantes (R$ mil)':
+		data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
+	elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
+		data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
+		data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
+	else:
+		data = data 
 
   #Lat, Lon centrais
-  ponto_central = arq_geojson.geometry.centroid
-  lat = ponto_central.iloc[0].y
-  lon = ponto_central.iloc[0].x
+	ponto_central = arq_geojson.geometry.centroid
+	lat = ponto_central.iloc[0].y
+	lon = ponto_central.iloc[0].x
  
-  if not isinstance(data, gpd.GeoDataFrame):
-    print("O arquivo não é um GeoDataFrame")
-    exit()
+	if not isinstance(data, gpd.GeoDataFrame):
+		print("O arquivo não é um GeoDataFrame")
+		exit()
     
  ######################Mapa
-  m = leafmap.Map(center=[lat, lon],
-                  zoom = zoom_to_layer,
-                  draw_control=False,
-                  measure_control=False,
-                  fullscreen_control=False,
-                  attribution_control=True)
+	m = leafmap.Map(center=[lat, lon],
+					zoom = zoom_to_layer,
+					draw_control=False,
+					measure_control=False,
+					fullscreen_control=False,
+					attribution_control=True)
   #zoom to layer
-  if zoom == zoom_to_layer:
-    bounds = data.to_crs(epsg="4326").bounds
-    west = np.min(bounds["minx"])
-    south = np.min(bounds["miny"])
-    east = np.max(bounds["maxx"])
-    north = np.max(bounds["maxy"])
-    self.fit_bounds([[south, east], [north, west]]  
+	if zoom == zoom_to_layer:
+		bounds = data.to_crs(epsg="4326").bounds
+		west = np.min(bounds["minx"])
+		south = np.min(bounds["miny"])
+		east = np.max(bounds["maxx"])
+		north = np.max(bounds["maxy"])
+		self.fit_bounds([[south, east], [north, west]]  
   
 
-style_data = {"stroke": True,
-                "color": "#000000",
-                "weight": 1,
-                "fillOpacity": 1}
+	style_data = {"stroke": True, "color": "#000000","weight": 1,"fillOpacity": 1}
   
-  m.add_data(data=data,
-             column=ind,
-             scheme=scheme,
-             k=k,
-             cmap=cmap,
-             fields=fields,
-             legend_title=title,
-             legend_position= 'Bottomright',
-             layer_name=title,
-             zoom_to_layer=True,
-             style= lambda x: style_data)
+	m.add_data(data=data,
+			   column=ind,
+               scheme=scheme,
+               k=k,
+               cmap=cmap,
+               fields=fields,
+               legend_title=title,
+               legend_position= 'Bottomright',
+               layer_name=title,
+               zoom_to_layer=True,
+               style= lambda x: style_data)
 
-  max_value = data[ind].max()
-  min_value = data[ind].min()
-  max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
-  min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+  #VALORES MX E MN 
+	max_value = data[ind].max()
+	min_value = data[ind].min()
+	max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+	min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
 
-  folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-                 data.loc[data[ind] == max_value, "X"].iloc[0]],
-                popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                icon=folium.Icon(color="darkblue", icon="arrow-up"),
-               ).add_to(m) 
-  folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-                 data.loc[data[ind] == min_value, "X"].iloc[0]],
-                popup=f"Menor valor: {min_value}<br>{min_municipio}",
-                icon=folium.Icon(color="lightblue", icon="arrow-down"),
-               ).add_to(m)
+	folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
+				   data.loc[data[ind] == max_value, "X"].iloc[0]],
+                  popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                  icon=folium.Icon(color="darkblue", icon="arrow-up"),
+                 ).add_to(m) 
+	folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
+				   data.loc[data[ind] == min_value, "X"].iloc[0]],
+                  popup=f"Menor valor: {min_value}<br>{min_municipio}",
+                  icon=folium.Icon(color="lightblue", icon="arrow-down"),
+                 ).add_to(m)
 
   #add_geojson(arq_g,area,style_function = lambda x: style_data)  
    
-  m.to_streamlit()
+	m.to_streamlit()
   
-  return m 
+		return m 
 
 
 def mx_mn (area,arq,ind,unidade=None) :
