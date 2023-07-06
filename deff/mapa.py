@@ -63,16 +63,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  style = {
-        "stroke": True,
-        "color": "#000000",
-        "weight": 1,
-        "opacity": 1,
-        "fill": True,
-        "fillOpacity": 1.0,
-        "dashArray": "9",
-        "clickable": True,
-    }
+  style = {"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
 	
   m.add_data(data = data,
              column=ind,
