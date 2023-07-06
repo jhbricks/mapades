@@ -151,7 +151,7 @@ else:
       colored_header(label="População residente",
                      description="População residente do Paraná",
                      color_name="red-70",)
-    #mapa (area, arq, ind, scheme, k, cmap, fields, title)
+    
       mapa(13,'NTC',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
     
       c1,c2 = st.columns([1.5,1])
