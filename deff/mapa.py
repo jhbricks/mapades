@@ -70,7 +70,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
         "opacity": 1,
         "fill": False,
         "fillOpacity": 1.0,
-        "dashArray": "9"
+        "dashArray": "9",
         "clickable": False,
     }
 	
