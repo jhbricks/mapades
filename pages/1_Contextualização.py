@@ -20,7 +20,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 #####Arquivos
 PR = "./dados/geojson/PR.geojson"
-NTC = "./dados/geojson/NTC.geojson"
+NTC = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
