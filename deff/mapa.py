@@ -72,12 +72,6 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
 		self.fit_bounds([[south, east], [north, west]]  
   
 
-	style_dict = {"stroke": True,
-		      "color": "#000000",
-		      "weight": 1,
-		      "fillOpacity": 1,
-		     }
-  
 	m.add_data(data=data,
 		   column=ind,
                	   scheme=scheme,
@@ -88,7 +82,10 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                    legend_position= 'Bottomright',
                    layer_name=title,
                    zoom_to_layer=True,
-                   style= lambda x: style_dict)
+                   style= lambda x: {"stroke": True,
+				     "color": "#000000",
+                		     "weight": 1,
+                                     "fillOpacity": 1,})
 
   #VALORES MX E MN 
 	max_value = data[ind].max()
