@@ -34,7 +34,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    mapa('PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa(13,'PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
     
     c1,c2 = st.columns([1.5,1])
     with c1:
@@ -53,11 +53,11 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
-    mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    mapa(13,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     
     c1,c2 = st.columns([1.5,0.5])
     with c1:
-      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa(13,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
     with c2:
       mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
@@ -71,7 +71,7 @@ if area == "Paraná":
       colored_header(label="Grau de urbanização",
                      description="Percentual da população residente em áreas urbanas no Paraná",
                      color_name="red-70",)
-      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa(13,'PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
      
       c1,c2 = st.columns([1.5,1])
       with c1:
@@ -90,7 +90,7 @@ if area == "Paraná":
                      description="Percentual da população feminina no Paraná",
                      color_name="red-70",)
     
-      mapa ('PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa (13,'PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
@@ -109,7 +109,7 @@ if area == "Paraná":
       colored_header(label="População preta ou parda",
                      description="Percentual da população preta ou parda no Paraná",
                      color_name="red-70",)
-      mapa ('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      mapa (13,'PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
@@ -129,7 +129,7 @@ if area == "Paraná":
       colored_header(label="Razão de dependência",
                      description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                      color_name="red-70",)
-      mapa ('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+      mapa (13,'PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
