@@ -5,6 +5,9 @@ import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
+from deff.mapa import mapa
+from deff.map import mx_mn
+from deff.calculos import conta
 
 st.set_page_config(layout="wide")
 
