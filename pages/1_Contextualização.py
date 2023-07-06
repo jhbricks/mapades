@@ -170,10 +170,10 @@ else:
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa('bnds','NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+    mapa('bnds','NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     c1,c2 = st.columns([1.5,0.5])
     with c1:
-      mapa('bnds','NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('bnds','NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
     with c2:
       mx_mn ('NTC',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
       conta ('NTC',contexto,'Densidade Demográfica (hab/km²)',2021)
@@ -186,7 +186,7 @@ else:
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa('bnds','NTC',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+    mapa('bnds','NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'Grau de Urbanização (%)','%')
@@ -202,7 +202,7 @@ else:
     colored_header(label="População feminina",
                    description="Percentual da população feminina no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa ('bnds','NTC',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+    mapa ('bnds','NTC',contexto, 'População feminina (%)', 'EqualInterval',2,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'População feminina (%)',unidade=None)
@@ -218,7 +218,7 @@ else:
     colored_header(label="População preta ou parda",
                    description="Percentual da população preta ou parda no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa ('bnds','NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+    mapa ('bnds','NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 3, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'População preta ou parda (%)',unidade=None)
@@ -234,7 +234,7 @@ else:
     colored_header(label="Razão de dependência",
                    description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa ('bnds','NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+    mapa ('bnds','NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',contexto,'Razão de Dependência (%)','%')
