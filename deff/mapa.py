@@ -74,6 +74,10 @@ def mapa (zoom,area,arq,ind,scheme,k,cmap,fields,title):
     zooml = m.fit_bounds([[south, east], [north, west]])
 
 #######ADICIONAR O MERGE GDF
+  style = {"stroke":True,
+           "color":"#000000",
+           "weight":1,
+           "fillOpacity":1,}
   m.add_data(data = data,
              column=ind,
              scheme=scheme,
@@ -83,10 +87,7 @@ def mapa (zoom,area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-             style_function= lambda x: {"stroke":True,
-                                        "color":"#000000",
-                                        "weight":1,
-                                        "fillOpacity":1,})
+             style_function= lambda x: style)
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()
