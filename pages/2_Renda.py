@@ -16,230 +16,84 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 #Arquivos
 PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.geojson'
 NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
-ren = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/renda.csv'
-
-#Unir o csv e o geojson
-ren_csv = pd.read_csv(ren)
-PR_geojson = gpd.read_file(PR)
-ren_PR = PR_geojson.merge(ren_csv, on="Município")
-if not isinstance(ren_PR, gpd.GeoDataFrame):
-  print("merged_gdf não é um GeoDataFrame")
-  exit()
+renda = "./dados/csv/renda.csv"
 
 if area == "Paraná":
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
-  m = leafmap.Map(center=[-24.7, -51.8],
-                  min_zoom= 7,
-                  max_zoom = 13,
-                  width = 800,
-                  height = 600,
-                  draw_control=False,
-                  measure_control=False,
-                  fullscreen_control=False,
-                  attribution_control=True)
-  
   with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
-
-     
-    max_value = ren_PR["Coeficiente de Gini"].max()
-    min_value = ren_PR["Coeficiente de Gini"].min()
-    max_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Município"].iloc[0]
-    min_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Município"].iloc[0]
-
-    folium.Marker(
-      [ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Y"].iloc[0],
-       ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "X"].iloc[0]],
-      popup=f"Maior valor: {max_value}<br>{max_municipio}",
-      icon=folium.Icon(color="green", icon="arrow-up"),
-    ).add_to(m)
-    folium.Marker(
-      [ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Y"].iloc[0],
-       ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "X"].iloc[0]],
-      popup=f"Menor valor: {min_value}<br>{min_municipio}",
-      icon=folium.Icon(color="red", icon="arrow-down"),
-    ).add_to(m)
-    m.add_data(
-      ren_PR,
-      column='Coeficiente de Gini',
-      scheme='FisherJenks',
-      k = 3,
-      cmap= 'RdPu',
-      fields= ['Município','Coeficiente de Gini'],
-      legend_title='Coeficiente de Gini da renda domiciliar per capita',
-      legend_position = "bottomright",
-      layer_name = "'Coeficiente de Gini da Renda Domiciliar per Capita",
-      style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
-    )
+    mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',3,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
     
-    m.to_streamlit()
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Coeficiente de Gini',None)
+      conta ('PR',contexto,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54,None)
 
-  
+    with c2:
+      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
+      st.markdown("""**Ano-base:** 2010
+                  **Fonte(s):** IPARDES, IBGE  
+                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
+                  **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
+                  """)
+
   with t2:
     colored_header(label="Rendimento médio da população feminina",
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                    color_name="red-70",)
-
-    c1, c2 = st.columns((0.7,0.5))
-
+    mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+    
+    c1,c2 = st.columns([1.5,1])
     with c1:
-      max_value = ren_PR["Coeficiente de Gini"].max()
-      min_value = ren_PR["Coeficiente de Gini"].min()
-      max_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Município"].iloc[0]
-      min_municipio = ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Município"].iloc[0]
-
-      folium.Marker(
-        [ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "Y"].iloc[0],
-         ren_PR.loc[ren_PR["Coeficiente de Gini"] == max_value, "X"].iloc[0]],
-        popup=f"Maior valor: {max_value}<br>{max_municipio}",
-        icon=folium.Icon(color="green", icon="arrow-up"),
-      ).add_to(m)
-      folium.Marker(
-        [ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "Y"].iloc[0],
-         ren_PR.loc[ren_PR["Coeficiente de Gini"] == min_value, "X"].iloc[0]],
-        popup=f"Menor valor: {min_value}<br>{min_municipio}",
-        icon=folium.Icon(color="red", icon="arrow-down"),
-      ).add_to(m)
-      m.add_data(
-        ren_PR,
-        column='Coeficiente de Gini',
-        scheme='FisherJenks',
-        k = 3,
-        cmap= 'RdPu',
-        fields= ['Município','Coeficiente de Gini'],
-        legend_title='Coeficiente de Gini da renda domiciliar per capita',
-        legend_position = "bottomright",
-        layer_name = "'Coeficiente de Gini da Renda Domiciliar per Capita",
-        style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
-      )
-      m.to_streamlit()
+      mx_mn ('PR',contexto,'Rendimento médio da população feminina/masculina (%)',None)
+      conta ('PR',contexto,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
 
     with c2:
-      arrow_d = '\U0001F82B'  
-      arrow_u = '\U0001F829'  
-      min_str = f"{min_municipio}"
-      max_str = f"{max_municipio}"
-      ind_mn = f"{min_value}"
-      ind_mx = f"{max_value}"
-      media = ren_PR["Coeficiente de Gini"].mean().round(2)
-            
-      st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='green'>maior</font> e <font size='+5' color='red'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
-      st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
-      st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
-      st.markdown("<h3><font size='+5'> Média do Coeficiente de Gini no Paraná:</font></h3>", unsafe_allow_html= True)
-      st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
-
-  
+      st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
+      st.markdown("""**Ano-base:** 2021
+                  **Fonte(s):** IPARDES, RAIS  
+                  **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
+                  **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
+                  """)
   with t3:
     colored_header(label="Renda média da população",
                    description="Renda média da população no Paraná",
                    color_name="red-70",)
+    mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
     
-    def construir_mapa (data, column, scheme, k, cmap, fields, legend_title):
-                        m = leafmap.Map(center=[-24.7, -51.8],
-                                        min_zoom=7,
-                                        max_zoom=13,
-                                        width=800,
-                                        height=600,
-                                        draw_control=False,
-                                        measure_control=False,
-                                        fullscreen_control=False,
-                                        attribution_control=True)
-    
-                        m.add_data(data,
-                                   column=column,
-                                   scheme=scheme,
-                                   k=k,
-                                   cmap=cmap,
-                                   fields=fields,
-                                   legend_title=legend_title,
-                                   legend_position= 'Bottomright',
-                                   layer_name=legend_title,
-                                   style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
-    
-                        m.to_streamlit()
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Renda Média da População (R$ mil)','R$ mil')
+      conta ('PR',contexto,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
 
-# Lista com os argumentos específicos para cada mapa
-    #mapa = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-    construir_mapa(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-
+    with c2:
+      st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
+      st.markdown("""**Ano-base:** 2020
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
+                  **Fórmula:** (Renda Média da população R$/1000) 
+                  **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
+                  """)    
   with t4:
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
-    def A (data, column, scheme, k, cmap, fields, legend_title, unidade=None):
-        m = leafmap.Map(center=[-24.7, -51.8],
-                        min_zoom=7,
-                        max_zoom=13,
-                        width=800,
-                        height=600,
-                        draw_control=False,
-                        measure_control=False,
-                        fullscreen_control=False,
-                        attribution_control=True)
-
-        m.add_data(data,
-                   column=column,
-                   scheme=scheme,
-                   k=k,
-                   cmap=cmap,
-                   fields=fields,
-                   legend_title=legend_title,
-                   legend_position= 'Bottomright',
-                   layer_name=legend_title,
-                   style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
-
-        max_value = data[column].max()
-        min_value = data[column].min()
-        max_municipio = data.loc[ren_PR[column] == max_value, "Município"].iloc[0]
-        min_municipio = data.loc[ren_PR[column] == min_value, "Município"].iloc[0]
-
-        folium.Marker([data.loc[ren_PR[column] == max_value, "Y"].iloc[0],
-                       data.loc[ren_PR[column] == max_value, "X"].iloc[0]],
-                      popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                      icon=folium.Icon(color="green", icon="arrow-up"),
-                     ).add_to(m)    
-       
-        m.to_streamlit()
-
-        c1, c2 = st.columns(2)
-        with c1:
-          arrow_d = '\U0001F82B'  
-          arrow_u = '\U0001F829'  
-          min_str = f"{min_municipio}"
-          max_str = f"{max_municipio}"
-          ind_mn = f"{min_value}"
-          ind_mx = f"{max_value}"
-          column_name = column
-          media = data[column].mean().round(2)
-            
-          st.markdown("<h3><font size='+5'> Municípios com o <font size='+5' color='green'>maior</font> e <font size='+5' color='red'>menor</font> <font size='+5'> valor:</font></h3>", unsafe_allow_html=True)
-          st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='green'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
-          st.markdown(f"<p style='line-height: 0.5;'><font size='+10' color='red'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
-          st.markdown(f"<h3><font size='+5'> Média do {column_name} no Paraná:</font></h3>", unsafe_allow_html=True)
-          st.markdown(f"<p style='line-height: 0.2; font-weight: bold; font-size: 1.7em;'>{media}</p>", unsafe_allow_html=True)
-          if unidade:
-              st.write(f"Média: {media} {unidade}")
-          else:
-              st.write(f"Média: {media}")
-
-      
-        with c2:
-          st.subheader("TEXTO")
-
-
+    mapa('bnds','PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'GnBu', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
     
-# Lista com os argumentos específicos para cada mapa
-    #mapa = (ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-    A(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita','m')
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Renda Média dos Declarantes (R$ mil)','R$ mil')
+      conta ('PR',contexto,'Renda Média dos Declarantes (R$ mil)',2020,'Renda Média dos Declarantes','media','R$ mil')
 
-    #construir_mapa(ren_PR, 'Coeficiente de Gini', 'FisherJenks', 3, 'RdPu', ['Município', 'Coeficiente de Gini'], 'Coeficiente de Gini da Renda Domiciliar per Capita')
-
-
-
-
+    with c2:
+      st.markdown("**Indica a renda média (R$) dos declarantes do Imposto de Renda Pessoa Física (IRPF) para o ano de 2020.**")  
+      st.markdown("""**Ano-base:** 2020
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
+                  **Fórmula:** (Renda Média dos declarantes R$/1000) 
+                  **Observações:** Renda Média dos declarantes do IRPF é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
+                  """)
+   
 if area == "Núcleo Territorial Central":
   
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
@@ -247,22 +101,73 @@ if area == "Núcleo Territorial Central":
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central",
                    color_name="red-70",)
+    mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',4,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+    
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Coeficiente de Gini',None)
+      conta ('PR',contexto,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.47,None)
 
+    with c2:
+      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
+      st.markdown("""**Ano-base:** 2010
+                  **Fonte(s):** IPARDES, IBGE  
+                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
+                  **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
+                  """)
   
   with t2:
     colored_header(label="Rendimento médio da população feminina",
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Núcleo Territorial Central",
                    color_name="red-70",)
+    mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+    
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Rendimento médio da população feminina/masculina (%)',None)
+      conta ('PR',contexto,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
 
-
-  
+    with c2:
+      st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
+      st.markdown("""**Ano-base:** 2021
+                  **Fonte(s):** IPARDES, RAIS  
+                  **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
+                  **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
+                  """)
   with t3:
     colored_header(label="Renda média da população",
                    description="Renda média da população no Núcleo Territorial Central",
                    color_name="red-70",)
+    mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+    
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Renda Média da População (R$ mil)','R$ mil')
+      conta ('PR',contexto,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
 
+    with c2:
+      st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
+      st.markdown("""**Ano-base:** 2020
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
+                  **Fórmula:** (Renda Média da população R$/1000) 
+                  **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
+                  """) 
 
   with t4:
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Núcleo Territorial Central",
                    color_name="red-70",)
+    mapa('bnds','PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'GnBu', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+    
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('PR',contexto,'Renda Média dos Declarantes (R$ mil)','R$ mil')
+      conta ('PR',contexto,'Renda Média dos Declarantes (R$ mil)',2020,'Renda Média dos Declarantes','media','R$ mil')
+
+    with c2:
+      st.markdown("**Indica a renda média (R$) dos declarantes do Imposto de Renda Pessoa Física (IRPF) para o ano de 2020.**")  
+      st.markdown("""**Ano-base:** 2020
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
+                  **Fórmula:** (Renda Média dos declarantes R$/1000) 
+                  **Observações:** Renda Média dos declarantes do IRPF é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
+                  """)
