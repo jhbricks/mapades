@@ -23,7 +23,7 @@ riqueza = "./dados/csv/riqueza.csv"
 #fields = variaveis que aparecem no popup, ex: ['Município','População']
 #title = título do mapa e da legenda
 
-def mapa (z, zmn, zmx,area,arq,ind,scheme,k,cmap,fields,title):
+def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
