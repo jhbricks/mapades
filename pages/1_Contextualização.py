@@ -57,7 +57,7 @@ if area == "Paraná":
     
     c1,c2 = st.columns([1.5,0.5])
     with c1:
-      mapa(bnds,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
     with c2:
       mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
