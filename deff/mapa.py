@@ -84,7 +84,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
                legend_position= 'Bottomright',
                layer_name=title,
                zoom_to_layer=True,
-               style= lambda x: style_data)
+               style= lambda x: style_data
 
   #VALORES MX E MN 
 	max_value = data[ind].max()
