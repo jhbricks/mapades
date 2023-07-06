@@ -92,6 +92,6 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                 popup=f"Menor valor: {min_value}<br>{min_municipio}",
                 icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
-  zoom_to_gdf(m, data)
+  m.zoom_to_gdf(m, data)
 #########ADICIONAR NO STREAMLIT
   m.to_streamlit()
