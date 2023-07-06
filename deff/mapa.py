@@ -64,7 +64,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  style = {"stroke": False, "color": "#000000"}
+
 	
   m.add_data(data = data,
              column=ind,
@@ -75,7 +75,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-             style_function= style)
+             )
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()
