@@ -60,7 +60,7 @@ def mapa (area, arq, ind, scheme, k, cmap, fields, title):
     
  ######################Mapa
   #zoom to layer
-  if zoom = zoom_to_layer:
+  if zoom == zoom_to_layer:
     bounds = data.to_crs(epsg="4326").bounds
     west = np.min(bounds["minx"])
     south = np.min(bounds["miny"])
