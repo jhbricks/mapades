@@ -24,44 +24,43 @@ riqueza = "./dados/csv/riqueza.csv"
 #title = título do mapa e da legenda
 
 def mapa (area,arq,ind,scheme,k,cmap,fields,title):
-	
-  ######encaminha o geojson da area
+   ######encaminha o geojson da area
     	if area == 'PR':
-		arq_g = "./dados/geojson/PR.geojson"
+	   arq_g = "./dados/geojson/PR.geojson"
     	else:
-        	arq_g = ".dados/geojson/NTC.geojson"
+           arq_g = ".dados/geojson/NTC.geojson"
   #######MERGE geojson e csv
     	arq_csv = pd.read_csv(arq)
     	arq_geojson = gpd.read_file(arq_g)
     	data = arq_geojson.merge(arq_csv, on="Município")
   #######ADICIONAR COLUNAS COM CALCULOS PARA CATEGORIA RIQUEZA
     	if ind == 'Renda Média da População (R$ mil)':
-		data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
+	   data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
     	elif ind == 'Renda Média dos Declarantes (R$ mil)':
-		data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
+	   data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
     	elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
-	       data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
+	   data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
     	elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
-	       data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
+	   data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
     	else:
-               data = data
+           data = data
   #######LAT E LON CENTRAIS
     	ponto_central = arq_geojson.geometry.centroid
     	lat = ponto_central.iloc[0].y
     	lon = ponto_central.iloc[0].x
     
     	if not isinstance(data,gpd.GeoDataFrame):
-		print("O arquivo não é um GeoDataFrame")
-  		exit()
+	    print("O arquivo não é um GeoDataFrame")
+  	    exit()
   ##########################MAPA
   #######ZOOM TO LAYER
 	if zoom == zoom_to_layer:
-		bounds = data.to_crs(epsg="4326").bounds
-	    	west = np.min(bounds["minx"])
-	    	south = np.min(bounds["miny"])
-	    	east = np.max(bounds["maxx"])
-	    	north = np.max(bounds["maxy"])
-	    	self.fit_bounds([[south, east], [north, west]])
+	    bounds = data.to_crs(epsg="4326").bounds
+	    west = np.min(bounds["minx"])
+	    south = np.min(bounds["miny"])
+	    east = np.max(bounds["maxx"])
+	    north = np.max(bounds["maxy"])
+	    self.fit_bounds([[south, east], [north, west]])
   ########MAPA INICIAL
     	m = leafmap.Map(center=[lat,lon]),
 			zoom = zoom_to_layer,
