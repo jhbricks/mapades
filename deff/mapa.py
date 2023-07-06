@@ -56,7 +56,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #######ZOOM TO LAYER
 
 ########MAPA INICIAL
-  m = leafmap.Map(center=[lat,lon]),
+  m = leafmap.Map(center=[lat,lon],
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
