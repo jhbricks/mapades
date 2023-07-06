@@ -67,7 +67,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
    folium.Choropleth(
 	   geo_data=data,
            name=ind,
-           data=ind,
+           data=data,
            columns=fields,
            key_on='Município',
            fill_color=cmap,
