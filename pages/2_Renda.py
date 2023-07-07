@@ -32,13 +32,13 @@ if area == "Paraná":
     
     d1,d2 = st.columns([1.5,1])
     with d1:
-      mx_mn ('PR',renda,'Coeficiente de Gini',None)
-      conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54,None)
+      mx_mn ('PR',renda,'Coeficiente de Gini')
+      conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54)
     with d2:
-      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
-      st.markdown("""**Ano-base:** 2010
-                  **Fonte(s):** IPARDES, IBGE  
-                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
+      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**)    
+      st.markdown("""**Ano-base:** 2010  
+                  **Fonte(s):** IPARDES, 2023; IBGE, 2010  
+                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
                   **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
   with t2:
