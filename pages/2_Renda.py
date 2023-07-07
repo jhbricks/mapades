@@ -107,7 +107,7 @@ if area == "Núcleo Territorial Central":
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('NTC',renda,'Coeficiente de Gini',None)
-      conta ('NTC',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.47,None)
+      conta ('NTC',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',unidade = 0.47)
 
     with c2:
       st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
