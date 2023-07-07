@@ -42,15 +42,11 @@ def mx_mn (area,arq,ind,unidade=None):
 
 
     st.markdown("<h3><font size='+5'> Municípios com o <font color='#563666'>maior</font> e <font color='#CC4FB4'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
-    if unidade:
+    if unidade is not None:
         st.markdown(f"""<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
         <font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
-      
-      #st.markdown(f"<p><font size='+5' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>", unsafe_allow_html=True)
     else:
         st.markdown(f"<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} </font></p>", unsafe_allow_html=True)
-      #st.markdown(f"<p><font size='+5' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} </font></p>", unsafe_allow_html=True)
-      #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='line-height: 0.5;'><font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
 
 ####CALCULOS PARA OS INDICADORES
@@ -115,6 +111,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         elif tipo == "soma":
             media = data[ind].sum()
         else:
+            tipo == "media"
             media = data[ind].mean().round(2)
         
         if tipo is not None and unidade is not None:
@@ -122,10 +119,10 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
             st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
         elif tipo is not None and unidade is None:
             st.markdown(f"""<h3><font size='+5'> {calc} em {ano}:</font>  
-            <font style='font-weight: bold;><font size:'+5'> {media} </font></h3>""", unsafe_allow_html=True)
+            <font style='font-weight: bold;><font size:'+5'>     {tipo} </font></h3>""", unsafe_allow_html=True)
         else:    
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
-            st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {media} {unidade}</font></h3>", unsafe_allow_html=True)
+            st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
       #st.markdown(f"<h3><font size='+5'> {calc}:</font></h3>", unsafe_allow_html=True)  
       #st.markdown(f"<p style='font-weight: bold;'> <font size: '+5'>{media} {unidade}</font></p>", unsafe_allow_html=True)
 
