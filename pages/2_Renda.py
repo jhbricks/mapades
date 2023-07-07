@@ -35,7 +35,7 @@ if area == "Paraná":
       mx_mn ('PR',renda,'Coeficiente de Gini')
       conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54)
     with d2:
-      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**)    
+      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")    
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
