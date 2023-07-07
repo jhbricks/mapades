@@ -160,4 +160,4 @@ def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
     else:
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
