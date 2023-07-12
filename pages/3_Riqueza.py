@@ -8,7 +8,7 @@ import pandas as pd
 from deff.mapa import mapa
 from deff.map import mx_mn
 from deff.calculos import conta
-from deff.calculos import conta_renda
+#from deff.calculos import conta_renda
 
 #Arquivos
 PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.geojson'
@@ -97,8 +97,9 @@ if area == "Paraná":
     colored_header(label="Patrimônio Líquido Médio da População",
                    description="Patrimônio Líquido Médio da população no Paraná",
                    color_name="red-70",)
-   mapa('bnds','PR', riqueza, 'Patrimônio líquido médio da população (R$ milhões)','FisherJenks', 5, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
-    
+   mapa('bnds','PR', riqueza, 'Patrimônio líquido médio da população (R$ milhões)','FisherJenks', 5,
+        'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
+    mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title)
     d1,d2 = st.columns([1.5,1])
     with d1:
       mx_mn ('PR',riqueza,'Patrimônio líquido médio da população (R$ milhões)','R$ milhões')
