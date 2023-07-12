@@ -21,7 +21,7 @@ riqueza = "./dados/csv/riqueza.csv"
 st.set_page_config(layout="wide")
 
 #Selecionar a área [Radio horizontal]
-st.markdown("<h3><font size='8'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
+st.markdown("<h3><font size='8'  color='red'>Riqueza</font></font></h3>", unsafe_allow_html=True)
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
