@@ -98,8 +98,8 @@ if area == "Paraná":
                    description="Patrimônio Líquido Médio da população no Paraná",
                    color_name="red-70",)
    mapa('bnds','PR', riqueza, 'Patrimônio líquido médio da população (R$ milhões)',
-         'FisherJenks', 5, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
-         'Patrimônio líquido médio da população (R$ milhões)')
+        'FisherJenks', 5, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
+        'Patrimônio líquido médio da população (R$ milhões)')
     
     d1,d2 = st.columns([1.5,1])
     with d1:
