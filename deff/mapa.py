@@ -29,7 +29,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
     arq_g = "./dados/geojson/PR.geojson"
   else:
     area = 'NTC'
-    arq_g = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
+    arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
