@@ -7,8 +7,13 @@ colored_header(
     color_name="light-blue-70",
 )
 
-t1, t2 = st.tabs(["Como ler mapa", "Glossário"])
+t1, t2 = st.tabs(["Como ler mapas", "Glossário"])
 
+with T1:
+   colored_header(label="Como ler mapas",
+                   description="  ",
+                   color_name="light-blue-70",)
+    st.markdown("""**Desig**""")
 with t2:
     colored_header(label="Glossário",
                    description="  ",
