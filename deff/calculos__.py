@@ -73,7 +73,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     data = arq_geojson.merge(arq_csv, on="Município")
   
     
-  
+ ###########CONTEXTO 
     if ind == "Densidade Demográfica (hab/km²)":
         somapop = data['População'].sum()
         somaarea = data['Areakm2'].sum()
@@ -105,6 +105,29 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         RD = (((soma65 + soma14)*100)/somaPT).round(2)
         st.markdown(f"<h3><font size='+5'> Razão de dependência no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RD} </font> %</font></h3>", unsafe_allow_html=True)
+ #################################################RENDA
+    elif ind == "Rendimento médio da população feminina/masculina (%)":
+        somaF = data['RMF'].sum()
+        somaM = data['RMM'].sum()
+        RFM = ((somaF*100)/somaM).round(2)
+        st.markdown(f"<h3><font size='+5'> Percentual do Rendimento médio mensal da população feminina em relação a masculina no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RFM} % </font> %</font></h3>", unsafe_allow_html=True)
+    elif ind == 'Renda Média da População (R$ mil)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+    elif ind == 'Renda Média dos Declarantes (R$ mil)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+ ###################################################RIQUEZA   
+    elif ind == 'Declarantes do IRPF (%)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade} </font></h3>", unsafe_allow_html=True)
+    elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+    elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
+        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
     else:
         if tipo == "md_int":
             media = int(data[ind].mean())
@@ -154,6 +177,7 @@ def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     elif ind == 'Renda Média dos Declarantes (R$ mil)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+ #########################################################RIQUEZA   
     elif ind == 'Declarantes do IRPF (%)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade} </font></h3>", unsafe_allow_html=True)
