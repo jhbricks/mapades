@@ -97,7 +97,7 @@ if area == "Paraná":
     colored_header(label="Patrimônio Líquido Médio da População",
                    description="Patrimônio Líquido Médio da população no Paraná",
                    color_name="red-70",)
-   mapa('bnds','PR', riqueza, 'Patrimônio líquido médio da população (R$ milhões',
+   mapa('bnds','PR', riqueza, 'Patrimônio líquido médio da população (R$ milhões)',
          'FisherJenks', 5, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
          'Patrimônio líquido médio da população (R$ milhões)')
     
@@ -210,7 +210,7 @@ if area == "Núcleo Territorial Central":
     colored_header(label="Patrimônio Líquido Médio da População",
                    description="Patrimônio Líquido Médio da população no Núcleo Territorial Central",
                    color_name="red-70",)
-    mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões',
+    mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões)',
          'FisherJenks', 5, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
          'Patrimônio líquido médio da população (R$ milhões)')
     
