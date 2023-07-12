@@ -8,7 +8,7 @@ import pandas as pd
 from deff.mapa import mapa
 from deff.map import mx_mn
 from deff.calculos import conta
-from deff.calculos import conta_renda
+#from deff.calculos import conta_renda
 
 st.set_page_config(layout="wide")
 
