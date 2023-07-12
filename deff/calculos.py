@@ -93,6 +93,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font size='+5'> População feminina total no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {TF} </font> %</font></h3>", unsafe_allow_html=True)
     elif ind == 'População preta ou parda (%)':
+        somaT= data['PCT'].sum()
         somaPR=data['PCPR'].sum()
         somaPA=data['PCPA'].sum()
         TPP= (((somaPR + somaPA)*100)/somaT).round(2)
