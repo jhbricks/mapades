@@ -41,7 +41,7 @@ if area == "Paraná":
     with d1:
       mx_mn ('PR',riqueza,'Domicílios com bens duráveis (%)','%')
       conta ('PR',riqueza,'Domicílios com bens duráveis (%)',2010,
-             'Percentual de domicílios com bens duráveis','media', '%')
+             'Percentual de domicílios com bens duráveis',media, '%')
     with d2:
       st.markdown("**Indica o percentual de domicílios com bens duráveis¹ em relação ao total de domicílios disponibilizado no Censo Demográfico de 2010.**") 
       st.caption("¹ Rádio, TV, máquina de lavar, geladeira, celular, telefone fixo, computador, motocicleta e automóvel")
