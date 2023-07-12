@@ -11,8 +11,8 @@ from deff.calculos import conta
 #from deff.calculos import conta_renda
 
 #Arquivos
-PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.geojson'
-NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
+PR = './dados/geojson/PR.geojson'
+NTC = './dados/geojson/NTC.geojson'
 renda = "./dados/csv/renda.csv"
 contexto = "./dados/csv/contexto.csv"
 renda = "./dados/csv/renda.csv"
@@ -28,7 +28,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 if area == "Paraná":
   t1, t2, t3, t4, t5 = st.tabs(["Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"])
-  
+  PR = '.dados/geojson/PR.geojson'
   with t1:
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Paraná",
@@ -135,14 +135,14 @@ if area == "Paraná":
                   """)
 if area == "Núcleo Territorial Central":
   t1, t2, t3, t4, t5 = st.tabs(["Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"])
-  
+  NTC = '.dados/geojson/NTC.geojson'
   with t1:
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Núcleo Territorial Central",
                    color_name="red-70",)
         
     mapa('bnds','NTC', riqueza, 'Domicílios com bens duráveis (%)',
-         'FisherJenks', 5, 'Oranges', ['Município','Domicílios com bens duráveis (%)'],
+         'FisherJenks', 4, 'Oranges', ['Município','Domicílios com bens duráveis (%)'],
          'Percentual de domicílios com bens duráveis (%)')
     
     d1,d2 = st.columns([1.5,1])
@@ -180,15 +180,13 @@ if area == "Núcleo Territorial Central":
                   **Fórmula:** Número de veículos por pessoas  
                   **Observações:**Dados disponibilizados pelo IPARDES
                   """)
-
-
   
   with t3:
     colored_header(label="População declarante do IRPF",
                    description="Percentual de declarantes do Imposto de Renda Pessoa Física (IRPF) na população municipal no Núcleo Territorial Central",
                    color_name="red-70",)
     mapa('bnds','NTC', riqueza, 'Declarantes do IRPF (%)',
-         'FisherJenks', 7, 'OrRd', ['Município','Declarantes do IRPF (%)'],
+         'FisherJenks',4, 'OrRd', ['Município','Declarantes do IRPF (%)'],
          'Percentual de declarantes do IRPF na população (%)')
     
     d1,d2 = st.columns([1.5,1])
