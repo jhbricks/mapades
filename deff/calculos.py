@@ -137,13 +137,12 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         else:
             tipo == "media"
             media = data[ind].mean().round(2)
-        
         if tipo is not None and unidade is not None:
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
-            st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
+            st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {media} {unidade}</font></h3>", unsafe_allow_html=True)
         elif tipo is not None and unidade is None:
             st.markdown(f"""<h3><font size='+5'> {calc} em {ano}:</font>  
-            <font style='font-weight: bold;><font size:'+5'>     {tipo} </font></h3>""", unsafe_allow_html=True)
+            <font style='font-weight: bold;><font size:'+5'>     {media} </font></h3>""", unsafe_allow_html=True)
         else:    
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
-            st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
+            st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {media} {unidade}</font></h3>", unsafe_allow_html=True)
