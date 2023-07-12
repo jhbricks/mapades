@@ -27,10 +27,10 @@ colored_header(
     description="   ",
     color_name="blue-green-70",
 )
-km = Image.open('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/km.png')
-ge = Image.open('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/gemaeco.png')
+#km = Image.open('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/km.png')
+#ge = Image.open('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/gemaeco.png')
 
-st.image(km)
+#st.image(km)
 st.markdown("""A **Kurytiba Metropole** é uma associação sem fins
 lucrativos e apartidária que tem como objetivo
 transformar Curitiba em uma metrópole
@@ -39,7 +39,7 @@ sustentável, democrática, justa e com um alto
 habitam através de projetos de impacto social e
 construção de políticas públicas.
 """)
-st.image(ge)
+#st.image(ge)
 st.markdown("""O **Grupo de Estudos em MacroEconomia Ecológica
 (GEMAECO)** é um grupo de pesquisa vinculado à
 Universidade Federal do Paraná (UFPR),
