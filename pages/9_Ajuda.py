@@ -9,16 +9,16 @@ colored_header(
 
 t1, t2 = st.tabs(["Como ler mapas", "Glossário"])
 
-with T1:
+with t1:
    colored_header(label="Como ler mapas",
                    description="  ",
                    color_name="light-blue-70",)
-    st.markdown("""**Desig**""")
+   st.markdown("""**Desig**""")
 with t2:
-    colored_header(label="Glossário",
-                   description="  ",
-                   color_name="light-blue-70",)
-    st.markdown("""**Desigualdade:**atributo de elementos distintos; dessemelhança;
+   colored_header(label="Glossário",
+                  description="  ",
+                  color_name="light-blue-70",)
+   st.markdown("""**Desigualdade:**atributo de elementos distintos; dessemelhança;
     diferença; disparidade. No contexto de uma sociedade, a desigualdade social é a relação
     de diferença de distribuição de bens, status e oportunidades entre pessoas ou grupos.""")
     st.markdown("""**Equidade:**  adaptação da norma geral de igualdade a situações
