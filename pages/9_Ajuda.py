@@ -1,25 +1,16 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 
-colored_header(
-    label="Ajuda",
-    description="   ",
-    color_name="light-blue-70",
-)
+colored_header(label="Ajuda",description="   ",color_name="light-blue-70",)
 
 t1, t2 = st.tabs(["Como ler mapas", "Glossário"])
 
 with t1:
-   colored_header(label="Como ler mapas",
-                   description="  ",
-                   color_name="light-blue-70",)
-   st.markdown("""**Desig**""")
+    colored_header(label="Como ler mapas",description="  ",color_name="light-blue-70",)
+    st.markdown("""**Desig**""")
 with t2:
-   colored_header(label="Glossário",
-                  description="  ",
-                  color_name="light-blue-70",)
-   st.markdown("""**Desigualdade:**atributo de elementos distintos; dessemelhança;
-    diferença; disparidade. No contexto de uma sociedade, a desigualdade social é a relação
+    colored_header(label="Glossário",description="  ",color_name="light-blue-70",)
+    st.markdown("""**Desigualdade:**atributo de elementos distintos; dessemelhança; diferença; disparidade. No contexto de uma sociedade, a desigualdade social é a relação
     de diferença de distribuição de bens, status e oportunidades entre pessoas ou grupos.""")
     st.markdown("""**Equidade:**  adaptação da norma geral de igualdade a situações
     específicas em busca de um resultado mais justo e inclusivo. Por exemplo, ao invés de
