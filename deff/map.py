@@ -14,6 +14,7 @@ pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 
+@st.cache_data
 def mx_mn (area,arq,ind,unidade=None) :
 
     if area == 'PR':
@@ -50,7 +51,7 @@ def mx_mn (area,arq,ind,unidade=None) :
       #st.markdown(f"<p style='line-height: 0.7;'><font size='+10' color='#6612b8'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx}</font></p>", unsafe_allow_html=True)
       st.markdown(f"<p style='line-height: 0.5;'><font size='+7' color='#ba2db4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
 
-
+@st.cache_data
 def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     
     if area == 'PR':
