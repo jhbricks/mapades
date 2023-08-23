@@ -6,6 +6,7 @@ import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
 
+@st.cache_data
 def mx_mn (area,arq,ind,tipo,unidade=None) :
 
     if area == 'PR':
