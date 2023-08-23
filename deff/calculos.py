@@ -17,6 +17,7 @@ riqueza = "./dados/csv/riqueza.csv"
 #ind = indicador conforme está no arquivo csv
 #unidade = unidade de medida do indicador, se tiver
 
+@st.cache_data
 def mx_mn (area,arq,ind,unidade=None):
 
     if area == 'PR':
@@ -59,6 +60,7 @@ def mx_mn (area,arq,ind,unidade=None):
 #tipo = 'media_int' = média com número inteiro, 'soma' = somatório, 'media' = média com precisão de 2 casas. Se não especificar vai resultar em média com 2 casas
 #unidade = unidade de medida do indicador, ex: 'habitantes', '%', 'hab/km²'. Se não especificar não exibirá nada.
 
+@st.cache_data
 def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     
     if area == 'PR':
