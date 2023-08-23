@@ -10,6 +10,8 @@ from deff.map import mx_mn
 from deff.calculos import conta
 #from deff.calculos import conta_renda
 
+@st.cache_data
+
 #Arquivos
 PR = './dados/geojson/PR.geojson'
 NTC = './dados/geojson/NTC.geojson'

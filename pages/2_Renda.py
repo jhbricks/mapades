@@ -10,6 +10,8 @@ from deff.map import mx_mn
 from deff.calculos import conta
 #from deff.calculos import conta_renda
 
+@st.cache_data
+
 st.set_page_config(layout="wide")
 
 #Selecionar a área [Radio horizontal]
