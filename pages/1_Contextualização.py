@@ -10,7 +10,7 @@ import leafmap.foliumap as leafmap
 import pandas as pd
 import numpy as np
 
-@st.cache_data
+
 st.set_page_config(layout="wide")
 
 #Selecionar a área [Radio horizontal]
