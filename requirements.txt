@@ -2,10 +2,11 @@ streamlit
 streamlit-extras
 streamlit_folium
 streamlit-option-menu
-pandas
 folium
 leafmap
 geopandas
 mapclassify
-numpy
-Pillow
+numpy==1.25.2
+pandas==2.0.3
+pandas-gbq==0.19.2
+Pillow==10.0.0
