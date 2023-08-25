@@ -26,8 +26,7 @@ contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
-bnds = leafmap.gdf_bounds(data)
-m.zoom_to_bounds(bnds)
+
 
 
 
@@ -61,7 +60,7 @@ if area == "Paraná":
     
     c1,c2 = st.columns([1.5,0.5])
     with c1:
-      mapa(bnds,'PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
 
     with c2:
       mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
@@ -75,7 +74,7 @@ if area == "Paraná":
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
-    mapa(bnds,'PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+    mapa('bnds','PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
      
     c1,c2 = st.columns([1.5,1])
     with c1:
