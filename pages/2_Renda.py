@@ -77,7 +77,7 @@ if area == "Paraná":
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
                   **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
                   """)
-   with t4:
+  with t4:
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
