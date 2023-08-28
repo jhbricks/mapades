@@ -25,7 +25,7 @@ NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC
 renda = "./dados/csv/renda.csv"
 
 if area == "Paraná":
-  t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
+  t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
   with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
@@ -44,6 +44,23 @@ if area == "Paraná":
                   **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
   with t2:
+    colored_header(label="Renda média da população",
+                   description="Renda média da população no Paraná",
+                   color_name="red-70",)
+    mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+    
+    d1,d2 = st.columns([1.5,1])
+    with d1:
+      mx_mn ('PR',renda,'Renda Média da População (R$ mil)','R$ mil')
+      conta ('PR',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
+    with d2:
+      st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
+      st.markdown("""**Ano-base:** 2020
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
+                  **Fórmula:** (Renda Média da população R$/1000) 
+                  **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
+                  """)     
+  with t3:
     colored_header(label="Rendimento médio da população feminina",
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                    color_name="red-70",)
@@ -60,24 +77,7 @@ if area == "Paraná":
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
                   **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
                   """)
-  with t3:
-    colored_header(label="Renda média da população",
-                   description="Renda média da população no Paraná",
-                   color_name="red-70",)
-    mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
-    
-    d1,d2 = st.columns([1.5,1])
-    with d1:
-      mx_mn ('PR',renda,'Renda Média da População (R$ mil)','R$ mil')
-      conta ('PR',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
-    with d2:
-      st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
-      st.markdown("""**Ano-base:** 2020
-                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
-                  **Fórmula:** (Renda Média da população R$/1000) 
-                  **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
-                  """)    
-  with t4:
+   with t4:
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
@@ -99,7 +99,7 @@ if area == "Núcleo Territorial Central":
   NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
   arq_g = NTC
   
-  t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda da população feminina", "Renda média da população", "Renda dos declarantes do IRPF"])
+  t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
   with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central",
@@ -118,8 +118,18 @@ if area == "Núcleo Territorial Central":
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
                   **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
-  
   with t2:
+    colored_header(label="Renda média da população",
+                   description="Renda média da população no Núcleo Territorial Central",
+                   color_name="red-70",)
+    mapa('bnds','NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+    
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mx_mn ('NTC',renda,'Renda Média da População (R$ mil)','R$ mil')
+      conta ('NTC',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
+
+  with t3:
     colored_header(label="Rendimento médio da população feminina",
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Núcleo Territorial Central",
                    color_name="red-70",)
@@ -137,16 +147,6 @@ if area == "Núcleo Territorial Central":
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
                   **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
                   """)
-  with t3:
-    colored_header(label="Renda média da população",
-                   description="Renda média da população no Núcleo Territorial Central",
-                   color_name="red-70",)
-    mapa('bnds','NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
-    
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-      mx_mn ('NTC',renda,'Renda Média da População (R$ mil)','R$ mil')
-      conta ('NTC',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
 
     with c2:
       st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  

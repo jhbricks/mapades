@@ -97,7 +97,7 @@ if area == "Paraná":
         
       c1,c2 = st.columns([1.5,1])
       with c1:
-        mx_mn ('PR',contexto,'População feminina (%)',unidade=None)
+        mx_mn ('PR',contexto,'População feminina (%)','%')
         conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
 
       with c2:
@@ -116,7 +116,7 @@ if area == "Paraná":
         
       c1,c2 = st.columns([1.5,1])
       with c1:
-        mx_mn ('PR',contexto,'População preta ou parda (%)',unidade=None)
+        mx_mn ('PR',contexto,'População preta ou parda (%)','%')
         conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
 
       with c2:
@@ -208,7 +208,7 @@ else:
     mapa ('bnds','NTC',contexto, 'População feminina (%)', 'EqualInterval',2,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('NTC',contexto,'População feminina (%)',unidade=None)
+      mx_mn ('NTC',contexto,'População feminina (%)','%')
       conta ('NTC',contexto, 'População feminina (%)', 2010, None, None, None)
     with c2:
       st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
@@ -224,7 +224,7 @@ else:
     mapa ('bnds','NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 3, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mx_mn ('NTC',contexto,'População preta ou parda (%)',unidade=None)
+      mx_mn ('NTC',contexto,'População preta ou parda (%)','%')
       conta ('NTC',contexto, 'População preta ou parda (%)', 2010, None, None, None)
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  

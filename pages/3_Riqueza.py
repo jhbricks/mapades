@@ -71,7 +71,7 @@ if area == "Paraná":
       st.markdown("""**Ano-base:** 2021 
                   **Fonte(s):** IPARDES, 2023  
                   **Fórmula:** Número de veículos por pessoas  
-                  **Observações:**Dados disponibilizados pelo IPARDES
+                  **Observações:** Dados disponibilizados pelo IPARDES
                   """)
     
   with t3:
@@ -92,7 +92,7 @@ if area == "Paraná":
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Declarantes na População  
-                  **Observações:**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
+                  **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
     
   with t4:
@@ -112,7 +112,7 @@ if area == "Paraná":
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio da população/ 1000000 
-                  **Observações:**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
+                  **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
   with t5:
@@ -133,7 +133,7 @@ if area == "Paraná":
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/ 1000000 
-                  **Observações:**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
+                  **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 if area == "Núcleo Territorial Central":
   t1, t2, t3, t4, t5 = st.tabs(["Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"])
@@ -180,7 +180,7 @@ if area == "Núcleo Territorial Central":
       st.markdown("""**Ano-base:** 2021 
                   **Fonte(s):** IPARDES, 2023  
                   **Fórmula:** Número de veículos por pessoas  
-                  **Observações:**Dados disponibilizados pelo IPARDES
+                  **Observações:** Dados disponibilizados pelo IPARDES
                   """)
   
   with t3:
@@ -201,7 +201,7 @@ if area == "Núcleo Territorial Central":
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Declarantes na População  
-                  **Observações:**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
+                  **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
 
@@ -223,7 +223,7 @@ if area == "Núcleo Territorial Central":
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio da população/ 1000000 
-                  **Observações:**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
+                  **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
 
@@ -245,5 +245,5 @@ if area == "Núcleo Territorial Central":
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/ 1000000 
-                  **Observações:**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
+                  **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
