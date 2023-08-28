@@ -111,7 +111,7 @@ if area == "Paraná":
       st.markdown("**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)**") 
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio da população/ 1000000 
+                  **Fórmula:** Patrimônio líquido médio da população/1000000 
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
@@ -132,7 +132,7 @@ if area == "Paraná":
       st.markdown("**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)**") 
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/ 1000000 
+                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000 
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 if area == "Núcleo Territorial Central":
@@ -222,7 +222,7 @@ if area == "Núcleo Territorial Central":
       st.markdown("**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)**") 
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio da população/ 1000000 
+                  **Fórmula:** Patrimônio líquido médio da população/1000000 
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
@@ -244,6 +244,6 @@ if area == "Núcleo Territorial Central":
       st.markdown("**Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)**") 
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/ 1000000 
+                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000 
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
