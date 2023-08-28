@@ -46,10 +46,16 @@ def mx_mn (area,arq,ind,unidade=None):
     if unidade is not None:
         st.markdown(f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font></p>", unsafe_allow_html=True)  
         st.markdown(f"<p><font size='+7' color='purple'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>", unsafe_allow_html=True)
-    elif ind == 'Renda Média da População (R$ mil)' or ind == 'Renda Média dos Declarantes (R$ mil)':
+    elif ind == 'Renda Média da População (R$ mil)':
         st.markdown(f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = R$ {ind_mx} mil</font></p>", unsafe_allow_html=True)
         st.markdown(f"<p><font size='+7' color='purple'>{arrow_d}</font> <font size='+5'>{min_str} = R$ {ind_mn} mil</font></p>", unsafe_allow_html=True)
-    elif ind == 'Patrimônio líquido médio da população (R$ milhões)' or ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
+    elif ind == 'Renda Média dos Declarantes (R$ mil)':
+        st.markdown(f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = R$ {ind_mx} mil</font></p>", unsafe_allow_html=True)
+        st.markdown(f"<p><font size='+7' color='purple'>{arrow_d}</font> <font size='+5'>{min_str} = R$ {ind_mn} mil</font></p>", unsafe_allow_html=True)
+    elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
+        st.markdown(f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = R$ {ind_mx} milhões</font></p>", unsafe_allow_html=True)
+        st.markdown(f"<p><font size='+7' color='purple'>{arrow_d}</font> <font size='+5'>{min_str} = R$ {ind_mn} milhões</font></p>", unsafe_allow_html=True)
+    elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
         st.markdown(f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = R$ {ind_mx} milhões</font></p>", unsafe_allow_html=True)
         st.markdown(f"<p><font size='+7' color='purple'>{arrow_d}</font> <font size='+5'>{min_str} = R$ {ind_mn} milhões</font></p>", unsafe_allow_html=True)
     else:
