@@ -51,7 +51,7 @@ if area == "Paraná":
           colored_header(label="Rendimento médio da população feminina",
                          description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                          color_name="red-70",)
-          mapa(,'PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+          mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
@@ -66,15 +66,15 @@ if area == "Paraná":
 
 else:
      t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
-     with t1:
-          colored_header(label="Coeficiente de Gini",
-                         description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central",
+     with t2:
+          colored_header(label="Renda Média da População (R$ mil)",
+                         description="Renda Média da População (R$ mil)",
                          color_name="red-70",)
           c1, c2 = st.columns(2)
           with c1:
-               mapa('NTC',renda,'Coeficiente de Gini','FisherJenks',4,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
-               mx_mn ('NTC',renda,'Coeficiente de Gini',None)
-               conta ('NTC',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.47, unidade = None)
+               mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+               mx_mn ('NTC',renda,'Renda Média da População (R$ mil)',None)
+               conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
           with c2:
                # read the csv file
                df = pd.read_csv('/content/drive/MyDrive/Mestrado/Dissertação/Arquivos/A/B/renda2.csv')
