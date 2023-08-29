@@ -19,6 +19,8 @@ riqueza = "./dados/csv/riqueza.csv"
 
 
 @st.cache_data
+
+#Valores máximo e mínimo do indicador
 def mx_mn (area,arq,ind,unidade=None):
 
     if area == 'PR':
@@ -35,6 +37,7 @@ def mx_mn (area,arq,ind,unidade=None):
     max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
     min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
 
+#Icone de flecha/Município/Valor
     arrow_d = '\U0001F82B'  
     arrow_u = '\U0001F829'  
     min_str = f"{min_municipio}"
@@ -42,14 +45,21 @@ def mx_mn (area,arq,ind,unidade=None):
     ind_mn = f"{min_value}"
     ind_mx = f"{max_value}"
 
-
+#Texto que vai aparecer
     st.markdown("<h3><font size='+5'> Municípios com o <font color='#563666'>maior</font> e <font color='#CC4FB4'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
     if unidade is not None:
         st.markdown(f"""<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
         <font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
+    elif ind == 'Renda Média da População (R$ mil)': 
+        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} mil </font></p>", unsafe_allow_html=True")
+        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} mil </font></p>", unsafe_allow_html=True")
+    elif ind == 'Patrimônio líquido médio da população (R$ milhões)' or ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
+      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} milhões </font></p>", unsafe_allow_html=True")
+      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} milhões </font></p>", unsafe_allow_html=True")   
     else:
         st.markdown(f"<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} </font></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='line-height: 0.5;'><font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
+
 
 ####CALCULOS PARA OS INDICADORES
 
@@ -61,7 +71,8 @@ def mx_mn (area,arq,ind,unidade=None):
 #tipo = 'media_int' = média com número inteiro, 'soma' = somatório, 'media' = média com precisão de 2 casas. Se não especificar vai resultar em média com 2 casas
 #unidade = unidade de medida do indicador, ex: 'habitantes', '%', 'hab/km²'. Se não especificar não exibirá nada.
 
-@st.cache_data
+
+
 def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     
     if area == 'PR':
@@ -117,20 +128,21 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RFM} % </font> %</font></h3>", unsafe_allow_html=True)
     elif ind == 'Renda Média da População (R$ mil)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} mil </font></h3>", unsafe_allow_html=True)
     elif ind == 'Renda Média dos Declarantes (R$ mil)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} mil </font></h3>", unsafe_allow_html=True)
  ###################################################RIQUEZA   
     elif ind == 'Declarantes do IRPF (%)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade} </font></h3>", unsafe_allow_html=True)
     elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} milhões </font></h3>", unsafe_allow_html=True)
     elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} milhões </font></h3>", unsafe_allow_html=True)
+ ###################################################   
     else:
         if tipo == "md_int":
             media = int(data[ind].mean())
@@ -149,47 +161,3 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         else:    
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
             st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
-      #st.markdown(f"<h3><font size='+5'> {calc}:</font></h3>", unsafe_allow_html=True)  
-      #st.markdown(f"<p style='font-weight: bold;'> <font size: '+5'>{media} {unidade}</font></p>", unsafe_allow_html=True)
-
-
-@st.cache_data
-#################################RENDA
-def conta_renda (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
-     
-    if area == 'PR':
-       arq_g= "./dados/geojson/PR.geojson"
-       nome = 'Paraná'
-    else:
-       arq_g = "./dados/geojson/NTC.geojson"
-       nome = 'Núcleo Territorial Central'
-
-    arq_csv = pd.read_csv(arq)
-    arq_geojson = gpd.read_file(arq_g)
-    data = arq_geojson.merge(arq_csv, on="Município")
-  
-    if ind == "Rendimento médio da população feminina/masculina (%)":
-        somaF = data['RMF'].sum()
-        somaM = data['RMM'].sum()
-        RFM = ((somaF*100)/somaM).round(2)
-        st.markdown(f"<h3><font size='+5'> Percentual do Rendimento médio mensal da população feminina em relação a masculina no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RFM} % </font> %</font></h3>", unsafe_allow_html=True)
-    elif ind == 'Renda Média da População (R$ mil)':
-        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
-    elif ind == 'Renda Média dos Declarantes (R$ mil)':
-        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
- #########################################################RIQUEZA   
-    elif ind == 'Declarantes do IRPF (%)':
-        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade} </font></h3>", unsafe_allow_html=True)
-    elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
-        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
-    elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
-        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} </font></h3>", unsafe_allow_html=True)
-    else:
-        st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
