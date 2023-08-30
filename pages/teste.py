@@ -9,6 +9,8 @@ from deff.mapa__ import mapa
 from deff.calculos__ import mx_mn
 from deff.calculos__ import conta
 
+st.set_page_config(layout="wide")
+
 # Remove whitespace from the top of the page and sidebar
 st.markdown("""
         <style>
@@ -21,7 +23,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-#st.set_page_config(layout="wide")
+
 
 #Arquivos
 PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.geojson'
@@ -43,8 +45,8 @@ if area == "Paraná":
           
           d1,d2 = st.columns([1.5,1])
           with d1:
-               mx_mn ('PR',renda,'Renda Média da População (R$ mil)','R$')
-               conta ('PR',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
+               mx_mn (PR,renda,'Renda Média da População (R$ mil)','R$')
+               conta (PR,renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
           with d2:
                st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
                st.markdown("""**Ano-base:** 2020
@@ -76,12 +78,12 @@ else:
           colored_header(label="Renda Média da População (R$ mil)",
                          description="Renda Média da População (R$ mil)",
                          color_name="red-70",)
-          c1, c2 = st.columns(2)
-          with c1:
-               mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
-               mx_mn ('NTC',renda,'Renda Média da População (R$ mil)',None)
-               conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
-          with c2:
+          c3, c4 = st.columns()
+          with c3:
+               mapa(NTC,renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+               mx_mn (NTC,renda,'Renda Média da População (R$ mil)',None)
+               conta (NTC,renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
+          with c4:
                # read the csv file
                df = pd.read_csv('/content/drive/MyDrive/Mestrado/Dissertação/Arquivos/A/B/renda2.csv')
 
