@@ -23,6 +23,11 @@ st.markdown("""
 
 #st.set_page_config(layout="wide")
 
+#Arquivos
+PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.geojson'
+NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
+renda = "./dados/csv/renda.csv"
+
 #Selecionar a área [Radio horizontal]
 st.markdown("<h3><font size='8'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
