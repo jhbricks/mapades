@@ -51,11 +51,11 @@ def mx_mn (area,arq,ind,unidade=None):
         st.markdown(f"""<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
         <font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
     elif ind == 'Renda Média da População (R$ mil)': 
-        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} mil </font></p>", unsafe_allow_html=True")
-        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} mil </font></p>", unsafe_allow_html=True")
+        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} mil </font></p>", unsafe_allow_html=True)
+        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} mil </font></p>", unsafe_allow_html=True)
     elif ind == 'Patrimônio líquido médio da população (R$ milhões)' or ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
-      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} milhões </font></p>", unsafe_allow_html=True")
-      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} milhões </font></p>", unsafe_allow_html=True")   
+      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} milhões </font></p>", unsafe_allow_html=True)
+      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} milhões </font></p>", unsafe_allow_html=True)   
     else:
         st.markdown(f"<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} </font></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='line-height: 0.5;'><font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn}</font></p>", unsafe_allow_html=True)
