@@ -78,7 +78,7 @@ else:
           colored_header(label="Renda Média da População (R$ mil)",
                          description="Renda Média da População (R$ mil)",
                          color_name="red-70",)
-          c3, c4 = st.columns()
+          c3, c4 = st.columns(2)
           with c3:
                mapa(NTC,renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
                mx_mn (NTC,renda,'Renda Média da População (R$ mil)',None)
