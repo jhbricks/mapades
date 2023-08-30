@@ -6,7 +6,8 @@ import plotly.express as px
 import pandas as pd
 import plotly.graph_objects as go
 from deff.mapa__ import mapa
-from deff.calculos__ import mx_mn, conta
+from deff.calculos__ import mx_mn
+from deff.calculos__ import conta
 
 # Remove whitespace from the top of the page and sidebar
 st.markdown("""
