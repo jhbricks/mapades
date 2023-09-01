@@ -37,7 +37,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    mapa('bnds','PR',contexto,'População','FisherJenks',7,'YlGnBu', ['Município','População'],'População residente')
+    mapa('bnds','PR',contexto,'População','FisherJenks',7,'YlOrBr', ['Município','População'],'População residente')
     
     c1,c2 = st.columns([1.5,1])
     with c1:
