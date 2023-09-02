@@ -26,7 +26,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
+def mapa (area,arq,ind,scheme,k,cmap,fields):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
@@ -65,7 +65,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
              k=k,
              cmap=cmap,
              fields=fields,
-             legend_title=title,
+             legend_title='title',
              legend_position='Bottomright',
              layer_name=title,
              style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
