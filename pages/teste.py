@@ -136,7 +136,7 @@ else:
 #######MERGE geojson e csv
 
           csv = pd.read_csv("./dados/csv/renda.csv")
-          arq_geojson = gpd.read_file(NTC)
+          arq_geojson = gpd.read_file("./dados/geojson/NTC.geojson")
           data = arq_geojson.merge(csv, on="Município")
           if not isinstance(data,gpd.GeoDataFrame):
                print("O arquivo não é um GeoDataFrame")
