@@ -138,14 +138,16 @@ else:
           csv = pd.read_csv("./dados/csv/renda.csv")
           arq_geojson = gpd.read_file(NTC)
           data = arq_geojson.merge(csv, on="Município")
+          if not isinstance(data,gpd.GeoDataFrame):
+               print("O arquivo não é um GeoDataFrame")
+               exit()
+
 
 #######LAT E LON CENTRAIS
           ponto_central = arq_geojson.geometry.centroid
           lat = ponto_central.iloc[0].y
           lon = ponto_central.iloc[0].x
-          if not isinstance(data,gpd.GeoDataFrame):
-               print("O arquivo não é um GeoDataFrame")
-               exit()
+
 ##########################MAPA
 ########MAPA INICIAL
           m = leafmap.Map(center=[lat,lon],
