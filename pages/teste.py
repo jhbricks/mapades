@@ -159,14 +159,16 @@ else:
           bnds = leafmap.gdf_bounds(data)
           m.zoom_to_bounds(bnds)
 
-          m.add_data(data = renda, column='Rendimento médio da população feminina/masculina (%)'', scheme='FisherJenks', k=2,
-             cmap='Oranges',
-             fields=['Município','Rendimento médio da população feminina/masculina (%)'],
-             legend_title='Rendimento médio da população feminina/masculina (%)',
-             legend_position='Bottomright',
-             layer_name='Rendimento médio da população feminina/masculina (%)',
-             style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
-             )
+          m.add_data(data = renda, column='Rendimento médio da população feminina/masculina (%)'',
+                     scheme='FisherJenks',
+                     k=2,
+                     cmap='Oranges',
+                     fields=['Município','Rendimento médio da população feminina/masculina (%)'],
+                     legend_title='Rendimento médio da população feminina/masculina (%)',
+                     legend_position='Bottomright',
+                     layer_name='Rendimento médio da população feminina/masculina (%)',
+                     style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
+                     )
 ########VALORES DE MX E MN DAS VARIAVEIS
           max_value = data[ind].max()
           min_value = data[ind].min()
