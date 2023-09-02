@@ -132,9 +132,10 @@ else:
 
           @st.cache_data
 #######MERGE geojson e csv
-          arq_csv = pd.read_csv(renda)
+
+          csv = pd.read_csv("./dados/csv/renda.csv")
           arq_geojson = gpd.read_file(NTC)
-          data = arq_geojson.merge(arq_csv, on="Município")
+          data = arq_geojson.merge(csv, on="Município")
 
 #######LAT E LON CENTRAIS
           ponto_central = arq_geojson.geometry.centroid
