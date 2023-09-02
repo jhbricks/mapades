@@ -2,8 +2,6 @@ import streamlit as st
 from streamlit_extras.colored_header import colored_header
 import geopandas as gpd
 import pandas as pd
-import plotly.express as px
-import pandas as pd
 import plotly.graph_objects as go
 from deff.mapa__ import mapa
 from deff.calculos__ import mx_mn
@@ -45,8 +43,8 @@ if area == "Paraná":
           
           d1,d2 = st.columns([1.5,1])
           with d1:
-               mx_mn (PR,renda,'Renda Média da População (R$ mil)','R$')
-               conta (PR,renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
+               mx_mn ('PR',renda,'Renda Média da População (R$ mil)','R$')
+               conta ('PR'',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
           with d2:
                st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
                st.markdown("""**Ano-base:** 2020
@@ -80,12 +78,12 @@ else:
                          color_name="red-70",)
           c3, c4 = st.columns(2)
           with c3:
-               mapa(NTC,renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
-               mx_mn (NTC,renda,'Renda Média da População (R$ mil)',None)
-               conta (NTC,renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
+               mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+               mx_mn ('NTC',renda,'Renda Média da População (R$ mil)',None)
+               conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
           with c4:
                # read the csv file
-               df = pd.read_csv('/content/drive/MyDrive/Mestrado/Dissertação/Arquivos/A/B/renda2.csv')
+               df = pd.read_csv("./dados/csv/renda.csv")
 
 # get the highest and lowest values for the average income column
                highest = df.nlargest(3, 'Renda Média da População (R$ mil)')
