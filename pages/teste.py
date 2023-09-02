@@ -130,7 +130,9 @@ else:
           PR = "./dados/geojson/PR.geojson"
           NTC =  "./dados/geojson/NTC.geojson"
 
-          @st.cache_data
+
+
+          #@st.cache_data
 #######MERGE geojson e csv
 
           csv = pd.read_csv("./dados/csv/renda.csv")
