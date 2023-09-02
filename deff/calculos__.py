@@ -49,10 +49,10 @@ def mx_mn (area,arq,ind,unidade=None):
     st.markdown("<h3><font size='+5'> Municípios com o <font color='#563666'>maior</font> e <font color='#CC4FB4'>menor</font> valor:</font></h3>", unsafe_allow_html=True)
     if ind == 'Renda Média da População (R$ mil)': 
         st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} mil </font></p>", unsafe_allow_html=True)
-        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} mil </font></p>", unsafe_allow_html=True)
+        st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{min_str} = {unidade} {ind_mn} mil </font></p>", unsafe_allow_html=True)
     elif ind == 'Patrimônio líquido médio da população (R$ milhões)' or ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
       st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {unidade} {ind_mx} milhões </font></p>", unsafe_allow_html=True)
-      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{mix_str} = {unidade} {ind_mn} milhões </font></p>", unsafe_allow_html=True)   
+      st.markdown(f"<p><font size='+6' color='#563666'>{arrow_u}</font> <font size='+5'>{min_str} = {unidade} {ind_mn} milhões </font></p>", unsafe_allow_html=True)   
     elif unidade is not None:
         st.markdown(f"""<p><font size='+7' color='#563666'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font>  
         <font size='+7' color='#CC4FB4'>{arrow_d}</font> <font size='+5'>{min_str} = {ind_mn} {unidade}</font></p>""", unsafe_allow_html=True)
