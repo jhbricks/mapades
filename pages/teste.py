@@ -143,10 +143,9 @@ else:
           ponto_central = arq_geojson.geometry.centroid
           lat = ponto_central.iloc[0].y
           lon = ponto_central.iloc[0].x
-    
-#  if not isinstance(data,gpd.GeoDataFrame):
-#    print("O arquivo não é um GeoDataFrame")
-#    exit()
+          if not isinstance(data,gpd.GeoDataFrame):
+               print("O arquivo não é um GeoDataFrame")
+               exit()
 ##########################MAPA
 ########MAPA INICIAL
           m = leafmap.Map(center=[lat,lon],
