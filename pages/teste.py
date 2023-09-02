@@ -29,7 +29,7 @@ NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC
 renda = "./dados/csv/renda.csv"
 
 #Selecionar a área [Radio horizontal]
-st.markdown("<h3><font size='8'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
+#st.markdown("<h3><font size='8'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
@@ -82,6 +82,8 @@ else:
                mx_mn ('NTC',renda,'Renda Média da População (R$ mil)',None)
                conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
           with c4:
+               conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
+
                # read the csv file
                df = pd.read_csv("./dados/csv/renda.csv")
 
