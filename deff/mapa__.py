@@ -44,9 +44,9 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     lon = ponto_central.iloc[0].x
 
 ##########Para não dar erro no mapa
-#    if not isinstance(data,gpd.GeoDataFrame):
-#        print("O arquivo não é um GeoDataFrame")
-#        exit()
+    if not isinstance(data,gpd.GeoDataFrame):
+        print("O arquivo não é um GeoDataFrame")
+        exit()
 
 ##########MAPA
     m = leafmap.Map(center=[lat,lon],
