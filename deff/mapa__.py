@@ -30,7 +30,9 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     if area == 'PR':
         arq_g = "./dados/geojson/PR.geojson"
     else:
+        area = 'NTC'
         arq_g = "./dados/geojson/NTC.geojson"
+
 ##########merge geojson + csv -> coluna em comum = 'Município'
     arq_csv = pd.read_csv(arq)
     arq_geojson = gpd.read_file(arq_g)
@@ -41,6 +43,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     lat = ponto_central.iloc[0].y
     lon = ponto_central.iloc[0].x
 
+##########Para não dar erro no mapa
+    if not isinstance(data,gpd.GeoDataFrame):
+        print("O arquivo não é um GeoDataFrame")
+        exit()
+        
 ##########MAPA
     m = leafmap.Map(center=[lat,lon],
                     draw_control=False,

@@ -86,9 +86,21 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     arq_geojson = gpd.read_file(arq_g)
     data = arq_geojson.merge(arq_csv, on="Município")
   
-    
- ###########CONTEXTO 
-    if ind == "Densidade Demográfica (hab/km²)":
+ ###########GERAL
+    if tipo == "md_int":
+        media = int(data[ind].mean())
+    elif tipo == "soma":
+        media = data[ind].sum()
+    elif tipo == "media":
+        media = data[ind].mean().round(2)
+    elif tipo is not None and unidade is not None:
+        st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
+    elif tipo is not None and unidade is None:
+        st.markdown(f"""<h3><font size='+5'> {calc} em {ano}:</font>  
+        <font style='font-weight: bold;><font size:'+5'>     {tipo} </font></h3>""", unsafe_allow_html=True)
+###########CONTEXTO 
+    elif ind == "Densidade Demográfica (hab/km²)":
         somapop = data['População'].sum()
         somaarea = data['Areakm2'].sum()
         DEM = (somapop / somaarea).round().astype(int)
@@ -144,20 +156,5 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {unidade} {tipo} milhões </font></h3>", unsafe_allow_html=True)
  ###################################################   
     else:
-        if tipo == "md_int":
-            media = int(data[ind].mean())
-        elif tipo == "soma":
-            media = data[ind].sum()
-        else:
-            tipo == "media"
-            media = data[ind].mean().round(2)
-        
-        if tipo is not None and unidade is not None:
-            st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
-            st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
-        elif tipo is not None and unidade is None:
-            st.markdown(f"""<h3><font size='+5'> {calc} em {ano}:</font>  
-            <font style='font-weight: bold;><font size:'+5'>     {tipo} </font></h3>""", unsafe_allow_html=True)
-        else:    
-            st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
-            st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {tipo} {unidade}</font></h3>", unsafe_allow_html=True)
