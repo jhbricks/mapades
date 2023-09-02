@@ -119,8 +119,7 @@ else:
           import leafmap
           import leafmap.foliumap as leafmap
           import geopandas as gpd
-          import pandas as pd
-          import numpy as np
+
 
 ########################ARQUIVOS CSV E GEOJSON
           contexto = "./dados/csv/contexto.csv"
