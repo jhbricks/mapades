@@ -157,8 +157,7 @@ else:
                           attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-          bnds = leafmap.gdf_bounds(data)
-          m.zoom_to_bounds(bnds)
+
 
           m.add_data(data = renda, column='Renda Média da População (R$ mil)',
                      scheme='FisherJenks',
