@@ -44,7 +44,7 @@ if area == "Paraná":
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Renda Média da População (R$ mil)','R$')
-               conta ('PR'',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
+               conta ('PR',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
           with d2:
                st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
                st.markdown("""**Ano-base:** 2020
