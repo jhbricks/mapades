@@ -159,7 +159,7 @@ else:
           bnds = leafmap.gdf_bounds(data)
           m.zoom_to_bounds(bnds)
 
-          m.add_data(data = renda, column='Rendimento médio da população feminina/masculina (%)'',
+          m.add_data(data = renda, column='Rendimento médio da população feminina/masculina (%)',
                      scheme='FisherJenks',
                      k=2,
                      cmap='Oranges',
