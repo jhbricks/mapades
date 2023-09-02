@@ -44,10 +44,10 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     lon = ponto_central.iloc[0].x
 
 ##########Para não dar erro no mapa
-    if not isinstance(data,gpd.GeoDataFrame):
-        print("O arquivo não é um GeoDataFrame")
-        exit()
-        
+#    if not isinstance(data,gpd.GeoDataFrame):
+#        print("O arquivo não é um GeoDataFrame")
+#        exit()
+
 ##########MAPA
     m = leafmap.Map(center=[lat,lon],
                     draw_control=False,
@@ -56,7 +56,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                     attribution_control=True)
 
 ####zoom
-    bounds = m.get_bounds()
+    bounds = leafmap.gdf_bounds(data)
     m.fit_bounds(bounds)
 
 ####adicionar o gdf (merge)
@@ -69,6 +69,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                legend_title=title,
                legend_position='Bottomright',
                layer_name=title,
+               style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
                )
 ####define os valores mx e mn das variáveis
     max_value = data[ind].max()
