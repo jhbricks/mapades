@@ -101,6 +101,7 @@ else:
                               y=lowest['Renda Média da População (R$ mil)'],
                               name='Menores valores'
                               ))
+               fig.to_streamlit()
 
                st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
                st.markdown("""**Ano-base:** 2010
