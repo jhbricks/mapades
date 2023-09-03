@@ -20,7 +20,7 @@ pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 PR = "./dados/geojson/PR.geojson"
-NTC =  "./dados/geojson/NTC.geojson"
+NTC =  "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
 
 
 
