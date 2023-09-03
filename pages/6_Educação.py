@@ -17,7 +17,7 @@ import numpy as np
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
-renda = "./dados/csv/renda.csv"
+renda = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 PR = "./dados/geojson/PR.geojson"
 NTC =  "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
@@ -54,7 +54,8 @@ m = leafmap.Map(center=[lat,lon],
 bnds = leafmap.gdf_bounds(data)
 m.zoom_to_bounds(bnds)
 
-m.add_data(data = renda, column='Renda Média da População (R$ mil)',
+m.add_data(data = renda,
+           column='Renda Média da População (R$ mil)',
            scheme='FisherJenks',
            k=2,
            cmap='Oranges',
