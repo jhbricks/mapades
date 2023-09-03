@@ -13,6 +13,8 @@ import leafmap.foliumap as leafmap
 import geopandas as gpd
 import pandas as pd
 import numpy as np
+import pyproj
+
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
@@ -30,7 +32,7 @@ NTC =  "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NT
 csv = pd.read_csv("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/renda.csv")
 arq_geojson = gpd.read_file("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson")
 data = arq_geojson.merge(csv, on="Município")
-
+data = data.set_crs(epsg=4326)
 
 
 #######LAT E LON CENTRAIS
