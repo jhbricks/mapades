@@ -27,7 +27,7 @@ NTC =  "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NT
           #@st.cache_data
 #######MERGE geojson e csv
 
-csv = pd.read_csv("./dados/csv/renda.csv")
+csv = pd.read_csv("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/renda.csv")
 arq_geojson = gpd.read_file("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson")
 data = arq_geojson.merge(csv, on="Município")
 
