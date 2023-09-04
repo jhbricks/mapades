@@ -52,27 +52,16 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon], 
                   #height="400px", width="800px",
-                  #zoom=12
+                  zoom=12
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  bounds = data["bounds"]
-  south = bounds["_southWest"]["lat"]
-  west = bounds["_southWest"]["lng"]
-  north = bounds["_northEast"]["lat"]
-  east = bounds["_northEast"]["lng"]
-
-  bounds = [[south, west], [north, east]]
 
 
-  style = {
-      "stroke": True,
-      "color": "#000000",
-      "weight": 2,
-      "opacity": 1}
+
   hover_style = {"fillOpacity": 0.7}
 
 
@@ -86,7 +75,10 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-             style=style,
+             style={"stroke": True,
+                    "color": "#000000",
+                    "weight": 2,
+                    "opacity": 1},
              hover_style=hover_style)
   
   
