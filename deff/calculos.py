@@ -145,11 +145,9 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> R$ {media} milhões </font></h3>", unsafe_allow_html=True)
-    
-    def add_thousands_separator(number):
-        return '{:,}'.format(number)
-    
     else:
+        def add_thousands_separator(number):
+            return '{:,}'.format(number)
         if tipo == "md_int":
             media = int(data[ind].mean())
         elif tipo == "soma":
