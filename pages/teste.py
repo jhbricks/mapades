@@ -3,9 +3,11 @@ from streamlit_extras.colored_header import colored_header
 import geopandas as gpd
 import pandas as pd
 import plotly.graph_objects as go
-from deff.mapa__ import mapa
+#from deff.mapa__ import mapa
 from deff.calculos__ import mx_mn
 from deff.calculos__ import conta
+#from deff.map import zoom_to_bounds
+from deff.map import mapa
 
 st.set_page_config(layout="wide")
 
