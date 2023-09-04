@@ -98,7 +98,7 @@ def grafico (arq,ind,un):
   highest = df.nlargest(3, ind)
   lowest = df.nsmallest(3, ind)
 
-  fig = go.Figure(x='Município',y=un)
+  fig = go.Figure()
 
   colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
 
@@ -112,4 +112,8 @@ def grafico (arq,ind,un):
                         name='Menores valores',
                         marker=dict(color=colors['Menores valores']) 
                         ))
+  
+  fig.update_xaxes(title_text='Município')
+  fig.update_yaxes(title_text=un)
+  
   st.plotly_chart(fig, use_container_width=True, height=200)
