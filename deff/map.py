@@ -58,8 +58,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  bounds = data.total_bounds
-  m.zoom_to_bounds(bounds)
+  def zoom_to_bounds(m, data):
+      bounds = data.total_bounds
+      m.zoom_to_bounds(bounds)
+  
+  zoom_to_bounds(m, data)
 
   style = {
       "stroke": True,
@@ -102,10 +105,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                 icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
 #########ADICIONAR NO STREAMLIT
-  def zoom_to_bounds(m, data):
-      bounds = data.total_bounds
-      m.zoom_to_bounds(bounds)
-  zoom_to_bounds(m, data)
+ 
   m.to_streamlit()
 
 
