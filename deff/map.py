@@ -59,7 +59,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  bounds = st_component["bounds"]
+  bounds = m["bounds"]
   south = bounds["_southWest"]["lat"]
   west = bounds["_southWest"]["lng"]
   north = bounds["_northEast"]["lat"]
