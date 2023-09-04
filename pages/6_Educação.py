@@ -46,43 +46,21 @@ if not isinstance(data,gpd.GeoDataFrame):
 
 ##########################MAPA
 ########MAPA INICIAL
-m = leafmap.Map(center=[lat,lon],
-                draw_control=False,
-                measure_control=False,
-                fullscreen_control=False,
-                attribution_control=True)
+m = leafmap.Map(center=[lat,lon],draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
 bnds = leafmap.gdf_bounds(data)
 m.zoom_to_bounds(bnds)
 
-m.add_data(data = renda,
-           column='Renda Média da População (R$ mil)',
-           scheme='FisherJenks',
-           k=2,
-           cmap='Oranges',
-           fields=['Município','Renda Média da População (R$ mil)'],
-           legend_title='Renda Média da População (R$ mil)',
-           legend_position='Bottomright',
-           layer_name='Renda Média da População (R$ mil)',
-           style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
-           )
+m.add_data(data = renda,column='Renda Média da População (R$ mil)',scheme='FisherJenks',k=2,cmap='Oranges', fields=['Município','Renda Média da População (R$ mil)'],legend_title='Renda Média da População (R$ mil)',legend_position='Bottomright',layer_name='Renda Média da População (R$ mil)',style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1})
 ########VALORES DE MX E MN DAS VARIAVEIS
 max_value = data[ind].max()
 min_value = data[ind].min()
 max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
 min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
 #####ADICIONAR MX E MN NO MAPA
-folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-               data.loc[data[ind] == max_value, "X"].iloc[0]],
-               popup=f"Maior valor: {max_value}<br>{max_municipio}",
-               icon=folium.Icon(color="darkpurple", icon="arrow-up"),
-              ).add_to(m) 
-folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-               data.loc[data[ind] == min_value, "X"].iloc[0]],
-               popup=f"Menor valor: {min_value}<br>{min_municipio}",
-               icon=folium.Icon(color="purple", icon="arrow-down"),
-               ).add_to(m)
+folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down")).add_to(m)
 #########ADICIONAR NO STREAMLIT
 m.to_streamlit()
 
