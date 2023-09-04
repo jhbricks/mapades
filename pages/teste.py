@@ -132,6 +132,3 @@ else:
                               **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
                               **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                               """)
-
-     with t3:
-          
