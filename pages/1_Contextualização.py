@@ -58,7 +58,7 @@ if area == "Paraná":
 
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
-      grafico(contexto,'População')
+      grafico(contexto,'População','Habitantes')
       conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
 
 

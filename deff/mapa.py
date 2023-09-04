@@ -92,13 +92,13 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
   m.to_streamlit()
 	
 
-def grafico (arq,ind):
+def grafico (arq,ind,un):
   df = pd.read_csv(arq)
 
   highest = df.nlargest(3, ind)
   lowest = df.nsmallest(3, ind)
 
-  fig = go.Figure(height=200)
+  fig = go.Figure(x='Município',y=un)
 
   colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
 
@@ -112,4 +112,4 @@ def grafico (arq,ind):
                         name='Menores valores',
                         marker=dict(color=colors['Menores valores']) 
                         ))
-  st.plotly_chart(fig, use_container_width=True)
+  st.plotly_chart(fig, use_container_width=True, height=200)
