@@ -119,10 +119,7 @@ else:
                               y=lowest['Renda Média da População (R$ mil)'],
                               name='Menores valores'
                               ))
-               fig.show(config={'modeBarButtonsToRemove': ['zoom',
-                                                            'pan',
-                                                            'select',
-                                                            'zoomIn','zoomOut', 'autoScale', 'resetScale']})
+               fig.show(config={'modeBarButtonsToRemove': ['zoom','pan','select','zoomIn','zoomOut', 'autoScale', 'resetScale']})
                st.plotly_chart(fig, use_container_width=True)
 
 
