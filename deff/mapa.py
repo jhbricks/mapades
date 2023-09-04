@@ -115,5 +115,6 @@ def grafico (arq,ind,un):
   
   fig.update_xaxes(title_text='Município')
   fig.update_yaxes(title_text=un)
+  fig.update_layout(height=200)
   
-  st.plotly_chart(fig, use_container_width=True, height=200)
+  st.plotly_chart(fig, use_container_width=True)
