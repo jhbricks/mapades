@@ -58,11 +58,8 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  def zoom_to_bounds(m, data):
-      bounds = data.total_bounds
-      m.zoom_to_bounds(bounds)
-  
-  zoom_to_bounds(m, data)
+  bounds = data.total_bounds
+  m.zoom_to_bounds(bounds)
 
   style = {
       "stroke": True,
