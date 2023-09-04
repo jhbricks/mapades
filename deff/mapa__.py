@@ -6,6 +6,7 @@ import leafmap.foliumap as leafmap
 import geopandas as gpd
 import pandas as pd
 import numpy as np
+import os
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
@@ -49,18 +50,31 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     exit()
 ##########################MAPA
 ########MAPA INICIAL
-  m = leafmap.Map(center=[lat,lon],
+  m = leafmap.Map(center=[lat,lon], 
+                  height="400px", width="800px",
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  bnds = leafmap.gdf_bounds(data)
-  m.zoom_to_bounds(bnds)
+  bounds = gdf.total_bounds
+  data.zoom_to_bounds(bounds)
+
+  style = {
+      "stroke": True,
+      "color": "#0000ff",
+      "weight": 2,
+      "opacity": 1,
+      "fill": True,
+      "fillColor": "#0000ff",
+      "fillOpacity": 0.1,}
+  hover_style = {"fillOpacity": 0.7}
+
+
 
   m.add_data(data = data,
-	         column=ind,
+	           column=ind,
              scheme=scheme,
              k=k,
              cmap=cmap,
@@ -68,8 +82,9 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-             style={"stroke": True, "color": "#000000", "weight": 1, "fillOpacity": 1}
-             )
+             style=style,
+             hover_style=hover_style)
+  
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()

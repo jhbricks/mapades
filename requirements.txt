@@ -12,3 +12,4 @@ pandas-gbq==0.19.2
 Pillow==10.0.0
 
 plotly
+osmnx
