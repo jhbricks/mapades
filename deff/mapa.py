@@ -94,8 +94,8 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 
 def grafico (arq,ind):
   df = pd.read_csv(arq)
-  highest = df.nlargest(3, 'Renda Média da População (R$ mil)')
-  lowest = df.nsmallest(3, 'Renda Média da População (R$ mil)')
+  highest = df.nlargest(3, ind)
+  lowest = df.nsmallest(3, ind)
   fig = go.Figure()
   colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
 
