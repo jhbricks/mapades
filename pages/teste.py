@@ -8,6 +8,7 @@ from deff.calculos__ import mx_mn
 from deff.calculos__ import conta
 #from deff.map import zoom_to_bounds
 from deff.map import mapa
+from deff.map import grafico
 
 st.set_page_config(layout="wide")
 
@@ -58,6 +59,7 @@ if area == "Paraná":
           with d1:
                mx_mn ('PR',renda,'Renda Média da População (R$ mil)','R$')
                conta ('PR',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$')
+               grafico(renda,'Renda Média da População (R$ mil)')
           with d2:
                st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
                st.markdown("""**Ano-base:** 2020

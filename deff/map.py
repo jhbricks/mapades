@@ -7,6 +7,8 @@ import geopandas as gpd
 import pandas as pd
 import numpy as np
 import os
+import plotly.graph_objects as go
+
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
@@ -106,5 +108,22 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #########ADICIONAR NO STREAMLIT
  
   m.to_streamlit()
+
+
+
+def grafico (arq,ind):
+  df = pd.read_csv(arq)
+  highest = df.nlargest(3, 'Renda Média da População (R$ mil)')
+  lowest = df.nsmallest(3, 'Renda Média da População (R$ mil)')
+  fig = go.Figure()
+  fig.add_trace(go.Bar(x=highest['Município'],
+                       y=highest[ind],
+                       name='Maiores valores'
+                       ))
+  fig.add_trace(go.Bar(x=lowest['Município'],
+                        y=lowest[ind],
+                        name='Menores valores'
+                        ))
+  st.plotly_chart(fig, use_container_width=True)
 
 
