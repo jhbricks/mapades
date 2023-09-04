@@ -27,13 +27,15 @@ NTC =  "./dados/geojson/NTC.geojson"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (area,arq,zoom,ind,scheme,k,cmap,fields,title):
+def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
-    arq_g = "./dados/geojson/PR.geojson"
+    arq_g = "./dados/geojson/PR.geojson",
+    zoom = 12
   else:
     area = 'NTC'
-    arq_g = "./dados/geojson/NTC.geojson"
+    arq_g = "./dados/geojson/NTC.geojson",
+    zoom=16
 
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
@@ -48,6 +50,8 @@ def mapa (area,arq,zoom,ind,scheme,k,cmap,fields,title):
   if not isinstance(data,gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
     exit()
+
+  
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon], 
