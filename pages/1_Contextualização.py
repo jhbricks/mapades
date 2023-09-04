@@ -39,7 +39,7 @@ if area == "Paraná":
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mapa('bnds','PR',contexto,'População','FisherJenks',6,'YlOrBr', ['Município','População'],'População residente')
+      mapa('bnds','PR',contexto,'População','FisherJenks',7,'YlOrBr', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -50,19 +50,7 @@ if area == "Paraná":
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
       grafico(contexto,'População')
       conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
-  
-    c1,c2 = st.columns([1.5,1])
-    with c1:
-      mx_mn ('PR',contexto,'População','habitantes')
-      conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
 
-    with c2:
-      st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IBGE  
-                  **Fórmula:** População total por município  
-                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
-                  """)          
 
   with t2:
     colored_header(label="Densidade demográfica",

@@ -96,7 +96,7 @@ def grafico (arq,ind):
   df = pd.read_csv(arq)
   highest = df.nlargest(3, ind)
   lowest = df.nsmallest(3, ind)
-  fig = go.Figure()
+  fig = go.Figure(height=400)
   colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
 
   fig.add_trace(go.Bar(x=highest['Município'],
