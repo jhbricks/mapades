@@ -8,6 +8,7 @@ from deff.calculos__ import mx_mn
 from deff.calculos__ import conta
 #from deff.map import zoom_to_bounds
 from deff.map import mapa
+from deff.map import titulo
 
 st.set_page_config(layout="wide")
 
@@ -37,11 +38,17 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 if area == "Paraná":
      t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
+     
      with t2:
-          colored_header(label="Renda média da população",
-                         description="Renda média da população no Paraná",
-                         color_name="red-70",)
-          mapa('PR',renda,Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+          titulo('AAAA')
+          mapa('PR',
+               renda,
+               'Renda Média da População (R$ mil)',
+               'FisherJenks',
+               7,
+               'YlGnBu',
+               ['Município','Renda Média da População (R$ mil)'],
+               'Renda Média da População (R$ mil)')
           
           d1,d2 = st.columns([1.5,1])
           with d1:

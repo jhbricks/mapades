@@ -16,6 +16,11 @@ riqueza = "./dados/csv/riqueza.csv"
 PR = "./dados/geojson/PR.geojson"
 NTC =  "./dados/geojson/NTC.geojson"
 
+def titulo (ind):
+  colored_header(label=ind,
+                 description=" ",
+                 color_name="red-70",)
+
 #######################DICIONÁRIO DEF MAPA
 #area = 'PR' ou 'NTC'
 #arq = arquivo csv, ex: contexto
