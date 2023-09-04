@@ -30,13 +30,16 @@ NTC =  "./dados/geojson/NTC.geojson"
 def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
-    arq_g = "./dados/geojson/PR.geojson",
-    zoom = 12
+    arq_g = "./dados/geojson/PR.geojson"
   else:
     area = 'NTC'
-    arq_g = "./dados/geojson/NTC.geojson",
-    zoom=16
+    arq_g = "./dados/geojson/NTC.geojson"
 
+  if area == 'PR':
+    zoom = 14
+  else:
+    zoom = 16
+    
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
