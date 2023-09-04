@@ -59,7 +59,7 @@ if area == "Paraná":
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
       conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
-      grafico(contexto,'População','Habitantes')
+      grafico('PR',contexto,'População','Habitantes')
       
 
 
@@ -67,77 +67,83 @@ if area == "Paraná":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
-    mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-    
+  
     c1,c2 = st.columns([1.5,0.5])
     with c1:
       mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-
-    with c2:
-#      mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
-      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IBGE  
-                  **Fórmula:** (População total/Área total) 
-                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
-                  """)
-  with t3:
-    colored_header(label="Grau de urbanização",
-                   description="Percentual da população residente em áreas urbanas no Paraná",
-                   color_name="red-70",)
-    mapa('bnds','PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
-     
-    c1,c2 = st.columns([1.5,1])
-    with c1:
- #     mx_mn ('PR',contexto,'Grau de Urbanização (%)','%')
-      conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
-    with c2:
-      st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
       st.markdown("""**Ano-base:** 2010 
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
+    with c2:
+#      mx_mn ('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
+      grafico('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+
+
+  with t3:
+    colored_header(label="Grau de urbanização",
+                   description="Percentual da população residente em áreas urbanas no Paraná",
+                   color_name="red-70",)
+     
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+ #     mx_mn ('PR',contexto,'Grau de Urbanização (%)','%')
+      mapa('bnds','PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      st.markdown("""**Ano-base:** 2010 
+                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                  **Fórmula:** (População censitária urbana*100)/População censitária total  
+                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                  """)
+    with c2:
+      st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
+      conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
+      grafico('PR',contexto,'Grau de Urbanização (%)','%')
+
+
     
     with t4:
       colored_header(label="População feminina",
                      description="Percentual da população feminina no Paraná",
                      color_name="red-70",)
-    
-      mapa ('bnds','PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
-        
       c1,c2 = st.columns([1.5,1])
       with c1:
-  #      mx_mn ('PR',contexto,'População feminina (%)','%')
-        conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
-
-      with c2:
-        st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
+        mapa ('bnds','PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         st.markdown("""**Ano-base:** 2010 
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** (População censitária feminina*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
+  #      mx_mn ('PR',contexto,'População feminina (%)','%')
+      with c2:
+        st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
+        conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
+        grafico('PR',contexto,'População feminina (%)','%')
+
 
     with t5:
       colored_header(label="População preta ou parda",
                      description="Percentual da população preta ou parda no Paraná",
                      color_name="red-70",)
-      mapa ('bnds','PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
         
       c1,c2 = st.columns([1.5,1])
       with c1:
-   #     mx_mn ('PR',contexto,'População preta ou parda (%)','%')
-        conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
-
-      with c2:
-        st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
+        mapa ('bnds','PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGn', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
         st.markdown("""**Ano-base:** 2010 
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
                    
+   #     mx_mn ('PR',contexto,'População preta ou parda (%)','%')
+        conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+
+      with c2:
+        st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
+        conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+        grafico('PR',contexto,'População preta ou parda (%)','%')
+
     
     with t6:
       colored_header(label="Razão de dependência",

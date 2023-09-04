@@ -30,10 +30,8 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
-    zoom = 12
   else:
     area = 'NTC'
-    zoom = 14
     arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
@@ -52,7 +50,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-		  zoom = zoom,
+		  #zoom = z,
 		  #zoom_min = zmn,
 		  #zoom_max = zmx,
 		  draw_control=False,
@@ -101,11 +99,20 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 #ind = indicador conforme está no arquivo csv, ex: 'População'
 #un = unidade, ex; 'Habitantes'
 
-def grafico (arq,ind,un):
-  df = pd.read_csv(arq)
+def grafico (area,arq,ind,un):
+  if area == 'PR':
+    arq_g = "./dados/geojson/PR.geojson"
+  else:
+    area = 'NTC'
+    arq_g = "./dados/geojson/NTC.geojson"
+#######MERGE geojson e csv
+  arq_csv = pd.read_csv(arq)
+  arq_geojson = gpd.read_file(arq_g)
+  data = arq_geojson.merge(arq_csv, on="Município")
 
-  highest = df.nlargest(3, ind)
-  lowest = df.nsmallest(3, ind)
+
+  highest = data.nlargest(3, ind)
+  lowest = data.nsmallest(3, ind)
 
   fig = go.Figure()
 
