@@ -51,7 +51,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon], 
-                  height="400px", width="800px",
+                  #height="400px", width="800px",
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
@@ -59,7 +59,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   
 #######ADICIONAR O MERGE GDF
   bounds = data.total_bounds
-  data.zoom_to_bounds(bounds)
+  m.zoom_to_bounds(bounds)
 
   style = {
       "stroke": True,
