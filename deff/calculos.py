@@ -155,8 +155,8 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
             tipo == "media"
             media = data[ind].mean().round(2)
 
-        formatted_media = locale.format_string("%d", media, grouping=True)
-
+        formatted_media = f"{media:,}"
+        
         if tipo is not None and unidade is not None:
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
             st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {media} {unidade}</font></h3>", unsafe_allow_html=True)
