@@ -118,11 +118,13 @@ def grafico (arq,ind):
   fig = go.Figure()
   fig.add_trace(go.Bar(x=highest['Município'],
                        y=highest[ind],
-                       name='Maiores valores'
+                       name='Maiores valores',
+                       marker=dict(color='#5a386a'['Maiores valores'])
                        ))
   fig.add_trace(go.Bar(x=lowest['Município'],
                         y=lowest[ind],
-                        name='Menores valores'
+                        name='Menores valores',
+                        marker=dict(color='#cd50b5'['Menores valores'])
                         ))
   st.plotly_chart(fig, use_container_width=True)
 
