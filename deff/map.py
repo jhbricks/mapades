@@ -59,7 +59,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  def st_map_bounds(m, st_component) -> Tuple:
+  def st_map_bounds(m, st_component):
     """Get the bounds of the map in the format of (miny, minx, maxy, maxx).
 
     Args:
