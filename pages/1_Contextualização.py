@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from streamlit_folium import folium_static
 from deff.mapa import mapa
-from deff.map import mx_mn
+from deff.mapa import grafico
 from deff.calculos import conta
 import folium
 import geopandas as gpd
@@ -37,8 +37,20 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    mapa('bnds','PR',contexto,'População','FisherJenks',5,'YlOrBr', ['Município','População'],'População residente')
-    
+    c1,c2 = st.columns([1.5,1])
+    with c1:
+      mapa('bnds','PR',contexto,'População','FisherJenks',5,'YlOrBr', ['Município','População'],'População residente')
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** População total por município  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)   
+
+    with c2:
+      st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
+      grafico(renda,'População')
+      conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
+  
     c1,c2 = st.columns([1.5,1])
     with c1:
       mx_mn ('PR',contexto,'População','habitantes')

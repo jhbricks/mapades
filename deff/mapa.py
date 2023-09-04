@@ -35,17 +35,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
-#######ADICIONAR COLUNAS COM CALCULOS PARA CATEGORIA RIQUEZA
-  #if ind == 'Renda Média da População (R$ mil)':
-  #  data['Renda Média da População (R$ mil)'] = ((data['Renda Média da População (R$)']) / 1000).round(2).astype(float)
-  #elif ind == 'Renda Média dos Declarantes (R$ mil)':
-  #  data['Renda Média dos declarantes (R$ mil)'] = ((data['Renda Média dos Declarantes (R$)']) / 1000).round(2).astype(float)
-  #elif ind == 'Patrimônio líquido médio da população (R$ milhões)':
-  #  data['Patrimônio líquido médio da população (R$ milhões)'] = (data['Patrimônio liquido médio da população (R$)'] / 1000000).round(2).astype(float)
-  #elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
-  #  data['Patrimônio líquido médio dos declarantes (R$ milhões)'] = (data['Patrimônio liquido médio dos declarantes (R$)'] / 1000000).round(2).astype(float)
-  #else:
-   # data = data
+
 #######LAT E LON CENTRAIS
   ponto_central = arq_geojson.geometry.centroid
   lat = ponto_central.iloc[0].y
@@ -54,6 +44,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
   if not isinstance(data,gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
     exit()
+
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
@@ -98,3 +89,22 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 #########ADICIONAR NO STREAMLIT
   m.to_streamlit()
 	
+
+def grafico (arq,ind):
+  df = pd.read_csv(arq)
+  highest = df.nlargest(3, 'Renda Média da População (R$ mil)')
+  lowest = df.nsmallest(3, 'Renda Média da População (R$ mil)')
+  fig = go.Figure()
+  colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
+
+  fig.add_trace(go.Bar(x=highest['Município'],
+                       y=highest[ind],
+                       name='Maiores valores',
+                       marker=dict(color=colors['Maiores valores'])
+                       ))
+  fig.add_trace(go.Bar(x=lowest['Município'],
+                        y=lowest[ind],
+                        name='Menores valores',
+                        marker=dict(color=colors['Menores valores']) 
+                        ))
+  st.plotly_chart(fig, use_container_width=True)
