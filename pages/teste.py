@@ -9,7 +9,7 @@ from deff.calculos__ import conta
 #from deff.map import zoom_to_bounds
 from deff.map import mapa
 from deff.map import grafico
-import plost
+
 
 st.set_page_config(layout="wide")
 
@@ -129,15 +129,4 @@ else:
                               """)
 
      with t3:
-          df = pd.read_csv("./dados/csv/renda.csv")
-
-# get the highest and lowest values for the average income column
-          highest = df.nlargest(3, 'Renda Média da População (R$ mil)')
-          lowest = df.nsmallest(3, 'Renda Média da População (R$ mil)')
-          plost.bar_chart(data=datasets[highest,lowest],
-                          bar='R$ mil',
-                          value=['Maiores valores', 'Menores valores'],
-                          group='value',
-                          color='company',
-                          legend=None,
-                         )
+          
