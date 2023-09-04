@@ -92,6 +92,14 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
   m.to_streamlit()
 	
 
+
+
+#######################GRÁFICO
+
+#arq = arquivo csv, ex: contexto
+#ind = indicador conforme está no arquivo csv, ex: 'População'
+#un = unidade, ex; 'Habitantes'
+
 def grafico (arq,ind,un):
   df = pd.read_csv(arq)
 

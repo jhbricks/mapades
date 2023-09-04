@@ -5,6 +5,7 @@ import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
+import locale
 
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
@@ -145,6 +146,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> R$ {media} milhões </font></h3>", unsafe_allow_html=True)
     else:
+        locale.setlocale(locale.LC_ALL, '')
         if tipo == "md_int":
             media = int(data[ind].mean())
         elif tipo == "soma":
@@ -152,6 +154,9 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         else:
             tipo == "media"
             media = data[ind].mean().round(2)
+
+        formatted_media = locale.format_string("%d", media, grouping=True)
+
         if tipo is not None and unidade is not None:
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
             st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {media} {unidade}</font></h3>", unsafe_allow_html=True)
