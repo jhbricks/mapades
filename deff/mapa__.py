@@ -59,7 +59,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   
 #######ADICIONAR O MERGE GDF
   bounds = data.total_bounds
-  self.zoom_to_bounds(bounds)
+  data.zoom_to_bounds(bounds)
 
   style = {
       "stroke": True,
