@@ -27,7 +27,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (area,arq,ind,scheme,k,cmap,fields,title):
+def mapa (area,arq,zoom,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
@@ -52,7 +52,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon], 
                   #height="400px", width="800px",
-                  zoom=12,
+                  zoom=zoom,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,

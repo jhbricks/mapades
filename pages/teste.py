@@ -41,7 +41,7 @@ if area == "Paraná":
           colored_header(label="Renda média da população",
                          description="Renda média da população no Paraná",
                          color_name="red-70",)
-          mapa('PR',renda,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+          mapa('PR',renda,12,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
           
           d1,d2 = st.columns([1.5,1])
           with d1:
@@ -62,7 +62,7 @@ if area == "Paraná":
           mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
-               mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
+               mx_mn ('PR',renda,14,'Rendimento médio da população feminina/masculina (%)',None)
                conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
           with d2:
                st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
@@ -80,7 +80,7 @@ else:
                          color_name="red-70",)
           c3, c4 = st.columns(2)
           with c3:
-               mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+               mapa('NTC',renda,16,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
                mx_mn ('NTC',renda,'Renda Média da População (R$ mil)',None)
                conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
           with c4:
@@ -125,16 +125,7 @@ else:
           import numpy as np
 
 ########################ARQUIVOS CSV E GEOJSON
-          contexto = "./dados/csv/contexto.csv"
-          pop = "./dados/csv/pop_2021.csv"
-          renda = "./dados/csv/renda.csv"
-          riqueza = "./dados/csv/riqueza.csv"
-          PR = "./dados/geojson/PR.geojson"
-          NTC =  "./dados/geojson/NTC.geojson"
-
-
-
-          #@st.cache_data
+          
 #######MERGE geojson e csv
 
           csv = pd.read_csv("./dados/csv/renda.csv")
@@ -159,8 +150,7 @@ else:
                           attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-          bnds = leafmap.gdf_bounds(data)
-          m.zoom_to_bounds(bnds)
+
 
           m.add_data(data = renda, column='Renda Média da População (R$ mil)',
                      scheme='FisherJenks',
