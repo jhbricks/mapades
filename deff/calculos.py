@@ -146,8 +146,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> R$ {media} milhões </font></h3>", unsafe_allow_html=True)
     else:
-        def add_thousands_separator(number):
-            return '{:,}'.format(number)
+
         if tipo == "md_int":
             media = int(data[ind].mean())
         elif tipo == "soma":
@@ -156,7 +155,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
             tipo == "media"
             media = data[ind].mean().round(2)
 
-        formatted_media = add_thousands_separator(media)
+        formatted_media = f'{media:,.0f}'  # This will format as integer with thousands separators
         
         if tipo is not None and unidade is not None:
             st.markdown(f"<h3><font size='+5'> {calc} em {ano}:</font></h3>", unsafe_allow_html=True)
