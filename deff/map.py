@@ -82,7 +82,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              style=style,
              hover_style=hover_style)
   
-  zoom_to_bounds(m, data)
+  
 
   
 ########VALORES DE MX E MN DAS VARIAVEIS
@@ -105,7 +105,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   def zoom_to_bounds(m, data):
       bounds = data.total_bounds
       m.zoom_to_bounds(bounds)
-  
+  zoom_to_bounds(m, data)
   m.to_streamlit()
 
 
