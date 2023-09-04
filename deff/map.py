@@ -59,8 +59,24 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  bounds = data.total_bounds
-  m.zoom_to_bounds(bounds)
+  def st_map_bounds(m, st_component) -> Tuple:
+    """Get the bounds of the map in the format of (miny, minx, maxy, maxx).
+
+    Args:
+        st_component (st_folium): The streamlit component.
+
+    Returns:
+        tuple: The bounds of the map.
+    """
+
+    bounds = st_component["bounds"]
+    south = bounds["_southWest"]["lat"]
+    west = bounds["_southWest"]["lng"]
+    north = bounds["_northEast"]["lat"]
+    east = bounds["_northEast"]["lng"]
+
+    bounds = [[south, west], [north, east]]
+    return bounds
 
   style = {
       "stroke": True,
