@@ -30,8 +30,10 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
+    zoom = 12
   else:
     area = 'NTC'
+    zoom = 14
     arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
@@ -50,7 +52,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-		  #zoom = z,
+		  zoom = zoom,
 		  #zoom_min = zmn,
 		  #zoom_max = zmx,
 		  draw_control=False,
@@ -59,8 +61,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  bnds = leafmap.gdf_bounds(data)
-  m.zoom_to_bounds(bnds)
+
 
   m.add_data(data = data,
 	     column=ind,
