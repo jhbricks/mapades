@@ -119,7 +119,12 @@ else:
                               y=lowest['Renda Média da População (R$ mil)'],
                               name='Menores valores'
                               ))
+               fig.show(config={'modeBarButtonsToRemove': ['zoom',
+                                                            'pan',
+                                                            'select',
+                                                            'zoomIn','zoomOut', 'autoScale', 'resetScale']})
                st.plotly_chart(fig, use_container_width=True)
+
 
                st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
                st.markdown("""**Ano-base:** 2010
