@@ -63,12 +63,9 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
   style = {
       "stroke": True,
-      "color": "#0000ff",
+      "color": "#000000",
       "weight": 2,
-      "opacity": 1,
-      "fill": True,
-      "fillColor": "#0000ff",
-      "fillOpacity": 0.1,}
+      "opacity": 1}
   hover_style = {"fillOpacity": 0.7}
 
 
@@ -102,6 +99,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                 icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
 #########ADICIONAR NO STREAMLIT
+  m.zoom_to_bounds()
   m.to_streamlit()
 
 
