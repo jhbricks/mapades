@@ -116,15 +116,17 @@ def grafico (arq,ind):
   highest = df.nlargest(3, 'Renda Média da População (R$ mil)')
   lowest = df.nsmallest(3, 'Renda Média da População (R$ mil)')
   fig = go.Figure()
+  colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
+
   fig.add_trace(go.Bar(x=highest['Município'],
                        y=highest[ind],
                        name='Maiores valores',
-                       marker=dict(color='#5a386a'['Maiores valores'])
+                       marker=dict(color=colors['Maiores valores'])
                        ))
   fig.add_trace(go.Bar(x=lowest['Município'],
                         y=lowest[ind],
                         name='Menores valores',
-                        marker=dict(color='#cd50b5'['Menores valores'])
+                        marker=dict(color=colors['Menores valores']) 
                         ))
   st.plotly_chart(fig, use_container_width=True)
 
