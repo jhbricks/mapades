@@ -89,7 +89,7 @@ if area == "Paraná":
     c1,c2 = st.columns([1.5,1])
     with c1:
  
-      mapa('bnds','PR',contexto,'Grau de Urbanização (%)','FisherJenks',5,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('bnds','PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010 
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
