@@ -41,7 +41,7 @@ if area == "Paraná":
           colored_header(label="Renda média da população",
                          description="Renda média da população no Paraná",
                          color_name="red-70",)
-          mapa('PR',renda,12,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+          mapa('PR',renda,Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
           
           d1,d2 = st.columns([1.5,1])
           with d1:
@@ -59,7 +59,7 @@ if area == "Paraná":
           colored_header(label="Rendimento médio da população feminina",
                          description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                          color_name="red-70",)
-          mapa('PR',renda,12,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+          mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
@@ -80,7 +80,7 @@ else:
                          color_name="red-70",)
           c3, c4 = st.columns(2)
           with c3:
-               mapa('NTC',14,renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+               mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'RdPu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
                mx_mn ('NTC',renda,'Renda Média da População (R$ mil)',None)
                conta ('NTC',renda,'Renda Média da População (R$ mil)',2010,'Renda Média da População (R$ mil)',0.47, unidade = None)
           with c4:
