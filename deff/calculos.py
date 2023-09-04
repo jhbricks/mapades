@@ -5,7 +5,7 @@ import folium
 import geopandas as gpd
 import leafmap.foliumap as leafmap
 import pandas as pd
-import locale
+
 
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
