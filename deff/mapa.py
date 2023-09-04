@@ -112,4 +112,4 @@ def grafico (arq,ind):
                         name='Menores valores',
                         marker=dict(color=colors['Menores valores']) 
                         ))
-  st.plotly_chart(fig, height=400, use_container_width=True)
+  st.plotly_chart(fig, height=200, use_container_width=True)

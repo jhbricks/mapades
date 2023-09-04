@@ -12,9 +12,19 @@ import numpy as np
 
 
 st.set_page_config(layout="wide")
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
 #Selecionar a área [Radio horizontal]
-st.markdown("<h3><font size='8'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
+st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 #area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
