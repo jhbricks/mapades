@@ -2,9 +2,19 @@ import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 
 
+st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
 
-#Layout da página
-st.set_page_config(layout="wide", page_title="Mapa da Desigualdade")
+#Remove os espaços em branco no topo
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
 st.write("# Mapa da Desigualdade")
 
@@ -16,7 +26,29 @@ st.markdown(
     **Selecione um dos temas abaixo ou abra o menu ao lado** 
     """)
 
+#####Estilo dos botões
+m = st.markdown("""
+<style>
+div.stButton > button:first-child {
+    background-color: #faecca;
+    color: black;
+    height: 3em;
+    width: 12em;
+    border-radius:10px;
+    border:3px solid #faecca;
+    font-size:20px;
+    font-weight: bold;
+    margin: auto;
+    display: block;
+}
 
+div.stButton > button:hover {
+	background:linear-gradient(to bottom, #faecca 5%, #f0ede6 100%);
+	background-color:##faecca;
+}
+</style>""", unsafe_allow_html=True)        
+
+#####Botões
 c1, c2, c3 = st.columns(3)
 
 with c1:
