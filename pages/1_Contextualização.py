@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
 st.markdown("""
         <style>
                .block-container {
