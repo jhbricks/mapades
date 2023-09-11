@@ -1,3 +1,7 @@
+#import streamlit as st
+
+import geopandas as gpd
+
 import leafmap
 import pandas as pd
 import numpy as np
@@ -20,7 +24,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 
 
 
-
+@st.cache_data
 def create_map(area,arq, ind, scheme, k, cmap, fields, title):
     ######encaminha o geojson da area
     if area == 'PR':
