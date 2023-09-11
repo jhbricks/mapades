@@ -116,7 +116,7 @@ if area == "Paraná":
 else:
      t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
      with t1:
-          mapagvf(PR,pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
+          mapagvf('PR',pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
 
      with t2:
           colored_header(label="Renda Média da População (R$ mil)",
