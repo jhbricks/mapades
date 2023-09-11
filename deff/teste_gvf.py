@@ -4,10 +4,10 @@ import numpy as np
 import folium
 import leafmap.foliumap as leafmap
 
-import libpysal
+#import libpysal
 import geopandas
 import mapclassify
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
@@ -78,10 +78,6 @@ def create_map(area,data, ind, scheme, k, cmap, fields, title):
 
     # Calculo do GVF
     GVF = 100 - (SSW / SST * 100)
-
-    print("Sum of Squares Within (SSW):", SSW)
-    print("Sum of Squares Total (SST):", SST)
-    print("Goodness of Variance Fit (GVF):", GVF)
 
     if GVF < 80:
         print("Verifique o número de classes")
