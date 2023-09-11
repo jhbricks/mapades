@@ -26,7 +26,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 
 @st.cache_data
 
-def mapa(area, arq, ind, scheme, k, cmap, fields, title):
+def mapagvf(area, arq, ind, scheme, k, cmap, fields, title):
 ######encaminha o geojson da area
     if area == 'PR':
         arq_g = "./dados/geojson/PR.geojson"
@@ -52,6 +52,50 @@ def mapa(area, arq, ind, scheme, k, cmap, fields, title):
     ponto_central = data.geometry.centroid
     lat = ponto_central.iloc[0].y
     lon = ponto_central.iloc[0].x
+
+    m = leafmap.Map(width=900, height=600, center=[lat, lon],
+                    draw_control=False,
+                    measure_control=False,
+                    fullscreen_control=False,
+                    attribution_control=True)
+
+        # ZOOM 
+    if area == PR:
+        m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
+    else:
+        m.zoom_to_bounds((-47.87,-24.96,-48.54, -25.85))
+
+    m.add_data(data=data,
+               column=ind,
+               scheme=scheme,
+               k=k,
+               cmap=cmap,
+               fields=fields,
+               legend_title=title,
+               legend_position='Bottomright',
+               layer_name=title,
+               )
+
+        ########VALORES DE MX E MN DAS VARIAVEIS
+    max_value = data[ind].max()
+    min_value = data[ind].min()
+    max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+    min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+
+        #####ADICIONAR MX E MN NO MAPA
+    folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
+                   data.loc[data[ind] == max_value, "X"].iloc[0]],
+                   popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                   icon=folium.Icon(color="darkpurple", icon="arrow-up"),
+                   ).add_to(m)
+    folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
+                   data.loc[data[ind] == min_value, "X"].iloc[0]],
+                   popup=f"Menor valor: {min_value}<br>{min_municipio}",
+                   icon=folium.Icon(color="purple", icon="arrow-down"),
+                   ).add_to(m)
+    
+    m.to_streamlit
+
 
 def create_map(area,arq, ind, scheme, k, cmap, fields, title):
     ######encaminha o geojson da area

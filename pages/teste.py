@@ -10,6 +10,7 @@ from deff.calculos__ import conta
 from deff.map import mapa
 from deff.map import grafico
 from deff.teste_gvf import create_map
+from deff.teste_gvf import mapagvf
 
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
@@ -99,7 +100,7 @@ if area == "Paraná":
           colored_header(label="Rendimento médio da população feminina",
                          description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                          color_name="red-70",)
-          create_map(PR,pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
+          mapagvf(PR,pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
@@ -115,7 +116,7 @@ if area == "Paraná":
 else:
      t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
      with t1:
-          create_map(PR,pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
+          mapagvf(PR,pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
 
      with t2:
           colored_header(label="Renda Média da População (R$ mil)",
