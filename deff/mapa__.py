@@ -58,10 +58,6 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 #######ADICIONAR O MERGE GDF
-  if area == PR:
-    m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
-  else:
-    m.zoom_to_bounds((-47.87,-24.96,-48.54, -25.85))
 
   style = {
       "stroke": True,
@@ -102,6 +98,22 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                ).add_to(m)
 #########ADICIONAR NO STREAMLIT
  # m.zoom_to_bounds()
+#  if area == PR:
+    m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
+#  else:
+#    m.zoom_to_bounds((-47.87,-24.96,-48.54, -25.85))
+
+#D
+#N
+#E
+#S
+
+
+  bounds = [[-26.80,-54.67],[-22.44,-47.98]]
+# bounds = [[south, west], [north, east]]  
+
+
+  st_map_bounds(m, bounds)
   m.to_streamlit()
 
 
