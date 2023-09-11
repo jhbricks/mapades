@@ -8,10 +8,10 @@ import numpy as np
 import folium
 import leafmap.foliumap as leafmap
 
-#import libpysal
+import libpysal
 import geopandas
 import mapclassify
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
