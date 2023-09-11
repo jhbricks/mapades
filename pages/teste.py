@@ -11,6 +11,7 @@ from deff.map import mapa
 from deff.map import grafico
 from deff.teste_gvf import create_map
 from deff.teste_gvf import mapagvf
+from deff.mapa__ import mapa1
 
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
@@ -55,7 +56,7 @@ if area == "Paraná":
           colored_header(label="Renda média da população",
                          description="Renda média da população no Paraná",
                          color_name="red-70",)
-          mapa('PR',
+          mapa1('PR',
                renda,
                'Renda Média da População (R$ mil)',
                'FisherJenks',
@@ -81,7 +82,7 @@ if area == "Paraná":
           colored_header(label="Rendimento médio da população feminina",
                          description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                          color_name="red-70",)
-          mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+          mapa1('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)

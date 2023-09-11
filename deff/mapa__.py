@@ -27,7 +27,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (area,arq,ind,scheme,k,cmap,fields,title):
+def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
@@ -121,6 +121,6 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 
   st_map_bounds(m, st_component)
- # m.to_streamlit()
+  m.to_streamlit()
 
 
