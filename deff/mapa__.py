@@ -108,19 +108,13 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 #E
 #S
 
-  bounds = st_component["bounds"]
-  south = bounds["_southWest"][-26.80]
-  west = bounds["_southWest"][-54.67]
-  north = bounds["_northEast"][-22.44]
-  east = bounds["_northEast"][-47.98]
 
-  bounds = [[south, west], [north, east]]
 
-  #bounds = [[-26.80,-54.67],[-22.44,-47.98]]
+  bounds = [[-26.80,-54.67],[-22.44,-47.98]]
 # bounds = [[south, west], [north, east]]  
 
 
-  st_map_bounds(m, st_component)
+  st_map_bounds(m, bounds)
   m.to_streamlit()
 
 
