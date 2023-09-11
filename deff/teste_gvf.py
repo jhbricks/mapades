@@ -17,35 +17,37 @@ riqueza = "./dados/csv/riqueza.csv"
 PR = "./dados/geojson/PR.geojson"
 NTC =  "./dados/geojson/NTC.geojson"
 
-#Nomes geojson e gdf
-######encaminha o geojson da area
-if area == 'PR':
-   arq_g = "./dados/geojson/PR.geojson"
-else:
-   area = 'NTC'
-   arq_g = "./dados/geojson/NTC.geojson"
+
+
+
+
+def create_map(area,arq, ind, scheme, k, cmap, fields, title):
+    ######encaminha o geojson da area
+    if area == 'PR':
+        arq_g = "./dados/geojson/PR.geojson"
+    else:
+        area = 'NTC'
+        arq_g = "./dados/geojson/NTC.geojson"
 
 #######MERGE geojson e csv
-arq_csv = pd.read_csv(arq)
-arq_geojson = gpd.read_file(arq_g)
-data = arq_geojson.merge(arq_csv, on="Município")
+    arq_csv = pd.read_csv(arq)
+    arq_geojson = gpd.read_file(arq_g)
+    data = arq_geojson.merge(arq_csv, on="Município")
 
 #######LAT E LON CENTRAIS
-ponto_central = arq_geojson.geometry.centroid
-lat = ponto_central.iloc[0].y
-lon = ponto_central.iloc[0].x
+    ponto_central = arq_geojson.geometry.centroid
+    lat = ponto_central.iloc[0].y
+    lon = ponto_central.iloc[0].x
     
-if not isinstance(data,gpd.GeoDataFrame):
-    print("O arquivo não é um GeoDataFrame")
-    exit()
+    if not isinstance(data,gpd.GeoDataFrame):
+        print("O arquivo não é um GeoDataFrame")
+        exit()
 
 #Lat e Lon Centrais
-ponto_central = data.geometry.centroid
-lat = ponto_central.iloc[0].y
-lon = ponto_central.iloc[0].x
+    ponto_central = data.geometry.centroid
+    lat = ponto_central.iloc[0].y
+    lon = ponto_central.iloc[0].x
 
-
-def create_map(area,data, ind, scheme, k, cmap, fields, title):
     # Calculate GVF
     q10 = mapclassify.FisherJenks(data[ind], k=k)
     print(q10)  # excluir esse
@@ -129,7 +131,7 @@ def create_map(area,data, ind, scheme, k, cmap, fields, title):
 
 # Call the create_map function to display the map
 if __name__ == '__main__':
-    m = create_map(area,data, ind, scheme, k, cmap, fields, title)
+    m = create_map(area,arq, ind, scheme, k, cmap, fields, title)
     
     # Display the map in a Jupyter Notebook or IPython environment
     display(m)
