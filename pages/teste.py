@@ -99,7 +99,7 @@ if area == "Paraná":
           colored_header(label="Rendimento médio da população feminina",
                          description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                          color_name="red-70",)
-          create_map(PR,pop,'População','FisherJenks',7,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
+          create_map(PR,pop,'População','FisherJenks',5,'PuRd', ['Município','População'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
