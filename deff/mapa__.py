@@ -99,7 +99,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #########ADICIONAR NO STREAMLIT
  # m.zoom_to_bounds()
 #  if area == PR:
-    m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
+ #   m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
 #  else:
 #    m.zoom_to_bounds((-47.87,-24.96,-48.54, -25.85))
 
