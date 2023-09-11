@@ -18,7 +18,7 @@ st.markdown("""
 
 st.write("# Mapa da Desigualdade")
 
-st.sidebar.success("Selecione uma das páginas acima")
+#st.sidebar.success("Selecione uma das páginas acima")
 
 st.markdown(
     """
