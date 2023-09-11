@@ -20,7 +20,7 @@ contexto = "./dados/csv/contexto.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Riqueza - Mapa da Desigualdade")
 
 #Selecionar a área [Radio horizontal]
 st.markdown("<h3><font size='8'  color='red'>Riqueza</font></font></h3>", unsafe_allow_html=True)
