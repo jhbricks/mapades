@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 
+st.set_page_config(layout="wide", page_title="Ajuda")
+
 colored_header(label="Ajuda",description="   ",color_name="light-blue-70",)
 
 t1, t2 = st.tabs(["Como ler mapas", "Glossário"])
