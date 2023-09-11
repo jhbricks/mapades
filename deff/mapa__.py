@@ -114,6 +114,6 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 
   st_map_bounds(m, bounds)
-  m.to_streamlit()
+ # m.to_streamlit()
 
 
