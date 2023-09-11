@@ -159,7 +159,7 @@ def create_map(area,arq, ind, scheme, k, cmap, fields, title):
                        ).add_to(m)
 
 
-        return m
+        return m.to_streamlit
 
 # Call the create_map function to display the map
 if __name__ == '__main__':
