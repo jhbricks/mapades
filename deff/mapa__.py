@@ -101,7 +101,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                 icon=folium.Icon(color="purple", icon="arrow-down"),
                ).add_to(m)
 #########ADICIONAR NO STREAMLIT
-  m.zoom_to_bounds()
+ # m.zoom_to_bounds()
   m.to_streamlit()
 
 
