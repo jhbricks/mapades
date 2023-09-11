@@ -164,6 +164,5 @@ def create_map(area,arq, ind, scheme, k, cmap, fields, title):
 # Call the create_map function to display the map
 if __name__ == '__main__':
     m = create_map(area,arq, ind, scheme, k, cmap, fields, title)
-    
-    # Display the map in a Jupyter Notebook or IPython environment
-     m.to_streamlit
+        # Display the map in a Jupyter Notebook or IPython environment
+    m.to_streamlit
