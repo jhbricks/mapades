@@ -15,4 +15,5 @@ plotly
 osmnx
 matplotlib
 libpysal
+classify
 
