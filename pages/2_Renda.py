@@ -12,7 +12,7 @@ from deff.calculos import conta
 
 
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Renda - Mapa da Desigualdade")
 
 #Selecionar a área [Radio horizontal]
 st.markdown("<h3><font size='8'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
