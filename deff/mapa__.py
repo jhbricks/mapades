@@ -111,12 +111,9 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 #S
 #m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
   
-  south = bounds["_southWest"][-26.80]
-  west = bounds["_southWest"][-54.67]
-  north = bounds["_northEast"][-22.44]
-  east = bounds["_northEast"][-47.98]
+ 
 
-  bounds = [[south, west], [north, east]]
+  bounds = [[-26.80, -54.67], [-22.44,-47.98]]
   st_map_bounds(m, bounds)
   m.to_streamlit()
 
