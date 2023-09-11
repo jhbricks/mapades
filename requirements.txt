@@ -13,4 +13,5 @@ Pillow==10.0.0
 
 plotly
 osmnx
+matplotlib
 

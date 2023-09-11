@@ -9,6 +9,7 @@ from deff.calculos__ import conta
 #from deff.map import zoom_to_bounds
 from deff.map import mapa
 from deff.map import grafico
+from deff.teste_gvf import create_map
 
 
 st.set_page_config(layout="wide")
@@ -74,6 +75,25 @@ if area == "Paraná":
                          description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                          color_name="red-70",)
           mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+          d1,d2 = st.columns([1.5,1])
+          with d1:
+               mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
+               conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
+          with d2:
+               st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
+               st.markdown("""**Ano-base:** 2021
+                              **Fonte(s):** IPARDES, RAIS  
+                              **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
+                              **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
+                              """)
+
+#teste GVF
+##################area,data, ind, scheme, k, cmap, fields, title
+     with t4:
+          colored_header(label="Rendimento médio da população feminina",
+                         description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
+                         color_name="red-70",)
+          create_map('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
           d1,d2 = st.columns([1.5,1])
           with d1:
                mx_mn ('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
