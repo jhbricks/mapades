@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from PIL import Image
-st.set_page_config(layout="wide", page_title="Sobre - Mapa da Desigualdade")
+st.set_page_config(layout="wide", page_title="Sobre")
 
 colored_header(
     label="Sobre",
