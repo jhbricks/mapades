@@ -25,6 +25,34 @@ NTC =  "./dados/geojson/NTC.geojson"
 
 
 @st.cache_data
+
+def mapa(area, arq, ind, scheme, k, cmap, fields, title):
+######encaminha o geojson da area
+    if area == 'PR':
+        arq_g = "./dados/geojson/PR.geojson"
+    else:
+        area = 'NTC'
+        arq_g = "./dados/geojson/NTC.geojson"
+
+#######MERGE geojson e csv
+    arq_csv = pd.read_csv(arq)
+    arq_geojson = gpd.read_file(arq_g)
+    data = arq_geojson.merge(arq_csv, on="Município")
+
+#######LAT E LON CENTRAIS
+    ponto_central = arq_geojson.geometry.centroid
+    lat = ponto_central.iloc[0].y
+    lon = ponto_central.iloc[0].x
+    
+    if not isinstance(data,gpd.GeoDataFrame):
+        print("O arquivo não é um GeoDataFrame")
+        exit()
+
+#Lat e Lon Centrais
+    ponto_central = data.geometry.centroid
+    lat = ponto_central.iloc[0].y
+    lon = ponto_central.iloc[0].x
+
 def create_map(area,arq, ind, scheme, k, cmap, fields, title):
     ######encaminha o geojson da area
     if area == 'PR':
@@ -138,4 +166,4 @@ if __name__ == '__main__':
     m = create_map(area,arq, ind, scheme, k, cmap, fields, title)
     
     # Display the map in a Jupyter Notebook or IPython environment
-    display(m)
+     m.to_streamlit
