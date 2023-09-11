@@ -11,6 +11,12 @@ from deff.map import mapa
 from deff.map import grafico
 from deff.teste_gvf import create_map
 
+contexto = "./dados/csv/contexto.csv"
+pop = "./dados/csv/pop_2021.csv"
+renda = "./dados/csv/renda.csv"
+riqueza = "./dados/csv/riqueza.csv"
+PR = "./dados/geojson/PR.geojson"
+NTC =  "./dados/geojson/NTC.geojson"
 
 st.set_page_config(layout="wide")
 
