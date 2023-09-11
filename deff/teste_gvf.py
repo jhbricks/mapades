@@ -95,7 +95,7 @@ def create_map(area,arq, ind, scheme, k, cmap, fields, title):
                         fullscreen_control=False,
                         attribution_control=True)
 
-        # ZOOM - PR
+        # ZOOM 
         if area == PR:
           m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
         else:
