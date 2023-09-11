@@ -7,7 +7,7 @@ import geopandas as gpd
 import pandas as pd
 import numpy as np
 import os
-import streamlit.components as st.components
+import streamlit.components as st_components
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
