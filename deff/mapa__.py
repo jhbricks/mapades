@@ -91,7 +91,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-	     zoom_to_layer=True,
+	           zoom_to_layer=True,
              style=style,
              hover_style=hover_style)
 ########VALORES DE MX E MN DAS VARIAVEIS
