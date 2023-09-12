@@ -110,12 +110,14 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 #N
 #E
 #S
-  m.zoom_to_bounds([[-26.80, -54.67],[ -22.44, -47.98]])
+  #m.zoom_to_bounds([[-26.80, -54.67],[ -22.44, -47.98]])
   
  
 
   #bounds = [[-26.80, -54.67], [-22.44,-47.98]]
   #st_map_bounds(m, bounds)
+  bounds = gdf.total_bounds
+  m.zoom_to_bounds(bounds)
   m.to_streamlit()
 
 
