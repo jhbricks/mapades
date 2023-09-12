@@ -47,7 +47,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
   lat = ponto_central.iloc[0].y
   lon = ponto_central.iloc[0].x
     
-  if not isinstance(data,gpd.GeoDataFrame):
+  if not isinstance(gdf,gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
     exit()
 ##########################MAPA
