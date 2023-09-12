@@ -39,8 +39,8 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
-  data = arq_geojson.merge(arq_csv, on="Município")
-  data = gdf
+  gdf = arq_geojson.merge(arq_csv, on="Município")
+  
 
 #######LAT E LON CENTRAIS
   ponto_central = arq_geojson.geometry.centroid
@@ -74,7 +74,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 
 
 
-  m.add_data(data = data,
+  m.add_data(data = gdf,
 	           column=ind,
              scheme=scheme,
              k=k,
@@ -86,7 +86,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 	     zoom_to_layer=True,
              style=style,
              hover_style=hover_style)
-  
+  data = gdf
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()
