@@ -40,6 +40,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
+  data = gdf
 
 #######LAT E LON CENTRAIS
   ponto_central = arq_geojson.geometry.centroid
@@ -116,7 +117,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 
   #bounds = [[-26.80, -54.67], [-22.44,-47.98]]
   #st_map_bounds(m, bounds)
-  bounds = gpd.total_bounds
+  bounds = gdf.total_bounds
   m.zoom_to_bounds(bounds)
   m.to_streamlit()
 
