@@ -74,7 +74,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 
 
 
-  m.add_data(data = gdf,
+  m.add_data(gdf,
 	           column=ind,
              scheme=scheme,
              k=k,
