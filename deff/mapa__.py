@@ -7,7 +7,7 @@ import geopandas as gpd
 import pandas as pd
 import numpy as np
 import os
-import streamlit.components as st_components
+import streamlit.components.v1 as components
 
 ########################ARQUIVOS CSV E GEOJSON
 contexto = "./dados/csv/contexto.csv"
@@ -82,6 +82,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
+	     zoom_to_layer=True,
              style=style,
              hover_style=hover_style)
   
@@ -109,12 +110,12 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 #N
 #E
 #S
-#m.zoom_to_bounds((-47.98, -22.44, -54.67, -26.80))
+  m.zoom_to_bounds([[-26.80, -54.67],[ -22.44, -47.98]])
   
  
 
-  bounds = [[-26.80, -54.67], [-22.44,-47.98]]
-  st_map_bounds(m, bounds)
+  #bounds = [[-26.80, -54.67], [-22.44,-47.98]]
+  #st_map_bounds(m, bounds)
   m.to_streamlit()
 
 
