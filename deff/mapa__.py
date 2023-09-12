@@ -51,9 +51,17 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
     print("O arquivo não é um GeoDataFrame")
     exit()
 ##########################MAPA
+
+#min_lat: int = -90, max_lat: int = 90, min_lon: int = -180, 
+#max_lon: int = 180, max_bounds: bool = False, crs: str = "EPSG3857"
+#[minx, miny, maxx, maxy]
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon], 
                   #height="400px", width="800px",
+                  min_lat = -46;
+                  max_lat = -53;
+                  min_lon = -23;
+                  max_lon = -25;
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
@@ -116,7 +124,7 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
 
   #components = [[-26.80, -54.67], [-22.44,-47.98]]
   #st_map_bounds(m, [[-26.80, -54.67], [-22.44,-47.98]])
-  m.zoom_to_bounds([[-26.80, -54.67], [-22.44,-47.98]])
+  #m.zoom_to_bounds([[-26.80, -54.67], [-22.44,-47.98]])
   m.to_streamlit()
 
 
