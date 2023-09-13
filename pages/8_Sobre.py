@@ -33,8 +33,8 @@ km = "./dados/imagem/km.png"
 ge = "./dados/imagem/ufprge.png"
 i1 = Image.open(km)
 i2 = Image.open(ge)
-a1 = i1.resize((100, 50))
-a2 = i2.resize((80,50))
+a1 = i1.resize((200, 100))
+a2 = i2.resize((200,95))
 c1, c2 = st.columns(2)
 
 with c1:
