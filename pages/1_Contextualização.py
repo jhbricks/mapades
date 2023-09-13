@@ -47,7 +47,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','PR',contexto,'População','FisherJenks',7,'YlOrBr', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
