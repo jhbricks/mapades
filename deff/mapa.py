@@ -133,7 +133,6 @@ def grafico (area,arq,ind,un):
   fig.update_xaxes(title_text='Município')
   fig.update_yaxes(title_text=un)
   fig.update_layout(legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1))
-  #fig.px.scatter(title="Maiores e menores valores")
   fig.update_layout(height=400)
   
   st.plotly_chart(fig, use_container_width=True)
