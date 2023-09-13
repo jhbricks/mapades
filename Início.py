@@ -22,7 +22,7 @@ st.write("# Mapa da Desigualdade")
 
 st.markdown(
     """
-    Mapa da Desigualdade é uma ferramenta para indicar a situação do local e blablablabalabal
+#    Mapa da Desigualdade é uma ferramenta para indicar a situação do local e blablablabalabal
     **Selecione um dos temas abaixo ou abra o menu ao lado** 
     """)
 
