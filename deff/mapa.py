@@ -69,7 +69,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
              cmap=cmap,
              fields=fields,
              legend_title=title,
-             legend_position='Topright',
+             legend_position='topright',
              layer_name=title,
              )
 ########VALORES DE MX E MN DAS VARIAVEIS
