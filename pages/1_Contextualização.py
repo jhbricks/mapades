@@ -192,7 +192,7 @@ else:
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Núcleo Territorial Central",
                    color_name="red-70",)
-    c1,c2 = st.columns([1.5,0.5])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
