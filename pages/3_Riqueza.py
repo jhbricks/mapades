@@ -202,7 +202,7 @@ if area == "Núcleo Territorial Central":
       st.markdown("**Indica o número de veículos automotores por pessoa disponibilizado pelo Instituto Paranaense de Desenvolvimento Econômico e Social (Ipardes) para o ano de 2021**") 
       conta ('NTC',riqueza,'Veículos por pessoa',2021,
              'Número de veículos por pessoas','media', 'veículo/hab')
-      grafico ('NTC',riqueza,'Veículos por pessoa')
+      grafico ('NTC',riqueza,'Veículos por pessoa','Veículo/hab')
 
   with t3:
     colored_header(label="População declarante do IRPF",
