@@ -7,6 +7,7 @@ import geopandas as gpd
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+import plotly.express as px
 
 
 ########################ARQUIVOS CSV E GEOJSON
@@ -116,7 +117,7 @@ def grafico (area,arq,ind,un):
 
   fig = go.Figure()
 
-  colors = {'Maiores valores': '#5a386a', 'Menores valores': '#cd50b5'}
+  colors = {'Maiores valores': '#a30000', 'Menores valores': '#ffbaba'}
 
   fig.add_trace(go.Bar(x=highest['Município'],
                        y=highest[ind],
@@ -131,6 +132,14 @@ def grafico (area,arq,ind,un):
   
   fig.update_xaxes(title_text='Município')
   fig.update_yaxes(title_text=un)
+  fig.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1
+))
+  fig = px.scatter(title="Maiores e menores valores")
   fig.update_layout(height=400)
   
   st.plotly_chart(fig, use_container_width=True)
