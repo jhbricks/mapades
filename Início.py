@@ -20,11 +20,7 @@ st.write("# Mapa da Desigualdade")
 
 #st.sidebar.success("Selecione uma das páginas acima")
 
-st.markdown(
-    """
-#    Mapa da Desigualdade é uma ferramenta para indicar a situação do local e blablablabalabal
-    **Selecione um dos temas abaixo ou abra o menu ao lado** 
-    """)
+st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado** ")
 
 #####Estilo dos botões
 m = st.markdown("""
