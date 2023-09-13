@@ -7,7 +7,7 @@ import geopandas as gpd
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-import plotly.express as px
+
 
 
 ########################ARQUIVOS CSV E GEOJSON
@@ -69,7 +69,7 @@ def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
              cmap=cmap,
              fields=fields,
              legend_title=title,
-             legend_position='Bottomright',
+             legend_position='Topright',
              layer_name=title,
              )
 ########VALORES DE MX E MN DAS VARIAVEIS
