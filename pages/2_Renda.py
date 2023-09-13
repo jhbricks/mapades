@@ -52,7 +52,7 @@ if area == "Paraná":
     with d2:
       st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")    
       conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54, None)
-      grafico ('PR',renda,'Coeficiente de Gini')
+      grafico ('PR',renda,'Coeficiente de Gini',None)
 
 
   with t2:
