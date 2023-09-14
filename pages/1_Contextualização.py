@@ -49,7 +49,7 @@ if area == "Paraná":
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','PR',contexto,'População','FisherJenks',6,'YlOrBr', ['Município','População'],'População residente')
+      mapa('bnds','PR',contexto,'População','FisherJenks',5,'YlOrBr', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -70,7 +70,7 @@ if area == "Paraná":
   
     c1,c2 = st.columns([1.5,1])
     with c1:
-      mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',9,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2010 
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -108,7 +108,7 @@ if area == "Paraná":
                      color_name="red-70",)
       c1,c2 = st.columns([1.5,1])
       with c1:
-        mapa ('bnds','PR',contexto, 'População feminina (%)', 'EqualInterval',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+        mapa ('bnds','PR',contexto, 'População feminina (%)', 'Percentiles',[1,10],'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         st.markdown("""**Ano-base:** 2010 
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** (População censitária feminina*100)/População censitária total  
