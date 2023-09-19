@@ -108,7 +108,7 @@ if area == "Paraná":
                      color_name="red-70",)
       c1,c2 = st.columns([2,1])
       with c1:
-        mapa ('bnds','PR',contexto, 'População feminina (%)', 'FisherJenks',5,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+        mapa ('bnds','PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
         st.markdown("""**Ano-base:** 2010 
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** (População censitária feminina*100)/População censitária total  
@@ -149,7 +149,7 @@ if area == "Paraná":
                      description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                      color_name="red-70",)
         
-      c1,c2 = st.columns([1.5,1])
+      c1,c2 = st.columns([2,1])
       with c1:
         mapa ('bnds','PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
     #    mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
@@ -174,7 +174,7 @@ else:
     colored_header(label="População residente",
                    description="População residente do Núcleo Territorial Central",
                    color_name="red-70",)
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',contexto,'População','FisherJenks',4,'YlGnBu', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
@@ -210,7 +210,7 @@ else:
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
                    color_name="red-70",)
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'PuBuGn', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010 
@@ -230,7 +230,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa ('bnds','NTC',contexto, 'População feminina (%)', 'EqualInterval',2,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa ('bnds','NTC',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
       st.markdown("""**Ano-base:** 2010 
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária feminina*100)/População censitária total  

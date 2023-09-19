@@ -41,7 +41,7 @@ if area == "Paraná":
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',3,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010  
@@ -60,7 +60,7 @@ if area == "Paraná":
                    description="Renda média da população no Paraná",
                    color_name="red-70",)
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020
@@ -78,7 +78,7 @@ if area == "Paraná":
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
                    color_name="red-70",)
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       st.markdown("""**Ano-base:** 2021
@@ -96,7 +96,7 @@ if area == "Paraná":
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'GnBu', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020
@@ -120,7 +120,7 @@ if area == "Núcleo Territorial Central":
                    description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central",
                    color_name="red-70",)
     
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Coeficiente de Gini','FisherJenks',4,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010
@@ -139,7 +139,7 @@ if area == "Núcleo Territorial Central":
                    description="Renda média da população no Núcleo Territorial Central",
                    color_name="red-70",)
     
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020
@@ -157,7 +157,7 @@ if area == "Núcleo Territorial Central":
                    description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Núcleo Territorial Central",
                    color_name="red-70",)
     
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       st.markdown("""**Ano-base:** 2021
@@ -176,7 +176,7 @@ if area == "Núcleo Territorial Central":
                    description="Renda média dos declarentes do IRPF no Núcleo Territorial Central",
                    color_name="red-70",)
     
-    c1,c2 = st.columns([1.5,1])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'GnBu', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020

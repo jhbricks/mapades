@@ -42,7 +42,7 @@ if area == "Paraná":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Domicílios com bens duráveis (%)',
            'FisherJenks', 5, 'Oranges', ['Município','Domicílios com bens duráveis (%)'],
@@ -66,7 +66,7 @@ if area == "Paraná":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Veículos por pessoa',
          'FisherJenks', 4, 'RdPu', ['Município','Veículos por pessoa'],
@@ -90,7 +90,7 @@ if area == "Paraná":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks', 7, 'OrRd', ['Município','Declarantes do IRPF (%)'],
@@ -113,7 +113,7 @@ if area == "Paraná":
                    color_name="red-70",)
 
     #mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title)
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',5,
            'YlGn',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
@@ -135,7 +135,7 @@ if area == "Paraná":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
            'FisherJenks', 5, 'YlOrRd', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
@@ -163,7 +163,7 @@ if area == "Núcleo Territorial Central":
         
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','NTC', riqueza, 'Domicílios com bens duráveis (%)',
            'FisherJenks', 4, 'Oranges', ['Município','Domicílios com bens duráveis (%)'],
@@ -187,7 +187,7 @@ if area == "Núcleo Territorial Central":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','NTC', riqueza, 'Veículos por pessoa',
            'FisherJenks', 4, 'RdPu', ['Município','Veículos por pessoa'],
@@ -210,7 +210,7 @@ if area == "Núcleo Territorial Central":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','NTC', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',4, 'OrRd', ['Município','Declarantes do IRPF (%)'],
@@ -233,10 +233,10 @@ if area == "Núcleo Territorial Central":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões)',
-           'FisherJenks', 5, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
+           'FisherJenks', 4, 'YlGn', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
            'Patrimônio líquido médio da população (R$ milhões)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
@@ -257,10 +257,10 @@ if area == "Núcleo Territorial Central":
                    color_name="red-70",)
 
     
-    d1,d2 = st.columns([1.5,1])
+    d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
-           'FisherJenks', 5, 'YlOrRd', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
+           'FisherJenks', 7, 'YlOrRd', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
