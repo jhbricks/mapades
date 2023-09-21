@@ -62,7 +62,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',7,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média da população R$/1000) 
