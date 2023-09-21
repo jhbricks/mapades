@@ -69,7 +69,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Veículos por pessoa',
-         'FisherJenks', 4, 'RdPu', ['Município','Veículos por pessoa'],
+         'FisherJenks', 4, 'Blues', ['Município','Veículos por pessoa'],
          'Número de veículos por pessoas')
       st.markdown("""**Ano-base:** 2021 
                   **Fonte(s):** IPARDES, 2023  
@@ -93,7 +93,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Declarantes do IRPF (%)',
-           'FisherJenks', 7, 'OrRd', ['Município','Declarantes do IRPF (%)'],
+           'FisherJenks', 7, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'Percentual de declarantes do IRPF na população (%)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
@@ -138,7 +138,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
-           'FisherJenks', 5, 'YlOrRd', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
+           'FisherJenks', 5, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
