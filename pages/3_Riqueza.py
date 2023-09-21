@@ -115,8 +115,7 @@ if area == "Paraná":
     #mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title)
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',5,
-           'YlGn',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
+      mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',5,'YlGn',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio da população/1000000 
