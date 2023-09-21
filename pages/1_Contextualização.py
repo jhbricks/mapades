@@ -176,7 +176,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',contexto,'População','FisherJenks',4,'YlGnBu', ['Município','População'],'População residente')
+      mapa('bnds','NTC',contexto,'População','FisherJenks',4,'Oranges', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  

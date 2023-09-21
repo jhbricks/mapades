@@ -159,7 +159,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'PuRd', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'Greens', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
@@ -178,7 +178,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'GnBu', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+      mapa('bnds','NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'OrRd', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média dos declarantes R$/1000) 
