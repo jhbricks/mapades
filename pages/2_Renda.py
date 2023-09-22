@@ -43,7 +43,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',3,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+      mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
@@ -62,7 +62,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média da população R$/1000) 
@@ -80,7 +80,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'Greens', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
@@ -98,7 +98,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'OrRd', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+      mapa('bnds','PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média dos declarantes R$/1000) 
@@ -122,7 +122,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Coeficiente de Gini','FisherJenks',4,'RdPu', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+      mapa('bnds','NTC',renda,'Coeficiente de Gini','FisherJenks',4,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010
                   **Fonte(s):** IPARDES, IBGE  
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
@@ -141,7 +141,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlGnBu', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      mapa('bnds','NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,' YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média da população R$/1000) 
@@ -159,7 +159,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'Greens', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
@@ -178,7 +178,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'OrRd', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+      mapa('bnds','NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média dos declarantes R$/1000) 

@@ -45,7 +45,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Domicílios com bens duráveis (%)',
-           'FisherJenks', 5, 'Oranges', ['Município','Domicílios com bens duráveis (%)'],
+           'FisherJenks', 5, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
            'Percentual de domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
@@ -69,7 +69,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Veículos por pessoa',
-         'FisherJenks', 4, 'GnBu', ['Município','Veículos por pessoa'],
+         'FisherJenks', 4, 'BuGr', ['Município','Veículos por pessoa'],
          'Número de veículos por pessoas')
       st.markdown("""**Ano-base:** 2021 
                   **Fonte(s):** IPARDES, 2023  
@@ -115,7 +115,8 @@ if area == "Paraná":
     #mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title)
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',5,'YlGn',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
+      mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',
+           4,'YlOrBr',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio da população/1000000 
