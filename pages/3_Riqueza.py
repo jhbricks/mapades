@@ -93,7 +93,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Declarantes do IRPF (%)',
-           'FisherJenks', 7, 'BuPu', ['Município','Declarantes do IRPF (%)'],
+           'FisherJenks', 5, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'Percentual de declarantes do IRPF na população (%)')
       st.markdown("""**Ano-base:** 2020 
                   **Fonte(s):** FGV  
