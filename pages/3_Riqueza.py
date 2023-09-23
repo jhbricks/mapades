@@ -69,7 +69,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR', riqueza, 'Veículos por pessoa',
-         'FisherJenks', 4, 'BuGr', ['Município','Veículos por pessoa'],
+         'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
          'Número de veículos por pessoas')
       st.markdown("""**Ano-base:** 2021 
                   **Fonte(s):** IPARDES, 2023  
@@ -190,7 +190,7 @@ if area == "Núcleo Territorial Central":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','NTC', riqueza, 'Veículos por pessoa',
-           'FisherJenks', 4, 'GnPu', ['Município','Veículos por pessoa'],
+           'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
            'Número de veículos por pessoas')
       st.markdown("""**Ano-base:** 2021 
                   **Fonte(s):** IPARDES, 2023  
