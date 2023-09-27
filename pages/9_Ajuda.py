@@ -13,8 +13,6 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-colored_header(label="Ajuda",description="   ",color_name="light-blue-70",)
-
 t1, t2 = st.tabs(["Como ler mapas", "Glossário"])
 
 with t1:
