@@ -41,7 +41,7 @@ else:
     st.warning("Por favor, carregue um arquivo CSV e um arquivo GeoJSON.")
 
 st.markdown("Digite as variáveis:")
-ind = st.text_input('Indicador:', label_visibility=st.session_state.visibility, placeholder = "Digite o indicador igual está no arquivo enviado")
+ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo enviado")
 k = st.number_input("Número de classes", value=None, placeholder="Digite o número de classes que os dados serão divididos.")
 
 
