@@ -51,26 +51,19 @@ elif option == 'CSV':
     if csv_arq is not None:
         data = pd.read_csv(csv_arq)
     else:
-        st.warning("Por favor, carregue um arquivo CSV e um arquivo GeoJSON.")
+        st.warning("Por favor, carregue o arquivo CSV.")
 else:
-    arq = st.file_uploader("Carregue os arquivos", type={"gdf"})
+    arq = st.file_uploader("Carregue o arquivo", type={"gdf"})
     if arq is not None:
         gdf_arq = None
         for arquivo in arq:
-            arquivo.type == 'application/vnd.gdf':
-            
-            csv_arq = arquivo
-    if csv_arq is not None:
-        data = pd.read_csv(csv_arq)
+            arquivo.type == 'application/vnd.gdf'
+            gdf_arq = arquivo
+    if gdf_arq is not None:
+        data = gdf_arq
     else:
-        st.warning("Por favor, carregue um arquivo CSV e um arquivo GeoJSON.")
+        st.warning("Por favor, carregue um arquivo GeoDataFrame (gdf)")
 
 
-
-
-if option == 'GEOJSON E CSV':
-    arq_geojson = gpd.read_file(geo_arq)
-    arq_csv = pd.read_csv(csv_arq)
-    data = geojson_pr.merge(pdpop, on="Município")
 
 
