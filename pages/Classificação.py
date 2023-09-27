@@ -42,7 +42,7 @@ else:
 
 st.markdown("Digite as variáveis:")
 ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo enviado")
-k = st.number_input("Número de classes", value=None, placeholder="Digite o número de classes que os dados serão divididos.")
+k = st.number_input("Número de classes", placeholder = "Digite o número de classes que os dados serão divididos.")
 
 
 scheme = st.text_input('Método de classificação')
