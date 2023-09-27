@@ -15,7 +15,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-st.markdown("<h3><font size='8'  color='gray'>Classificação dos daos</font></font></h3>", unsafe_allow_html=True)
+st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
 st.markdown(""" **Classificação de dados** explicação  
             explicação texto texto texto  
             texto texto texto  
@@ -32,10 +32,17 @@ if arq is not None:
             geo_arq = arquivo
         elif arquivo.type == 'text/csv':
             csv_arq = arquivo
-    # Verifica se ambos os arquivos foram carregados
+# Verifica se ambos os arquivos foram carregados
 if csv_arq is not None and geo_arq is not None:
     arq_gpd = gpd.read_file(geo_arq)
     arq_pd = pd.read_csv(csv_arq)
     data = arq_gpd.merge(arq_pd, on="Município")
 else:
     st.warning("Por favor, carregue um arquivo CSV e um arquivo GeoJSON.")
+
+st.markdown("Digite as variáveis:")
+ind = st.text_input('Indicador:', label_visibility=st.session_state.visibility, placeholder = "Digite o indicador igual está no arquivo enviado")
+k = st.number_input("Número de classes", value=None, placeholder="Digite o número de classes que os dados serão divididos.")
+
+
+scheme = st.text_input('Método de classificação')
