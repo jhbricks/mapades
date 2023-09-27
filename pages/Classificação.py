@@ -7,7 +7,7 @@ st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""
         <style>
                .block-container {
-                    padding-top: 2rem;
+                    padding-top: 1rem;
                     padding-bottom: 0rem;
                     padding-left: 5rem;
                     padding-right: 5rem;
@@ -15,6 +15,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
+st.markdown("<h3><font size='8'  color='gray'>Classificação dos daos</font></font></h3>", unsafe_allow_html=True)
 st.markdown(""" **Classificação de dados** explicação  
             explicação texto texto texto  
             texto texto texto  
