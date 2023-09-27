@@ -1,7 +1,17 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
 
-st.set_page_config(layout="wide", page_title="Ajuda")
+st.set_page_config(layout="wide")
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
 colored_header(label="Ajuda",description="   ",color_name="light-blue-70",)
 
