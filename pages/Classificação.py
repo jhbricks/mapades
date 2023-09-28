@@ -23,7 +23,7 @@ st.markdown(""" **Classificação de dados** explicação
             texto texto texto.
 """)
 
-gdf = "./dados/csv/contexto.csv"
+gdf = pd.read_csv("./dados/csv/contexto.csv")
 ind = 'População'
 k=4
 method = 'FisherJenks'
