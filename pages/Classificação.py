@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import geopandas as gpd
 from streamlit_extras.colored_header import colored_header
-from deff.classe import classify_data
+from deff.classe import classes_data
 
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""
@@ -25,7 +25,7 @@ st.markdown(""" **Classificação de dados** explicação
 
 gdf = pd.read_csv("./dados/csv/contexto.csv")
 
-classify_data(gdf, 'Densidade Demográfica (hab/km²)', 4, 'FisherJenks')
+classes_data(gdf, 'Densidade Demográfica (hab/km²)', 4, 'FisherJenks')
 
 
 #inserir os arquivos csv e geojson
