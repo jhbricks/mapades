@@ -28,7 +28,7 @@ ind = 'População'
 k=4
 method = 'FisherJenks'
 
-classify_data(gdf, ind, k, method)
+classify_data(gdf, 'Densidade Demográfica (hab/km²)', 4, 'FisherJenks')
 
 
 #inserir os arquivos csv e geojson
