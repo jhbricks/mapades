@@ -48,7 +48,7 @@ def classify_data(gdf, ind, k, method):
 
             Z.append(np.sum(sq))   #calcula e guarda a suma do quadrado da diferença por essa classe
 
-        SDMC = np.sum    #Soma de xi - Z
+        SDCM = np.sum    #Soma de xi - Z
 
         media_total = np.mean(data)  
 
