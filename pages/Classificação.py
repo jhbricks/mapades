@@ -24,9 +24,6 @@ st.markdown(""" **Classificação de dados** explicação
 """)
 
 gdf = pd.read_csv("./dados/csv/contexto.csv")
-ind = 'População'
-k=4
-method = 'FisherJenks'
 
 classify_data(gdf, 'Densidade Demográfica (hab/km²)', 4, 'FisherJenks')
 
