@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import geopandas as gpd
 from streamlit_extras.colored_header import colored_header
+from deff.classe import classify_data
 
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""
@@ -22,6 +23,14 @@ st.markdown(""" **Classificação de dados** explicação
             texto texto texto.
 """)
 
+gdf = "./dados/csv/contexto.csv"
+ind = 'População'
+k=4
+method = 'FisherJenks'
+
+classify_data(gdf, ind, k, method)
+
+
 #inserir os arquivos csv e geojson
 arq = st.file_uploader("Carregue os arquivos", type={"csv", "geojson"},accept_multiple_files=True)
 if arq is not None:
@@ -36,7 +45,7 @@ if arq is not None:
 if csv_arq is not None and geo_arq is not None:
     arq_gpd = gpd.read_file(geo_arq)
     arq_pd = pd.read_csv(csv_arq)
-    data = arq_gpd.merge(arq_pd, on="Município")
+    gdf = arq_gpd.merge(arq_pd, on="Município")
 else:
     st.warning("Por favor, carregue um arquivo CSV e um arquivo GeoJSON.")
 
