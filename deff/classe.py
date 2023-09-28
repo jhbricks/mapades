@@ -54,7 +54,7 @@ def classify_data(gdf, ind, k, method):
 
         SDAM = np.sum((data - media_total)**2)    #Soma de xi-X
 
-        GVF = (100 - ((SDCM/SDAM)*100)).round(2)
+        GVF = 100 - ((SDCM/SDAM)*100)
 
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {GVF} </font> %</font></h3>", unsafe_allow_html=True)
           
