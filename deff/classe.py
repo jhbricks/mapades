@@ -1,3 +1,4 @@
+import streamlit as st
 import pandas as pd
 import numpy as np
 import libpysal
@@ -56,8 +57,7 @@ def classes_data(gdf, ind, k, method):
 
         GVF = 100 - ((SDCM / SDAM) * 100)
 
-        st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {GVF:.2f} </font> %</font></h3>",
-                    unsafe_allow_html=True)
+        st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
 
 #valores das classes
 def classify_data(gdf, ind, k, method):
