@@ -6,6 +6,8 @@ import mapclassify
 #import matplotlib.pyplot as plt
 
 
+
+
 #métodos de classificação
 methods = {
     'FisherJenks': mapclassify.FisherJenks,

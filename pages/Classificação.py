@@ -23,32 +23,75 @@ st.markdown(""" **Classificação de dados** explicação
             texto texto texto.
 """)
 
-gdf = pd.read_csv("./dados/csv/contexto.csv")
-
-classes_data(gdf, 'Densidade Demográfica (hab/km²)', 4, 'FisherJenks')
-
-
 #inserir os arquivos csv e geojson
-arq = st.file_uploader("Carregue os arquivos", type={"csv", "geojson"},accept_multiple_files=True)
-if arq is not None:
-    csv_arq = None
-    geo_arq = None
-    for arquivo in arq:
-        if arquivo.type == 'application/vnd.geo+json':
-            geo_arq = arquivo
-        elif arquivo.type == 'text/csv':
-            csv_arq = arquivo
-# Verifica se ambos os arquivos foram carregados
-if csv_arq is not None and geo_arq is not None:
-    arq_gpd = gpd.read_file(geo_arq)
-    arq_pd = pd.read_csv(csv_arq)
-    gdf = arq_gpd.merge(arq_pd, on="Município")
-else:
-    st.warning("Por favor, carregue um arquivo CSV e um arquivo GeoJSON.")
-
 st.markdown("Digite as variáveis:")
-ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo enviado")
+area = st.text_input('Link Geojson:', placeholder = "Cole o link do arquivo geojson.")
+arq = st.text_input('Link csv:', placeholder = "Cole o link do arquivo csv.")
+comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
+ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
+scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
 k = st.number_input("Número de classes", placeholder = "Digite o número de classes que os dados serão divididos.")
+cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+
+field = [comum,ind]
+
+method = scheme
 
 
-scheme = st.text_input('Método de classificação')
+
+#merge
+arq_csv = pd.read_csv(arq)
+arq_geojson = gpd.read_file(area)
+data = arq_geojson.merge(arq_csv, on="Município")
+
+#métodos de classificação
+methods = {
+    'FisherJenks': mapclassify.FisherJenks,
+    'Quantiles': mapclassify.Quantiles,
+    'EqualInterval': mapclassify.EqualInterval,
+    'BoxPlot': mapclassify.BoxPlot,
+    'FisherJenksSampled': mapclassify.FisherJenksSampled,
+    'HeadTailBreaks': mapclassify.HeadTailBreaks,
+    'JenksCaspall': mapclassify.JenksCaspall,
+    'JenksCaspallForced': mapclassify.JenksCaspallForced,
+    'JenksCaspallSampled': mapclassify.JenksCaspallSampled,
+    'MaxP': mapclassify.MaxP,
+    'MaximumBreaks': mapclassify.MaximumBreaks,
+    'NaturalBreaks': mapclassify.NaturalBreaks,
+    'Percentiles': lambda data, bins: mapclassify.Percentiles(data, bins=[]),
+    'StdMean': mapclassify.StdMean,
+    'UserDefined': lambda data, bins: mapclassify.UserDefined(data, bins=[]),
+}
+
+# valores das classes
+if method in methods:
+    data = gdf[ind]
+    q = methods[method](data, k=k)  # classificação
+    medias = []  # lista das médias das classes
+    Z = []  # lista da soma dos quadrados Z
+    intervalos = q.bins.tolist()  # chama os intervalos das classes
+    for i in range(len(intervalos)):
+        if i == 0:
+            dados_classe = data[data <= intervalos[i]]
+        elif i == len(intervalos) - 1:
+            dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
+        else:
+            dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
+
+        media_classe = np.mean(dados_classe)  # média das classes
+        medias.append(media_classe)
+
+        sq = (dados_classe - media_classe) ** 2  # cálculo o quadrado da diferença de cada classe
+
+        Z.append(np.sum(sq))  # calcula e guarda a soma do quadrado da diferença por essa classe
+
+    SDCM = np.sum(Z)  # Soma de Z
+
+    media_total = np.mean(data)
+
+    SDAM = np.sum((data - media_total) ** 2)  # Soma de xi-X
+
+    GVF = 100 - ((SDCM / SDAM) * 100)
+
+    st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
+
