@@ -60,9 +60,10 @@ if area == "Paraná":
           with c2:
                st.markdown('a')
           
-               e1,e2 = st.expander("Explicação")
-               e1.markdown('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-               e2.markdown("he chart above shows some numbers I picked for you.")
+               with st.expander("Explicação"):
+                    st.markdown('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+               with st.expander('a'):
+                    st.markdown("he chart above shows some numbers I picked for you.")
           
      with t2:
           colored_header(label="Renda média da população",
