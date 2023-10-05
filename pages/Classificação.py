@@ -43,17 +43,17 @@ with c1:
 fields = [comum,ind]
 method = scheme
 with c2:
-    e1,e2,e3,e4,e5 = st.expander("Explicação")
-    e1.write(\"\"\"
-             The chart above shows some numbers I picked for you.
-             I rolled actual dice for these, so they're *guaranteed* to
-             be random.
-    \"\"\")
-    e2.write(\"\"\"
-             The chart above shows some numbers I picked for you.
-             I rolled actual dice for these, so they're *guaranteed* to
-             be random.
-    \"\"\")
+    with st.expander("Explicação"):
+        st.markdown("""Colar o link do arquivo da área.  
+                    O link deve contém o arquivo como geojson, terminado como "link.com/area.geojson"  
+                    O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
+                     """)
+    with st.expander("Explicação"):
+        st.markdown("""Colar o link do arquivo dos indicadores.  
+                    O link deve contém o arquivo como CSV, terminado como "link.com/indicador.csv"   
+                    O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
+                    Verifique se o arquivo está usando vírgula (,) como separador.
+                    """)
 #merge
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(area)
