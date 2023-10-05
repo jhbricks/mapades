@@ -49,7 +49,7 @@ with c1:
         k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
 
-form.form_submit_button(label="Enviar")
+    form.form_submit_button(label="Enviar")
 
 fields = [comum,ind]
 method = scheme
