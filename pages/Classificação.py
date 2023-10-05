@@ -46,12 +46,12 @@ with c2:
     st.write("Instruções")
     with st.expander("Instrução: Dado geográfico"):
         st.markdown("""Colar o link do arquivo do dado geográfico.  
-                    O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: link.com/area***.geojson***  
+                    O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: *link.com/area.geojson*  
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
                      """)
     with st.expander("Instrução: Indicador"):
         st.markdown("""Colar o link do arquivo dos indicadores.  
-                    O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: link.com/indicador**.csv**   
+                    O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: *link.com/indicador.csv*   
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
                     Verifique se o arquivo está usando vírgula (,) como separador.
                     """)
