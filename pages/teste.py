@@ -63,7 +63,7 @@ if area == "Paraná":
                e1,e2 = st.expander("explicação")
 
                with e1:
-                    st.write("Explicação"):
+                    st.write("Explicação")
 
                with e2:
                     st.markdown("he chart above shows some numbers I picked for you.")
