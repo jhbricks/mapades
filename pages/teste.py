@@ -57,6 +57,8 @@ if area == "Paraná":
           c1,c2 = st.columns(2)
           c1.markdown('B')
           c2.markdown('a')
+          st.beta_container()
+          st.mardown('C')
           
      with t2:
           colored_header(label="Renda média da população",
