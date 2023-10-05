@@ -7,7 +7,7 @@ import mapclassify
 import leafmap
 import leafmap.foliumap as leafmap
 from streamlit_extras.colored_header import colored_header
-from deff.classe import classes_data
+
 
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""
