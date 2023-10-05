@@ -45,15 +45,15 @@ method = scheme
 with c2:
     e1,e2,e3,e4,e5 = st.expander("Explicação")
     e1.write(\"\"\"
-    The chart above shows some numbers I picked for you.
-    I rolled actual dice for these, so they're *guaranteed* to
-    be random.
-\"\"\")
+             The chart above shows some numbers I picked for you.
+             I rolled actual dice for these, so they're *guaranteed* to
+             be random.
+            \"\"\")
     e2.write(\"\"\"
-    The chart above shows some numbers I picked for you.
-    I rolled actual dice for these, so they're *guaranteed* to
-    be random.
-\"\"\")
+             The chart above shows some numbers I picked for you.
+             I rolled actual dice for these, so they're *guaranteed* to
+             be random.
+            \"\"\")
 #merge
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(area)
