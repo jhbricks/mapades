@@ -122,7 +122,7 @@ m = leafmap.Map(
 #######ADICIONAR O MERGE GDF
 
 
-m.add_data(data = data,
+m.add_data(data = gdf,
            column=ind,
            scheme=scheme,
            k=k,
