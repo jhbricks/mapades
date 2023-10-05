@@ -34,7 +34,7 @@ form = st.form(key="form_settings")
 c1,c2 = form.columns(2)
 with c1:
     st.markdown("Digite as variáveis:")
-    
+
     area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
     arq = st.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
     comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
@@ -51,7 +51,7 @@ with c1:
         k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
 
-    form.form_submit_button(label="Enviar")
+    
 
 fields = [comum,ind]
 method = scheme
@@ -105,6 +105,7 @@ with c2:
         st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
                     para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
 
+form.form_submit_button(label="Enviar")
 
 
 #merge
