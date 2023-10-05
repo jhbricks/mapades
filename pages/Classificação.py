@@ -31,7 +31,7 @@ st.markdown(""" **Classificação de dados** explicação
 #inserir os arquivos csv e geojson
 st.markdown("Digite as variáveis:")
 form = st.form(key="form_settings")
-c1,c2 = st.columns(2)
+c1,c2 = form.columns(2)
 with c1:
     area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
     arq = st.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
