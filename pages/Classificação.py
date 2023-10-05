@@ -42,7 +42,7 @@ method = scheme
 #merge
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(area)
-data = arq_geojson.merge(arq_csv, on="Município")
+gdf = arq_geojson.merge(arq_csv, on="Município")
 
 #métodos de classificação
 methods = {
