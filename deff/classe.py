@@ -7,7 +7,7 @@ import mapclassify
 import leafmap
 import leafmap.foliumap as leafmap
 from streamlit_extras.colored_header import colored_header
-from deff.classe import classes_data
+
 
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""
@@ -30,20 +30,63 @@ st.markdown(""" **Classificação de dados** explicação
 
 #inserir os arquivos csv e geojson
 st.markdown("Digite as variáveis:")
-area = st.text_input('Link Geojson:', placeholder = "Cole o link do arquivo geojson.")
-arq = st.text_input('Link csv:', placeholder = "Cole o link do arquivo csv.")
-comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
-ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
-scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
-k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
-cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+c1,c2 = st.columns(2)
+with c1:
+    area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
+    arq = st.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
+    comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
+    ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
+    scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
+    k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
+    cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
 fields = [comum,ind]
-
 method = scheme
-
-
-
+with c2:
+    st.write("Instruções")
+    with st.expander("Instrução: Dado geográfico"):
+        st.markdown("""Colar o link do arquivo do dado geográfico.  
+                    O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: *link.com/area.geojson*  
+                    O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
+                     """)
+    with st.expander("Instrução: Indicador"):
+        st.markdown("""Colar o link do arquivo dos indicadores.  
+                    O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: *link.com/indicador.csv*   
+                    O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
+                    Verifique se o arquivo está usando vírgula (,) como separador.
+                    """)
+    with st.expander("Instrução: Coluna em comum"):
+        st.markdown("""Digite o nome da columa que o arquivo do dado geográfico (geojson) e do indicador (csv) tem em comum.  
+                    Por exemplo: *Município*
+                    """)
+    with st.expander("Instrução: Método de classificação"):
+        st.markdown("Digite o Método de classificação dos dados escolhido. Os métodos disponíveis são:")
+        m1,m2 = st.columns(2)
+        with m1:
+            st.markdown("""BoxPlot  
+                        EqualInterval  
+                        FisherJenks  
+                        FisherJenksSampled  
+                        HeadTailBreaks  
+                        JenksCaspall  
+                        JenksCaspallForced  
+                        JenksCaspallSampled""")
+        with m2:
+              st.markdown("""MaxP  
+                          MaximumBreaks  
+                          NaturalBreaks  
+                          Quantiles  
+                          Percentiles  
+                          StdMean  
+                          UserDefined""")
+        st.markdown("Mais informações acessar a página do Leafmap: https://leafmap.org/notebooks/53_choropleth/")
+    with st.expander("Instrução: Número de classes"):
+        st.markdown("""Digite o número de classes em que os dados serão divididos.""")
+    with st.expander("Instrução: Paleta de cores"):
+        st.markdown("""Digite o nome da paleta de cores escolhida exatamente como consta na página do Leafmap.
+                    Link: https://leafmap.org/notebooks/23_colormaps/  
+                    Sugerimos  escolher a paleta de cores com base na ferramenta Color Brewer: https://colorbrewer2.org/
+                    """)
 #merge
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(area)
