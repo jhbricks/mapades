@@ -46,18 +46,46 @@ with c2:
     st.write("Instruções")
     with st.expander("Instrução: Dado geográfico"):
         st.markdown("""Colar o link do arquivo do dado geográfico.  
-                    O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: link.com/area.geojson  
+                    O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: link.com/area**.geojson**  
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
                      """)
     with st.expander("Instrução: Indicador"):
         st.markdown("""Colar o link do arquivo dos indicadores.  
-                    O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: link.com/indicador.csv   
+                    O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: link.com/indicador**.csv**   
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
                     Verifique se o arquivo está usando vírgula (,) como separador.
                     """)
     with st.expander("Instrução: Coluna em comum"):
         st.markdown("""Digite o nome da columa que o arquivo do dado geográfico (geojson) e do indicador (csv) tem em comum.  
-                    Por exemplo: Município
+                    Por exemplo: *Município*
+                    """)
+    with st.expander("Instrução: Método de classificação"):
+        st.markdown("Digite o Método de classificação dos dados escolhido. Os métodos disponíveis são:")
+        m1,m2 = st.columns(2)
+        with m1:
+            st.markdown("""BoxPlot  
+                        EqualInterval  
+                        FisherJenks  
+                        FisherJenksSampled  
+                        HeadTailBreaks  
+                        JenksCaspall  
+                        JenksCaspallForced  
+                        JenksCaspallSampled""")
+        with m2:
+              st.markdown("""MaxP  
+                          MaximumBreaks  
+                          NaturalBreaks  
+                          Quantiles  
+                          Percentiles  
+                          StdMean  
+                          UserDefined""")
+        st.markdown("Mais informações acessar a página do Leafmap: https://leafmap.org/notebooks/53_choropleth/")
+    with st.expander("Instrução: Número de classes"):
+        st.markdown("""Digite o número de classes em que os dados serão divididos.""")
+    with st.expander("Instrução: Paleta de cores"):
+        st.markdown("""Digite o nome da paleta de cores escolhida exatamente como consta na página do Leafmap.
+                    Link: https://leafmap.org/notebooks/23_colormaps/  
+                    Sugerimos  escolher a paleta de cores com base na ferramenta Color Brewer: https://colorbrewer2.org/
                     """)
 #merge
 arq_csv = pd.read_csv(arq)
