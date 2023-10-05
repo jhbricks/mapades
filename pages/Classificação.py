@@ -4,6 +4,8 @@ import geopandas as gpd
 import numpy as np
 import libpysal
 import mapclassify
+import leafmap
+import leafmap.foliumap as leafmap
 from streamlit_extras.colored_header import colored_header
 from deff.classe import classes_data
 
