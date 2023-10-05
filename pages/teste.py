@@ -60,7 +60,7 @@ if area == "Paraná":
           with c2:
                st.markdown('a')
           
-          st.mardown('C')
+          st.markdown('C')
           
      with t2:
           colored_header(label="Renda média da população",
