@@ -61,14 +61,8 @@ if area == "Paraná":
                st.markdown('a')
           
                e1,e2 = st.expander("Explicação")
-               e1.write(\"\"\"
-                         The chart above shows some numbers I picked for you. I rolled actual dice for these, so they're *guaranteed* to be random.
-                         \"\"\")
-               e2.write(\"\"\"
-                         The chart above shows some numbers I picked for you.
-                         I rolled actual dice for these, so they're *guaranteed* to
-                         be random.
-                         \"\"\")
+               e1.markdown('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+               e2.markdown("he chart above shows some numbers I picked for you.")
           
      with t2:
           colored_header(label="Renda média da população",
