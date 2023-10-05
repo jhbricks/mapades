@@ -55,7 +55,7 @@ with c2:
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
                     Verifique se o arquivo está usando vírgula (,) como separador.
                     """)
-    with st.expander("Instrução: Coluna em comum")
+    with st.expander("Instrução: Coluna em comum"):
         st.markdown("""Digite o nome da columa que o arquivo do dado geográfico (geojson) e do indicador (csv) tem em comum.  
                     Por exemplo: Município
                     """)
