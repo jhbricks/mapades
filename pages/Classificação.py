@@ -44,12 +44,12 @@ with c1:
     cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
     st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
-    on = form.toggle('Comparar duas classificações')
+    on = st.toggle('Comparar duas classificações')
 
     if on:
-        scheme1 = form.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
-        k1 = int(form.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
-        cmap1 = form.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
+        scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
+        k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
+        cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
 
     
 
