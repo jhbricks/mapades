@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import geopandas as gpd
+import numpy as np
+import libpysal
+import mapclassify
 from streamlit_extras.colored_header import colored_header
 from deff.classe import classes_data
 
