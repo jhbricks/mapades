@@ -33,7 +33,7 @@ arq = st.text_input('Link csv:', placeholder = "Cole o link do arquivo csv.")
 comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
 ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
 scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
-k = st.number_input("Número de classes", placeholder = "Digite o número de classes que os dados serão divididos.")
+k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
 cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
 field = [comum,ind]
