@@ -60,9 +60,12 @@ if area == "Paraná":
           with c2:
                st.markdown('a')
           
-               with st.expander("Explicação"):
-                    st.markdown('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-               with st.expander('a'):
+               e1,e2 = st.expander("explicação")
+
+               with e1:
+                    st.write("Explicação"):
+
+               with e2:
                     st.markdown("he chart above shows some numbers I picked for you.")
           
      with t2:
