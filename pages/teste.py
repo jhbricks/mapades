@@ -55,9 +55,11 @@ if area == "Paraná":
      with t1:
           st.markdown('AHAHAJNJAZ')
           c1,c2 = st.columns(2)
-          c1.markdown('B')
-          c2.markdown('a')
-          st.beta_container()
+          with c1:
+               st.markdown('B')
+          with c2:
+               st.markdown('a')
+          
           st.mardown('C')
           
      with t2:
