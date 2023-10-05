@@ -36,7 +36,7 @@ scheme = st.text_input('Método de classificação:', placeholder = "Digite o m�
 k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
 cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
-field = [comum,ind]
+fields = [comum,ind]
 
 method = scheme
 
