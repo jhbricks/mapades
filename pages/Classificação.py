@@ -43,6 +43,11 @@ with c1:
     st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
     on = st.toggle('Comparar duas classificações')
 
+    if on:
+        scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
+        k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
+        cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
+
 fields = [comum,ind]
 method = scheme
 
@@ -93,9 +98,10 @@ with c2:
                     """)
     
     if on:
-        scheme1 = st.text_input('Método de classificação 1:', placeholder = "Digite o método de classificação.")
-        k1 = int(st.number_input("Número de classes 1", placeholder="Digite o número de classes que os dados serão divididos."))
-        cmap1 = st.text_input('Paleta de cores 1:', placeholder = "Digite o nome da paleta de cores.")
+        with st.expander("Instrução: Comparação de classificações"):
+            st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
+                        para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
+
 
 
 #merge
