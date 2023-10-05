@@ -98,3 +98,38 @@ if method in methods:
 
     st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
 
+#####LAT E LON CENTRAIS
+ponto_central = arq_geojson.geometry.centroid
+lat = ponto_central.iloc[0].y
+lon = ponto_central.iloc[0].x
+    
+if not isinstance(data,gpd.GeoDataFrame):
+    print("O arquivo não é um GeoDataFrame")
+    exit()
+
+##########################MAPA
+########MAPA INICIAL
+m = leafmap.Map(
+    center=[lat,lon],
+	#zoom = z,
+	#zoom_min = zmn,
+	#zoom_max = zmx,
+	draw_control=False,
+    measure_control=False,
+    fullscreen_control=False,
+    attribution_control=True)
+  
+#######ADICIONAR O MERGE GDF
+
+
+m.add_data(data = data,
+           column=ind,
+           scheme=scheme,
+           k=k,
+           cmap=cmap,
+           fields=fields,
+           legend_position='topright',
+           )
+
+#########ADICIONAR NO STREAMLIT
+m.to_streamlit()
