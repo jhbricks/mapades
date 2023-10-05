@@ -1,12 +1,53 @@
 import streamlit as st
 import pandas as pd
+import geopandas as gpd
 import numpy as np
 import libpysal
 import mapclassify
-#import matplotlib.pyplot as plt
+import leafmap
+import leafmap.foliumap as leafmap
+from streamlit_extras.colored_header import colored_header
+from deff.classe import classes_data
+
+st.set_page_config(layout="wide",page_title='Classificação dos dados')
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
+st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
+st.markdown(""" **Classificação de dados** explicação  
+            explicação texto texto texto  
+            texto texto texto  
+            texto texto texto.
+""")
+
+#inserir os arquivos csv e geojson
+st.markdown("Digite as variáveis:")
+area = st.text_input('Link Geojson:', placeholder = "Cole o link do arquivo geojson.")
+arq = st.text_input('Link csv:', placeholder = "Cole o link do arquivo csv.")
+comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
+ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
+scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
+k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
+cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+
+fields = [comum,ind]
+
+method = scheme
 
 
 
+#merge
+arq_csv = pd.read_csv(arq)
+arq_geojson = gpd.read_file(area)
+gdf = arq_geojson.merge(arq_csv, on="Município")
 
 #métodos de classificação
 methods = {
@@ -27,70 +68,70 @@ methods = {
     'UserDefined': lambda data, bins: mapclassify.UserDefined(data, bins=[]),
 }
 
-
 # valores das classes
-def classes_data(gdf, ind, k, method):
-    if method in methods:
-        data = gdf[ind]
-        q = methods[method](data, k=k)  # classificação
-        medias = []  # lista das médias das classes
-        Z = []  # lista da soma dos quadrados Z
-        intervalos = q.bins.tolist()  # chama os intervalos das classes
-        for i in range(len(intervalos)):
-            if i == 0:
-                dados_classe = data[data <= intervalos[i]]
-            elif i == len(intervalos) - 1:
-                dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
-            else:
-                dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
+if method in methods:
+    data = gdf[ind]
+    q = methods[method](data, k=k)  # classificação
+    medias = []  # lista das médias das classes
+    Z = []  # lista da soma dos quadrados Z
+    intervalos = q.bins.tolist()  # chama os intervalos das classes
+    for i in range(len(intervalos)):
+        if i == 0:
+            dados_classe = data[data <= intervalos[i]]
+        elif i == len(intervalos) - 1:
+            dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
+        else:
+            dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
 
-            media_classe = np.mean(dados_classe)  # média das classes
-            medias.append(media_classe)
+        media_classe = np.mean(dados_classe)  # média das classes
+        medias.append(media_classe)
 
-            sq = (dados_classe - media_classe) ** 2  # cálculo o quadrado da diferença de cada classe
+        sq = (dados_classe - media_classe) ** 2  # cálculo o quadrado da diferença de cada classe
 
-            Z.append(np.sum(sq))  # calcula e guarda a soma do quadrado da diferença por essa classe
+        Z.append(np.sum(sq))  # calcula e guarda a soma do quadrado da diferença por essa classe
 
-        SDCM = np.sum(Z)  # Soma de Z
+    SDCM = np.sum(Z)  # Soma de Z
 
-        media_total = np.mean(data)
+    media_total = np.mean(data)
 
-        SDAM = np.sum((data - media_total) ** 2)  # Soma de xi-X
+    SDAM = np.sum((data - media_total) ** 2)  # Soma de xi-X
 
-        GVF = 100 - ((SDCM / SDAM) * 100)
+    GVF = 100 - ((SDCM / SDAM) * 100)
 
-        st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
+    st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
 
-#valores das classes
-def classify_data(gdf, ind, k, method):
-    if method in methods:
-        data = gdf[ind]
-        q = methods[method](data, k=k) #classificação
-        medias = [] #lista das médias das classes
-        Z = [] #lista da soma dos quadrados Z
-        intervalos= q.bins.tolist() #chama os intervalos das classes
-        for i in range(len(intervalos)):
-            if i == 0:
-                dados_classe = data[data <= intervalos[i]]
-            elif i == len(intervalos) - 1:
-                dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
-            else: 
-                dados_classe = data[(data > intervalos[i - 1]) & (data <= intervalos[i])]
-            
-            media_classe = np.mean(dados_classe) #media das classes
-            medias.append(media_classe)
+#####LAT E LON CENTRAIS
+ponto_central = arq_geojson.geometry.centroid
+lat = ponto_central.iloc[0].y
+lon = ponto_central.iloc[0].x
+    
+if not isinstance(gdf,gpd.GeoDataFrame):
+    print("O arquivo não é um GeoDataFrame")
+    exit()
 
-            sq = (dados_classe - media_classe) ** 2    #calculo o quadrado da diferença de cd classe
+##########################MAPA
+########MAPA INICIAL
+m = leafmap.Map(
+    center=[lat,lon],
+	#zoom = z,
+	#zoom_min = zmn,
+	#zoom_max = zmx,
+	draw_control=False,
+    measure_control=False,
+    fullscreen_control=False,
+    attribution_control=True)
+  
+#######ADICIONAR O MERGE GDF
 
-            Z.append(np.sum(sq))   #calcula e guarda a suma do quadrado da diferença por essa classe
 
-        SDCM = np.sum    #Soma de xi - Z
+m.add_data(data = gdf,
+           column=ind,
+           scheme=scheme,
+           k=k,
+           cmap=cmap,
+           fields=fields,
+           legend_position='topright',
+           )
 
-        media_total = np.mean(data)  
-
-        SDAM = np.sum((data - media_total)**2)    #Soma de xi-X
-
-        GVF = 100 - ((SDCM/SDAM)*100)
-
-        st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {GVF} </font> %</font></h3>", unsafe_allow_html=True)
-          
+#########ADICIONAR NO STREAMLIT
+m.to_streamlit()

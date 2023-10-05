@@ -30,20 +30,30 @@ st.markdown(""" **Classificação de dados** explicação
 
 #inserir os arquivos csv e geojson
 st.markdown("Digite as variáveis:")
-area = st.text_input('Link Geojson:', placeholder = "Cole o link do arquivo geojson.")
-arq = st.text_input('Link csv:', placeholder = "Cole o link do arquivo csv.")
-comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
-ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
-scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
-k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
-cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+c1,c2 = st.columns(2)
+with c1:
+    area = st.text_input('Link Geojson:', placeholder = "Cole o link do arquivo geojson.")
+    arq = st.text_input('Link csv:', placeholder = "Cole o link do arquivo csv.")
+    comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
+    ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
+    scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
+    k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
+    cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
 fields = [comum,ind]
-
 method = scheme
-
-
-
+with c2:
+    e1,e2,e3,e4,e5 = st.expander("Explicação")
+    e1.write(\"\"\"
+    The chart above shows some numbers I picked for you.
+    I rolled actual dice for these, so they're *guaranteed* to
+    be random.
+\"\"\")
+    e2.write(\"\"\"
+    The chart above shows some numbers I picked for you.
+    I rolled actual dice for these, so they're *guaranteed* to
+    be random.
+\"\"\")
 #merge
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(area)
