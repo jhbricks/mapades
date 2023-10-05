@@ -52,6 +52,12 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 if area == "Paraná":
      t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
+     with t1:
+          st.markdown('AHAHAJNJAZ')
+          c1,c2 = st.columns()
+          c1.markdown('B')
+          c2.markdown('a')
+          
      with t2:
           colored_header(label="Renda média da população",
                          description="Renda média da população no Paraná",
