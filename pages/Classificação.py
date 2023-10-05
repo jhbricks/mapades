@@ -30,6 +30,7 @@ st.markdown(""" **Classificação de dados** explicação
 
 #inserir os arquivos csv e geojson
 st.markdown("Digite as variáveis:")
+form = st.form(key="form_settings")
 c1,c2 = st.columns(2)
 with c1:
     area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
@@ -47,6 +48,8 @@ with c1:
         scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
         k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
+
+form.form_submit_button(label="Enviar")
 
 fields = [comum,ind]
 method = scheme
@@ -96,11 +99,9 @@ with c2:
                     Link: https://leafmap.org/notebooks/23_colormaps/  
                     Sugerimos  escolher a paleta de cores com base na ferramenta Color Brewer: https://colorbrewer2.org/
                     """)
-    
-    if on:
-        with st.expander("Instrução: Comparação de classificações"):
-            st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
-                        para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
+    with st.expander("Instrução: Comparação de classificações"):
+        st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
+                    para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
 
 
 
