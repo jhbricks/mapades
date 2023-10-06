@@ -31,7 +31,7 @@ st.markdown(""" **Classificação de dados** explicação
 #inserir os arquivos csv e geojson
 
 #form = st.form(key="form_settings")
-c1,c2 = form.columns(2)
+c1,c2 = st.columns(2)
 with c1:
     st.markdown("Digite as variáveis:")
 
@@ -44,7 +44,7 @@ with c1:
     cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
     st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
-    on = form.toggle('Comparar duas classificações')
+    on = st.toggle('Comparar duas classificações')
 
     if on:
         scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
