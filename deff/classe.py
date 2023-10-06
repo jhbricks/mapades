@@ -68,7 +68,7 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
         if GVF < 80:
             st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF} </font></p>",unsafe_allow_html=True)
         else:
-            st.markdown(f"<p><font style='font-weight: bold;'><font size='+5'> GVF = {GVF} </font></p>",unsafe_allow_html=True)
+            st.markdown(f"<p><font style='font-weight: bold'><font size='+5'> GVF = {GVF} </font></p>",unsafe_allow_html=True)
 
 #f"<p style='line-height: 0.7;'><font size='+10' color='#58326b'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font></p>
 #st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></p>",unsafe_allow_html=True)
