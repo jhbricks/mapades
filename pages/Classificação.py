@@ -30,7 +30,7 @@ st.markdown(""" **Classificação de dados** explicação
 
 #inserir os arquivos csv e geojson
 
-form = st.form(key="form_settings")
+#form = st.form(key="form_settings")
 c1,c2 = form.columns(2)
 with c1:
     st.markdown("Digite as variáveis:")
@@ -58,22 +58,22 @@ method = scheme
 
 with c2:
     st.write("Instruções")
-    with st.expander("Instrução: Dado geográfico"):
+    with st.expander("Dado geográfico"):
         st.markdown("""Colar o link do arquivo do dado geográfico.  
                     O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: *link.com/area.geojson*  
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
                      """)
-    with st.expander("Instrução: Indicador"):
+    with st.expander("Indicador"):
         st.markdown("""Colar o link do arquivo dos indicadores.  
                     O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: *link.com/indicador.csv*   
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
                     Verifique se o arquivo está usando vírgula (,) como separador.
                     """)
-    with st.expander("Instrução: Coluna em comum"):
+    with st.expander("Coluna em comum"):
         st.markdown("""Digite o nome da columa que o arquivo do dado geográfico (geojson) e do indicador (csv) tem em comum.  
                     Por exemplo: *Município*
                     """)
-    with st.expander("Instrução: Método de classificação"):
+    with st.expander("Método de classificação"):
         st.markdown("Digite o Método de classificação dos dados escolhido. Os métodos disponíveis são:")
         m1,m2 = st.columns(2)
         with m1:
@@ -94,18 +94,18 @@ with c2:
                           StdMean  
                           UserDefined""")
         st.markdown("Mais informações acessar a página do Leafmap: https://leafmap.org/notebooks/53_choropleth/")
-    with st.expander("Instrução: Número de classes"):
+    with st.expander("Número de classes"):
         st.markdown("""Digite o número de classes em que os dados serão divididos.""")
-    with st.expander("Instrução: Paleta de cores"):
+    with st.expander("Paleta de cores"):
         st.markdown("""Digite o nome da paleta de cores escolhida exatamente como consta na página do Leafmap.
                     Link: https://leafmap.org/notebooks/23_colormaps/  
                     Sugerimos  escolher a paleta de cores com base na ferramenta Color Brewer: https://colorbrewer2.org/
                     """)
-    with st.expander("Instrução: Comparação de classificações"):
+    with st.expander("Comparação de classificações"):
         st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
                     para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
 
-form.form_submit_button(label="Enviar")
+#form.form_submit_button(label="Enviar")
 
 
 #merge

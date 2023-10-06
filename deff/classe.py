@@ -29,9 +29,12 @@ st.markdown(""" **Classificação de dados** explicação
 """)
 
 #inserir os arquivos csv e geojson
-st.markdown("Digite as variáveis:")
-c1,c2 = st.columns(2)
+
+form = st.form(key="form_settings")
+c1,c2 = form.columns(2)
 with c1:
+    st.markdown("Digite as variáveis:")
+
     area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
     arq = st.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
     comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
@@ -40,8 +43,19 @@ with c1:
     k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
     cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
+    st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
+    on = form.toggle('Comparar duas classificações')
+
+    if on:
+        scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
+        k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
+        cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
+
+    
+
 fields = [comum,ind]
 method = scheme
+
 with c2:
     st.write("Instruções")
     with st.expander("Instrução: Dado geográfico"):
@@ -87,6 +101,13 @@ with c2:
                     Link: https://leafmap.org/notebooks/23_colormaps/  
                     Sugerimos  escolher a paleta de cores com base na ferramenta Color Brewer: https://colorbrewer2.org/
                     """)
+    with st.expander("Instrução: Comparação de classificações"):
+        st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
+                    para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
+
+form.form_submit_button(label="Enviar")
+
+
 #merge
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(area)
