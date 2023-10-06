@@ -105,7 +105,13 @@ with c2:
 
 #form.form_submit_button(label="Enviar")
 
-gvf(area,arq,comum,ind,scheme,k,cmap)    
+ 
+if on:
+    g1,g2 = st.columns(2)
+    with g1:
+        gvf(area,arq,comum,ind,scheme,k,cmap) 
+    with g2:
+        gvf(area,arq,comum,ind,scheme1,k1,cmap1)
 
 
 #merge
