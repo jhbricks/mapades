@@ -8,7 +8,7 @@ import leafmap
 import leafmap.foliumap as leafmap
 
 @st.cache_data
-def mapa (area,arq,comum,ind,scheme,k,cmap):
+def gvf (area,arq,comum,ind,scheme,k,cmap):
     fields = [comum,ind]
     method = scheme
 
