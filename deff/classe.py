@@ -66,9 +66,11 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
         GVF = 100 - ((SDCM / SDAM) * 100)
 
         if GVF < 80:
-            st.markdown(f"<h3><font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
+            st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></p>",unsafe_allow_html=True)
         else:
             st.markdown(f"<h3><font style='font-weight: bold;'><font size='+5'> GVF = {GVF:.2f} </font> %</font></h3>",unsafe_allow_html=True)
+
+#f"<p style='line-height: 0.7;'><font size='+10' color='#58326b'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font></p>
 
 #####LAT E LON CENTRAIS
     ponto_central = arq_geojson.geometry.centroid
