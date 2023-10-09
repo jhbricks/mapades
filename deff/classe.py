@@ -57,29 +57,6 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 
             Z.append(np.sum(sq))  # calcula e guarda a soma do quadrado da diferença por essa classe
 
-#####
-            num_colunas = k
-
-            result = []
-            for i, (intervalo, contagem) in enumerate(zip(q.bins, q.counts)):
-                if i == 0:
-                    intervalo_min = float('-inf')
-                else:
-                    intervalo_min = q.bins[i - 1]
-                intervalo_max = intervalo
-                result.append((f"Intervalo {i + 1}:", f"{intervalo_min:.2f} - {intervalo_max:.2f}", contagem))
-
-            colunas = [result[i::num_colunas] for i in range(num_colunas)]
-
-            for i, coluna in enumerate(colunas):
-                with st.expander(f"Coluna {i + 1}"):
-                    for intervalo, _, _ in coluna:
-                        st.write(intervalo)
-                    for _, intervalo, _ in coluna:
-                        st.write(intervalo)
-                    for _, _, contagem in coluna:
-                        st.write(contagem)
-#####
         SDCM = np.sum(Z)  # Soma de Z
 
         media_total = np.mean(data)
@@ -92,9 +69,6 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
             st.markdown(f"<p> <font style = 'font-weight: bold'><font color='red'><font size='+5'> GVF = {GVF} </font></p>",unsafe_allow_html=True)
         else:
             st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+5'> GVF = {GVF} </font></p>",unsafe_allow_html=True)
-
-#f"<p style='line-height: 0.7;'><font size='+10' color='#58326b'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font></p>
-#st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></p>",unsafe_allow_html=True)
 
     st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+3'> {q} </font></p>",unsafe_allow_html=True)
   
