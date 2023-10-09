@@ -74,8 +74,17 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 #st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></p>",unsafe_allow_html=True)
 
     st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+3'> {q} </font></p>",unsafe_allow_html=True)
-    st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+3'> {q} </font></p>",unsafe_allow_html=True)
-
+    st.write({q})
+    st.write("<font style='font-weight: bold;'><font size='+3'>Intervalos e Quantidade de Variáveis:</font>", unsafe_allow_html=True)
+    for i, intervalo in enumerate(q.bins):
+        if i == 0:
+            intervalo_min = float('-inf')
+        else:
+            intervalo_min = q.bins[i - 1]
+    intervalo_max = intervalo
+    variaveis_no_intervalo = len(data[(data > intervalo_min) & (data <= intervalo_max)])
+    st.write(f"Intervalo {i + 1}: {intervalo_min:.2f} - {intervalo_max:.2f}, Variáveis: {variaveis_no_intervalo}")
+    
     
 #####LAT E LON CENTRAIS
     ponto_central = arq_geojson.geometry.centroid
