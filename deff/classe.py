@@ -72,7 +72,7 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
             colunas = [result[i::num_colunas] for i in range(num_colunas)]
 
             for i, coluna in enumerate(colunas):
-                with st.beta_expander(f"Coluna {i + 1}"):
+                with st.expander(f"Coluna {i + 1}"):
                     for intervalo, _, _ in coluna:
                         st.write(intervalo)
                     for _, intervalo, _ in coluna:
