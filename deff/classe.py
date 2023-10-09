@@ -57,6 +57,28 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 
             Z.append(np.sum(sq))  # calcula e guarda a soma do quadrado da diferença por essa classe
 
+            num_colunas = st.number_input("Número de colunas para exibição:", min_value=1, max_value=len(q.bins), value=1)
+#####
+            result = []
+            for i, (intervalo, contagem) in enumerate(zip(q.bins, q.counts)):
+                if i == 0:
+                    intervalo_min = float('-inf')
+                else:
+                    intervalo_min = q.bins[i - 1]
+                intervalo_max = intervalo
+                result.append((f"Intervalo {i + 1}:", f"{intervalo_min:.2f} - {intervalo_max:.2f}", contagem))
+
+            colunas = [result[i::num_colunas] for i in range(num_colunas)]
+
+            for coluna in colunas:
+                st.write("Intervalo", "Intervalo", "Contagem")
+                for intervalo, _, _ in coluna:
+                    st.write(intervalo)
+                for _, intervalo, _ in coluna:
+                    st.write(intervalo)
+                for _, _, contagem in coluna:
+                    st.write(contagem)
+#####
         SDCM = np.sum(Z)  # Soma de Z
 
         media_total = np.mean(data)
@@ -74,17 +96,7 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 #st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></p>",unsafe_allow_html=True)
 
     st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+3'> {q} </font></p>",unsafe_allow_html=True)
-    st.write({q})
-    st.write("<font style='font-weight: bold;'><font size='+3'>Intervalos e Quantidade de Variáveis:</font>", unsafe_allow_html=True)
-    for i, intervalo in enumerate(q.bins):
-        if i == 0:
-            intervalo_min = float('-inf')
-        else:
-            intervalo_min = q.bins[i - 1]
-    intervalo_max = intervalo
-    variaveis_no_intervalo = len(data[(data > intervalo_min) & (data <= intervalo_max)])
-    st.write(f"Intervalo {i + 1}: {intervalo_min:.2f} - {intervalo_max:.2f}, Variáveis: {variaveis_no_intervalo}")
-    
+  
     
 #####LAT E LON CENTRAIS
     ponto_central = arq_geojson.geometry.centroid
