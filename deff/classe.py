@@ -90,12 +90,19 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
         measure_control=False,
         fullscreen_control=False,
         attribution_control=True)
+
+    style_style = {
+        "stroke": True,           #linha da borda vai ser desenhada
+        "color": "#000000",       #cor da linha (preto)
+         }
+    
     m.add_data(data = gdf,
                column=ind,
                scheme=scheme,
                k=k,
                cmap=cmap,
                fields=fields,
+               style = style_style
                legend_position='topright',
                )
 
