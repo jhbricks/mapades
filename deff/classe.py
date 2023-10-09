@@ -73,6 +73,12 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 #f"<p style='line-height: 0.7;'><font size='+10' color='#58326b'>{arrow_u}</font> <font size='+5'>{max_str} = {ind_mx} {unidade}</font></p>
 #st.markdown(f"<p> <font style='font-weight: bold; color='red'><font size='+5'> GVF = {GVF:.2f} </font> %</font></p>",unsafe_allow_html=True)
 
+    a1, a2 = st.columns(2)
+    with a1:
+        st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+5'> Método de Classificação = {scheme} </font></p>",unsafe_allow_html=True)
+    with a2:
+        st.markdown(f"<p> <font style = 'font-weight: bold'><font size='+5'> Intervalos = {q} </font></p>",unsafe_allow_html=True)
+    
 #####LAT E LON CENTRAIS
     ponto_central = arq_geojson.geometry.centroid
     lat = ponto_central.iloc[0].y
