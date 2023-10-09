@@ -102,7 +102,7 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
                k=k,
                cmap=cmap,
                fields=fields,
-               style = style_style
+               style = style_style,
                legend_position='topright',
                )
 
