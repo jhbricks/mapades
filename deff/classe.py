@@ -57,8 +57,9 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 
             Z.append(np.sum(sq))  # calcula e guarda a soma do quadrado da diferença por essa classe
 
-            num_colunas = st.number_input("Número de colunas para exibição:", min_value=1, max_value=len(q.bins), value=1)
 #####
+            num_colunas = st.number_input("Número de colunas para exibição:", min_value=1, max_value=len(q.bins), value=1)
+
             result = []
             for i, (intervalo, contagem) in enumerate(zip(q.bins, q.counts)):
                 if i == 0:
@@ -70,14 +71,14 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
 
             colunas = [result[i::num_colunas] for i in range(num_colunas)]
 
-            for coluna in colunas:
-                st.write("Intervalo", "Intervalo", "Contagem")
-                for intervalo, _, _ in coluna:
-                    st.write(intervalo)
-                for _, intervalo, _ in coluna:
-                    st.write(intervalo)
-                for _, _, contagem in coluna:
-                    st.write(contagem)
+            for i, coluna in enumerate(colunas):
+                with st.beta_expander(f"Coluna {i + 1}"):
+                    for intervalo, _, _ in coluna:
+                        st.write(intervalo)
+                    for _, intervalo, _ in coluna:
+                        st.write(intervalo)
+                    for _, _, contagem in coluna:
+                        st.write(contagem)
 #####
         SDCM = np.sum(Z)  # Soma de Z
 
