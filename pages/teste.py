@@ -68,6 +68,8 @@ m.add_data(data = data,
            legend_position='bottomleft',
            layer_name='A',
            )
+m.add_geojson(NTC, style = {"color": "#000000","fillOpacity": 0,"clickable": False})
+
 ########VALORES DE MX E MN DAS VARIAVEIS
 #max_value = data[ind].max()
 #min_value = data[ind].min()
