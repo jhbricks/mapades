@@ -12,6 +12,7 @@ from deff.map import grafico
 from deff.teste_gvf import create_map
 from deff.teste_gvf import mapagvf
 from deff.mapa__ import mapa1
+import leafmap
 
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
@@ -54,20 +55,11 @@ if area == "Paraná":
      t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
      with t1:
           st.markdown('AHAHAJNJAZ')
-          c1,c2 = st.columns(2)
-          with c1:
-               st.markdown('B')
-          with c2:
-               st.markdown('a')
-          
-               e1,e2 = st.expander("explicação")
-
-               with e1:
-                    st.write("Explicação")
-
-               with e2:
-                    st.markdown("he chart above shows some numbers I picked for you.")
-          
+          NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
+          m = leafmap.Map(center=[-51.8, -24.7])
+          style = {"color": "#000000","fillOpacity": 0,"clickable": False}
+          m.add_geojson(NTC, style = {"color": "#000000","fillOpacity": 0,"clickable": False})
+          m.to_streamlit()
      with t2:
           colored_header(label="Renda média da população",
                          description="Renda média da população no Paraná",
@@ -110,6 +102,7 @@ if area == "Paraná":
                               **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
                               **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
                               """)
+               
 
 #teste GVF
 ##################area,data, ind, scheme, k, cmap, fields, title
