@@ -103,37 +103,35 @@ if area == "Paraná":
       st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
       conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
       grafico('PR',contexto,'Grau de Urbanização (%)','%')
-
-
-    
-    elif op == "População feminina":
-      colored_header(label="População feminina",
+  
+  elif op == 'População feminina':   
+    colored_header(label="População feminina",
                      description="Percentual da população feminina no Paraná",
                      color_name="red-70",)
-      c1,c2 = st.columns([2,1])
-      with c1:
-        mapa ('bnds','PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
-        st.markdown("""**Ano-base:** 2010 
+    c1,c2 = st.columns([2,1])
+    with c1:
+      mapa ('bnds','PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      st.markdown("""**Ano-base:** 2010 
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** (População censitária feminina*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
   #      mx_mn ('PR',contexto,'População feminina (%)','%')
-      with c2:
-        st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
-        conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
-        grafico('PR',contexto,'População feminina (%)','%')
+    with c2:
+      st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
+      conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
+      grafico('PR',contexto,'População feminina (%)','%')
 
 
-    elif op == "População preta/parda":
-      colored_header(label="População preta ou parda",
-                     description="Percentual da população preta ou parda no Paraná",
-                     color_name="red-70",)
+  elif op == "População preta/parda":
+    colored_header(label="População preta ou parda",
+                   description="Percentual da população preta ou parda no Paraná",
+                   color_name="red-70",)
         
-      c1,c2 = st.columns([2,1])
-      with c1:
-        mapa ('bnds','PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
-        st.markdown("""**Ano-base:** 2010  
+    c1,c2 = st.columns([2,1])
+    with c1:
+      mapa ('bnds','PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      st.markdown("""**Ano-base:** 2010  
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
@@ -142,10 +140,10 @@ if area == "Paraná":
    #     mx_mn ('PR',contexto,'População preta ou parda (%)','%')
         conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
 
-      with c2:
-        st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
-        conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
-        grafico('PR',contexto,'População preta ou parda (%)','%')
+    with c2:
+      st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
+      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      grafico('PR',contexto,'População preta ou parda (%)','%')
 
     
   else: 
