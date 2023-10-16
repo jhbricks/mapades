@@ -84,7 +84,7 @@ folium.Choropleth(
 
 #Hover
 folium.GeoJson(
-    popa,
+    mergeda,
     style_function=lambda x: {'fillColor': 'transparent', 'color': 'transparent'},
     tooltip=folium.features.GeoJsonTooltip(
         fields=["Municípios", "População"],
