@@ -138,7 +138,7 @@ if area == "Paraná":
                     """)
                    
    #     mx_mn ('PR',contexto,'População preta ou parda (%)','%')
-        conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
 
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
