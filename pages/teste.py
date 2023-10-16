@@ -47,31 +47,59 @@ arq_g = "./dados/geojson/PR.geojson"
 #lat = ponto_central.iloc[0].y
 #lon = ponto_central.iloc[0].x
     
-
-
+import pandas as pd
+import geopandas as gpd
+import mapclassify
 import folium
-import pandas
 
-state_geo = ('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson')
-state_data = pandas.read_csv(
-    "./dados/csv/contexto.csv"
-)
 
-m = folium.Map(zoom_start=3)
+csva = pd.read_csv("./dados/csv/contexto.csv")
+geoa = gpd.read_file("./dados/geojson/PR.geojson")
 
+mergeda = geoa.merge(csva, on="Município")
+
+#Cálculo
+#data["Densidade Demográfica"] = (data["População"] / data["AREA"]).round().astype(int)
+
+#Limites e Centralização da camada
+boundss = popa.geometry.bounds
+latitude_centrals = (boundss.miny.mean() + boundss.maxy.mean()) / 2
+longitude_centrals = (boundss.minx.mean() + boundss.maxx.mean()) / 2
+
+m = folium.Map(location=[latitude_centrals, longitude_centrals])
+
+
+#População
 folium.Choropleth(
-    geo_data=state_geo,
-    name="choropleth",
-    data=state_data,
-    columns=["Município", "População"],
-    key_on="Município",
-    color='black',
-    fill_color="YlGn",
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name="Unemployment Rate (%)",
+    geo_data= popa,
+    name='População',
+    data=popa,
+    columns=['Municípios', 'População'],
+    key_on='feature.properties.Municípios',
+    fill_color= 'YlOrRd',
+    legend_name='Legenda',
 ).add_to(m)
 
+#'BuGn', 'BuPu', 'GnBu', 'OrRd', 'PuBu', 'PuBuGn', 'PuRd', 'RdPu','YlGn', 'YlGnBu', 'YlOrBr', and 'YlOrRd'
+
+#Hover
+folium.GeoJson(
+    popa,
+    style_function=lambda x: {'fillColor': 'transparent', 'color': 'transparent'},
+    tooltip=folium.features.GeoJsonTooltip(
+        fields=["Municípios", "População"],
+        aliases=["Município", "População"],
+        labels=True,
+        sticky=False
+    ),
+    name='Legenda'
+).add_to(m)
+
+# Adicionar controle de camadas ao mapa
 folium.LayerControl().add_to(m)
 
+# Ajustar o zoom e a localização para preencher a tela
+m.fit_bounds([[boundss.miny.min(), boundss.minx.min()], [boundss.maxy.max(), boundss.maxx.max()]])
+
 m
+
