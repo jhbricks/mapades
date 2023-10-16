@@ -101,5 +101,5 @@ folium.LayerControl().add_to(m)
 # Ajustar o zoom e a localização para preencher a tela
 m.fit_bounds([[boundss.miny.min(), boundss.minx.min()], [boundss.maxy.max(), boundss.maxx.max()]])
 
-m
+m.to_streamlit()
 
