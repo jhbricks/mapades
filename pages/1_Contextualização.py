@@ -41,14 +41,14 @@ riqueza = "./dados/csv/riqueza.csv"
 
 
 if area == "Paraná":
-  option = st.selectbox(
+  op = st.selectbox(
    "Selecione abaixo um indicador.",
    ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"),
    index=None,
    placeholder="Escolha um indicador",
    )
   
-  with "População residente":
+  if op == "População residente":
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
@@ -67,9 +67,7 @@ if area == "Paraná":
       conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
       grafico('PR',contexto,'População','Habitantes')
       
-
-
-  with "Densidade demográfica":
+  elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
@@ -87,7 +85,7 @@ if area == "Paraná":
       grafico('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
 
 
-  with "Grau de urbanização":
+  elif op == "Grau de urbanização":
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
@@ -108,7 +106,7 @@ if area == "Paraná":
 
 
     
-    with "População feminina":
+    elif op == "População feminina":
       colored_header(label="População feminina",
                      description="Percentual da população feminina no Paraná",
                      color_name="red-70",)
@@ -127,7 +125,7 @@ if area == "Paraná":
         grafico('PR',contexto,'População feminina (%)','%')
 
 
-    with "População preta/parda":
+    elif op == "População preta/parda":
       colored_header(label="População preta ou parda",
                      description="Percentual da população preta ou parda no Paraná",
                      color_name="red-70",)
@@ -150,7 +148,8 @@ if area == "Paraná":
         grafico('PR',contexto,'População preta ou parda (%)','%')
 
     
-    with "Razão de dependência":
+  else: 
+      op == "Razão de dependência"
       colored_header(label="Razão de dependência",
                      description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                      color_name="red-70",)
