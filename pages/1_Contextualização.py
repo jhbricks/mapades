@@ -42,11 +42,8 @@ riqueza = "./dados/csv/riqueza.csv"
 
 if area == "Paraná":
   op = st.selectbox(
-   "Selecione abaixo um indicador.",
-   ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"),
-   index=None,
-   placeholder="Escolha um indicador",
-   )
+   "Selecione abaixo um indicador:",
+   ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   
   if op == "População residente":
     colored_header(label="População residente",
