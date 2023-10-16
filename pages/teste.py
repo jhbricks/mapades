@@ -38,40 +38,16 @@ riqueza = "./dados/csv/riqueza.csv"
 
 arq_g = "./dados/geojson/PR.geojson"
 
-arq_csv = pd.read_csv(pop)
-arq_geojson = gpd.read_file(arq_g)
-data = arq_geojson.merge(arq_csv, on="Município")
+#arq_csv = pd.read_csv(pop)
+#arq_geojson = gpd.read_file(arq_g)
+#data = arq_geojson.merge(arq_csv, on="Município")
 
 
-ponto_central = arq_geojson.geometry.centroid
-lat = ponto_central.iloc[0].y
-lon = ponto_central.iloc[0].x
+#ponto_central = arq_geojson.geometry.centroid
+#lat = ponto_central.iloc[0].y
+#lon = ponto_central.iloc[0].x
     
-if not isinstance(data,gpd.GeoDataFrame):
-    print("O arquivo não é um GeoDataFrame")
-    exit()
 
-##########################MAPA
-########MAPA INICIAL
-m = leafmap.Map(center=[lat,lon],
-                draw_control=False,
-                measure_control=False,
-                fullscreen_control=False,
-                attribution_control=True)
-  
-m.add_data(data = data,
-           column='População',
-           scheme='FisherJenks',
-           k=4,
-           cmap='Reds',
-           fields=['Município','População'],
-           legend_position='bottomleft',
-           layer_name='A',
-           )
-m.add_geojson(NTC, style = {"color": "#000000","fillOpacity": 0,"clickable": False})
-
-
-m.to_streamlit()
 
 import folium
 import pandas
