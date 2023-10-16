@@ -48,7 +48,7 @@ if area == "Paraná":
    placeholder="Escolha um indicador",
    )
   
-  with "População residente"
+  with "População residente":
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
