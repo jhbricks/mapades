@@ -62,7 +62,7 @@ mergeda = geoa.merge(csva, on="Município")
 #data["Densidade Demográfica"] = (data["População"] / data["AREA"]).round().astype(int)
 
 #Limites e Centralização da camada
-boundss = popa.geometry.bounds
+boundss = mergeda.geometry.bounds
 latitude_centrals = (boundss.miny.mean() + boundss.maxy.mean()) / 2
 longitude_centrals = (boundss.minx.mean() + boundss.maxx.mean()) / 2
 
