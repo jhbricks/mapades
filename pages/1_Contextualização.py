@@ -41,8 +41,14 @@ riqueza = "./dados/csv/riqueza.csv"
 
 
 if area == "Paraná":
-  t1, t2, t3, t4, t5, t6 = st.tabs(["População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"])
-  with t1:
+  option = st.selectbox(
+   "Selecione abaixo um indicador.",
+   ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"),
+   index=None,
+   placeholder="Escolha um indicador",
+   )
+  
+  with "População residente"
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
@@ -63,7 +69,7 @@ if area == "Paraná":
       
 
 
-  with t2:
+  with "Densidade demográfica":
     colored_header(label="Densidade demográfica",
                    description="Número de pessoas por km² no Paraná",
                    color_name="red-70",)
@@ -81,7 +87,7 @@ if area == "Paraná":
       grafico('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
 
 
-  with t3:
+  with "Grau de urbanização":
     colored_header(label="Grau de urbanização",
                    description="Percentual da população residente em áreas urbanas no Paraná",
                    color_name="red-70",)
@@ -102,7 +108,7 @@ if area == "Paraná":
 
 
     
-    with t4:
+    with "População feminina":
       colored_header(label="População feminina",
                      description="Percentual da população feminina no Paraná",
                      color_name="red-70",)
@@ -121,7 +127,7 @@ if area == "Paraná":
         grafico('PR',contexto,'População feminina (%)','%')
 
 
-    with t5:
+    with "População preta/parda":
       colored_header(label="População preta ou parda",
                      description="Percentual da população preta ou parda no Paraná",
                      color_name="red-70",)
@@ -144,7 +150,7 @@ if area == "Paraná":
         grafico('PR',contexto,'População preta ou parda (%)','%')
 
     
-    with t6:
+    with "Razão de dependência":
       colored_header(label="Razão de dependência",
                      description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Paraná",
                      color_name="red-70",)
