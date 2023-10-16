@@ -71,9 +71,9 @@ m = folium.Map(location=[latitude_centrals, longitude_centrals])
 
 #População
 folium.Choropleth(
-    geo_data= popa,
+    geo_data=mergeda,
     name='População',
-    data=popa,
+    data=mergeda,
     columns=['Municípios', 'População'],
     key_on='feature.properties.Municípios',
     fill_color= 'YlOrRd',
