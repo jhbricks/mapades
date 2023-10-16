@@ -70,23 +70,32 @@ m.add_data(data = data,
            )
 m.add_geojson(NTC, style = {"color": "#000000","fillOpacity": 0,"clickable": False})
 
-########VALORES DE MX E MN DAS VARIAVEIS
-#max_value = data[ind].max()
-#min_value = data[ind].min()
-#max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
-#min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
-#####ADICIONAR MX E MN NO MAPA
-#folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-#               data.loc[data[ind] == max_value, "X"].iloc[0]],
-#               popup=f"Maior valor: {max_value}<br>{max_municipio}",
-#               icon=folium.Icon(color="darkpurple", icon="arrow-up"),
-#              ).add_to(m) 
-#folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-#               data.loc[data[ind] == min_value, "X"].iloc[0]],
-#               popup=f"Menor valor: {min_value}<br>{min_municipio}",
-#               icon=folium.Icon(color="purple", icon="arrow-down"),
-#              ).add_to(m)
-#########ADICIONAR NO STREAMLIT
-
 
 m.to_streamlit()
+
+import folium
+import pandas
+
+state_geo = ('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson')
+state_data = pandas.read_csv(
+    "./dados/csv/contexto.csv"
+)
+
+m = folium.Map(zoom_start=3)
+
+folium.Choropleth(
+    geo_data=state_geo,
+    name="choropleth",
+    data=state_data,
+    columns=["Município", "População"],
+    key_on="Município",
+    color='black',
+    fill_color="YlGn",
+    fill_opacity=0.7,
+    line_opacity=0.2,
+    legend_name="Unemployment Rate (%)",
+).add_to(m)
+
+folium.LayerControl().add_to(m)
+
+m
