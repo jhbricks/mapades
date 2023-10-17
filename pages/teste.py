@@ -183,4 +183,4 @@ if area == "Paraná":
       conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
       grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
 
-  with t4:
+#with t4:
