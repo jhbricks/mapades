@@ -97,15 +97,14 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #                icon=folium.Icon(color="purple", icon="arrow-down"),
 #               ).add_to(m)
 #########ADICIONAR NO 
-  width = 950
-  height = 600
+  #width = 950
+  #height = 600
 
   m = leafmap.Map(center=(lat, lon))
   m.add_gdf(data, layer_name=title)
   # m.add_vector(file_path, layer_name=layer_name)
 
-  m.add_gdf(data)
-  m.zoom_to_gdf(data)
+
   st.pydeck_chart(m)
   #m.to_streamlit()
 
