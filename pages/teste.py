@@ -65,7 +65,7 @@ if area == "Paraná":
 #######LAT E LON CENTRAIS
       lon, lat = leafmap.gdf_centroid(data)
 ##########################MAPA
-      style = {'color': '#000000', 'lineColor': '#000000'} 
+      style = {'lineColor': '#000000'} 
 ########MAPA INICIAL
       m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
 #######ADICIONAR O MERGE GDF
