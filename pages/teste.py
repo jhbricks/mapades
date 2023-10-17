@@ -28,27 +28,7 @@ PR = "./dados/geojson/PR.geojson"
 NTC =  "./dados/geojson/NTC.geojson"
 
 
-#######MERGE geojson e csv
-arq_csv = pd.read_csv(arq)
-arq_geojson = gpd.read_file(arq_g)
-data = arq_geojson.merge(arq_csv, on="Município")
-#######LAT E LON CENTRAIS
-lon, lat = leafmap.gdf_centroid(data)
-##########################MAPA
-########MAPA INICIAL
-m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
-#######ADICIONAR O MERGE GDF
-m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title,)
-########VALORES DE MX E MN DAS VARIAVEIS
-max_value = data[ind].max()
-min_value = data[ind].min()
-max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
-min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
-#####ADICIONAR MX E MN NO MAPA
-folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
-folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
-#########ADICIONAR NO STREAMLIT
-m.to_streamlit()
+
 
 st.set_page_config(layout="wide")
 
