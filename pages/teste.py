@@ -4,9 +4,11 @@ import geopandas as gpd
 import pandas as pd
 import plotly.graph_objects as go
 #from deff.mapa__ import mapa
-from deff.calculos__ import mx_mn
-from deff.calculos__ import conta
+#from deff.calculos__ import mx_mn
+#from deff.calculos__ import conta
 #from deff.map import zoom_to_bounds
+from deff.mapa import grafico
+from deff.calculos import conta
 from deff.map import mapa
 #from deff.map import grafico
 #from deff.teste_gvf import create_map
@@ -38,10 +40,10 @@ if area == "Paraná":
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
-    
+    area,arq,ind,scheme,k,cmap,fields,title
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+      mapa('PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
@@ -60,7 +62,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      mapa('PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média da população R$/1000) 
@@ -78,7 +80,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
