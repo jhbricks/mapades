@@ -106,7 +106,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
   m.add_gdf(data)
   m.zoom_to_gdf(data)
-  m.to_streamlit(width=width, height=height) 
+  st.pydeck_chart(m)
   #m.to_streamlit()
 
 
