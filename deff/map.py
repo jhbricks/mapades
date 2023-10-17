@@ -102,7 +102,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   #height = 600
 
   m = leafmap.Map(center=(lat, lon))
-  column_names = gdf.columns.values.tolist()
+  column_names = data.columns.values.tolist()
   random_column = None
   m.add_gdf(arq_g, layer_name=title,random_color_column=None)
 
