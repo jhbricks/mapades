@@ -58,11 +58,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   
 ##########################MAPA
 ########MAPA INICIAL
-  m = leafmap.Map(center=(lat,lon), 
-                  draw_control=False,
-                  measure_control=False,
-                  fullscreen_control=False,
-                  attribution_control=True)
+#  m = leafmap.Map(center=(lat,lon), 
+#                  draw_control=False,
+#                  measure_control=False,
+#                  fullscreen_control=False,
+#                  attribution_control=True)
   
 
 #  m.add_data(data = data,
@@ -97,10 +97,17 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #                icon=folium.Icon(color="purple", icon="arrow-down"),
 #               ).add_to(m)
 #########ADICIONAR NO 
+  width = 950
+  height = 600
+
+  m = leafmap.Map(center=(lat, lon))
+  m.add_gdf(data, layer_name=title)
+  # m.add_vector(file_path, layer_name=layer_name)
+
   m.add_gdf(data)
   m.zoom_to_gdf(data)
- 
-  m.to_streamlit()
+  m.to_streamlit(width=width, height=height) 
+  #m.to_streamlit()
 
 
 
