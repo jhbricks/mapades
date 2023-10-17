@@ -144,7 +144,6 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
       arq = renda
       ind = 'Rendimento médio da população feminina/masculina (%)'
       scheme = 'FisherJenks'
