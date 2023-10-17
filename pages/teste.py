@@ -160,7 +160,7 @@ if area == "Paraná":
 ##########################MAPA
       style = {'Color': '#000000'} 
 ########MAPA INICIAL
-      m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+      m = leafmap.Map(center=(lat,lon),zoom_max=16,zoom_min=11,draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
 #######ADICIONAR O MERGE GDF
       m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title)
 ########VALORES DE MX E MN DAS VARIAVEIS
