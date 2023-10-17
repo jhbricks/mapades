@@ -40,7 +40,7 @@ if area == "Paraná":
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
-    area,arq,ind,scheme,k,cmap,fields,title
+    #area,arq,ind,scheme,k,cmap,fields,title
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
