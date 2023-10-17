@@ -14,7 +14,11 @@ from deff.map import mapa
 #from deff.teste_gvf import create_map
 #from deff.teste_gvf import mapagvf
 #from deff.mapa__ import mapa1
+
+from streamlit_folium import folium_static
+import folium
 import leafmap
+import leafmap.foliumap as leafmap
 
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
@@ -22,6 +26,29 @@ renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 PR = "./dados/geojson/PR.geojson"
 NTC =  "./dados/geojson/NTC.geojson"
+
+
+#######MERGE geojson e csv
+arq_csv = pd.read_csv(arq)
+arq_geojson = gpd.read_file(arq_g)
+data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+########MAPA INICIAL
+m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title,)
+########VALORES DE MX E MN DAS VARIAVEIS
+max_value = data[ind].max()
+min_value = data[ind].min()
+max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+m.to_streamlit()
 
 st.set_page_config(layout="wide")
 
@@ -36,6 +63,7 @@ renda = "./dados/csv/renda.csv"
 
 if area == "Paraná":
   t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
+  arq_g = PR
   with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
@@ -43,7 +71,35 @@ if area == "Paraná":
     #area,arq,ind,scheme,k,cmap,fields,title
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+      arq = renda
+      ind = 'Coeficiente de Gini'
+      scheme = 'FisherJenks'
+      k=3
+      cmap='PuBuGn'
+      fields=['Município','Coeficiente de Gini']
+      title='Coeficiente de Gini da Renda Domiciliar per Capita'
+      #######MERGE geojson e csv
+      arq_csv = pd.read_csv(arq)
+      arq_geojson = gpd.read_file(arq_g)
+      data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+      lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+      style = {'color': '#000000', 'lineColor': '#000000'} 
+########MAPA INICIAL
+      m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+      m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title,style_function = lambda x: style)
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data[ind].max()
+      min_value = data[ind].min()
+      max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+      folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
