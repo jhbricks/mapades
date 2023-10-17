@@ -102,7 +102,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   #height = 600
 
   m = leafmap.Map(center=(lat, lon))
-  m.add_gdf(data, layer_name=title)
+  m.add_gdf(arq_g, layer_name=title)
   # m.add_vector(file_path, layer_name=layer_name)
 
 
