@@ -104,7 +104,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   m = leafmap.Map(center=(lat, lon))
   column_names = data.columns.values.tolist()
   random_column = None
-  m.add_gdf(arq_g, layer_name=title,random_color_column=None)
+  m.add_gdf(data, layer_name=title,random_color_column=None)
 
   # m.add_vector(file_path, layer_name=layer_name)
 
