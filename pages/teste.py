@@ -184,7 +184,3 @@ if area == "Paraná":
       grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
 
   with t4:
-    import plotly.express as px
-    df = px.data.tips()
-    fig = px.histogram(pop, x="Município")
-    st.plotly_chart(fig, use_container_width=True)
