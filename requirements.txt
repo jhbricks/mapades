@@ -17,3 +17,5 @@ matplotlib
 libpysal
 classify
 
+fiona
+
