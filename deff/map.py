@@ -65,17 +65,17 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   attribution_control=True)
   
 
-  m.add_data(data = data,
-	           column=ind,
-             scheme=scheme,
-             k=k,
-             cmap=cmap,
-             fields=fields,
-             legend_title=title,
-             legend_position='Bottomright',
-             layer_name=title,
-             style={"stroke": True,
-                    "color": "#000000"})
+#  m.add_data(data = data,
+#	           column=ind,
+#             scheme=scheme,
+#             k=k,
+#             cmap=cmap,
+#             fields=fields,
+#             legend_title=title,
+#             legend_position='Bottomright',
+#             layer_name=title,
+#             style={"stroke": True,
+#                    "color": "#000000"})
   
   
 
