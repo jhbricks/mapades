@@ -98,7 +98,35 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      arq = renda
+      ind = 'Renda Média da População (R$ mil)'
+      scheme = 'FisherJenks'
+      k=5
+      cmap='YlOrRd'
+      fields=['Município','Renda Média da População (R$ mil)']
+      title='Renda Média da População (R$ mil)'
+      #######MERGE geojson e csv
+      arq_csv = pd.read_csv(arq)
+      arq_geojson = gpd.read_file(arq_g)
+      data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+      lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+      style = {'Color': '#000000'} 
+########MAPA INICIAL
+      m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+      m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title,style_function = lambda feature: {'color': 'black','weight':1})
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data[ind].max()
+      min_value = data[ind].min()
+      max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+      folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
       st.markdown("""**Ano-base:** 2020
                   **Fonte(s):** Fundação Getúlio Vargas (FGV) 
                   **Fórmula:** (Renda Média da população R$/1000) 
@@ -117,6 +145,35 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      arq = renda
+      ind = 'Rendimento médio da população feminina/masculina (%)'
+      scheme = 'FisherJenks'
+      k=5
+      cmap='RdPu'
+      fields=['Município','Rendimento médio da população feminina/masculina (%)']
+      title='Rendimento médio da população feminina (%)'
+      #######MERGE geojson e csv
+      arq_csv = pd.read_csv(arq)
+      arq_geojson = gpd.read_file(arq_g)
+      data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+      lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+      style = {'Color': '#000000'} 
+########MAPA INICIAL
+      m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+      m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title,style_function = lambda feature: {'color': 'black','weight':1})
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data[ind].max()
+      min_value = data[ind].min()
+      max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+      folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
