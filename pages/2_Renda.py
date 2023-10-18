@@ -46,11 +46,11 @@ if area == "Paraná":
       mapa('bnds','PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
-                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
+                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
                   **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
     with d2:
-      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")    
+      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município, portanto, quanto mais próximo de 1 maior é a concentração.**")    
       conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54, None)
       grafico ('PR',renda,'Coeficiente de Gini',None)
 
@@ -63,9 +63,9 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Renda Média da População (R$ mil)','FisherJenks',5,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
-      st.markdown("""**Ano-base:** 2020
-                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
-                  **Fórmula:** (Renda Média da população R$/1000) 
+      st.markdown("""**Ano-base:** 2020  
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV)  
+                  **Fórmula:** (Renda Média da população R$/1000)  
                   **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
                   """)    
     with d2:
@@ -81,7 +81,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
-      st.markdown("""**Ano-base:** 2021
+      st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
                   **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
@@ -99,9 +99,9 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('bnds','PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
-      st.markdown("""**Ano-base:** 2020
-                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
-                  **Fórmula:** (Renda Média dos declarantes R$/1000) 
+      st.markdown("""**Ano-base:** 2020  
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV)  
+                  **Fórmula:** (Renda Média dos declarantes R$/1000)  
                   **Observações:** Renda Média dos declarantes do IRPF é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
                   """)      
     with d2:
@@ -123,7 +123,7 @@ if area == "Núcleo Territorial Central":
     c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Coeficiente de Gini','FisherJenks',4,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
-      st.markdown("""**Ano-base:** 2010
+      st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, IBGE  
                   **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
                   **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
@@ -142,9 +142,9 @@ if area == "Núcleo Territorial Central":
     c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
-      st.markdown("""**Ano-base:** 2020
-                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
-                  **Fórmula:** (Renda Média da população R$/1000) 
+      st.markdown("""**Ano-base:** 2020  
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV)  
+                  **Fórmula:** (Renda Média da população R$/1000)  
                   **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
                   """) 
     with c2:
@@ -179,9 +179,9 @@ if area == "Núcleo Territorial Central":
     c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
-      st.markdown("""**Ano-base:** 2020
-                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
-                  **Fórmula:** (Renda Média dos declarantes R$/1000) 
+      st.markdown("""**Ano-base:** 2020  
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV)  
+                  **Fórmula:** (Renda Média dos declarantes R$/1000)  
                   **Observações:** Renda Média dos declarantes do IRPF é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
                   """)
 

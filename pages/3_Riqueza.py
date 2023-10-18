@@ -49,7 +49,7 @@ if area == "Paraná":
            'Percentual de domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
-                  **Fórmula:** Percentual de domicílios com bens duráveis   
+                  **Fórmula:** Percentual de domicílios com bens duráveis  
                   **Observações:** Dados do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)      
 
@@ -71,7 +71,7 @@ if area == "Paraná":
       mapa('bnds','PR', riqueza, 'Veículos por pessoa',
          'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
          'Número de veículos por pessoas')
-      st.markdown("""**Ano-base:** 2021 
+      st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IPARDES, 2023  
                   **Fórmula:** Número de veículos por pessoas  
                   **Observações:** Dados disponibilizados pelo IPARDES
@@ -95,7 +95,7 @@ if area == "Paraná":
       mapa('bnds','PR', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',5, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'Percentual de declarantes do IRPF na população (%)')
-      st.markdown("""**Ano-base:** 2020 
+      st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
                   **Fórmula:** Declarantes na População  
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
@@ -117,9 +117,9 @@ if area == "Paraná":
     with d1:
       mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',
            4,'YlOrBr',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
-      st.markdown("""**Ano-base:** 2020 
+      st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio da população/1000000 
+                  **Fórmula:** Patrimônio líquido médio da população/1000000  
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
@@ -140,9 +140,9 @@ if area == "Paraná":
       mapa('bnds','PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
            'FisherJenks', 5, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
-      st.markdown("""**Ano-base:** 2020 
+      st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000 
+                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000  
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 
@@ -170,7 +170,7 @@ if area == "Núcleo Territorial Central":
            'Percentual de domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
-                  **Fórmula:** Percentual de domicílios com bens duráveis   
+                  **Fórmula:** Percentual de domicílios com bens duráveis  
                   **Observações:** Dados do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
 
@@ -192,8 +192,8 @@ if area == "Núcleo Territorial Central":
       mapa('bnds','NTC', riqueza, 'Veículos por pessoa',
            'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
            'Número de veículos por pessoas')
-      st.markdown("""**Ano-base:** 2021 
-                  **Fonte(s):** IPARDES, 2023  
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IPARDES, 2023    
                   **Fórmula:** Número de veículos por pessoas  
                   **Observações:** Dados disponibilizados pelo IPARDES
                   """)
@@ -215,7 +215,7 @@ if area == "Núcleo Territorial Central":
       mapa('bnds','NTC', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',4, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'Percentual de declarantes do IRPF na população (%)')
-      st.markdown("""**Ano-base:** 2020 
+      st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
                   **Fórmula:** Declarantes na População  
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
@@ -262,9 +262,9 @@ if area == "Núcleo Territorial Central":
       mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
            'FisherJenks', 4, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
-      st.markdown("""**Ano-base:** 2020 
+      st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
-                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000 
+                  **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000   
                   **Observações:** Disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV)
                   """)
 

@@ -72,7 +72,7 @@ if area == "Paraná":
     c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-      st.markdown("""**Ano-base:** 2010 
+      st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
@@ -91,7 +91,7 @@ if area == "Paraná":
     with c1:
  
       mapa('bnds','PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
-      st.markdown("""**Ano-base:** 2010 
+      st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
@@ -108,7 +108,7 @@ if area == "Paraná":
     c1,c2 = st.columns([2,1])
     with c1:
       mapa ('bnds','PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
-      st.markdown("""**Ano-base:** 2010 
+      st.markdown("""**Ano-base:** 2010  
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** (População censitária feminina*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
@@ -130,7 +130,7 @@ if area == "Paraná":
       mapa ('bnds','PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
       st.markdown("""**Ano-base:** 2010  
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
-                    **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
+                    **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
                    
@@ -155,7 +155,7 @@ if area == "Paraná":
     #    mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
         st.markdown("""**Ano-base:** 2021 (projeção)  
                     **Fonte(s):** IPARDES,2023  
-                    **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total   
+                    **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total  
                     **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
                     """)         
         st.caption('*População projetada para o ano de 2021') 
@@ -197,7 +197,7 @@ else:
       mapa('bnds','NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
-                  **Fórmula:** (População total/Área total) 
+                  **Fórmula:** (População total/Área total)  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)    
     with c2:
@@ -213,7 +213,7 @@ else:
     c1,c2 = st.columns([2,1])
     with c1:
       mapa('bnds','NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
-      st.markdown("""**Ano-base:** 2010 
+      st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
@@ -231,7 +231,7 @@ else:
     c1,c2 = st.columns([2,1])
     with c1:
       mapa ('bnds','NTC',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
-      st.markdown("""**Ano-base:** 2010 
+      st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária feminina*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
@@ -249,9 +249,9 @@ else:
     c1,c2 = st.columns([2,1])
     with c1:
       mapa ('bnds','NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
-      st.markdown("""**Ano-base:** 2010 
+      st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
-                  **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total    
+                  **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
       #mx_mn ('NTC',contexto,'População preta ou parda (%)','%')
@@ -267,9 +267,9 @@ else:
     c1,c2 = st.columns([2,1])
     with c1:
       mapa ('bnds','NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
-      st.markdown("""**Ano-base:** 2021 (projeção)
+      st.markdown("""**Ano-base:** 2021 (projeção)  
                   **Fonte(s):** IPARDES,2023  
-                  **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total   
+                  **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total  
                   **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
                   """)
     #  mx_mn ('NTC',contexto,'Razão de Dependência (%)','%')
