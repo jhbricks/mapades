@@ -80,7 +80,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      mapa('bnds','PR',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',5,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina (%)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
@@ -89,7 +89,7 @@ if area == "Paraná":
     with d2:
       st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
       conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
-      grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
+      grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)','%')
 
   with t4:
     colored_header(label="Renda dos declarantes do IRPF",
@@ -159,7 +159,7 @@ if area == "Núcleo Territorial Central":
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina/masculina (%)')
+      mapa('bnds','NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina (%)')
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
@@ -169,7 +169,7 @@ if area == "Núcleo Territorial Central":
     with c2:
       st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
       conta ('NTC',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
-      grafico('NTC',renda,'Rendimento médio da população feminina/masculina (%)',None)
+      grafico('NTC',renda,'Rendimento médio da população feminina/masculina (%)','%')
 
   with t4:
     colored_header(label="Renda dos declarantes do IRPF",
