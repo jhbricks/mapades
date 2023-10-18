@@ -133,9 +133,6 @@ if area == "Paraná":
                     **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
-                   
-   #     mx_mn ('PR',contexto,'População preta ou parda (%)','%')
-      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
 
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
