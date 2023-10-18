@@ -149,13 +149,13 @@ if area == "Paraná":
       c1,c2 = st.columns([2,1])
       with c1:
         mapa ('bnds','PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
-    #    mx_mn ('PR',contexto,'Razão de Dependência (%)','%')
+        st.caption('*População projetada para o ano de 2021') 
         st.markdown("""**Ano-base:** 2021 (projeção)  
                     **Fonte(s):** IPARDES,2023  
                     **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total  
                     **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
                     """)         
-        st.caption('*População projetada para o ano de 2021') 
+
 
       with c2:
         st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
@@ -264,13 +264,13 @@ else:
     c1,c2 = st.columns([2,1])
     with c1:
       mapa ('bnds','NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+      st.caption('*População projetada para o ano de 2021') 
       st.markdown("""**Ano-base:** 2021 (projeção)  
                   **Fonte(s):** IPARDES,2023  
                   **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total  
                   **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
                   """)
-    #  mx_mn ('NTC',contexto,'Razão de Dependência (%)','%')
-      st.caption('*População projetada para o ano de 2021') 
+
     with c2:
       st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
       conta ('NTC',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
