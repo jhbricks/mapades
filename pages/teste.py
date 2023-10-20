@@ -49,7 +49,7 @@ if area == "Paraná":
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
     #area,arq,ind,scheme,k,cmap,fields,title
-    d1,d2 = st.columns([2,1])
+    d1,d2 = st.columns([2,0.7])
     with d1:
       arq = renda
       ind = 'Coeficiente de Gini'
