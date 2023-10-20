@@ -186,6 +186,7 @@ if area == "Paraná":
 else:
   att = st.radio("Selecione uma área:",("A","B","C"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+  arq_g = PR
   if att == "A":
     #area,arq,ind,scheme,k,cmap,fields,title
     d1,d2 = st.columns([2,1])
