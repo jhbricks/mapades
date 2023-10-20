@@ -183,4 +183,142 @@ if area == "Paraná":
       conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
       grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
 
-#with t4:
+else:
+  att = st.radio("Selecione uma área:",("A","B","C"))
+  st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+  if att == "A":
+    #area,arq,ind,scheme,k,cmap,fields,title
+    d1,d2 = st.columns([2,1])
+    with d1:
+      arq = renda
+      ind = 'Coeficiente de Gini'
+      scheme = 'FisherJenks'
+      k=3
+      cmap='PuBuGn'
+      fields=['Município','Coeficiente de Gini']
+      title='Coeficiente de Gini da Renda Domiciliar per Capita'
+      #######MERGE geojson e csv
+      arq_csv = pd.read_csv(arq)
+      arq_geojson = gpd.read_file(arq_g)
+      data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+      lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+      style = {'Color': '#000000'} 
+########MAPA INICIAL
+      m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+      m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title,style_function = lambda feature: {'color': 'black','weight':1})
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data[ind].max()
+      min_value = data[ind].min()
+      max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+      folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
+      st.markdown("""**Ano-base:** 2010  
+                  **Fonte(s):** IPARDES, 2023; IBGE, 2010  
+                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita   
+                  **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
+                  """)
+    with d2:
+      st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")    
+      conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54, None)
+      grafico ('PR',renda,'Coeficiente de Gini',None)
+
+
+  elif att == "B":
+    colored_header(label="Renda média da população",
+                   description="Renda média da população no Paraná",
+                   color_name="red-70",)
+    
+    d1,d2 = st.columns([2,1])
+    with d1:
+      arq = renda
+      ind = 'Renda Média da População (R$ mil)'
+      scheme = 'FisherJenks'
+      k=5
+      cmap='YlOrRd'
+      fields=['Município','Renda Média da População (R$ mil)']
+      title='Renda Média da População (R$ mil)'
+      #######MERGE geojson e csv
+      arq_csv = pd.read_csv(arq)
+      arq_geojson = gpd.read_file(arq_g)
+      data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+      lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+      style = {'Color': '#000000'} 
+########MAPA INICIAL
+      m = leafmap.Map(center=(lat,lon),draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+      m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title)
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data[ind].max()
+      min_value = data[ind].min()
+      max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+      folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
+      st.markdown("""**Ano-base:** 2020
+                  **Fonte(s):** Fundação Getúlio Vargas (FGV) 
+                  **Fórmula:** (Renda Média da população R$/1000) 
+                  **Observações:** Renda Média da População é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
+                  """)    
+    with d2:
+      st.markdown("**Indica a renda média da população (R$) para o ano de 2020**")  
+      conta ('PR',renda,'Renda Média da População (R$ mil)',2020,'Renda Média da População','media','R$ mil')
+      grafico('PR',renda,'Renda Média da População (R$ mil)','R$ mil')
+
+  else:
+    colored_header(label="Rendimento médio da população feminina",
+                   description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Paraná",
+                   color_name="red-70",)
+    
+    d1,d2 = st.columns([2,1])
+    with d1:
+      arq = renda
+      ind = 'Rendimento médio da população feminina/masculina (%)'
+      scheme = 'FisherJenks'
+      k=5
+      cmap='RdPu'
+      fields=['Município','Rendimento médio da população feminina/masculina (%)']
+      title='Rendimento médio da população feminina (%)'
+      #######MERGE geojson e csv
+      arq_csv = pd.read_csv(arq)
+      arq_geojson = gpd.read_file(arq_g)
+      data = arq_geojson.merge(arq_csv, on="Município")
+#######LAT E LON CENTRAIS
+      lon, lat = leafmap.gdf_centroid(data)
+##########################MAPA
+      style = {'Color': '#000000'} 
+########MAPA INICIAL
+      m = leafmap.Map(center=(lat,lon),zoom_max=16,zoom_min=11,draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+#######ADICIONAR O MERGE GDF
+      m.add_data(data = data,column=ind,scheme=scheme,k=k,cmap=cmap,fields=fields,legend_title=title,legend_position='topright',layer_name=title)
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data[ind].max()
+      min_value = data[ind].min()
+      max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],data.loc[data[ind] == max_value, "X"].iloc[0]],popup=f"Maior valor: {max_value}<br>{max_municipio}",icon=folium.Icon(color="darkpurple", icon="arrow-up")).add_to(m) 
+      folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],data.loc[data[ind] == min_value, "X"].iloc[0]],popup=f"Menor valor: {min_value}<br>{min_municipio}",icon=folium.Icon(color="purple", icon="arrow-down"),).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
+      st.markdown("""**Ano-base:** 2021
+                  **Fonte(s):** IPARDES, RAIS  
+                  **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
+                  **Observações:** Rendimento médio mensal é disponibilizado na RAIS (Relação Anual de Informações Sociais), obtido no banco de dados do IPARDES.
+                  """)
+    with d2:
+      st.markdown("**Indica o percentual do rendimento médio real mensal das mulheres em relação ao dos homens celetistas e estatutários.**")  
+      conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
+      grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
+    
