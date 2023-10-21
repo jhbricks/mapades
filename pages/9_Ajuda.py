@@ -28,9 +28,19 @@ with t1:
     with c2:
         st.image(nomes)
     with c3:
-        st.markdown("Os marcadores com setas indica os municípios com o menor (↓) e o maior (↑) valor do indicador.")
+        st.markdown("""Os marcadores com setas (↓ e ↑) indicam os municípios com o menor (↓) e o maior (↑) valor do indicador. 
+                    Ao clicar em cima do marcador irá abrir um balão com o nome do município e o valor do indicador.""")
     with c4:
         st.image(valor)
+    c5,c6,c7,c8 = st.columns([1,2,1,2])
+    with c5:
+        st.markdown("Para aumentar a imagem do mapa clique no + no canto superior esquerdo, ou no - para diminuir a imagem.")
+    with c6:
+        st.image(zoom)
+    with c7:
+        st.markdown("Ao segurar o botão esquerdo e mover o cursor irá arrastar o mapa")
+    with c8:
+        st.image(drag)
 
 with t2:
     colored_header(label="Glossário",description="  ",color_name="light-blue-70",)
