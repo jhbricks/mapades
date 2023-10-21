@@ -22,12 +22,11 @@ with t1:
     valor = "./dados/imagem/maior menor (1).gif"
     nomes = "./dados/imagem/nomes e valores.gif"
     st.markdown("""**Funções**""")
-    c1,c2=st.columns(2)
+    c1,c2=st.columns(1,2,1,2)
     with c1:
         st.markdown("Ao passar o cursor em cima dos municípios irá mostrar o nome do município e o valor do indicador.")
     with c2:
         st.image(nomes)
-    c3,c4 = st.columns(2)
     with c3:
         st.markdown("Os marcadores com setas indica os municípios com o menor (↓) e o maior (↑) valor do indicador.")
     with c4:
