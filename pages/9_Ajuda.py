@@ -17,7 +17,22 @@ t1, t2 = st.tabs(["Como ler mapas", "Glossário"])
 
 with t1:
     colored_header(label="Como ler mapas",description="  ",color_name="light-blue-70",)
-    st.markdown("""**Desig**""")
+    zoom = "./dados/imagem/zoom (1).gif"
+    drag = "./dados/imagem/arrastar (1).gif"
+    valor = "./dados/imagem/maior menor (1).gif"
+    nomes = "./dados/imagem/nomes e valores.gif"
+    st.markdown("""**Funções**""")
+    c1,c2=st.columns(2)
+    with c1:
+        st.markdown("Ao passar o cursor em cima dos municípios irá mostrar o nome do município e o valor do indicador.")
+    with c2:
+        st.image(nomes)
+    c3,c4 = st.columns(2)
+    with c3:
+        st.markdown("Os marcadores com setas indica os municípios com o menor (↓) e o maior (↑) valor do indicador.")
+    with c4:
+        st.image(valor)
+
 with t2:
     colored_header(label="Glossário",description="  ",color_name="light-blue-70",)
     st.markdown("""**:blue[Desigualdade]:** atributo de elementos distintos; dessemelhança; diferença; disparidade. No contexto de uma sociedade, a desigualdade social é a relação
