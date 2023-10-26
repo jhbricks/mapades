@@ -77,7 +77,7 @@ def mx_mn (area,arq,ind,unidade=None):
 @st.cache_data
 def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     
-    if area == PR:
+    if area == 'PR':
        arq_g= "./dados/geojson/PR.geojson"
        nome = 'Paraná'
     else:
