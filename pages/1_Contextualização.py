@@ -25,6 +25,7 @@ if area == "Paraná":
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   
   if op == "População residente":
+    PR = "./dados/geojson/PR.geojson"
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
@@ -143,7 +144,7 @@ if area == "Paraná":
 
     
 else:
-  area = 'NTC'
+  area = NTC
   
   op = st.radio("Selecione um indicador:",
                 ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
@@ -161,11 +162,11 @@ else:
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)    
-     # mx_mn ('NTC',contexto,'População','habitantes')
+     # mx_mn (NTC,contexto,'População','habitantes')
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
-      conta ('NTC',contexto,'População',2021,'População total','soma','habitantes')
-      grafico('NTC',contexto,'População','habitantes')
+      conta (NTC,contexto,'População',2021,'População total','soma','habitantes')
+      grafico(NTC,contexto,'População','habitantes')
   
   elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
@@ -180,9 +181,9 @@ else:
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)    
     with c2:
-      #mx_mn ('NTC',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
-      conta ('NTC',contexto,'Densidade Demográfica (hab/km²)',2021)
-      grafico('NTC',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      #mx_mn (NTC,contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      conta (NTC,contexto,'Densidade Demográfica (hab/km²)',2021)
+      grafico(NTC,contexto,'Densidade Demográfica (hab/km²)','hab/km²')
 
 
   elif op == "Grau de urbanização":
@@ -197,11 +198,11 @@ else:
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn ('NTC',contexto,'Grau de Urbanização (%)','%')
+      #mx_mn (NTC,contexto,'Grau de Urbanização (%)','%')
     with c2:
       st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
-      conta ('NTC',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
-      grafico('NTC',contexto,'Grau de Urbanização (%)','%')
+      conta (NTC,contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
+      grafico(NTC,contexto,'Grau de Urbanização (%)','%')
 
   elif op == "População feminina": 
     colored_header(label="População feminina",
@@ -215,11 +216,11 @@ else:
                   **Fórmula:** (População censitária feminina*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn ('NTC',contexto,'População feminina (%)','%')
+      #mx_mn (NTC,contexto,'População feminina (%)','%')
     with c2:
       st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
-      conta ('NTC',contexto, 'População feminina (%)', 2010, None, None, None)
-      grafico('NTC',contexto,'População feminina (%)','%')
+      conta (NTC,contexto, 'População feminina (%)', 2010, None, None, None)
+      grafico(NTC,contexto,'População feminina (%)','%')
 
   elif op == "População preta ou parda":
     colored_header(label="População preta ou parda",
@@ -233,11 +234,11 @@ else:
                   **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn ('NTC',contexto,'População preta ou parda (%)','%')
+      #mx_mn (NTC,contexto,'População preta ou parda (%)','%')
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
-      conta ('NTC',contexto, 'População preta ou parda (%)', 2010, None, None, None)
-      grafico('NTC',contexto,'População preta ou parda (%)','%')
+      conta (NTC,contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      grafico(NTC,contexto,'População preta ou parda (%)','%')
 
   else:
     op == "Razão de dependência"
@@ -256,5 +257,5 @@ else:
 
     with c2:
       st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
-      conta ('NTC',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
-      grafico('NTC',contexto,'Razão de Dependência (%)','%')
+      conta (NTC,contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
+      grafico(NTC,contexto,'Razão de Dependência (%)','%')
