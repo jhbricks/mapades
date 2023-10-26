@@ -155,7 +155,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa,'NTC',contexto,'População','FisherJenks',4,'Oranges', ['Município','População'],'População residente')
+      mapa(NTC,contexto,'População','FisherJenks',4,'Oranges', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -173,7 +173,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa,'NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa(NTC,contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total)  
@@ -191,7 +191,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa,'NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa(NTC,contexto,'Grau de Urbanização (%)','FisherJenks',3,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -209,7 +209,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa ,'NTC',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa (NTC,contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária feminina*100)/População censitária total  
@@ -227,7 +227,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa ,'NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      mapa (NTC,contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
@@ -246,7 +246,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa ,'NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+      mapa (NTC,contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
       st.caption('*População projetada para o ano de 2021') 
       st.markdown("""**Ano-base:** 2021 (projeção)  
                   **Fonte(s):** IPARDES,2023  
