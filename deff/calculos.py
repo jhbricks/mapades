@@ -7,10 +7,10 @@ import leafmap.foliumap as leafmap
 import pandas as pd
 
 
-contexto = "./dados/csv/contexto.csv"
-pop = "./dados/csv/pop_2021.csv"
-renda = "./dados/csv/renda.csv"
-riqueza = "./dados/csv/riqueza.csv"
+#contexto = "./dados/csv/contexto.csv"
+#pop = "./dados/csv/pop_2021.csv"
+#renda = "./dados/csv/renda.csv"
+#riqueza = "./dados/csv/riqueza.csv"
 
 ##### VALORES MAX E MIN E SEUS MUNICÍPIOS
 #area = 'PR' ou 'NTC'
@@ -21,10 +21,10 @@ riqueza = "./dados/csv/riqueza.csv"
 @st.cache_data
 def mx_mn (area,arq,ind,unidade=None):
 
-    if area == 'PR':
-       arq_g= "./dados/geojson/PR.geojson"
-    else:
-       arq_g = "./dados/geojson/NTC.geojson"
+#    if area == 'PR':
+#       arq_g= "./dados/geojson/PR.geojson"
+#    else:
+#       arq_g = "./dados/geojson/NTC.geojson"
 
     arq_csv = pd.read_csv(arq)
     arq_geojson = gpd.read_file(arq_g)
