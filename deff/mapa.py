@@ -36,7 +36,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #    arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
-  arq_geojson = gpd.read_file(arq_g)
+  arq_geojson = gpd.read_file(area)
   data = arq_geojson.merge(arq_csv, on="Município")
 
 #######LAT E LON CENTRAIS
