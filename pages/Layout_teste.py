@@ -19,12 +19,12 @@ area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Cen
 #st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 #####Arquivos
-#PR = "./dados/geojson/PR.geojson"
-#NTC = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
-#contexto = "./dados/csv/contexto.csv"
-#pop = "./dados/csv/pop_2021.csv"
-#renda = "./dados/csv/renda.csv"
-#riqueza = "./dados/csv/riqueza.csv"
+PR = "./dados/geojson/PR.geojson"
+NTC = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
+contexto = "./dados/csv/contexto.csv"
+pop = "./dados/csv/pop_2021.csv"
+renda = "./dados/csv/renda.csv"
+riqueza = "./dados/csv/riqueza.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
