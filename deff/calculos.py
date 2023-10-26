@@ -27,7 +27,7 @@ def mx_mn (area,arq,ind,unidade=None):
 #       arq_g = "./dados/geojson/NTC.geojson"
 
     arq_csv = pd.read_csv(arq)
-    arq_geojson = gpd.read_file(arq_g)
+    arq_geojson = gpd.read_file(area)
     data = arq_geojson.merge(arq_csv, on="Município")
   
     max_value = data[ind].max()
