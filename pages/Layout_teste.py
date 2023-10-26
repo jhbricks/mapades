@@ -9,19 +9,11 @@ from dados import csv
 st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
 st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
 
-#Selecionar a área [Radio horizontal]
+#Selecionar a área 
 st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
-#area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
-#st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-#####Arquivos
-PR = "./dados/geojson/PR.geojson"
-NTC = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
-contexto = "./dados/csv/contexto.csv"
-pop = "./dados/csv/pop_2021.csv"
-renda = "./dados/csv/renda.csv"
-riqueza = "./dados/csv/riqueza.csv"
+
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
@@ -148,9 +140,11 @@ if area == "Paraná":
     
 else:
   area = 'NTC'
-  #NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
+  
   op = st.radio("Selecione um indicador:",
                 ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+  st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+ 
   if op == "População residente":
     colored_header(label="População residente",
                    description="População residente do Núcleo Territorial Central",
