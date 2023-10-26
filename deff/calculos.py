@@ -77,15 +77,15 @@ def mx_mn (area,arq,ind,unidade=None):
 @st.cache_data
 def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     
-    if area == 'PR':
-       arq_g= "./dados/geojson/PR.geojson"
-       nome = 'Paraná'
-    else:
-       arq_g = "./dados/geojson/NTC.geojson"
-       nome = 'Núcleo Territorial Central'
+#    if area == 'PR':
+#       arq_g= "./dados/geojson/PR.geojson"
+#       nome = 'Paraná'
+#    else:
+#       arq_g = "./dados/geojson/NTC.geojson"
+#       nome = 'Núcleo Territorial Central'
 
     arq_csv = pd.read_csv(arq)
-    arq_geojson = gpd.read_file(arq_g)
+    arq_geojson = gpd.read_file(area)
     data = arq_geojson.merge(arq_csv, on="Município")
     media = data[ind].mean().round(2)
     
