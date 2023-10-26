@@ -81,6 +81,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
        arq_g= "./dados/geojson/PR.geojson"
        nome = 'Paraná'
     else:
+       area == 'NTC'
        arq_g = "./dados/geojson/NTC.geojson"
        nome = 'Núcleo Territorial Central'
 

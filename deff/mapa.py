@@ -32,7 +32,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
   else:
-#    area = 'NTC'
+    area == 'NTC'
     arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
