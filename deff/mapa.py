@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 
 ########################ARQUIVOS CSV E GEOJSON
 #contexto = "./dados/csv/contexto.csv"
-pop = "./dados/csv/pop_2021.csv"
+#pop = "./dados/csv/pop_2021.csv"
 renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 
