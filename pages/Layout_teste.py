@@ -13,7 +13,11 @@ st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_a
 st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
-
+#####Arquivos 
+PR = "./dados/geojson/PR.geojson"
+NTC = "https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson"
+contexto = "./dados/csv/contexto.csv"
+pop = "./dados/csv/pop_2021.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
@@ -27,7 +31,7 @@ if area == "Paraná":
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([2,0.7])
     with c1:
-      mapa('bnds','PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
+      mapa('bnds','PR','contexto','População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
