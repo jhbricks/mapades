@@ -30,13 +30,13 @@ import plotly.graph_objects as go
 def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
-    area = "./dados/geojson/PR.geojson"
+    arq_g = "./dados/geojson/PR.geojson"
   else:
 #    area = 'NTC'
-    area = "./dados/geojson/NTC.geojson"
+    arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
-  arq_geojson = gpd.read_file(area)
+  arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
 
 #######LAT E LON CENTRAIS
@@ -102,12 +102,12 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 def grafico (area,arq,ind,un):
   if area == 'PR':
-    area = "./dados/geojson/PR.geojson"
+    arq_g = "./dados/geojson/PR.geojson"
   else:
-    area = "./dados/geojson/NTC.geojson"
+    arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
-  arq_geojson = gpd.read_file(area)
+  arq_geojson = gpd.read_file(arq_g)
   data = arq_geojson.merge(arq_csv, on="Município")
 
 

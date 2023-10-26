@@ -14,8 +14,8 @@ st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
 #####Arquivos 
-PR = "./dados/geojson/PR.geojson"
-NTC = "./dados/geojson/NTC.geojson"
+#PR = "./dados/geojson/PR.geojson"
+#'NTC' = "./dados/geojson/'NTC'.geojson"
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 
@@ -25,14 +25,13 @@ if area == "Paraná":
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   
   if op == "População residente":
-    PR = "./dados/geojson/PR.geojson"
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([2,0.7])
     with c1:
-      mapa(PR,contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
+      mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -41,8 +40,8 @@ if area == "Paraná":
 
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
-      conta (PR,contexto,'População',2021,'População total','soma','habitantes')
-      grafico(PR,contexto,'População','Habitantes')
+      conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
+      grafico('PR',contexto,'População','Habitantes')
       
   elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
@@ -51,15 +50,15 @@ if area == "Paraná":
   
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa(PR,contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
     with c2:
-      conta (PR,contexto,'Densidade Demográfica (hab/km²)',2021)
-      grafico(PR,contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
+      grafico('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
 
 
   elif op == "Grau de urbanização":
@@ -70,7 +69,7 @@ if area == "Paraná":
     c1,c2 = st.columns([2,1])
     with c1:
  
-      mapa(PR,contexto,'Grau de Urbanização (%)','FisherJenks',4,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -78,8 +77,8 @@ if area == "Paraná":
                   """)
     with c2:
       st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
-      conta (PR,contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
-      grafico(PR,contexto,'Grau de Urbanização (%)','%')
+      conta ('PR',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
+      grafico('PR',contexto,'Grau de Urbanização (%)','%')
   
   elif op == 'População feminina':   
     colored_header(label="População feminina",
@@ -87,17 +86,17 @@ if area == "Paraná":
                      color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa (PR,contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa ('PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
       st.markdown("""**Ano-base:** 2010  
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** (População censitária feminina*100)/População censitária total  
                     **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                     """)
-  #      mx_mn (PR,contexto,'População feminina (%)','%')
+  #      mx_mn ('PR',contexto,'População feminina (%)','%')
     with c2:
       st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
-      conta (PR,contexto, 'População feminina (%)', 2010, None, None, None)
-      grafico(PR,contexto,'População feminina (%)','%')
+      conta ('PR',contexto, 'População feminina (%)', 2010, None, None, None)
+      grafico('PR',contexto,'População feminina (%)','%')
 
 
   elif op == "População preta/parda":
@@ -107,7 +106,7 @@ if area == "Paraná":
         
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa (PR,contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      mapa ('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
       st.markdown("""**Ano-base:** 2010  
                     **Fonte(s):** IBGE, 2010; IPARDES,2023  
                     **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
@@ -116,8 +115,8 @@ if area == "Paraná":
 
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
-      conta (PR,contexto, 'População preta ou parda (%)', 2010, None, None, None)
-      grafico(PR,contexto,'População preta ou parda (%)','%')
+      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      grafico('PR',contexto,'População preta ou parda (%)','%')
 
     
   else: 
@@ -128,7 +127,7 @@ if area == "Paraná":
         
       c1,c2 = st.columns([2,1])
       with c1:
-        mapa (PR,contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+        mapa ('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
         st.caption('*População projetada para o ano de 2021') 
         st.markdown("""**Ano-base:** 2021 (projeção)  
                     **Fonte(s):** IPARDES,2023  
@@ -139,13 +138,12 @@ if area == "Paraná":
 
       with c2:
         st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
-        conta (PR,contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
-        grafico(PR,contexto,'Razão de Dependência (%)','%')
+        conta ('PR',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
+        grafico('PR',contexto,'Razão de Dependência (%)','%')
 
     
 else:
-  area = NTC
-  
+  area == "Núcleo Territorial Central"
   op = st.radio("Selecione um indicador:",
                 ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
@@ -156,17 +154,17 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa(NTC,contexto,'População','FisherJenks',4,'Oranges', ['Município','População'],'População residente')
+      mapa('NTC',contexto,'População','FisherJenks',4,'Oranges', ['Município','População'],'População residente')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)    
-     # mx_mn (NTC,contexto,'População','habitantes')
+     # mx_mn ('NTC',contexto,'População','habitantes')
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
-      conta (NTC,contexto,'População',2021,'População total','soma','habitantes')
-      grafico(NTC,contexto,'População','habitantes')
+      conta ('NTC',contexto,'População',2021,'População total','soma','habitantes')
+      grafico('NTC',contexto,'População','habitantes')
   
   elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
@@ -174,16 +172,16 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa(NTC,contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total)  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)    
     with c2:
-      #mx_mn (NTC,contexto,'Densidade Demográfica (hab/km²)','hab/km²')
-      conta (NTC,contexto,'Densidade Demográfica (hab/km²)',2021)
-      grafico(NTC,contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      #mx_mn ('NTC',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
+      conta ('NTC',contexto,'Densidade Demográfica (hab/km²)',2021)
+      grafico('NTC',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
 
 
   elif op == "Grau de urbanização":
@@ -192,17 +190,17 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa(NTC,contexto,'Grau de Urbanização (%)','FisherJenks',3,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn (NTC,contexto,'Grau de Urbanização (%)','%')
+      #mx_mn ('NTC',contexto,'Grau de Urbanização (%)','%')
     with c2:
       st.markdown("**Percentual da população residente em áreas urbanas na população residente total segundo dados do Censo Demográfico de 2010**")  
-      conta (NTC,contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
-      grafico(NTC,contexto,'Grau de Urbanização (%)','%')
+      conta ('NTC',contexto,'Grau de Urbanização (%)',2010,'Grau de Urbanização', None,'%')
+      grafico('NTC',contexto,'Grau de Urbanização (%)','%')
 
   elif op == "População feminina": 
     colored_header(label="População feminina",
@@ -210,17 +208,17 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa (NTC,contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
+      mapa ('NTC',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária feminina*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn (NTC,contexto,'População feminina (%)','%')
+      #mx_mn ('NTC',contexto,'População feminina (%)','%')
     with c2:
       st.markdown("**Participação percentual da população feminina na população total segundo dados do Censo Demográfico de 2010.**")  
-      conta (NTC,contexto, 'População feminina (%)', 2010, None, None, None)
-      grafico(NTC,contexto,'População feminina (%)','%')
+      conta ('NTC',contexto, 'População feminina (%)', 2010, None, None, None)
+      grafico('NTC',contexto,'População feminina (%)','%')
 
   elif op == "População preta ou parda":
     colored_header(label="População preta ou parda",
@@ -228,17 +226,17 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa (NTC,contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      mapa ('NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn (NTC,contexto,'População preta ou parda (%)','%')
+      #mx_mn ('NTC',contexto,'População preta ou parda (%)','%')
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
-      conta (NTC,contexto, 'População preta ou parda (%)', 2010, None, None, None)
-      grafico(NTC,contexto,'População preta ou parda (%)','%')
+      conta ('NTC',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      grafico('NTC',contexto,'População preta ou parda (%)','%')
 
   else:
     op == "Razão de dependência"
@@ -247,9 +245,9 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa (NTC,contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+      mapa ('NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
       st.caption('*População projetada para o ano de 2021') 
-      st.markdown("""**Ano-base:** 2021 (projeção)  
+      st.markdown("""**Ano-base:** 2021 ('PR'ojeção)  
                   **Fonte(s):** IPARDES,2023  
                   **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total  
                   **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
@@ -257,5 +255,5 @@ else:
 
     with c2:
       st.markdown("**Indica o percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar (de 15 a 64 anos de idade), estimado com base na população projetada pelo IPARDES para 2021.**")  
-      conta (NTC,contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
-      grafico(NTC,contexto,'Razão de Dependência (%)','%')
+      conta ('NTC',contexto, 'Razão de Dependência (%)', '2021*', None, None, None)
+      grafico('NTC',contexto,'Razão de Dependência (%)','%')
