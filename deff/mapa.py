@@ -13,8 +13,8 @@ import plotly.graph_objects as go
 ########################ARQUIVOS CSV E GEOJSON
 #contexto = "./dados/csv/contexto.csv"
 #pop = "./dados/csv/pop_2021.csv"
-renda = "./dados/csv/renda.csv"
-riqueza = "./dados/csv/riqueza.csv"
+#renda = "./dados/csv/renda.csv"
+#riqueza = "./dados/csv/riqueza.csv"
 
 #######################DICIONÁRIO DEF MAPA
 #area = 'PR' ou 'NTC'
@@ -27,13 +27,13 @@ riqueza = "./dados/csv/riqueza.csv"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title):
+def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
-  if area == 'PR':
-    arq_g = "./dados/geojson/PR.geojson"
-  else:
-    area = 'NTC'
-    arq_g = "./dados/geojson/NTC.geojson"
+#  if area == 'PR':
+#    arq_g = "./dados/geojson/PR.geojson"
+#  else:
+#    area = 'NTC'
+#    arq_g = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
