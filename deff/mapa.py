@@ -29,11 +29,11 @@ import plotly.graph_objects as go
 @st.cache_data
 def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
-#  if area == 'PR':
-#    arq_g = "./dados/geojson/PR.geojson"
-#  else:
+  if area == 'PR':
+    area = "./dados/geojson/PR.geojson"
+  else:
 #    area = 'NTC'
-#    arq_g = "./dados/geojson/NTC.geojson"
+    area = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(area)
@@ -101,11 +101,10 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 #un = unidade, ex; 'Habitantes'
 
 def grafico (area,arq,ind,un):
-#  if area == 'PR':
-#    arq_g = "./dados/geojson/PR.geojson"
-#  else:
-#    area = 'NTC'
-#    arq_g = "./dados/geojson/NTC.geojson"
+  if area == 'PR':
+    area = "./dados/geojson/PR.geojson"
+  else:
+    area = "./dados/geojson/NTC.geojson"
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(area)
