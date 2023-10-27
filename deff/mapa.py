@@ -31,9 +31,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
-  else:
-    area == 'NTC'
+  elif area == 'NTC':
     arq_g = "./dados/geojson/NTC.geojson"
+  else:
+    arq_g = area
+
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
@@ -63,7 +65,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
 
   m.add_data(data = data,
-	     column=ind,
+             column=ind,
              scheme=scheme,
              k=k,
              cmap=cmap,
@@ -103,8 +105,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 def grafico (area,arq,ind,un):
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
-  else:
+  elif area == 'NTC':
     arq_g = "./dados/geojson/NTC.geojson"
+  else:
+    arq_g = area
+    
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
