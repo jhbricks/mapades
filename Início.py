@@ -20,7 +20,7 @@ div.stButton > button:first-child {
     background-color: #fad3ac;
     color: black;
     height: 3em;
-    width: 12em;
+    width: 10em;
     border-radius:10px;
     border:3px solid #fad3ac;
     font-size:20px;
