@@ -3,8 +3,7 @@ from streamlit_extras.colored_header import colored_header
 from deff.mapa import mapa
 from deff.mapa import grafico
 from deff.calculos import conta
-from dados import geojson
-from dados import csv
+
 
 st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
 st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
@@ -14,8 +13,6 @@ st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h
 area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
 #####Arquivos 
-#PR = "./dados/geojson/PR.geojson"
-#'NTC' = "./dados/geojson/'NTC'.geojson"
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 

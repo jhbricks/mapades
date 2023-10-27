@@ -5,46 +5,35 @@ from deff.mapa import grafico
 from deff.calculos import conta
 
 
+st.set_page_config(layout="wide", page_title="Riqueza - Mapa da Desigualdade")
+st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
+st.markdown("<h3><font size='7'  color='red'>Riqueza</font></font></h3>", unsafe_allow_html=True)
 
+#Selecionar a área 
+#area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
 
 #Arquivos
 PR = './dados/geojson/PR.geojson'
 NTC = './dados/geojson/NTC.geojson'
-renda = "./dados/csv/renda.csv"
-contexto = "./dados/csv/contexto.csv"
-renda = "./dados/csv/renda.csv"
 riqueza = "./dados/csv/riqueza.csv"
 
-st.set_page_config(layout="wide", page_title="Riqueza - Mapa da Desigualdade")
-st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 0rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
-
 #Selecionar a área [Radio horizontal]
-st.markdown("<h3><font size='8'  color='red'>Riqueza</font></font></h3>", unsafe_allow_html=True)
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 
 if area == "Paraná":
-  t1, t2, t3, t4, t5 = st.tabs(["Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"])
-  PR = '.dados/geojson/PR.geojson'
-  with t1:
+  op = st.radio("Selecione um indicador:",
+                ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
+  st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+  if op == "Domicílios com bens duráveis":
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Paraná",
                    color_name="red-70",)
-
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza, 'Domicílios com bens duráveis (%)',
+      mapa('PR', riqueza, 'Domicílios com bens duráveis (%)',
            'FisherJenks', 5, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
            'Percentual de domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
@@ -60,7 +49,7 @@ if area == "Paraná":
              'Percentual de domicílios com bens duráveis','media', '%')
       grafico ('PR',riqueza,'Domicílios com bens duráveis (%)','%')
  
-  with t2:
+  elif op == "Número de veículos":
     colored_header(label="Número de veículos por pessoas",
                    description="Número de veículos automotores por pessoa no Paraná",
                    color_name="red-70",)
@@ -68,7 +57,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza, 'Veículos por pessoa',
+      mapa('PR', riqueza, 'Veículos por pessoa',
          'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
          'Número de veículos por pessoas')
       st.markdown("""**Ano-base:** 2021  
@@ -84,7 +73,7 @@ if area == "Paraná":
       grafico ('PR',riqueza,'Veículos por pessoa','Veículo/hab')
 
     
-  with t3:
+  elif op == "População declarante do IRPF":
     colored_header(label="População declarante do IRPF",
                    description="Percentual de declarantes do Imposto de Renda Pessoa Física (IRPF) na população municipal no Paraná",
                    color_name="red-70",)
@@ -92,7 +81,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza, 'Declarantes do IRPF (%)',
+      mapa('PR', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',5, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'Percentual de declarantes do IRPF na população (%)')
       st.markdown("""**Ano-base:** 2020  
@@ -107,15 +96,14 @@ if area == "Paraná":
              'Percentual de declarantes do IRPF na população','18.05', '%')
       grafico ('PR',riqueza,'Declarantes do IRPF (%)','%')
 
-  with t4:
+  elif op == "Patrimônio Líquido Médio da População":
     colored_header(label="Patrimônio Líquido Médio da População",
                    description="Patrimônio Líquido Médio da população no Paraná",
                    color_name="red-70",)
 
-    #mapa (bnds,area,arq,ind,scheme,k,cmap,fields,title)
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',
+      mapa('PR', riqueza,'Patrimônio líquido médio da população (R$ milhões)','FisherJenks',
            4,'YlOrBr',['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
@@ -129,7 +117,7 @@ if area == "Paraná":
              'Patrimônio líquido médio da população','soma', 'R$ milhões')
       grafico ('PR',riqueza,'Patrimônio líquido médio da população (R$ milhões)','R$ milhões')
 
-  with t5:
+  elif op == "Patrimônio Líquido Médio dos declarantes do IRPF":
     colored_header(label="Patrimônio Líquido Médio dos declarantes do IRPF",
                    description="Patrimônio Líquido Médio dos declarantes do IRPF no Paraná",
                    color_name="red-70",)
@@ -137,7 +125,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
+      mapa('PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
            'FisherJenks', 5, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020  
@@ -153,19 +141,19 @@ if area == "Paraná":
       grafico ('PR',riqueza,'Patrimônio líquido médio dos declarantes (R$ milhões)','R$ milhões')
 
 
-if area == "Núcleo Territorial Central":
-  t1, t2, t3, t4, t5 = st.tabs(["Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"])
-  NTC = '.dados/geojson/NTC.geojson'
-  with t1:
+else:
+  area == "Núcleo Territorial Central"
+  op = st.radio("Selecione um indicador:",
+                ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
+  st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+  if op == "Domicílios com bens duráveis":
     colored_header(label="Domicílios com bens duráveis",
                    description="Percentual de domicílios com bens duráveis no Núcleo Territorial Central",
                    color_name="red-70",)
-        
-
-    
+           
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','NTC', riqueza, 'Domicílios com bens duráveis (%)',
+      mapa('NTC', riqueza, 'Domicílios com bens duráveis (%)',
            'FisherJenks', 4, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
            'Percentual de domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
@@ -181,15 +169,14 @@ if area == "Núcleo Territorial Central":
              'Percentual de domicílios com bens duráveis','media', '%')
       grafico ('NTC',riqueza,'Domicílios com bens duráveis (%)','%')
   
-  with t2:
+  elif op == "Número de veículos":
     colored_header(label="Número de veículos por pessoas",
                    description="Número de veículos automotores por pessoa no Núcleo Territorial Central",
                    color_name="red-70",)
 
-    
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','NTC', riqueza, 'Veículos por pessoa',
+      mapa('NTC', riqueza, 'Veículos por pessoa',
            'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
            'Número de veículos por pessoas')
       st.markdown("""**Ano-base:** 2021  
@@ -204,15 +191,14 @@ if area == "Núcleo Territorial Central":
              'Número de veículos por pessoas','media', 'veículo/hab')
       grafico ('NTC',riqueza,'Veículos por pessoa','Veículo/hab')
 
-  with t3:
+  elif op == "População declarante do IRPF":
     colored_header(label="População declarante do IRPF",
                    description="Percentual de declarantes do Imposto de Renda Pessoa Física (IRPF) na população municipal no Núcleo Territorial Central",
                    color_name="red-70",)
 
-    
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','NTC', riqueza, 'Declarantes do IRPF (%)',
+      mapa('NTC', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',4, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'Percentual de declarantes do IRPF na população (%)')
       st.markdown("""**Ano-base:** 2020  
@@ -227,15 +213,14 @@ if area == "Núcleo Territorial Central":
              'Percentual de declarantes do IRPF na população','17', '%')
       grafico ('NTC',riqueza,'Declarantes do IRPF (%)','%')
 
-  with t4:
+  with op == "Patrimônio Líquido Médio da População":
     colored_header(label="Patrimônio Líquido Médio da População",
                    description="Patrimônio Líquido Médio da população no Núcleo Territorial Central",
                    color_name="red-70",)
 
-    
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões)',
+      mapa('NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões)',
            'FisherJenks', 4, 'YlOrBr', ['Município','Patrimônio líquido médio da população (R$ milhões)'],
            'Patrimônio líquido médio da população (R$ milhões)')
       st.markdown("""**Ano-base:** 2020 
@@ -250,16 +235,14 @@ if area == "Núcleo Territorial Central":
              'Patrimônio líquido médio da população','soma', 'R$ milhões')
       grafico ('NTC',riqueza,'Patrimônio líquido médio da população (R$ milhões)','R$ milhões')
 
-
-  with t5:
+  elif op == "Patrimônio Líquido Médio dos declarantes do IRPF"
     colored_header(label="Patrimônio Líquido Médio dos declarantes do IRPF",
                    description="Patrimônio Líquido Médio dos declarantes do IRPF no Núcleo Territorial Central",
                    color_name="red-70",)
 
-    
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('bnds','NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
+      mapa('NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
            'FisherJenks', 4, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020  
