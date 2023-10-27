@@ -213,7 +213,7 @@ else:
              'Percentual de declarantes do IRPF na população','17', '%')
       grafico ('NTC',riqueza,'Declarantes do IRPF (%)','%')
 
-  with op == "Patrimônio Líquido Médio da População":
+  elif op == "Patrimônio Líquido Médio da População":
     colored_header(label="Patrimônio Líquido Médio da População",
                    description="Patrimônio Líquido Médio da população no Núcleo Territorial Central",
                    color_name="red-70",)
