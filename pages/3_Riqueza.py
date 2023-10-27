@@ -49,7 +49,7 @@ if area == "Paraná":
              'Percentual de domicílios com bens duráveis','media', '%')
       grafico ('PR',riqueza,'Domicílios com bens duráveis (%)','%')
  
-  elif op == "Número de veículos":
+  elif op == "Número de veículos por pessoas":
     colored_header(label="Número de veículos por pessoas",
                    description="Número de veículos automotores por pessoa no Paraná",
                    color_name="red-70",)
@@ -169,7 +169,7 @@ else:
              'Percentual de domicílios com bens duráveis','media', '%')
       grafico ('NTC',riqueza,'Domicílios com bens duráveis (%)','%')
   
-  elif op == "Número de veículos":
+  elif op == "Número de veículos por pessoas":
     colored_header(label="Número de veículos por pessoas",
                    description="Número de veículos automotores por pessoa no Núcleo Territorial Central",
                    color_name="red-70",)
