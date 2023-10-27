@@ -235,7 +235,7 @@ else:
              'Patrimônio líquido médio da população','soma', 'R$ milhões')
       grafico ('NTC',riqueza,'Patrimônio líquido médio da população (R$ milhões)','R$ milhões')
 
-  elif op == "Patrimônio Líquido Médio dos declarantes do IRPF"
+  elif op == "Patrimônio Líquido Médio dos declarantes do IRPF":
     colored_header(label="Patrimônio Líquido Médio dos declarantes do IRPF",
                    description="Patrimônio Líquido Médio dos declarantes do IRPF no Núcleo Territorial Central",
                    color_name="red-70",)
