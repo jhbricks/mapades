@@ -96,7 +96,7 @@ with c2:
 
 
 if on1:
-    gvf(area,arq,comum,ind,scheme1,k1,cmap1)
+    gvf(area,arq,comum,ind,scheme,k,cmap)
 
 if on:
     g1,g2 = st.columns(2)
