@@ -14,7 +14,7 @@ st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_a
 
 st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
 st.markdown(""" **Classificação de dados**   
-            Demonstração da classificação de indicador como Mapa Coroplético utilizando a biblioteca python Leafmap.""")
+            Demonstração da classificação de dados em um Mapa Coroplético utilizando a biblioteca python Leafmap.""")
 
 c1,c2 = st.columns(2)
 with c1:
@@ -27,6 +27,8 @@ with c1:
     scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
     k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
     cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+
+    on1 = st.toggle('Gerar mapa.')
 
     st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
     on = st.toggle('Comparar duas classificações')
@@ -92,6 +94,9 @@ with c2:
         st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
                     para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
 
+
+if on1:
+    gvf(area,arq,comum,ind,scheme1,k1,cmap1)
 
 if on:
     g1,g2 = st.columns(2)
