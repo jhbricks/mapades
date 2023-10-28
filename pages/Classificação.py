@@ -58,13 +58,6 @@ with c1:
 fields = [comum,ind]
 method = scheme
 
-    if on2:
-        code = '''#Arquivos  
-        {nome} = '{area}'
-        arq = {arq}
-        mapa({nome},arq,'{ind}','{scheme}',{k},'{cmap}',{fields},{ind})'''
-        st.code(code, language='python')
-
 with c2:
     st.write("Instruções")
     with st.expander("Dado geográfico"):
@@ -72,7 +65,7 @@ with c2:
                     O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: *link.com/area.geojson*  
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
                      """)
-    with st.expander("Indicador"):
+    with st.expander("Link do Indicador"):
         st.markdown("""Colar o link do arquivo dos indicadores.  
                     O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: *link.com/indicador.csv*   
                     O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
@@ -81,6 +74,10 @@ with c2:
     with st.expander("Coluna em comum"):
         st.markdown("""Digite o nome da columa que o arquivo do dado geográfico (geojson) e do indicador (csv) tem em comum.  
                     Por exemplo: *Município*
+                    """)
+    with st.expander("Indicador"):
+        st.markdown("""Digite o nome da coluna que contem os dados do indicador que deseja mostrar. O nome deve ser digitado exatamente como está no arquivo csv.   
+                    Por exemplo: *População*
                     """)
     with st.expander("Método de classificação"):
         st.markdown("Digite o Método de classificação dos dados escolhido. Os métodos disponíveis são:")
@@ -121,5 +118,13 @@ if on:
         gvf(area,arq,comum,ind,scheme,k,cmap) 
     with g2:
         gvf(area,arq,comum,ind,scheme1,k1,cmap1)
+
+
+if on2:
+    code = '''#Arquivos  
+    {nome} = '{area}'
+    arq = {arq}
+    mapa({nome},arq,'{ind}','{scheme}',{k},'{cmap}',{fields},{ind})'''
+    st.code(code, language='python')
 
 
