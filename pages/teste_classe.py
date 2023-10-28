@@ -40,7 +40,7 @@ with c1:
         k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
 
-    form.form_submit_button(label="Submit")
+    teste = form.form_submit_button(label="Submit")
 
 fields = [comum,ind]
 method = scheme
@@ -98,14 +98,14 @@ with c2:
         st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
                     para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
 
+if teste:
+    if on:
+        g1,g2 = st.columns(2)
+        with g1:
+            gvf(area,arq,comum,ind,scheme,k,cmap) 
+        with g2:
+            gvf(area,arq,comum,ind,scheme1,k1,cmap1)
+    else:
+        gvf(area,arq,comum,ind,scheme,k,cmap)
 
-if on1:
-    gvf(area,arq,comum,ind,scheme,k,cmap)
-
-if on:
-    g1,g2 = st.columns(2)
-    with g1:
-        gvf(area,arq,comum,ind,scheme,k,cmap) 
-    with g2:
-        gvf(area,arq,comum,ind,scheme1,k1,cmap1)
 
