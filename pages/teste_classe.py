@@ -12,7 +12,7 @@ from deff.classe import gvf
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
 
-st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
+st.markdown("<h3><font size='8'  color='violet'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
 st.markdown(""" **Classificação de dados**   
             Demonstração da classificação de dados em um Mapa Coroplético utilizando a biblioteca python Leafmap.""")
 
@@ -38,7 +38,7 @@ with c1:
         k1 = int(form.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = form.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
 
-    teste = form.form_submit_button(label="Submit")
+    teste = form.form_submit_button(label="Enviar")
 
 fields = [comum,ind]
 method = scheme
