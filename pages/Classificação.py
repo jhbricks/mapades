@@ -95,12 +95,12 @@ with c2:
                     para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
     #######ARRUMAR A EXPLICAÇÃO
     with st.expander("GVF"):
-    st.markdown("""GVF (*Goodness Variance Fit*) avalia estatísticamente os intervalos dos dados, considerando GVF = 80 (ou maior que 80)
-                como aceitável e GVF menor que 80 como classificação ruim.   
-                Abaixo do valor de GVF tem o :green[Interval count] que é os valores de cada intervalo e a quantidade de variáveis dentro de cada intervalo.   
-                Os valores dos intervalos estão entre [] ou [) e a quantidade de variáveis dentro do intervalo está depois de |   
-                Por exemplo: [120, 590] | 36 (600, 980] | 23 (990, 1250] | 6 (1251, 10.000] | 1   
-                """) #######ARRUMAR A EXPLICAÇÃO
+        st.markdown("""GVF (*Goodness Variance Fit*) avalia estatísticamente os intervalos dos dados, considerando GVF = 80 (ou maior que 80)
+                    como aceitável e GVF menor que 80 como classificação ruim.   
+                    Abaixo do valor de GVF tem o :green[Interval count] que é os valores de cada intervalo e a quantidade de variáveis dentro de cada intervalo.   
+                    Os valores dos intervalos estão entre [] ou [) e a quantidade de variáveis dentro do intervalo está depois de |   
+                    Por exemplo: [120, 590] | 36 (600, 980] | 23 (990, 1250] | 6 (1251, 10.000] | 1   
+                    """) #######ARRUMAR A EXPLICAÇÃO
     #######ARRUMAR A EXPLICAÇÃO
 
 
