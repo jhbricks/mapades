@@ -16,10 +16,10 @@ st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></
 st.markdown(""" **Classificação de dados**   
             Demonstração da classificação de dados em um Mapa Coroplético utilizando a biblioteca python Leafmap.""")
 
-form = st.form(key="form_settings")
 
 c1,c2 = st.columns(2)
 with c1:
+    form = st.form(key="form_settings")
     st.markdown("Digite as variáveis:")
 
     area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
@@ -40,7 +40,7 @@ with c1:
         k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
 
-form.form_submit_button(label="Submit")
+    form.form_submit_button(label="Submit")
 
 fields = [comum,ind]
 method = scheme
