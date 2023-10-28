@@ -10,24 +10,11 @@ from streamlit_extras.colored_header import colored_header
 from deff.classe import gvf
 
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
-st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 0rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
+st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
 
 st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
-st.markdown(""" **Classificação de dados** explicação  
-            explicação texto texto texto  
-            texto texto texto  
-            texto texto texto.
-""")
-
+st.markdown(""" **Classificação de dados**   
+            Demonstração da classificação de indicador como Mapa Coroplético utilizando a biblioteca python Leafmap.""")
 
 c1,c2 = st.columns(2)
 with c1:
@@ -44,16 +31,10 @@ with c1:
     st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
     on = st.toggle('Comparar duas classificações')
 
-    st.markdown("Deseja as linhas de código?")
-    on2 = st.toggle('Mostrar as linhas de código')
-
     if on:
         scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
         k1 = int(st.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
         cmap1 = st.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
-#mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    if on2:
-        nome = st.text_input('Nome da área:', placeholder = "Digite o nome da área.")
 
 fields = [comum,ind]
 method = scheme
@@ -118,13 +99,4 @@ if on:
         gvf(area,arq,comum,ind,scheme,k,cmap) 
     with g2:
         gvf(area,arq,comum,ind,scheme1,k1,cmap1)
-
-
-if on2:
-    code = '''#Arquivos  
-    {nome} = '{area}'
-    arq = {arq}
-    mapa({nome},arq,'{ind}','{scheme}',{k},'{cmap}',{fields},{ind})'''
-    st.code(code, language='python')
-
 
