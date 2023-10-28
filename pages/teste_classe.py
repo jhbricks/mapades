@@ -30,8 +30,6 @@ with c1:
     k = int(form.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
     cmap = form.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
-    on1 = form.toggle('Gerar mapa.')
-
     form.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
     on = form.toggle('Comparar duas classificações')
 
