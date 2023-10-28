@@ -20,20 +20,20 @@ st.markdown(""" **Classificação de dados**
 c1,c2 = st.columns(2)
 with c1:
     form = st.form(key="form_settings")
-    st.markdown("Digite as variáveis:")
+    form.markdown("Digite as variáveis:")
 
-    area = st.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
-    arq = st.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
-    comum = st.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
-    ind = st.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
-    scheme = st.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
-    k = int(st.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
-    cmap = st.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+    area = form.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
+    arq = form.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
+    comum = form.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
+    ind = form.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
+    scheme = form.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
+    k = int(form.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
+    cmap = form.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
 
-    on1 = st.toggle('Gerar mapa.')
+    on1 = form.toggle('Gerar mapa.')
 
-    st.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
-    on = st.toggle('Comparar duas classificações')
+    form.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
+    on = form.toggle('Comparar duas classificações')
 
     if on:
         scheme1 = st.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
