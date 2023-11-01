@@ -95,14 +95,17 @@ with c2:
                     para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
     #######ARRUMAR A EXPLICAÇÃO
     with st.expander("GVF"):
-        st.markdown("""GVF (*Goodness Variance Fit*) avalia estatísticamente os intervalos dos dados, considerando GVF = 80 (ou maior que 80)
-                    como aceitável e GVF menor que 80 como classificação ruim.   
-                    Abaixo do valor de GVF tem o :green[Interval count] que é os valores de cada intervalo e a quantidade de variáveis dentro de cada intervalo.   
-                    Os valores dos intervalos estão entre [ ] ou [ ) e a quantidade de variáveis dentro do intervalo está depois do carácter |   
+        st.markdown("""O índice GVF (*Goodness Variance Fit*) avalia estatísticamente os intervalos dos dados, considerando GVF =< 85 (ou maior que 80)
+                    como uma classificação satisfatória.   
+                    Abaixo do valor de GVF tem o :green[Interval count] que apresenta os valores de cada intervalo e a quantidade de variáveis dentro de cada classe.   
+                    Os valores dos intervalos estão entre [ ] ou [ )* e a quantidade de variáveis dentro do intervalo está depois do carácter |   
                     Por exemplo: [120, 590] | 36 (600, 980] | 23 (990, 1250] | 6 (1251, 10.000] | 1   
                     [120, 590] *intervalo* | 36 *número de variáveis dentro do intervalo*   
                     (600, 980] *intervalo* | 23 *número de variáveis dentro do intervalo*   
-                    ...
+                    ...   
+                    [ ] significa que o valor está dentro da classe, ex: **[**120, 590**]** = 120 e 590 estão **dentro** da classe.   
+                    ( ] significa que o intervalo começa a partir daquele número e termina com o valor incluso na classe, ex: **(**600, 980**]** = a classe começa **a partir de** 600,
+                    mas este valor não está dentro da classe, já 980 está **incluso** na classe. 
                     """) #######ARRUMAR A EXPLICAÇÃO
     #######ARRUMAR A EXPLICAÇÃO
 
