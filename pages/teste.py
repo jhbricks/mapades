@@ -238,7 +238,7 @@ else:
 
 
     style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR
-    style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1,, 'fillOpacity':0.3} #destaque NTC
+    style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1, 'fillOpacity':0.3} #destaque NTC
 
     def style_function(feature):
       if feature['properties']['nome'] == 'Paraná':
