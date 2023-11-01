@@ -31,7 +31,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (area,arq,ind,scheme,k,cmap,fields,title):
+def map (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
