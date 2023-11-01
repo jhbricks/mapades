@@ -28,7 +28,7 @@ if area == "Paraná":
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([2,0.7])
     with c1:
-      mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (habitantes)')
+      mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (hab)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
