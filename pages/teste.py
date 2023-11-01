@@ -239,10 +239,10 @@ else:
 
     style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque
     def style_function(feature):
-    if feature['properties']['nome'] == 'Paraná':
-      return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
-    else:
-      return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
+      if feature['properties']['nome'] == 'Paraná':
+            return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
+      else:
+            return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
 
 
     with c1:
