@@ -80,7 +80,7 @@ style = lambda x: {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}  #Bras
 style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR  (rosa)
 style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} #destaque NTC  (azul)
 
-def local_3 (url, url1,url2, destaque,fields3,fields,fields2,layer,layer1):
+def local_3 (url, url1,url2, destaque,fields3,fields,fields2,layer,layer1,layer2):
     def style_function(feature):
       if feature['properties'][fields] == destaque:
             return style1
@@ -98,7 +98,7 @@ def local_3 (url, url1,url2, destaque,fields3,fields,fields2,layer,layer1):
     
     m.add_geojson(url1, layer_name=layer1, style_function=style_function)
     m.add_geojson(url2, fields=[fields2], layer_name=layer2, style_function=style1)
-    m.add_geojson(url, fields=[fields3], layer_name=layer3, style_function = style2 )
+    m.add_geojson(url, fields=[fields3], layer_name=layer, style_function = style2 )
                   
     legend_dict = {layer1: '#66c2a5',layer2 : '#fc8d62', layer: '#8da0cb'}
     m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
