@@ -59,7 +59,8 @@ def map (area,arq,ind,scheme,k,cmap,fields,title):
   
 ##########################MAPA
 ########MAPA INICIAL
-  m = leafmap.Map(center=(lat,lon), 
+  m = leafmap.Map(center=(lat,lon),
+		  zoom = 1,
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
@@ -67,7 +68,7 @@ def map (area,arq,ind,scheme,k,cmap,fields,title):
   
 
   m.add_data(data = data,
-	           column=ind,
+	     column=ind,
              scheme=scheme,
              k=k,
              cmap=cmap,
@@ -75,7 +76,7 @@ def map (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-             style={"stroke": True,"color": "black"})
+             style={"stroke": True,"color": "black","clickable": True})
   
   
 
