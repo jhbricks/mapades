@@ -277,7 +277,7 @@ else:
     a = gpd.read_file(url)
     centroid = a.geometry.centroid
     lon, lat = centroid.x[0], centroid.y[0]
-    m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+    m = leafmap.Map(center=(lat, lon),draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
     m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
     m.add_geojson(pr, fields=['Município'], layer_name='Municípios do Paraná', style_function=style1)
     m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central', style_function = style2 )
