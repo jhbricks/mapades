@@ -42,7 +42,8 @@ def estado (url,destaque,fields,layer):
 
 #url: geojson de destaque, ex: 'pr'
 #url1: geojson da área, ex: 'br'
-def local_2 (url, url1, destaque,fields,layer,layer1):
+#fields1: campo do url
+def local_2 (url, url1, destaque,fields1,fields,layer,layer1):
     style = lambda x: {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}  #Brasil (verde)
     style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR  (rosa)
     style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} #destaque NTC  (azul)
@@ -66,7 +67,7 @@ def local_2 (url, url1, destaque,fields,layer,layer1):
     
     m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
     m.add_geojson(url1, layer_name=layer1, style_function=style_function)
-    m.add_geojson(url, fields=[fields], layer_name=layer, style_function=style1)
+    m.add_geojson(url, fields=[fields1], layer_name=layer, style_function=style1)
     legend_dict = {layer1: '#66c2a5', layer : '#fc8d62'}
     m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
     m.to_streamlit()
