@@ -5,6 +5,7 @@ from deff.mapa import grafico
 from deff.calculos import conta
 from dados import geojson
 from dados import csv
+from deff.map import map
 
 st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
 st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
@@ -25,7 +26,7 @@ if area == "Paraná":
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   
   if op == "A":
-    mapa ('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
+    map('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
     
   elif op == "População residente":
     colored_header(label="População residente",
