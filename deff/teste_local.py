@@ -86,9 +86,9 @@ def local_3 (url, url1,url2 destaque,fields,layer,layer1):
       else:
             return style
     
-    url = './dados/geojson/NTC.geojson'
-    url1= './dados/geojson/1990.geojson'
-    url2= './dados/geojson/PR.geojson'
+   # url = './dados/geojson/NTC.geojson'
+    #url1= './dados/geojson/1990.geojson'
+    #url2= './dados/geojson/PR.geojson'
     a = gpd.read_file(url)
     centroid = a.geometry.centroid
     lon, lat = centroid.x[0], centroid.y[0]
