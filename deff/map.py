@@ -52,65 +52,56 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     
   lon, lat = leafmap.gdf_centroid(data)
 
-  #if not isinstance(data,gpd.GeoDataFrame):
-  #  print("O arquivo não é um GeoDataFrame")
-  #  exit()
+  if not isinstance(data,gpd.GeoDataFrame):
+    print("O arquivo não é um GeoDataFrame")
+    exit()
 
   
 ##########################MAPA
 ########MAPA INICIAL
-#  m = leafmap.Map(center=(lat,lon), 
-#                  draw_control=False,
-#                  measure_control=False,
-#                  fullscreen_control=False,
-#                  attribution_control=True)
+  m = leafmap.Map(center=(lat,lon), 
+                  draw_control=False,
+                  measure_control=False,
+                  fullscreen_control=False,
+                  attribution_control=True)
   
 
-#  m.add_data(data = data,
-#	           column=ind,
-#             scheme=scheme,
-#             k=k,
-#             cmap=cmap,
-#             fields=fields,
-#             legend_title=title,
-#             legend_position='Bottomright',
-#             layer_name=title,
-#             style={"stroke": True,
-#                    "color": "#000000"})
+  m.add_data(data = data,
+	           column=ind,
+             scheme=scheme,
+             k=k,
+             cmap=cmap,
+             fields=fields,
+             legend_title=title,
+             legend_position='Bottomright',
+             layer_name=title,
+             style={"stroke": True,"color": "black"})
   
   
 
   
 ########VALORES DE MX E MN DAS VARIAVEIS
-#  max_value = data[ind].max()
-#  min_value = data[ind].min()
-#  max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
-#  min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
+  max_value = data[ind].max()
+  min_value = data[ind].min()
+  max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
+  min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
 #####ADICIONAR MX E MN NO MAPA
-#  folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-#                 data.loc[data[ind] == max_value, "X"].iloc[0]],
-#                popup=f"Maior valor: {max_value}<br>{max_municipio}",
-#                icon=folium.Icon(color="darkpurple", icon="arrow-up"),
-#               ).add_to(m) 
-#  folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-#	         data.loc[data[ind] == min_value, "X"].iloc[0]],
-#                popup=f"Menor valor: {min_value}<br>{min_municipio}",
-#                icon=folium.Icon(color="purple", icon="arrow-down"),
-#               ).add_to(m)
+  folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
+                 data.loc[data[ind] == max_value, "X"].iloc[0]],
+                 popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                 icon=folium.Icon(color="darkpurple", icon="arrow-up"),
+                ).add_to(m) 
+  folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
+	         data.loc[data[ind] == min_value, "X"].iloc[0]],
+                popup=f"Menor valor: {min_value}<br>{min_municipio}",
+                icon=folium.Icon(color="purple", icon="arrow-down"),
+                ).add_to(m)
 #########ADICIONAR NO 
   #width = 950
   #height = 600
 
-  m = leafmap.Map(center=(lat, lon))
-  column_names = data.columns.values.tolist()
-  random_column = None
-  m.add_gdf(data, layer_name=title)
-
-  # m.add_vector(file_path, layer_name=layer_name)
-
-
-  st.pydeck_chart(m)
-  #m.to_streamlit()
+ 
+  m.to_streamlit()
 
 
 
