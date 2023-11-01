@@ -21,10 +21,13 @@ pop = "./dados/csv/pop_2021.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
-                ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+                ("A","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   
-  if op == "População residente":
+  if op == "A":
+    mapa ('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
+    
+  elif op == "População residente":
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
