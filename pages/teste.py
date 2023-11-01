@@ -271,16 +271,16 @@ else:
       m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
       m.to_streamlit()
 
-    ntc = './dados/geojson/NTC.geojson'
+    url = './dados/geojson/NTC.geojson'
     url1= './dados/geojson/1990.geojson'
-    url= './dados/geojson/PR.geojson'
-    gdf = gpd.read_file(ntc)
-    centroid = gdf.geometry.centroid
+    pr= './dados/geojson/PR.geojson'
+    a = gpd.read_file(url)
+    centroid = a.geometry.centroid
     lon, lat = centroid.x[0], centroid.y[0]
     m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
     m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
-    m.add_geojson(url, fields=['Município'], layer_name='Municípios do Paraná', style_function=style1)
-    m.add_geojson(ntc, fields=['Município'], layer_name='Núcleo Territorial Central', style_function = style2 )
+    m.add_geojson(pr, fields=['Município'], layer_name='Municípios do Paraná', style_function=style1)
+    m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central', style_function = style2 )
     legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62', 'Núcleo Territorial Central': '#8da0cb'}
     m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
     m.to_streamlit()
