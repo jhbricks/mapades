@@ -28,7 +28,7 @@ if area == "Paraná":
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([2,0.7])
     with c1:
-      mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente')
+      mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (habitantes)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -42,7 +42,7 @@ if area == "Paraná":
       
   elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
-                   description="Número de pessoas por km² no Paraná",
+                   description="Número de habitantes por km² no Paraná",
                    color_name="red-70",)
   
     c1,c2 = st.columns([2,1])
