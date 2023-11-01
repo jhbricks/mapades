@@ -15,6 +15,10 @@ from deff.map import mapa
 #from deff.teste_gvf import mapagvf
 #from deff.mapa__ import mapa1
 
+from deff.teste_local import local_2
+from deff.teste_local import local_3
+from deff.teste_local import estado
+
 from streamlit_folium import folium_static
 import folium
 import leafmap
@@ -184,7 +188,7 @@ if area == "Paraná":
       grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
 
 else:
-  att = st.radio("Selecione uma área:",("A","B","C","ESSE AQUI"))
+  att = st.radio("Selecione uma área:",("A","B","C","ESSE AQUI","DEF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   arq_g = PR
   if att == "A":
@@ -229,6 +233,23 @@ else:
       st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")    
       conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54, None)
       grafico ('PR',renda,'Coeficiente de Gini',None)
+
+  elif att == "DEF":
+    c1,c2,c3 = st.columns (3)
+    br= './dados/geojson/1990.geojson'
+    pr= './dados/geojson/PR.geojson'
+    ntc= './dados/geojson/NTC.geojson'
+          
+      #estado (url,destaque,fields,layer)
+      #local_2(url, url1, destaque,fields1,fields,layer,layer1)
+      #local_3 (url, url1,url2, destaque,fields3,fields,fields2,layer,layer1)
+    with c1:
+      estado('br','Paraná','nome','Brasil')
+    with c2:
+      local_2('pr','br','Paraná','Município','nome','Paraná','Brasil')
+    with c3: 
+      local_3 ('ntc', 'br','pr', 'Paraná','Município','nome','Município','Núcleo Territorial Central','Brasil','Paraná')
+
 
 ###############################################################################################################################
 
