@@ -103,8 +103,8 @@ with c2:
                     [120, 590] *intervalo* | 36 *número de variáveis dentro do intervalo*   
                     (600, 980] *intervalo* | 23 *número de variáveis dentro do intervalo*   
                     ...   
-                    [ ] significa que o valor está dentro da classe, ex: **[**120, 590**]** = 120 e 590 estão **dentro** da classe.   
-                    ( ] significa que o intervalo começa a partir daquele número e termina com o valor incluso na classe, ex: **(**600, 980**]** = a classe começa **a partir de** 600,
+                    **[  ]** significa que o valor está dentro da classe, ex: **[** 120, 590 **]** = 120 e 590 estão **dentro** da classe.   
+                    **(  ]** significa que o intervalo começa a partir daquele número e termina com o valor incluso na classe, ex: **(** 600, 980 **]** = a classe começa **a partir de** 600,
                     mas este valor não está dentro da classe, já 980 está **incluso** na classe. 
                     """) #######ARRUMAR A EXPLICAÇÃO
     #######ARRUMAR A EXPLICAÇÃO
