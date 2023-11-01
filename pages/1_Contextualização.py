@@ -1,5 +1,9 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
+import folium
+import leafmap
+import leafmap.foliumap as leafmap
+import geopandas as gpd
 from deff.mapa import mapa
 from deff.mapa import grafico
 from deff.calculos import conta
@@ -18,10 +22,15 @@ pop = "./dados/csv/pop_2021.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
-                ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+                ("Identificação","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-  
-  if op == "População residente":
+
+   if op == "Identificação":
+    colored_header(label="Identificação da região",
+                   description="Identificação do Estado do Paraná",
+                   color_name="red-70",)
+
+  elif op == "População residente":
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)

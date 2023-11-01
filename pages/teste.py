@@ -42,7 +42,7 @@ NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC
 renda = "./dados/csv/renda.csv"
 
 if area == "Paraná":
-  t1, t2, t3, t4 = st.tabs(["Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
+  t1, t2, t3, t4, t5 = st.tabs(['Identificação',"Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
   arq_g = PR
   with t1:
     colored_header(label="Coeficiente de Gini",
@@ -184,7 +184,7 @@ if area == "Paraná":
       grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)',None)
 
 else:
-  att = st.radio("Selecione uma área:",("A","B","C"))
+  att = st.radio("Selecione uma área:",("A","B","C","ESSE AQUI"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   arq_g = PR
   if att == "A":
@@ -230,6 +230,45 @@ else:
       conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54, None)
       grafico ('PR',renda,'Coeficiente de Gini',None)
 
+###############################################################################################################################
+
+  elif att == "ESSE AQUI":
+    colored_header(label="Identificação da região",description="Identificação do Estado do Paraná",color_name="red-70",)
+    c1,c2 = st.columns([1,2])
+
+
+    style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque
+    def style_function(feature):
+    if feature['properties']['nome'] == local:
+      return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
+    else:
+      return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
+
+
+    with c1:
+      url1= './dados/geojson/1990.geojson'
+      gdf = gpd.read_file(url1)
+      centroid = gdf.geometry.centroid
+      lon, lat = centroid.x[0], centroid.y[0]
+      m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m2.add_geojson(url1, fields = ['nome'], layer_name= 'Brasil', style_function= style_function)
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+      m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+      m2.to_streamlit()
+
+    with c2:
+      url1= './dados/geojson/1990.geojson'
+      url= './dados/geojson/PR.geojson'
+      gdf = gpd.read_file(url)
+      centroid = gdf.geometry.centroid
+      lon, lat = centroid.x[0], centroid.y[0]
+      m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m.add_geojson(url1, style_function=style_function)
+      m.add_geojson(url, fields=fields, layer_name=layer, style_function=style1)
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+      m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+      m.to_streamlit()
+####################################################################################################################
 
   elif att == "B":
     colored_header(label="Renda média da população",

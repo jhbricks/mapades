@@ -21,6 +21,10 @@ with t1:
     drag = "./dados/imagem/arrastar (1).gif"
     valor = "./dados/imagem/maior menor (1).gif"
     nomes = "./dados/imagem/nomes e valores.gif"
+    leg = "./dados/imagem/ajuda/legenda.png"
+    mapa = "./dados/imagem/ajuda/mapa.png"
+    st.image(mapa)
+    
     st.markdown("""**Funções**""")
     c1,c2,c3,c4=st.columns([1,2,1,2])
     with c1:
