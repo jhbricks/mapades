@@ -56,6 +56,7 @@ def map (area,arq,ind,scheme,k,cmap,fields,title):
     print("O arquivo não é um GeoDataFrame")
     exit()
 
+  style = {"color":"#000000","weight":1, "fillOpacity":0}
   
 ##########################MAPA
 ########MAPA INICIAL
@@ -66,6 +67,7 @@ def map (area,arq,ind,scheme,k,cmap,fields,title):
                   fullscreen_control=False,
                   attribution_control=True)
   
+  m.add_basemap("CartoDB.DarkMatter")  
 
   m.add_data(data = data,
 	     column=ind,
@@ -79,7 +81,10 @@ def map (area,arq,ind,scheme,k,cmap,fields,title):
              style={"stroke": True,"color": "black","clickable": True})
   
   
-
+  geojson_layer = folium.GeoJson(
+    data,
+    style_function=lambda feature: style,
+    tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
   
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
