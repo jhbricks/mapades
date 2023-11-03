@@ -10,7 +10,9 @@ st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_a
 
 #Selecionar a área 
 st.markdown("<h3><font size='7'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
-area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central de Curitiba"))
+#Selecionar a área [Radio horizontal]
+area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central de Curitiba"))
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 #Arquivos
 renda = "./dados/csv/renda.csv"
