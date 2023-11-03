@@ -77,7 +77,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 
   geojson_layer = folium.GeoJson(
     data,
-    name = area
+    name = area,
     style_function=lambda feature: style,
     tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
 ########VALORES DE MX E MN DAS VARIAVEIS
