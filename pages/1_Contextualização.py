@@ -14,7 +14,7 @@ st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_a
 
 #Selecionar a área 
 st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
-area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
+area = st.selectbox("Selecione uma área:", ("Paraná", " Núcleo Territorial Central de Curitiba"))
 
 #####Arquivos 
 contexto = "./dados/csv/contexto.csv"
@@ -149,14 +149,14 @@ if area == "Paraná":
 
     
 else:
-  area == "Núcleo Territorial Central"
+  area == " Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
                 ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
  
   if op == "População residente":
     colored_header(label="População residente",
-                   description="População residente do Núcleo Territorial Central",
+                   description="População residente do  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
@@ -174,7 +174,7 @@ else:
   
   elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
-                   description="Número de pessoas por km² no Núcleo Territorial Central",
+                   description="Número de pessoas por km² no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
@@ -192,7 +192,7 @@ else:
 
   elif op == "Grau de urbanização":
     colored_header(label="Grau de urbanização",
-                   description="Percentual da população residente em áreas urbanas no Núcleo Territorial Central",
+                   description="Percentual da população residente em áreas urbanas no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
@@ -210,7 +210,7 @@ else:
 
   elif op == "População feminina": 
     colored_header(label="População feminina",
-                   description="Percentual da população feminina no Núcleo Territorial Central",
+                   description="Percentual da população feminina no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
@@ -228,7 +228,7 @@ else:
 
   elif op == "População preta ou parda":
     colored_header(label="População preta ou parda",
-                   description="Percentual da população preta ou parda no Núcleo Territorial Central",
+                   description="Percentual da população preta ou parda no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
@@ -247,7 +247,7 @@ else:
   else:
     op == "Razão de dependência"
     colored_header(label="Razão de dependência",
-                   description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no Núcleo Territorial Central",
+                   description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:

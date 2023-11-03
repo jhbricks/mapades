@@ -50,16 +50,16 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
     print("O arquivo não é um GeoDataFrame")
     exit()
 
+  style = {"color":"#000000","weight":1, "fillOpacity":0}
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-		  #zoom = z,
-		  #zoom_min = zmn,
-		  #zoom_max = zmx,
-		  draw_control=False,
+            		  draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
+
+  m.add_basemap("CartoDB.DarkMatter")  
   
 #######ADICIONAR O MERGE GDF
 
@@ -74,6 +74,12 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              legend_position='topright',
              layer_name=title,
              )
+
+  geojson_layer = folium.GeoJson(
+    data,
+    name = area
+    style_function=lambda feature: style,
+    tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
 ########VALORES DE MX E MN DAS VARIAVEIS
   max_value = data[ind].max()
   min_value = data[ind].min()

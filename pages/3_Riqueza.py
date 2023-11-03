@@ -10,7 +10,7 @@ st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_a
 st.markdown("<h3><font size='7'  color='red'>Riqueza</font></font></h3>", unsafe_allow_html=True)
 
 #Selecionar a área 
-#area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
+#area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central de Curitiba"))
 
 #Arquivos
 PR = './dados/geojson/PR.geojson'
@@ -18,7 +18,7 @@ NTC = './dados/geojson/NTC.geojson'
 riqueza = "./dados/csv/riqueza.csv"
 
 #Selecionar a área [Radio horizontal]
-area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central"))
+area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central de Curitiba"))
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 
@@ -142,13 +142,13 @@ if area == "Paraná":
 
 
 else:
-  area == "Núcleo Territorial Central"
+  area == "Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
                 ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   if op == "Domicílios com bens duráveis":
     colored_header(label="Domicílios com bens duráveis",
-                   description="Percentual de domicílios com bens duráveis no Núcleo Territorial Central",
+                   description="Percentual de domicílios com bens duráveis no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
            
     d1,d2 = st.columns([2,1])
@@ -171,7 +171,7 @@ else:
   
   elif op == "Número de veículos por pessoas":
     colored_header(label="Número de veículos por pessoas",
-                   description="Número de veículos automotores por pessoa no Núcleo Territorial Central",
+                   description="Número de veículos automotores por pessoa no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
 
     d1,d2 = st.columns([2,1])
@@ -193,7 +193,7 @@ else:
 
   elif op == "População declarante do IRPF":
     colored_header(label="População declarante do IRPF",
-                   description="Percentual de declarantes do Imposto de Renda Pessoa Física (IRPF) na população municipal no Núcleo Territorial Central",
+                   description="Percentual de declarantes do Imposto de Renda Pessoa Física (IRPF) na população municipal no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
 
     d1,d2 = st.columns([2,1])
@@ -215,7 +215,7 @@ else:
 
   elif op == "Patrimônio Líquido Médio da População":
     colored_header(label="Patrimônio Líquido Médio da População",
-                   description="Patrimônio Líquido Médio da população no Núcleo Territorial Central",
+                   description="Patrimônio Líquido Médio da população no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
 
     d1,d2 = st.columns([2,1])
@@ -237,7 +237,7 @@ else:
 
   elif op == "Patrimônio Líquido Médio dos declarantes do IRPF":
     colored_header(label="Patrimônio Líquido Médio dos declarantes do IRPF",
-                   description="Patrimônio Líquido Médio dos declarantes do IRPF no Núcleo Territorial Central",
+                   description="Patrimônio Líquido Médio dos declarantes do IRPF no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
 
     d1,d2 = st.columns([2,1])

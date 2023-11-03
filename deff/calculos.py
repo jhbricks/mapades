@@ -83,7 +83,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     else:
        area == 'NTC'
        arq_g = "./dados/geojson/NTC.geojson"
-       nome = 'Núcleo Territorial Central'
+       nome = 'Núcleo Territorial Central de Curitiba'
 
     arq_csv = pd.read_csv(arq)
     arq_geojson = gpd.read_file(arq_g)

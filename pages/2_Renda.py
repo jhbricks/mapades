@@ -10,7 +10,7 @@ st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_a
 
 #Selecionar a área 
 st.markdown("<h3><font size='7'  color='red'>Renda</font></font></h3>", unsafe_allow_html=True)
-area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central"))
+area = st.selectbox("Selecione uma área:", ("Paraná", "Núcleo Territorial Central de Curitiba"))
 
 #Arquivos
 renda = "./dados/csv/renda.csv"
@@ -94,13 +94,13 @@ if area == "Paraná":
 
    
 else:
-  area == "Núcleo Territorial Central"
+  area == "Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
                 ("Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   if op == "Coeficiente de Gini":
     colored_header(label="Coeficiente de Gini",
-                   description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central",
+                   description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     
     c1,c2 = st.columns([2,1])
@@ -119,7 +119,7 @@ else:
 
   elif op == "Renda média da população":
     colored_header(label="Renda média da população",
-                   description="Renda média da população no Núcleo Territorial Central",
+                   description="Renda média da população no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     
     c1,c2 = st.columns([2,1])
@@ -137,7 +137,7 @@ else:
 
   elif op == "Rendimento médio da população feminina":
     colored_header(label="Rendimento médio da população feminina",
-                   description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Núcleo Territorial Central",
+                   description="Percentual do rendimento médio real mensal das mulheres em relação ao dos homens no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     
     c1,c2 = st.columns([2,1])
@@ -156,7 +156,7 @@ else:
 
   elif op == "Renda dos declarantes do IRPF":
     colored_header(label="Renda dos declarantes do IRPF",
-                   description="Renda média dos declarentes do IRPF no Núcleo Territorial Central",
+                   description="Renda média dos declarentes do IRPF no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     
     c1,c2 = st.columns([2,1])
