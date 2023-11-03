@@ -31,14 +31,14 @@ if area == "Paraná":
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-    br= './dados/geojson/1990.geojson'
+    br= './dados/geojson/BR.geojson'
     pr= './dados/geojson/PR.geojson'
     ntc= './dados/geojson/NTC.geojson'
           
     with c1:
-      estado('br','Paraná','nome','Brasil')
+      estado('br','Paraná','Estado','Brasil')
     with c2:
-      local_2('pr','br','Paraná','Município','nome','Paraná','Brasil')
+      local_2('pr','br','Paraná','Município','Estado','Paraná','Brasil')
 
   elif op == "População residente":
     colored_header(label="População residente",
@@ -170,14 +170,14 @@ else:
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-    br= './dados/geojson/1990.geojson'
+    br= './dados/geojson/BR.geojson'
     pr= './dados/geojson/PR.geojson'
     ntc= './dados/geojson/NTC.geojson'
           
     with c1:
-      estado('br','Paraná','nome','Brasil')
+      estado('br','Paraná','Estado','Brasil')
     with c2:
-      local_3 ('ntc', 'br','pr', 'Paraná','Município','nome','Município','Núcleo Territorial Central','Brasil','Paraná')
+      local_3 ('ntc', 'br','pr', 'Paraná','Município','Estado','Município','Núcleo Territorial Central de Curitiba','Brasil','Paraná')
 
   elif op == "População residente":
     colored_header(label="População residente",

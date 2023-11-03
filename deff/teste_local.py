@@ -6,7 +6,7 @@ import leafmap.foliumap as leafmap
 import geopandas as gpd
 
 
-br= './dados/geojson/1990.geojson'
+br= './dados/geojson/BR.geojson'
 pr= './dados/geojson/PR.geojson'
 ntc= './dados/geojson/NTC.geojson'
 
