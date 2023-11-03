@@ -25,10 +25,20 @@ if area == "Paraná":
                 ("Identificação","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-   if op == "Identificação":
+  if op == "Identificação":
     colored_header(label="Identificação da região",
                    description="Identificação do Estado do Paraná",
                    color_name="red-70",)
+
+    c1,c2 = st.columns ([1.5,2])
+    br= './dados/geojson/1990.geojson'
+    pr= './dados/geojson/PR.geojson'
+    ntc= './dados/geojson/NTC.geojson'
+          
+    with c1:
+      estado('br','Paraná','nome','Brasil')
+    with c2:
+      local_2('pr','br','Paraná','Município','nome','Paraná','Brasil')
 
   elif op == "População residente":
     colored_header(label="População residente",
@@ -151,10 +161,25 @@ if area == "Paraná":
 else:
   area == " Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
-                ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+                ("Identificação","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
  
-  if op == "População residente":
+  if op == "Identificação":
+    colored_header(label="Identificação da região",
+                   description="Identificação do Núcleo Territorial Central de Curitiba",
+                   color_name="red-70",)
+
+    c1,c2 = st.columns ([1.5,2])
+    br= './dados/geojson/1990.geojson'
+    pr= './dados/geojson/PR.geojson'
+    ntc= './dados/geojson/NTC.geojson'
+          
+    with c1:
+      estado('br','Paraná','nome','Brasil')
+    with c2:
+      local_3 ('ntc', 'br','pr', 'Paraná','Município','nome','Município','Núcleo Territorial Central','Brasil','Paraná')
+
+  elif op == "População residente":
     colored_header(label="População residente",
                    description="População residente do  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
