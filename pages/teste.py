@@ -44,10 +44,13 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 PR = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/PR.geojson'
 NTC = 'https://raw.githubusercontent.com/jhbricks/mapades/main/dados/geojson/NTC.geojson'
 renda = "./dados/csv/renda.csv"
+contexto = "./dados/csv/contexto.csv"
 
 if area == "Paraná":
-  t1, t2, t3, t4, t5 = st.tabs(['Identificação',"Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
+  A,t1, t2, t3, t4, t5 = st.tabs(['A','Identificação',"Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
   arq_g = PR
+  with A:
+      map('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (hab)')
   with t1:
     colored_header(label="Coeficiente de Gini",
                    description="Coeficiente de Gini renda domiciliar per capita no Paraná",
