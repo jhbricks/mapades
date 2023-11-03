@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 #from deff.map import zoom_to_bounds
 from deff.mapa import grafico
 from deff.calculos import conta
-from deff.map import mapa
+from deff.map import map
 #from deff.map import grafico
 #from deff.teste_gvf import create_map
 #from deff.teste_gvf import mapagvf
