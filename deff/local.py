@@ -10,7 +10,6 @@ BR= './dados/geojson/BR.geojson'
 PR= './dados/geojson/PR.geojson'
 NTC= './dados/geojson/NTC.geojson'
 
-
 #url = geojson da área, ex: 'br','pr'
 #fields = coluna, ex: 'nome', 'Município'
 #destaque = área de destaque, ex: 'Paraná'
@@ -73,6 +72,7 @@ def local_3 (url, url1,url2, destaque,fields3,fields,fields2,layer,layer1,layer2
     style = lambda x: {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}  #Brasil (verde)
     style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR  (rosa)
     style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} #destaque NTC  (azul)
+
     def style_function(feature):
         if feature['properties'][fields] == destaque:
             return style1
