@@ -7,9 +7,9 @@ import geopandas as gpd
 from deff.mapa import mapa
 from deff.mapa import grafico
 from deff.calculos import conta
-from deff.teste_local import local_2
-from deff.teste_local import local_3
-from deff.teste_local import estado
+from deff.local import local_2
+from deff.local import local_3
+from deff.local import estado
 
 
 st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
