@@ -41,9 +41,9 @@ if area == "Paraná":
     ntc= './dados/geojson/NTC.geojson'
           
     with c1:
-      estado('br','Paraná','Estado','Brasil')
+      estado(BR,'Paraná','Estado','Brasil')
     with c2:
-      local_2('pr','br','Paraná','Município','Estado','Paraná','Brasil')
+      local_2(PR,BR,'Paraná','Município','Estado','Paraná','Brasil')
 
   elif op == "População residente":
     colored_header(label="População residente",
@@ -175,14 +175,14 @@ else:
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-    br= './dados/geojson/BR.geojson'
-    pr= './dados/geojson/PR.geojson'
-    ntc= './dados/geojson/NTC.geojson'
+    BR= './dados/geojson/BR.geojson'
+    PR= './dados/geojson/PR.geojson'
+    NTC= './dados/geojson/NTC.geojson'
           
     with c1:
-      estado('br','Paraná','Estado','Brasil')
+      estado(PR,'Paraná','Estado','Brasil')
     with c2:
-      local_3 ('ntc', 'br','pr', 'Paraná','Município','Estado','Município','Núcleo Territorial Central de Curitiba','Brasil','Paraná')
+      local_3 (NTC,BR,PR, 'Paraná','Município','Estado','Município','Núcleo Territorial Central de Curitiba','Brasil','Paraná')
 
   elif op == "População residente":
     colored_header(label="População residente",
