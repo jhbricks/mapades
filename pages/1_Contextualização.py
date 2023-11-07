@@ -25,25 +25,50 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 
+style = lambda x: {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}  #Brasil (verde)
+style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR  (rosa)
+style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} #destaque NTC  (azul)
+
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
-                ("Identificação","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+                ( "Localização","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-  if op == "Identificação":
-    colored_header(label="Identificação da região",
-                   description="Identificação do Estado do Paraná",
+  if op ==  "Localização":
+    colored_header(label= "Localização da região",
+                   description= "Localização do Estado do Paraná",
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-    BR= './dados/geojson/BR.geojson'
-    PR= './dados/geojson/PR.geojson'
-    NTC= './dados/geojson/NTC.geojson'
+
+    def style_function(feature):
+      if feature['properties']['Estado'] == 'Paraná':
+            return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
+      else:
+            return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
           
     with c1:
-      estado('./dados/geojson/BR.geojson','Paraná','Estado','Brasil')
+      url1= './dados/geojson/BR.geojson'
+      gdf = gpd.read_file(url1)
+      centroid = gdf.geometry.centroid
+      lon, lat = centroid.x[0], centroid.y[0]
+      m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+      m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+      m2.to_streamlit()
     with c2:
-      local_2('./dados/geojson/PR.geojson','./dados/geojson/BR.geojson','Paraná','Município','Estado','Paraná','Brasil')
+      url1= './dados/geojson/BR.geojson'
+      url= './dados/geojson/PR.geojson'
+      gdf = gpd.read_file(url)
+      centroid = gdf.geometry.centroid
+      lon, lat = centroid.x[0], centroid.y[0]
+      m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
+      m.add_geojson(url, fields=['Município'], layer_name='Municípios do Paraná', style_function=style1)
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+      m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+      m.to_streamlit()
 
   elif op == "População residente":
     colored_header(label="População residente",
@@ -166,23 +191,40 @@ if area == "Paraná":
 else:
   area == " Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
-                ("Identificação","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+                ( "Localização","População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
  
-  if op == "Identificação":
-    colored_header(label="Identificação da região",
-                   description="Identificação do Núcleo Territorial Central de Curitiba",
+  if op == "Localização":
+    colored_header(label= "Localização da região",
+                   description= "Localização do Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-    BR= './dados/geojson/BR.geojson'
-    PR= './dados/geojson/PR.geojson'
-    NTC= './dados/geojson/NTC.geojson'
-          
+
     with c1:
-      estado('./dados/geojson/PR.geojson','Paraná','Estado','Brasil')
+      url1= './dados/geojson/BR.geojson'
+      gdf = gpd.read_file(url1)
+      centroid = gdf.geometry.centroid
+      lon, lat = centroid.x[0], centroid.y[0]
+      m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+      m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+      m2.to_streamlit()
     with c2:
-      local_3 ('./dados/geojson/NTC.geojson','./dados/geojson/BR.geojson','./dados/geojson/PR.geojson', 'Paraná','Município','Estado','Município','Núcleo Territorial Central de Curitiba','Brasil','Paraná')
+      url = './dados/geojson/NTC.geojson'
+      url1= './dados/geojson/BR.geojson'
+      pr= './dados/geojson/PR.geojson'
+      a = gpd.read_file(url)
+      centroid = a.geometry.centroid
+      lon, lat = centroid.x[0], centroid.y[0]
+      m = leafmap.Map(center=(lat, lon),draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
+      m.add_geojson(pr, fields=['Município'], layer_name='Paraná', style_function=style1)
+      m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = style2 )
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62', 'Núcleo Territorial Central de Curitiba': '#8da0cb'}
+      m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+      m.to_streamlit()
 
   elif op == "População residente":
     colored_header(label="População residente",
