@@ -19,25 +19,25 @@ renda = "./dados/csv/renda.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
-                ("Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
+                ("Índice de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-  if op == "Coeficiente de Gini":
-    colored_header(label="Coeficiente de Gini",
-                   description="Coeficiente de Gini renda domiciliar per capita no Paraná",
+  if op == "Índice de Gini":
+    colored_header(label="Índice de Gini",
+                   description="Índice de Gini renda domiciliar per capita no Paraná",
                    color_name="red-70",)
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('PR',renda,'Coeficiente de Gini','FisherJenks',3,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+      mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
-                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
-                  **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
+                  **Fórmula:** Índice de Gini da Renda Domiciliar per Capita  
+                  **Observações:** Índice de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
     with d2:
       st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município, portanto, quanto mais próximo de 1 maior é a concentração.**")    
-      conta ('PR',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.54, None)
-      grafico ('PR',renda,'Coeficiente de Gini',None)
+      conta ('PR',renda,'Índice de Gini',2010,'Índice de Gini',0.54, None)
+      grafico ('PR',renda,'Índice de Gini',None)
 
 
   elif op == "Renda média da população":
@@ -98,26 +98,26 @@ if area == "Paraná":
 else:
   area == "Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
-                ("Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
+                ("Índice de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-  if op == "Coeficiente de Gini":
-    colored_header(label="Coeficiente de Gini",
-                   description="Coeficiente de Gini renda domiciliar per capita no Núcleo Territorial Central de Curitiba",
+  if op == "Índice de Gini":
+    colored_header(label="Índice de Gini",
+                   description="Índice de Gini renda domiciliar per capita no Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Coeficiente de Gini','FisherJenks',4,'PuBuGn', ['Município','Coeficiente de Gini'],'Coeficiente de Gini da Renda Domiciliar per Capita')
+      mapa('NTC',renda,'Índice de Gini','FisherJenks',4,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini da Renda Domiciliar per Capita')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, IBGE  
-                  **Fórmula:** Coeficiente de Gini da Renda Domiciliar per Capita  
-                  **Observações:** Coeficiente de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
+                  **Fórmula:** Índice de Gini da Renda Domiciliar per Capita  
+                  **Observações:** Índice de Gini da Renda Domiciliar per Capita do Censo Demográfico de 2010, obtido no banco de dados do IPARDES.
                   """)
 
     with c2:
       st.markdown("**Indica a distribuição de renda em uma população. Quanto mais próximo de 0, menor é a concentração de renda no município; portanto, quanto mais próximo de 1 maior é a concentração.**")  
-      conta ('NTC',renda,'Coeficiente de Gini',2010,'Coeficiente de Gini',0.47, unidade = None)
-      grafico ('NTC',renda,'Coeficiente de Gini',None)
+      conta ('NTC',renda,'Índice de Gini',2010,'Índice de Gini',0.47, unidade = None)
+      grafico ('NTC',renda,'Índice de Gini',None)
 
   elif op == "Renda média da população":
     colored_header(label="Renda média da população",
