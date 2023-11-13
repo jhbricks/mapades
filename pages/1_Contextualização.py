@@ -207,12 +207,14 @@ else:
             return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
     with c1:
       url1= './dados/geojson/BR.geojson'
+      url = './dados/geojson/NTC.geojson'
       gdf = gpd.read_file(url1)
       centroid = gdf.geometry.centroid
       lon, lat = centroid.x[0], centroid.y[0]
       m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
       m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
-      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+      m2.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = style2 )
+      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62','Núcleo Territorial Central de Curitiba': '#8da0cb'}
       m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
       m2.to_streamlit()
     with c2:
