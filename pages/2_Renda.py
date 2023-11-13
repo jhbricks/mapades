@@ -28,7 +28,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini da Renda Domiciliar per Capita')
+      mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Índice de Gini da Renda Domiciliar per Capita  
@@ -107,7 +107,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Índice de Gini','FisherJenks',4,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini da Renda Domiciliar per Capita')
+      mapa('NTC',renda,'Índice de Gini','FisherJenks',4,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, IBGE  
                   **Fórmula:** Índice de Gini da Renda Domiciliar per Capita  

@@ -35,7 +35,7 @@ if area == "Paraná":
     with d1:
       mapa('PR', riqueza, 'Domicílios com bens duráveis (%)',
            'FisherJenks', 5, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
-           'Percentual de domicílios com bens duráveis (%)')
+           'Domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Percentual de domicílios com bens duráveis  
@@ -83,7 +83,7 @@ if area == "Paraná":
     with d1:
       mapa('PR', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',5, 'BuPu', ['Município','Declarantes do IRPF (%)'],
-           'Percentual de declarantes do IRPF na população (%)')
+           'População declarante do IRPF (%)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
                   **Fórmula:** Declarantes na População  
@@ -127,7 +127,7 @@ if area == "Paraná":
     with d1:
       mapa('PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
            'FisherJenks', 5, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
-           'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
+           'Patrimônio líquido dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
                   **Fórmula:** Patrimônio líquido médio dos declarantes do IRPF/1000000  
@@ -155,7 +155,7 @@ else:
     with d1:
       mapa('NTC', riqueza, 'Domicílios com bens duráveis (%)',
            'FisherJenks', 4, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
-           'Percentual de domicílios com bens duráveis (%)')
+           'Domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
                   **Fórmula:** Percentual de domicílios com bens duráveis  
@@ -200,7 +200,7 @@ else:
     with d1:
       mapa('NTC', riqueza, 'Declarantes do IRPF (%)',
            'FisherJenks',4, 'BuPu', ['Município','Declarantes do IRPF (%)'],
-           'Percentual de declarantes do IRPF na população (%)')
+           'População declarante do IRPF (%)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
                   **Fórmula:** Declarantes na População  
