@@ -53,6 +53,7 @@ if area == "Paraná":
       centroid = gdf.geometry.centroid
       lon, lat = centroid.x[0], centroid.y[0]
       m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m2.add_basemap("CartoDB.Positron")
       m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
       legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
       m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
@@ -64,6 +65,7 @@ if area == "Paraná":
       centroid = gdf.geometry.centroid
       lon, lat = centroid.x[0], centroid.y[0]
       m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+      m.add_basemap("CartoDB.Positron")
       m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
       m.add_geojson(url, fields=['Município'], layer_name='Paraná', style_function=style1)
       legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
@@ -213,7 +215,6 @@ else:
       lon, lat = centroid.x[0], centroid.y[0]
       m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
       m2.add_basemap("CartoDB.Positron")
-      m2.add_basemap("CartoDB.DarkMatter") 
       m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
       m2.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = lambda x: {'color': '#8da0cb', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} )
       legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62','Núcleo Territorial Central de Curitiba': '#8da0cb'}
@@ -228,7 +229,6 @@ else:
       lon, lat = centroid.x[0], centroid.y[0]
       m = leafmap.Map(center=(lat, lon),draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
       m.add_basemap("CartoDB.Positron")
-      m.add_basemap("CartoDB.DarkMatter") 
       m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
       m.add_geojson(pr, fields=['Município'], layer_name='Paraná', style_function=style1)
       m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = style2)
