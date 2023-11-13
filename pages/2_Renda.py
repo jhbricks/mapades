@@ -90,7 +90,7 @@ if area == "Paraná":
                   **Observações:** Renda Média dos declarantes do IRPF é disponibilizado no Mapa da Riqueza elaborado pela Fundação Getúlio Vargas (FGV).
                   """)      
     with d2:
-      st.markdown("**Indica a renda média (R$) dos declarantes do Imposto de Renda Pessoa Física (IRPF) para o ano de 2020.**")  
+      st.markdown("**Indica a renda média (R$) dos declarantes do Imposto de Renda das Pessoas Físicas (IRPF) para so ano de 2020.**")  
       conta ('PR',renda,'Renda Média dos Declarantes (R$ mil)',2020,'Renda Média dos Declarantes','media','R$ mil')
       grafico('PR',renda,'Renda Média dos Declarantes (R$ mil)','R$ mil')
 
@@ -171,7 +171,7 @@ else:
                   """)
 
     with c2:
-      st.markdown("**Indica a renda média (R$) dos declarantes do Imposto de Renda Pessoa Física (IRPF) para o ano de 2020.**")  
+      st.markdown("**Indica a renda média (R$) dos declarantes do Imposto de Renda das Pessoas Físicas (IRPF) para o ano de 2020.**")  
       conta ('NTC',renda,'Renda Média dos Declarantes (R$ mil)',2020,'Renda Média dos Declarantes','media','R$ mil')
       grafico ('NTC',renda,'Renda Média dos Declarantes (R$ mil)','R$ mil')
 
