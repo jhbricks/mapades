@@ -227,7 +227,7 @@ else:
       m = leafmap.Map(center=(lat, lon),draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
       m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
       m.add_geojson(pr, fields=['Município'], layer_name='Paraná', style_function=style1)
-      m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = style2 )
+      m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = lambda x: {'color': '#8da0cb', 'fillColor': '#8da0cb', "weight": 1, 'fillOpacity':0.7} )
       legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62', 'Núcleo Territorial Central de Curitiba': '#8da0cb'}
       m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
       m.to_streamlit()
