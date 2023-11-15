@@ -15,7 +15,7 @@ contexto = "./dados/csv/contexto.csv"
 pop = "./dados/csv/pop_2021.csv"
 
 if op == "A":
-      a,b,c,d,e,f = st.columns()
+      a,b,c,d,e,f = st.columns(6)
       with a:
             mapa('PR',contexto,'População','FisherJenks',5,'Wistia', ['Município','População'],'População residente (hab)')
             st.text("Wistia")
