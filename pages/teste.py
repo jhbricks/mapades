@@ -28,7 +28,7 @@ if op == "A":
       with d:
             mapa('PR',contexto,'População','FisherJenks',5,'YlOrRd', ['Município','População'],'População residente (hab)')
             st.text("YlOrRd")
-if op == "B":
+elif op == "B":
       a,b,c,d = st.columns(4)
       with a:
             mapa('PR',contexto,'População','FisherJenks',5,'autumn_r', ['Município','População'],'População residente (hab)')
@@ -42,4 +42,30 @@ if op == "B":
       with d:
             mapa('PR',contexto,'População','FisherJenks',5,'cubehelix_r', ['Município','População'],'População residente (hab)')
             st.text("cubehelix_r")
+elif op == "C":
+      a,b,c,d = st.columns(4)
+      with a:
+            mapa('PR',contexto,'População','FisherJenks',5,'gnuplot_r', ['Município','População'],'População residente (hab)')
+            st.text("gnuplot_r")
+      with b:
+            mapa('PR',contexto,'População','FisherJenks',5,'inferno_r', ['Município','População'],'População residente (hab)')
+            st.text("inferno_r")
+      with c:
+            mapa('PR',contexto,'População','FisherJenks',5,'magma_r', ['Município','População'],'População residente (hab)')
+            st.text("magma_r")
+      with d:
+            mapa('PR',contexto,'População','FisherJenks',5,'plasma_r', ['Município','População'],'População residente (hab)')
+            st.text("plasma_r")
+elif op == "D":
+      a,b,c = st.columns(3)
+      with a:
+            mapa('PR',contexto,'População','FisherJenks',5,'summer_r', ['Município','População'],'População residente (hab)')
+            st.text("summer_r")
+      with b:
+            mapa('PR',contexto,'População','FisherJenks',5,'viridis_r', ['Município','População'],'População residente (hab)')
+            st.text("viridis_r")
+      with c:
+            mapa('PR',contexto,'População','FisherJenks',5,'winter_r', ['Município','População'],'População residente (hab)')
+            st.text("winter_r")
+
 
