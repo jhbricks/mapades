@@ -49,7 +49,7 @@ contexto = "./dados/csv/contexto.csv"
 if area == "Paraná":
   A,t1, t2, t3, t4, t5 = st.tabs(['B','A',"Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
   arq_g = PR
-  with B:
+  with 'B':
        
     c1,c2 = st.columns([2,1])
     with c1:
