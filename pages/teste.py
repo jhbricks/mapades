@@ -3,7 +3,7 @@ from streamlit_extras.colored_header import colored_header
 import geopandas as gpd
 import pandas as pd
 import plotly.graph_objects as go
-#from deff.mapa__ import mapa
+from deff.mapa__ import mapa
 #from deff.calculos__ import mx_mn
 #from deff.calculos__ import conta
 #from deff.map import zoom_to_bounds
@@ -47,8 +47,23 @@ renda = "./dados/csv/renda.csv"
 contexto = "./dados/csv/contexto.csv"
 
 if area == "Paraná":
-  A,t1, t2, t3, t4, t5 = st.tabs(['A','Identificação',"Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
+  A,t1, t2, t3, t4, t5 = st.tabs(['B','A','Identificação',"Coeficiente de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"])
   arq_g = PR
+  with B:
+       
+    c1,c2 = st.columns([2,1])
+    with c1:
+      mapa ('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'Wistia', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      st.markdown("""**Ano-base:** 2010  
+                    **Fonte(s):** IBGE, 2010; IPARDES,2023  
+                    **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
+                    **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
+                    """)
+
+    with c2:
+      st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
+      conta ('PR',contexto, 'População preta ou parda (%)', 2010, None, None, None)
+      grafico('PR',contexto,'População preta ou parda (%)','%')
   with A:
       map('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (hab)')
   with t1:
