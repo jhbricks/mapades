@@ -19,20 +19,27 @@ if op == "A":
       with a:
             mapa('PR',contexto,'População','FisherJenks',5,'Wistia', ['Município','População'],'População residente (hab)')
             st.text("Wistia")
-            mapa('PR',contexto,'População','FisherJenks',5,'autumn_r', ['Município','População'],'População residente (hab)')
-            st.text("autumn_r")
       with b:
             mapa('PR',contexto,'População','FisherJenks',5,'YlGnBu', ['Município','População'],'População residente (hab)')
             st.text("YlGnBu")
-            mapa('PR',contexto,'População','FisherJenks',5,'cividis_r', ['Município','População'],'População residente (hab)')
-            st.text("cividis_r")
       with c:
             mapa('PR',contexto,'População','FisherJenks',5,'YlGn', ['Município','População'],'População residente (hab)')
             st.text("YlGn")
-            mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População residente (hab)')
-            st.text("copper_r")
       with d:
             mapa('PR',contexto,'População','FisherJenks',5,'YlOrRd', ['Município','População'],'População residente (hab)')
             st.text("YlOrRd")
+if op == "B":
+      a,b,c,d = st.columns(4)
+      with a:
+            mapa('PR',contexto,'População','FisherJenks',5,'autumn_r', ['Município','População'],'População residente (hab)')
+            st.text("autumn_r")
+      with b:
+            mapa('PR',contexto,'População','FisherJenks',5,'cividis_r', ['Município','População'],'População residente (hab)')
+            st.text("cividis_r")
+      with c:
+            mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População residente (hab)')
+            st.text("copper_r")
+      with d:
             mapa('PR',contexto,'População','FisherJenks',5,'cubehelix_r', ['Município','População'],'População residente (hab)')
             st.text("cubehelix_r")
+
