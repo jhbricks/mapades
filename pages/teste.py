@@ -4,7 +4,7 @@ import folium
 import leafmap
 import leafmap.foliumap as leafmap
 import geopandas as gpd
-from deff.mapa import mapa
+from deff.mapa__ import mapa
 from deff.mapa import grafico
 from deff.calculos import conta
 

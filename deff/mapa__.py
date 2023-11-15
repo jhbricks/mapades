@@ -28,7 +28,7 @@ NTC =  "./dados/geojson/NTC.geojson"
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
+def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
@@ -52,36 +52,13 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
     exit()
 ##########################MAPA
 
-#min_lat: int = -90, max_lat: int = 90, min_lon: int = -180, 
-#max_lon: int = 180, max_bounds: bool = False, crs: str = "EPSG3857"
-#[minx, miny, maxx, maxy]
 ########MAPA INICIAL
-  m = leafmap.Map(center=[lat,lon], 
-                  #height="400px", width="800px",
-#                  min_lat = -46,
-#                  max_lat = -53,
-#                  min_lon = -23,
-#                  max_lon = -25,
+  m = leafmap.Map(center=[lat,lon],
                   draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
   
-#######ADICIONAR O MERGE GDF
-  #if area == PR:
-  #m.zoom_to_bounds([-47.98, -22.44, -54.67, -26.80))
-  #else:
-  #  m.zoom_to_bounds((-47.87,-24.96,-48.54, -25.85))
-
-  style = {
-      "stroke": True,
-      "color": "#000000",
-      "weight": 2,
-      "opacity": 1}
-  hover_style = {"fillOpacity": 0.7}
-
-
-
   m.add_data(gdf,
 	           column=ind,
              scheme=scheme,
@@ -92,39 +69,8 @@ def mapa1 (area,arq,ind,scheme,k,cmap,fields,title):
              legend_position='Bottomright',
              layer_name=title,
 	           zoom_to_layer=True,
-             style=style,
              hover_style=hover_style)
-########VALORES DE MX E MN DAS VARIAVEIS
-#  max_value = data[ind].max()
-#  min_value = data[ind].min()
-#  max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
-#  min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
-#####ADICIONAR MX E MN NO MAPA
-#  folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-#                 data.loc[data[ind] == max_value, "X"].iloc[0]],
-#                popup=f"Maior valor: {max_value}<br>{max_municipio}",
-#                icon=folium.Icon(color="darkpurple", icon="arrow-up"),
-#               ).add_to(m) 
-#  folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-#	         data.loc[data[ind] == min_value, "X"].iloc[0]],
-#                popup=f"Menor valor: {min_value}<br>{min_municipio}",
-#                icon=folium.Icon(color="purple", icon="arrow-down"),
-#               ).add_to(m)
-#########ADICIONAR NO STREAMLIT
- # m.zoom_to_bounds()
 
-
-#D
-#N
-#E
-#S
-  #m.zoom_to_bounds([[-26.80, -54.67],[ -22.44, -47.98]])
-  
- 
-
-  #components = [[-26.80, -54.67], [-22.44,-47.98]]
-  #st_map_bounds(m, [[-26.80, -54.67], [-22.44,-47.98]])
-  #m.zoom_to_bounds([[-26.80, -54.67], [-22.44,-47.98]])
   m.to_streamlit()
 
 
