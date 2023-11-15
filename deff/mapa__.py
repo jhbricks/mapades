@@ -68,8 +68,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
              legend_title=title,
              legend_position='Bottomright',
              layer_name=title,
-	           zoom_to_layer=True,
-             hover_style=hover_style)
+	           zoom_to_layer=True)
 
   m.to_streamlit()
 
