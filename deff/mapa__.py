@@ -32,43 +32,55 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
     arq_g = "./dados/geojson/PR.geojson"
-  else:
-    area = 'NTC'
+  elif area == 'NTC':
     arq_g = "./dados/geojson/NTC.geojson"
+  else:
+    arq_g = area
 
 #######MERGE geojson e csv
   arq_csv = pd.read_csv(arq)
   arq_geojson = gpd.read_file(arq_g)
-  gdf = arq_geojson.merge(arq_csv, on="Município")
-  
+  data = arq_geojson.merge(arq_csv, on="Município")
 
 #######LAT E LON CENTRAIS
   ponto_central = arq_geojson.geometry.centroid
   lat = ponto_central.iloc[0].y
   lon = ponto_central.iloc[0].x
     
-  if not isinstance(gdf,gpd.GeoDataFrame):
+  if not isinstance(data,gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
     exit()
-##########################MAPA
 
+  style = {"color":"#000000","weight":1, "fillOpacity":0}
+##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-                  draw_control=False,
+            		  draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
+
+  m.add_basemap("CartoDB.DarkMatter")  
   
-  m.add_data(gdf,
-	           column=ind,
+#######ADICIONAR O MERGE GDF
+
+
+  m.add_data(data = data,
+             column=ind,
              scheme=scheme,
              k=k,
              cmap=cmap,
              fields=fields,
              legend_title=title,
-             legend_position='Bottomright',
+             legend_position='topright',
              layer_name=title,
-	           zoom_to_layer=True)
+             )
+
+  geojson_layer = folium.GeoJson(
+    data,
+    name = area,
+    style_function=lambda feature: style,
+    tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
 
   m.to_streamlit()
 
