@@ -20,7 +20,7 @@ if op == "A":
             mapa('PR',contexto,'População','FisherJenks',5,'Wistia', ['Município','População'],'População residente (hab)')
             st.text("Wistia")
             mapa('PR',contexto,'População','FisherJenks',5,'autumn_r', ['Município','População'],'População residente (hab)')
-            st.text("autumn_r"
+            st.text("autumn_r")
       with b:
             mapa('PR',contexto,'População','FisherJenks',5,'YlGnBu', ['Município','População'],'População residente (hab)')
             st.text("YlGnBu")
