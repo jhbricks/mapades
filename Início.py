@@ -76,3 +76,15 @@ with c3:
     aju = st.button("Ajuda")
     if aju:
         switch_page("Ajuda")
+
+
+#sidebar
+logos = "./dados/imagem/3.png"
+st.markdown(f"""<style>[data-testid="stSidebarNav"] + div {{position:relative;
+            bottom: 0;
+            height:50%;
+            background-image: url({logos});
+            background-size: 85% auto;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: bottom;}}</style>""",unsafe_allow_html=True,)
