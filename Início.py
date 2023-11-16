@@ -80,7 +80,7 @@ with c3:
 
 #sidebar
 logos = "./dados/imagem/3.png"
-st.markdown(f"""<style>[data-testid="stSidebarNav"] + div {{position:relative;
+st.sidebar.markdown(f"""<style>[data-testid="stSidebarNav"] + div {{position:relative;
             bottom: 0;
             height:50%;
             background-image: url({logos});
