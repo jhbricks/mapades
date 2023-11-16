@@ -67,5 +67,45 @@ elif op == "D":
       with c:
             mapa('PR',contexto,'População','FisherJenks',5,'winter_r', ['Município','População'],'População residente (hab)')
             st.text("winter_r")
-
-
+elif op == "E":
+      a,b,c,d = st.columns(4)
+      with a:
+            mapa('PR',contexto,'População','FisherJenks',5,'BuGn', ['Município','População'],'População residente (hab)')
+            st.text("BuGn")
+      with b:
+            mapa('PR',contexto,'População','FisherJenks',5,'GnPu', ['Município','População'],'População residente (hab)')
+            st.text("GnPu")
+      with c:
+            mapa('PR',contexto,'População','FisherJenks',5,'OrRd', ['Município','População'],'População residente (hab)')
+            st.text("OrRd")
+      with d:
+            mapa('PR',contexto,'População','FisherJenks',5,'PuBu', ['Município','População'],'População residente (hab)')
+            st.text("PuBu")
+elif op == "F":
+      a,b,c,d = st.columns(4)
+      with a:
+            mapa('PR',contexto,'População','FisherJenks',5,'PuBuGn', ['Município','População'],'População residente (hab)')
+            st.text("PuBuGn")
+      with b:
+            mapa('PR',contexto,'População','FisherJenks',5,'PuRd', ['Município','População'],'População residente (hab)')
+            st.text("PuRd")
+      with c:
+            mapa('PR',contexto,'População','FisherJenks',5,'RdPu', ['Município','População'],'População residente (hab)')
+            st.text("RdPu")
+      with d:
+            mapa('PR',contexto,'População','FisherJenks',5,'YlGn', ['Município','População'],'População residente (hab)')
+            st.text("YlGn")
+elif op == "G":
+      a,b,c,d = st.columns(4)
+      with a:
+            mapa('PR',contexto,'População','FisherJenks',5,'YlGnBu', ['Município','População'],'População residente (hab)')
+            st.text("YlGnBu")
+      with b:
+            mapa('PR',contexto,'População','FisherJenks',5,'YlOrBr', ['Município','População'],'População residente (hab)')
+            st.text("YlOrBr")
+      with c:
+            mapa('PR',contexto,'População','FisherJenks',5,'YlOrRd', ['Município','População'],'População residente (hab)')
+            st.text("YlOrRd")
+      with d:
+            mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (hab)')
+            st.text("Oranges")
