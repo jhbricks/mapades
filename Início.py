@@ -80,12 +80,18 @@ with c3:
 
 #sidebar
 logos = "./dados/imagem/3.png"
-st.sidebar.image(logos)
-st.sidebar.markdown(f"""<style>[data-testid="stSidebarNav"] + div {{position:relative;
-            bottom: 0;
-            height:50%;
-            background-image: url({logos});
-            background-size: 85% auto;
-            background-repeat: no-repeat;
-            background-position-x: center;
-            background-position-y: bottom;}}</style>""",unsafe_allow_html=True,)
+#st.sidebar.image(logos)
+#st.sidebar.write("[![Sobre](https://raw.githubusercontent.com/jhbricks/mapades/dados/imagem/3.png)](https://mapadesigualdade.streamlit.app/Sobre)")
+
+st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;}</style>""", unsafe_allow_html=True)
+
+with st.sidebar:
+    "# Center an image in the sidebar"
+    "This image is centered in the sidebar"
+    st.image(logos)
+
