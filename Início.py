@@ -91,7 +91,5 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             width: 100%;}</style>""", unsafe_allow_html=True)
 
 with st.sidebar:
-    "# Center an image in the sidebar"
-    "This image is centered in the sidebar"
     st.image(logos)
 
