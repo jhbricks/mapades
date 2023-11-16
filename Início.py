@@ -80,6 +80,7 @@ with c3:
 
 #sidebar
 logos = "./dados/imagem/3.png"
+st.sidebar.image(logos)
 st.sidebar.markdown(f"""<style>[data-testid="stSidebarNav"] + div {{position:relative;
             bottom: 0;
             height:50%;
