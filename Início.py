@@ -92,9 +92,10 @@ with st.sidebar:
     #st.sidebar.markdown("**Realização**")
     #st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
     st.sidebar.image(logos)
-    url = "https://www.streamlit.io"
-    st.write("check out this [link](%s)" % url)
-    st.markdown("check out this [link](%s)" % url)
+    g1 = "https://gemaeco.ufpr.br/"
+    k1 = "http://https://www.kurytibametropole.org"
+    st.write ("[Kurytiba Metropole] (%s)" % k1 "e [Gemaeco] (%s)" %g1)
+
 
 
 
