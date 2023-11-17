@@ -91,14 +91,12 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     #st.sidebar.markdown("**Realização**")
     #st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
-    st.sidebar.image(logos)
-    g1 = "https://gemaeco.ufpr.br/"
-    k1 = "http://www.kurytibametropole.org"
-    st.markdown ("[Kurytiba Metropole] (%s)" % k1) 
-    #st.write("[Gemaeco] (%s)" %g1)
+    #st.sidebar.image(logos)
+
 st.sidebar.info(
             """[Kurytiba Metropole](https://www.kurytibametropole.org/) 
             \n [Gemaeco](https://gemaeco.ufpr.br/)
             \n Mais informações [clique aqui](https://mapadesigualdade.streamlit.app/Sobre)""")
+st.sidebar.image(logos)
 
        
