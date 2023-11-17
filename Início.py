@@ -80,8 +80,6 @@ with c3:
 
 #sidebar
 logos = "./dados/imagem/3.png"
-#st.sidebar.image(logos)
-#st.sidebar.write("[![Sobre](https://raw.githubusercontent.com/jhbricks/mapades/dados/imagem/3.png)](https://mapadesigualdade.streamlit.app/Sobre)")
 
 st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             text-align: center;
@@ -91,5 +89,8 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             width: 100%;}</style>""", unsafe_allow_html=True)
 
 with st.sidebar:
-    st.image(logos)
+    st.sidebar.write("[![Sobre](https://raw.githubusercontent.com/jhbricks/mapades/dados/imagem/3.png)](https://mapadesigualdade.streamlit.app/Sobre)")
 
+    st.sidebar.markdown("**Realização**")
+    st.sidebar.info("""[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)   
+                    Mais informações [clique aqui]. (https://mapadesigualdade.streamlit.app/Sobre)""")

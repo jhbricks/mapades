@@ -47,6 +47,12 @@ with c1:
     habitam através de projetos de impacto social e
     construção de políticas públicas.
     """)
+    st.markdown("""**Contato**   
+                email: contato@kurytibametropole.org   
+                Site: [Kurytiba Metropole] (https://www.kurytibametropole.org/)   
+                Instagram: [@kurytibametropole] (https://www.instagram.com/kurytibametropole/)   
+                Facebook: [Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)   
+                """)
 
 with c2:
     st.image(a2)
@@ -59,3 +65,8 @@ with c2:
     Economia Ecológica à Teoria Macroeconômica,
     incluindo a proposição de políticas públicas.
     """)
+    st.markdown("""**Contato**   
+                CNPQ: [Grupo de pesquisa] (https://www.instagram.com/ufpr_oficial/)   
+                Site: [GEMAECO] (https://gemaeco.ufpr.br/inicio/inicio/)   
+                Instagram: [@kufpr_oficial] (https://www.instagram.com/ufpr_oficial//)   
+                Facebook: [UFPR] (https://www.facebook.com/UFPRoficial)""")
