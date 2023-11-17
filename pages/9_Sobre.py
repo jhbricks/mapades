@@ -52,9 +52,9 @@ with c1:
     """)
     st.markdown("""**Contato**:   
                 email: contato@kurytibametropole.org""")
-    st.markdown('Site:', s1,  unsafe_allow_html=True)  
-    st.markdown('Instagram:', i1, unsafe_allow_html=True)
-    st.markdown('Facebook:',f1,unsafe_allow_html=True)
+    st.text('Site:', s1,  unsafe_allow_html=True)  
+    st.text('Instagram:', i1, unsafe_allow_html=True)
+    st.text('Facebook:',f1,unsafe_allow_html=True)
 
 #link = '[Library of Congress](https://www.loc.gov/item/2003627063/)'
 #        st.write('Disponível em:', link, unsafe_allow_html=True)
