@@ -99,12 +99,6 @@ with st.sidebar:
 st.sidebar.info(
             """[Kurytiba Metropole](https://www.kurytibametropole.org/) 
             \n [Gemaeco](https://gemaeco.ufpr.br/)
-            \n [Mais Informações](https://mapadesigualdade.streamlit.app/Sobre)""")
+            \n Mais informações [clique aqui](https://mapadesigualdade.streamlit.app/Sobre)""")
 
-        #st.sidebar.write("[![UFPR](http://www.ufpr.br/portalufpr/wp-content/uploads/2015/11/ufpr_logo.jpg)](https://www.ufpr.br/portalufpr/)")    
-
-
-
-
-    #st.sidebar.info("""[Kurytiba Metropole] (http://https://www.kurytibametropole.o   rg/)e [Gemaeco] (https://gemaeco.ufpr.br/)
-     #               Mais informações [clique aqui]. (https://mapadesigualdade.streamlit.app/Sobre)""")
+       
