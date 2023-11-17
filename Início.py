@@ -96,6 +96,12 @@ with st.sidebar:
     k1 = "http://www.kurytibametropole.org"
     st.markdown ("[Kurytiba Metropole] (%s)" % k1) 
     #st.write("[Gemaeco] (%s)" %g1)
+    st.sidebar.info(
+        """🌐 Setor de [Ciência da Terra](http://www.terra.ufpr.br/) 
+        \n 💠 Departamento de [Geomática](http://www.geomatica.ufpr.br/)
+        \n 🌍 [Eng. Cartográfica e de Agrimensura](http://www.cartografica.ufpr.br/)""")
+
+    st.sidebar.write("[![UFPR](http://www.ufpr.br/portalufpr/wp-content/uploads/2015/11/ufpr_logo.jpg)](https://www.ufpr.br/portalufpr/)")
 
 
 
