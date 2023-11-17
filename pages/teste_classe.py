@@ -1,109 +1,98 @@
 import streamlit as st
-import pandas as pd
-import geopandas as gpd
-import numpy as np
-import libpysal
-import mapclassify
+from streamlit_folium import folium_static
+from streamlit_extras.colored_header import colored_header
+import folium
 import leafmap
 import leafmap.foliumap as leafmap
-from streamlit_extras.colored_header import colored_header
-from deff.classe import gvf
+import geopandas as gpd
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+from deff.mapa import mapa
+from deff.mapa import grafico
+from deff.calculos import conta
 
-st.set_page_config(layout="wide",page_title='Classificação dos dados')
-st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
+#Selecionar a área 
+st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
+#Selecionar a área [Radio horizontal]
+area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central de Curitiba"))
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-st.markdown("<h3><font size='8'  color='violet'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
-st.markdown(""" **Classificação de dados**   
-            Demonstração da classificação de dados em um Mapa Coroplético utilizando a biblioteca python Leafmap.""")
+#####Arquivos 
+contexto = "./dados/csv/contexto.csv"
+pop = "./dados/csv/pop_2021.csv"
+PR = "./dados/geojson/PR.geojson"
+NTC = "./dados/geojson/NTC.geojson"
 
+if area == "Paraná":
+  op = st.radio("Selecione um indicador:",
+                ("População residente", "Densidade demográfica", "Grau de urbanização", "População feminina", "População preta/parda", "Razão de dependência"))
+  st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-c1,c2 = st.columns(2)
-with c1:
-    form = st.form(key="form_settings")
-    form.markdown("Digite as variáveis:")
+  if op == "População residente":
+    colored_header(label="População residente",
+                   description="População residente do Paraná",
+                   color_name="red-70",)
+    #mapa (area, arq, ind, scheme, k, cmap, fields, title)
+    c1,c2 = st.columns([2,0.7])
+    with c1:
 
-    area = form.text_input('Link do dado geográfico:', placeholder = "Cole o link do arquivo geojson.")
-    arq = form.text_input('Link do indicador:', placeholder = "Cole o link do arquivo csv.")
-    comum = form.text_input('Coluna em comum:', placeholder = 'Digite o nome da coluna que os aquivos tem em comum.')
-    ind = form.text_input('Indicador:', placeholder = "Digite o indicador igual está no arquivo csv enviado.")
-    scheme = form.text_input('Método de classificação:', placeholder = "Digite o método de classificação.")
-    k = int(form.number_input("Número de classes", placeholder="Digite o número de classes que os dados serão divididos."))
-    cmap = form.text_input('Paleta de cores:', placeholder = "Digite o nome da paleta de cores.")
+      arq_csv = pd.read_csv(contexto)
+      arq_geojson = gpd.read_file(PR)
+      data = arq_geojson.merge(arq_csv, on="Município")
 
-    form.markdown("Deseja comparar diferentes classificações produzindo dois mapas?")
-    on = form.toggle('Comparar duas classificações')
+#######LAT E LON CENTRAIS
+      ponto_central = arq_geojson.geometry.centroid
+      lat = ponto_central.iloc[0].y
+      lon = ponto_central.iloc[0].x
+    
+      if not isinstance(data,gpd.GeoDataFrame):
+        print("O arquivo não é um GeoDataFrame")
+        exit()
 
-    if on:
-        scheme1 = form.text_input('Método de classificação 2:', placeholder = "Digite o método de classificação.")
-        k1 = int(form.number_input("Número de classes 2", placeholder="Digite o número de classes que os dados serão divididos."))
-        cmap1 = form.text_input('Paleta de cores 2:', placeholder = "Digite o nome da paleta de cores.")
+      style = {"color":"#000000","weight":1, "fillOpacity":0}
+##########################MAPA
+########MAPA INICIAL
+      m = leafmap.Map(center=[lat,lon],draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
+      m.add_basemap("CartoDB.DarkMatter")  
 
-    teste = form.form_submit_button(label="Enviar")
+      m.add_data(data = data,column='Grau de urbanização',scheme='FisherJenks',k=4,cmap=Oranges,fields=['Município','Grau de urbanização'],legend_title='Grau de urbanização %',layer_name='Grau de urbanização')
+      folium.GeoJson(data,name = 'Paraná - urb',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Grau de urbanização'])).add_to(m)
+  
+      m.add_data(data = data,column='Densidade demográfica',scheme='FisherJenks',k=5,cmap=Oranges,fields=['Município','Densidade demográfica'],legend_title='Densidade demográfica',layer_name='Densidade demográfica')
+      folium.GeoJson(data,name = 'Paraná - hab/km²',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Densidade demográfica'])).add_to(m)
 
-fields = [comum,ind]
-method = scheme
-
-with c2:
-    st.write("Instruções")
-    with st.expander("Dado geográfico"):
-        st.markdown("""Colar o link do arquivo do dado geográfico.  
-                    O link deve contém o arquivo do tipo geojson, terminado com ".geojson", por exemplo: *link.com/area.geojson*  
-                    O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo CSV, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.
-                     """)
-    with st.expander("Link do Indicador"):
-        st.markdown("""Colar o link do arquivo dos indicadores.  
-                    O link deve contém o arquivo como CSV, terminado com ".csv", por exemplo: *link.com/indicador.csv*   
-                    O arquivo deverá conter uma coluna com itens e nome exatamente iguais ao do arquivo geojson, por exemplo, uma coluna denominada Município, contendo os nomes dos municípios.  
-                    Verifique se o arquivo está usando vírgula (,) como separador.
-                    """)
-    with st.expander("Coluna em comum"):
-        st.markdown("""Digite o nome da columa que o arquivo do dado geográfico (geojson) e do indicador (csv) tem em comum.  
-                    Por exemplo: *Município*
-                    """)
-    with st.expander("Indicador"):
-        st.markdown("""Digite o nome da coluna que contem os dados do indicador que deseja mostrar. O nome deve ser digitado exatamente como está no arquivo csv.   
-                    Por exemplo: *População*
-                    """)
-    with st.expander("Método de classificação"):
-        st.markdown("Digite o Método de classificação dos dados escolhido. Os métodos disponíveis são:")
-        m1,m2 = st.columns(2)
-        with m1:
-            st.markdown("""BoxPlot  
-                        EqualInterval  
-                        FisherJenks  
-                        FisherJenksSampled  
-                        HeadTailBreaks  
-                        JenksCaspall  
-                        JenksCaspallForced  
-                        JenksCaspallSampled""")
-        with m2:
-              st.markdown("""MaxP  
-                          MaximumBreaks  
-                          NaturalBreaks  
-                          Quantiles  
-                          Percentiles  
-                          StdMean  
-                          UserDefined""")
-        st.markdown("Mais informações acessar a página do Leafmap: https://leafmap.org/notebooks/53_choropleth/")
-    with st.expander("Número de classes"):
-        st.markdown("""Digite o número de classes em que os dados serão divididos.""")
-    with st.expander("Paleta de cores"):
-        st.markdown("""Digite o nome da paleta de cores escolhida exatamente como consta na página do Leafmap.
-                    Link: https://leafmap.org/notebooks/23_colormaps/  
-                    Sugerimos  escolher a paleta de cores com base na ferramenta Color Brewer: https://colorbrewer2.org/
-                    """)
-    with st.expander("Comparação de classificações"):
-        st.markdown("""Ao escolher comparar duas classificações o usuário poderá escolher entre dois métodos de classificações, dois números de classes e/ou duas paleta de cores
-                    para o mesmo dado (indicador), preenchendo os novos campos que apareceram.""")
-
-if teste:
-    if on:
-        g1,g2 = st.columns(2)
-        with g1:
-            gvf(area,arq,comum,ind,scheme,k,cmap) 
-        with g2:
-            gvf(area,arq,comum,ind,scheme1,k1,cmap1)
-    else:
-        gvf(area,arq,comum,ind,scheme,k,cmap)
+      m.add_data(data = data,column='População',scheme='FisherJenks',k=5,cmap=Oranges,fields=['Município','População'],legend_title='População residente (hab)',layer_name='População residente')
+      folium.GeoJson(data,name = 'Paraná',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','População'])).add_to(m)
 
 
+########VALORES DE MX E MN DAS VARIAVEIS
+      max_value = data['População'].max()
+      min_value = data['População'].min()
+      max_municipio = data.loc[data['População'] == max_value, "Município"].iloc[0]
+      min_municipio = data.loc[data['População'] == min_value, "Município"].iloc[0]
+#####ADICIONAR MX E MN NO MAPA
+      folium.Marker([data.loc[data['População'] == max_value, "Y"].iloc[0],
+                     data.loc[data['População'] == max_value, "X"].iloc[0]],
+                    popup=f"Maior valor: {max_value}<br>{max_municipio}",
+                    icon=folium.Icon(color="darkpurple", icon="arrow-up"),
+                   ).add_to(m) 
+      folium.Marker([data.loc[data['População'] == min_value, "Y"].iloc[0],
+        	         data.loc[data['População'] == min_value, "X"].iloc[0]],
+                     popup=f"Menor valor: {min_value}<br>{min_municipio}",
+                     icon=folium.Icon(color="purple", icon="arrow-down"),
+                    ).add_to(m)
+#########ADICIONAR NO STREAMLIT
+      m.to_streamlit()
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** População total por município  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)   
+
+    with c2:
+      st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
+      conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
+      grafico('PR',contexto,'População','Habitantes')
+      
+  
