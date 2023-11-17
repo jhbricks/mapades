@@ -56,8 +56,8 @@ if area == "Paraná":
       m = leafmap.Map(center=[lat,lon],draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
       m.add_basemap("CartoDB.DarkMatter")  
 
-      m.add_data(data = data,column='Grau de urbanização (%)',scheme='FisherJenks',k=4,cmap='winter_r',fields=['Município','Grau de urbanização (%)'],legend_title='Grau de urbanização %',layer_name='Grau de urbanização')
-      folium.GeoJson(data,name = 'Paraná - urb',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Grau de urbanização (%)'])).add_to(m)
+      m.add_data(data = data,column='Grau de Urbanização (%)',scheme='FisherJenks',k=4,cmap='winter_r',fields=['Município','Grau de Urbanização (%)'],legend_title='Grau de urbanização %',layer_name='Grau de urbanização')
+      folium.GeoJson(data,name = 'Paraná - urb',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Grau de Urbanização (%)'])).add_to(m)
   
       m.add_data(data = data,column='Densidade demográfica (hab/km²)',scheme='FisherJenks',k=5,cmap='inferno_r',fields=['Município','Densidade Demográfica (hab/km²)'],legend_title='Densidade demográfica',layer_name='Densidade demográfica')
       folium.GeoJson(data,name = 'Paraná - hab/km²',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Densidade Demográfica (hab/km²)'])).add_to(m)
