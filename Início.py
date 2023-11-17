@@ -101,7 +101,7 @@ st.sidebar.info(
             \n 💠 Departamento de [Geomática](http://www.geomatica.ufpr.br/)
             \n 🌍 [Eng. Cartográfica e de Agrimensura](http://www.cartografica.ufpr.br/)""")
 
-        st.sidebar.write("[![UFPR](http://www.ufpr.br/portalufpr/wp-content/uploads/2015/11/ufpr_logo.jpg)](https://www.ufpr.br/portalufpr/)")    
+        #st.sidebar.write("[![UFPR](http://www.ufpr.br/portalufpr/wp-content/uploads/2015/11/ufpr_logo.jpg)](https://www.ufpr.br/portalufpr/)")    
 
 
 
