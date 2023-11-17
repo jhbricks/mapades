@@ -36,6 +36,9 @@ i2 = Image.open(ge)
 a1 = i1.resize((210, 100))
 a2 = i2.resize((200,100))
 c1, c2 = st.columns(2)
+s1 = '[Kurytiba Metropole] (https://www.kurytibametropole.org/)'   
+i1 = '[@kurytibametropole] (https://www.instagram.com/kurytibametropole/)'
+f1 = '[Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)'
 
 with c1:
     st.image(a1)
@@ -48,12 +51,10 @@ with c1:
     construção de políticas públicas.
     """)
     st.markdown("""**Contato**:   
-                email: contato@kurytibametropole.org   
-                Site: [Kurytiba Metropole] (https://www.kurytibametropole.org/)   
-                Instagram: [@kurytibametropole] (https://www.instagram.com/kurytibametropole/)   
-                Facebook: [Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)   
-                """, unsafe_allow_html=True)
-#f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = R$ {ind_mx} mil</font></p>", unsafe_allow_html=True
+                email: contato@kurytibametropole.org""")
+    st.markdowk('Site:', s1,  unsafe_allow_html=True)  
+    st.markdown('Instagram:', i1, unsafe_allow_html=True)
+    st.markdown('Facebook:',f1,unsafe_allow_html=True)
 
 #link = '[Library of Congress](https://www.loc.gov/item/2003627063/)'
 #        st.write('Disponível em:', link, unsafe_allow_html=True)
