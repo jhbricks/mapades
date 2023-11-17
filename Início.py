@@ -95,7 +95,8 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
     #st.sidebar.image(logos)
 
 st.sidebar.info(
-            """[Kurytiba Metropole](https://www.kurytibametropole.org/) 
+            """**Realização**
+            \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
             \n [Gemaeco](https://gemaeco.ufpr.br/)
             \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
 with st.sidebar:
