@@ -128,13 +128,13 @@ elif area == "Núcleo Territorial Central de Curitiba":
       m = leafmap.Map(center=[lat,lon],draw_control=False,measure_control=False,fullscreen_control=False,attribution_control=True)
       m.add_basemap("CartoDB.DarkMatter")  
 
-      m.add_data(data = data,column='Grau de Urbanização (%)',scheme='FisherJenks',k=4,cmap='winter_r',fields=['Município','Grau de Urbanização (%)'],legend_title='Grau de urbanização %',layer_name='Grau de urbanização')
+      m.add_data(data = data,column='Grau de Urbanização (%)',scheme='FisherJenks',k=3,cmap='plasma_r',fields=['Município','Grau de Urbanização (%)'],legend_title='Grau de urbanização %',layer_name='Grau de urbanização')
       #folium.GeoJson(data,name = 'NTC - urb',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Grau de Urbanização (%)'])).add_to(m)
   
-      m.add_data(data = data,column= 'Densidade Demográfica (hab/km²)',scheme='FisherJenks',k=5,cmap='inferno_r',fields=['Município', 'Densidade Demográfica (hab/km²)'],legend_title='Densidade demográfica',layer_name='Densidade demográfica')
+      m.add_data(data = data,column= 'Densidade Demográfica (hab/km²)',scheme='FisherJenks',k=4,cmap='gnuplot_r',fields=['Município', 'Densidade Demográfica (hab/km²)'],legend_title='Densidade demográfica',layer_name='Densidade demográfica')
       #folium.GeoJson(data,name = 'NTC - hab/km²',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município', 'Densidade Demográfica (hab/km²)'])).add_to(m)
 
-      m.add_data(data = data,column='População',scheme='FisherJenks',k=5,cmap='copper_r',fields=['Município','População'],legend_title='População residente (hab)',layer_name='População residente')
+      m.add_data(data = data,column='População',scheme='FisherJenks',k=4,cmap='summer_r',fields=['Município','População'],legend_title='População residente (hab)',layer_name='População residente')
       #folium.GeoJson(data,name = 'NTC',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','População'])).add_to(m)
 
 
@@ -156,6 +156,7 @@ elif area == "Núcleo Territorial Central de Curitiba":
                     ).add_to(m)
 #########ADICIONAR NO STREAMLIT
       m.to_streamlit()
+
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -164,6 +165,6 @@ elif area == "Núcleo Territorial Central de Curitiba":
 
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
-      conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
-      grafico('PR',contexto,'População','Habitantes')
+      conta ('NTC',contexto,'População',2021,'População total','soma','habitantes')
+      grafico('NTC',contexto,'População','Habitantes')
   
