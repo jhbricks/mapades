@@ -53,6 +53,7 @@ with c1:
                 Instagram: [@kurytibametropole] (https://www.instagram.com/kurytibametropole/)   
                 Facebook: [Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)   
                 """)
+    st.markdown(Site: [Kurytiba Metropole] (https://www.kurytibametropole.org/))
 
 with c2:
     st.image(a2)
