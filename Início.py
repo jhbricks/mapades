@@ -37,6 +37,7 @@ div.stButton > button:hover {
 
 #####Botões
 c1, c2, c3 = st.columns(3)
+c = 'st.sidebar.image(logos)'
 
 with c1:
     cont = st.button("Contextualização")
@@ -88,7 +89,7 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             margin-right: auto;
             width: 70%;}</style>""", unsafe_allow_html=True)
 
-with st.sidebar:
+#with st.sidebar:
     #st.sidebar.markdown("**Realização**")
     #st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
     #st.sidebar.image(logos)
@@ -96,7 +97,8 @@ with st.sidebar:
 st.sidebar.info(
             """[Kurytiba Metropole](https://www.kurytibametropole.org/) 
             \n [Gemaeco](https://gemaeco.ufpr.br/)
-            \n Mais informações [clique aqui](https://mapadesigualdade.streamlit.app/Sobre)""")
-st.sidebar.image(logos)
+            \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
+with st.sidebar:
+    st.sidebar.image(logos)
 
        
