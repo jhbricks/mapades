@@ -94,13 +94,14 @@ with st.sidebar:
     st.sidebar.image(logos)
     g1 = "https://gemaeco.ufpr.br/"
     k1 = "http://www.kurytibametropole.org"
-    #st.markdown ("[Kurytiba Metropole] (%s)" % k1) 
+    st.markdown ("[Kurytiba Metropole] (%s)" % k1) 
     #st.write("[Gemaeco] (%s)" %g1)
-    st.sidebar.info(
-        """"[Kurytiba Metropole] (http://www.kurytibametropole.org/) 
-        \n [Gemaeco] (https://gemaeco.ufpr.br/)
-        \n Mais informações [clique aqui] (https://mapadesigualdade.streamlit.app/Sobre)""")
+st.sidebar.info(
+            """[Kurytiba Metropolea](https://www.kurytibametropole.org/) 
+            \n 💠 Departamento de [Geomática](http://www.geomatica.ufpr.br/)
+            \n 🌍 [Eng. Cartográfica e de Agrimensura](http://www.cartografica.ufpr.br/)""")
 
+        st.sidebar.write("[![UFPR](http://www.ufpr.br/portalufpr/wp-content/uploads/2015/11/ufpr_logo.jpg)](https://www.ufpr.br/portalufpr/)")    
 
 
 
