@@ -52,7 +52,7 @@ with c1:
     """)
     st.markdown("""**Contato**:   
                 email: contato@kurytibametropole.org""")
-    st.markdowk('Site:', s1,  unsafe_allow_html=True)  
+    st.markdown('Site:', s1,  unsafe_allow_html=True)  
     st.markdown('Instagram:', i1, unsafe_allow_html=True)
     st.markdown('Facebook:',f1,unsafe_allow_html=True)
 
