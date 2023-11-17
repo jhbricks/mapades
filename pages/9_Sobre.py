@@ -47,11 +47,11 @@ with c1:
     habitam através de projetos de impacto social e
     construção de políticas públicas.
     """)
-    st.markdown("""**Contato**   
+    st.markdown("""**Contato**:   
                 email: contato@kurytibametropole.org   
-                Site: [Kurytiba Metropole] (#https://www.kurytibametropole.org/)   
-                Instagram: [@kurytibametropole] (#https://www.instagram.com/kurytibametropole/)   
-                Facebook: [Kurytiba Metropole] (#https://www.facebook.com/kurytibametropole)   
+                Site: [Kurytiba Metropole] (https://www.kurytibametropole.org/)   
+                Instagram: [@kurytibametropole] (https://www.instagram.com/kurytibametropole/)   
+                Facebook: [Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)   
                 """)
 
 with c2:
@@ -65,8 +65,8 @@ with c2:
     Economia Ecológica à Teoria Macroeconômica,
     incluindo a proposição de políticas públicas.
     """)
-    st.markdown("""**Contato**   
-                CNPq Lattes: [Grupo de pesquisa] (#https://dgp.cnpq.br/dgp/espelhogrupo/6395737613746571)   
-                Site: [GEMAECO] (#https://gemaeco.ufpr.br/inicio/inicio/)   
-                Instagram: [@kufpr_oficial] (#https://www.instagram.com/ufpr_oficial//)   
-                Facebook: [UFPR] (#https://www.facebook.com/UFPRoficial)""")
+    st.markdown("""**Contato**:   
+                CNPq Lattes: [Grupo de pesquisa] (https://dgp.cnpq.br/dgp/espelhogrupo/6395737613746571)   
+                Site: [GEMAECO] (https://gemaeco.ufpr.br/inicio/inicio/)   
+                Instagram: [@ufpr_oficial] (https://www.instagram.com/ufpr_oficial//)   
+                Facebook: [UFPR] (https://www.facebook.com/UFPRoficial)""")
