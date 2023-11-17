@@ -89,8 +89,10 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             width: 100%;}</style>""", unsafe_allow_html=True)
 
 with st.sidebar:
-    st.sidebar.write("[![Sobre](https://raw.githubusercontent.com/jhbricks/mapades/dados/imagem/3.png)](https://mapadesigualdade.streamlit.app/Sobre)")
+    st.sidebar.image(logos)
 
     st.sidebar.markdown("**Realização**")
-    st.sidebar.info("""[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)   
-                    Mais informações [clique aqui]. (https://mapadesigualdade.streamlit.app/Sobre)""")
+    st.sidebar.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.o   rg/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
+
+    #st.sidebar.info("""[Kurytiba Metropole] (http://https://www.kurytibametropole.o   rg/)e [Gemaeco] (https://gemaeco.ufpr.br/)
+     #               Mais informações [clique aqui]. (https://mapadesigualdade.streamlit.app/Sobre)""")
