@@ -59,8 +59,8 @@ if area == "Paraná":
       m.add_data(data = data,column='Grau de Urbanização (%)',scheme='FisherJenks',k=4,cmap='winter_r',fields=['Município','Grau de Urbanização (%)'],legend_title='Grau de urbanização %',layer_name='Grau de urbanização')
       folium.GeoJson(data,name = 'Paraná - urb',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Grau de Urbanização (%)'])).add_to(m)
   
-      m.add_data(data = data,column='Densidade demográfica (hab/km²)',scheme='FisherJenks',k=5,cmap='inferno_r',fields=['Município','Densidade Demográfica (hab/km²)'],legend_title='Densidade demográfica',layer_name='Densidade demográfica')
-      folium.GeoJson(data,name = 'Paraná - hab/km²',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','Densidade Demográfica (hab/km²)'])).add_to(m)
+      m.add_data(data = data,column= 'Densidade Demográfica (hab/km²)',scheme='FisherJenks',k=5,cmap='inferno_r',fields=['Município', 'Densidade Demográfica (hab/km²)'],legend_title='Densidade demográfica',layer_name='Densidade demográfica')
+      folium.GeoJson(data,name = 'Paraná - hab/km²',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município', 'Densidade Demográfica (hab/km²)'])).add_to(m)
 
       m.add_data(data = data,column='População',scheme='FisherJenks',k=5,cmap='copper_r',fields=['Município','População'],legend_title='População residente (hab)',layer_name='População residente')
       folium.GeoJson(data,name = 'Paraná',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=['Município','População'])).add_to(m)
