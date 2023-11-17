@@ -95,7 +95,7 @@ with st.sidebar:
     g1 = "https://gemaeco.ufpr.br/"
     k1 = "http://https://www.kurytibametropole.org"
     st.write ("[Kurytiba Metropole] (%s)" % k1) 
-    st.write("[Gemaeco] (%s)" %g1)
+    #st.write("[Gemaeco] (%s)" %g1)
 
 
 
