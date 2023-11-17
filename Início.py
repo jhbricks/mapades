@@ -86,13 +86,14 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 100%;}</style>""", unsafe_allow_html=True)
+            width: 50%;}</style>""", unsafe_allow_html=True)
 
 with st.sidebar:
+    st.sidebar.markdown("**Realização**")
+    st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
     st.sidebar.image(logos)
 
-    st.sidebar.markdown("**Realização**")
-    st.sidebar.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.o   rg/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
+
 
     #st.sidebar.info("""[Kurytiba Metropole] (http://https://www.kurytibametropole.o   rg/)e [Gemaeco] (https://gemaeco.ufpr.br/)
      #               Mais informações [clique aqui]. (https://mapadesigualdade.streamlit.app/Sobre)""")
