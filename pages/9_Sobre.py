@@ -52,9 +52,11 @@ with c1:
                 Site: [Kurytiba Metropole] (https://www.kurytibametropole.org/)   
                 Instagram: [@kurytibametropole] (https://www.instagram.com/kurytibametropole/)   
                 Facebook: [Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)   
-                """)
-    st.markdown("""Site: [Kurytiba Metropole] (https://www.kurytibametropole.org/)""")
+                """, unsafe_allow_html=True)
+#f"<p><font size='+7' color='darkpurple'>{arrow_u}</font> <font size='+5'>{max_str} = R$ {ind_mx} mil</font></p>", unsafe_allow_html=True
 
+#link = '[Library of Congress](https://www.loc.gov/item/2003627063/)'
+#        st.write('Disponível em:', link, unsafe_allow_html=True)
 with c2:
     st.image(a2)
     st.markdown("""O **Grupo de Estudos em MacroEconomia Ecológica
