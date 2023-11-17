@@ -86,12 +86,15 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 50%;}</style>""", unsafe_allow_html=True)
+            width: 70%;}</style>""", unsafe_allow_html=True)
 
 with st.sidebar:
-    st.sidebar.markdown("**Realização**")
-    st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
+    #st.sidebar.markdown("**Realização**")
+    #st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
     st.sidebar.image(logos)
+    url = "https://www.streamlit.io"
+    st.write("check out this [link](%s)" % url)
+    st.markdown("check out this [link](%s)" % url)
 
 
 
