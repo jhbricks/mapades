@@ -128,7 +128,7 @@ def grafico (area,arq,ind,un):
   fig = go.Figure()
 
 #  colors = {'Maiores valores': '#A70005', 'Menores valores': '#FF858A'}
-  colors = {'Maiores valores': '#73016d', 'Menores valores': '#e300d0'}
+  colors = {'Maiores valores': '#563565', 'Menores valores': '#ab4397'}
 
   fig.add_trace(go.Bar(x=highest['Município'],
                        y=highest[ind],
