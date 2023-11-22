@@ -161,12 +161,6 @@ def local (area):
     else:
         return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
   if area == 'BR - PR':
-    def style_function(feature):
-      if feature['properties']['Estado'] == 'Paraná':
-          return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
-      else:
-          return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
-
     url1= './dados/geojson/BR.geojson'
     gdf = gpd.read_file(url1)
     centroid = gdf.geometry.centroid

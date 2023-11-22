@@ -41,37 +41,10 @@ if area == "Paraná":
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-
-    def style_function(feature):
-      if feature['properties']['Estado'] == 'Paraná':
-            return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
-      else:
-            return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
-          
     with c1:
-      url1= './dados/geojson/BR.geojson'
-      gdf = gpd.read_file(url1)
-      centroid = gdf.geometry.centroid
-      lon, lat = centroid.x[0], centroid.y[0]
-      m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
-      m2.add_basemap("CartoDB.Positron")
-      m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
-      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
-      m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
-      m2.to_streamlit()
+      local('BR - PR')
     with c2:
-      url1= './dados/geojson/BR.geojson'
-      url= './dados/geojson/PR.geojson'
-      gdf = gpd.read_file(url)
-      centroid = gdf.geometry.centroid
-      lon, lat = centroid.x[0], centroid.y[0]
-      m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
-      m.add_basemap("CartoDB.Positron")
-      m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
-      m.add_geojson(url, fields=['Município'], layer_name='Paraná', style_function=style1)
-      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
-      m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
-      m.to_streamlit()
+      local('PR')
 
   elif op == "População residente":
     colored_header(label="População residente",
