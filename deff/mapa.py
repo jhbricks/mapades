@@ -100,8 +100,6 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   m.to_streamlit()
 	
 
-
-
 #######################GRÁFICO
 
 #arq = arquivo csv, ex: contexto
@@ -148,3 +146,74 @@ def grafico (area,arq,ind,un):
 
   
   st.plotly_chart(fig, use_container_width=True)
+
+
+
+#############Mapa localização
+
+def local (area):
+  style = lambda x: {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}  #Brasil (verde)
+  style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR  (rosa)
+  style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} #destaque NTC  (azul)
+
+  if area == 'BR - PR':
+    def style_function(feature):
+      if feature['properties']['Estado'] == 'Paraná':
+          return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
+      else:
+          return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
+
+    url1= './dados/geojson/BR.geojson'
+    gdf = gpd.read_file(url1)
+    centroid = gdf.geometry.centroid
+    lon, lat = centroid.x[0], centroid.y[0]
+    m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+    m2.add_basemap("CartoDB.Positron")
+    m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
+    legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+    m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+    m2.to_streamlit()
+  
+  elif area == 'PR':
+    url1= './dados/geojson/BR.geojson'
+    url= './dados/geojson/PR.geojson'
+    gdf = gpd.read_file(url)
+    centroid = gdf.geometry.centroid
+    lon, lat = centroid.x[0], centroid.y[0]
+    m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+    m.add_basemap("CartoDB.Positron")
+    m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
+    m.add_geojson(url, fields=['Município'], layer_name='Paraná', style_function=style1)
+    legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
+    m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+    m.to_streamlit()
+  
+  elif area == 'BR - NTC':
+    url1= './dados/geojson/BR.geojson'
+    url = './dados/geojson/NTC.geojson'
+    gdf = gpd.read_file(url1)
+    centroid = gdf.geometry.centroid
+    lon, lat = centroid.x[0], centroid.y[0]
+    m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+    m2.add_basemap("CartoDB.Positron")
+    m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
+    m2.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = lambda x: {'color': '#8da0cb', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} )
+    legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62','Núcleo Territorial Central de Curitiba': '#8da0cb'}
+    m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+    m2.to_streamlit()
+
+  elif area == 'NTC':
+    url = './dados/geojson/NTC.geojson'
+    url1= './dados/geojson/BR.geojson'
+    pr= './dados/geojson/PR.geojson'
+    a = gpd.read_file(url)
+    centroid = a.geometry.centroid
+    lon, lat = centroid.x[0], centroid.y[0]
+    m = leafmap.Map(center=(lat, lon),draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
+    m.add_basemap("CartoDB.Positron")
+    m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
+    m.add_geojson(pr, fields=['Município'], layer_name='Paraná', style_function=style1)
+    m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = style2)
+    legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62', 'Núcleo Territorial Central de Curitiba': '#8da0cb'}
+    m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
+    m.to_streamlit()

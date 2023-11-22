@@ -5,6 +5,7 @@ import leafmap
 import leafmap.foliumap as leafmap
 import geopandas as gpd
 from deff.mapa import mapa
+from deff.mapa import local
 from deff.mapa import grafico
 from deff.calculos import conta
 from deff.local import local_2
@@ -79,7 +80,7 @@ if area == "Paraná":
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
     c1,c2 = st.columns([2,0.7])
     with c1:
-      mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População residente (hab)')
+      mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -98,7 +99,7 @@ if area == "Paraná":
   
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'summer_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -117,7 +118,7 @@ if area == "Paraná":
     c1,c2 = st.columns([2,1])
     with c1:
  
-      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'wistia', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -202,39 +203,10 @@ else:
                    color_name="red-70",)
 
     c1,c2 = st.columns ([1.5,2])
-    def style_function(feature):
-      if feature['properties']['Estado'] == 'Paraná':
-            return {'color': 'black', 'fillColor': '#fc8d62', 'weight': 1}
-      else:
-            return {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}
     with c1:
-      url1= './dados/geojson/BR.geojson'
-      url = './dados/geojson/NTC.geojson'
-      gdf = gpd.read_file(url1)
-      centroid = gdf.geometry.centroid
-      lon, lat = centroid.x[0], centroid.y[0]
-      m2 = leafmap.Map(center=(lat, lon), draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
-      m2.add_basemap("CartoDB.Positron")
-      m2.add_geojson(url1, fields = ['Estado'], layer_name= 'Brasil', style_function= style_function)
-      m2.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = lambda x: {'color': '#8da0cb', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} )
-      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62','Núcleo Territorial Central de Curitiba': '#8da0cb'}
-      m2.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
-      m2.to_streamlit()
+      local('BR - NTC')
     with c2:
-      url = './dados/geojson/NTC.geojson'
-      url1= './dados/geojson/BR.geojson'
-      pr= './dados/geojson/PR.geojson'
-      a = gpd.read_file(url)
-      centroid = a.geometry.centroid
-      lon, lat = centroid.x[0], centroid.y[0]
-      m = leafmap.Map(center=(lat, lon),draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
-      m.add_basemap("CartoDB.Positron")
-      m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
-      m.add_geojson(pr, fields=['Município'], layer_name='Paraná', style_function=style1)
-      m.add_geojson(url, fields=['Município'], layer_name='Núcleo Territorial Central de Curitiba', style_function = style2)
-      legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62', 'Núcleo Territorial Central de Curitiba': '#8da0cb'}
-      m.add_legend(title = 'Legenda', legend_dict= legend_dict, position='bottomleft')
-      m.to_streamlit()
+      local('NTC')
 
   elif op == "População residente":
     colored_header(label="População residente",
@@ -242,7 +214,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'População','FisherJenks',4,'Oranges', ['Município','População'],'População residente')
+      mapa('NTC',contexto,'População','FisherJenks',4,'copper_r', ['Município','População'],'População (hab)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -260,7 +232,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'copper_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'summer_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total)  
@@ -278,7 +250,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'Greens', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'wistia', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
