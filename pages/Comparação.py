@@ -22,11 +22,11 @@ with a2:
     cat2 = st.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),index=None,placeholder="Selecione uma categoria...")
     if cat2 == "Contextualização":
         ind2 = st.selectbox("Escolha um indicador de contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
-                          index=None,placeholder="Selecione um indicador...")
+                          index=None,)
     elif cat2 == "Renda":
         ind2 = st.selectbox("Escolha um indicador de renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
-                           index=None,placeholder="Selecione um indicador...")
+                           index=None,)
     elif cat2 == "Riqueza":
         ind2 = st.selectbox("Escolha um indicador de riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
-                           index=None,placeholder="Selecione um indicador...")    
+                           index=None,)    
 
