@@ -12,3 +12,23 @@ op = st.selectbox("Selecione um município:",mun,index=None,placeholder="Selecio
 #gdf_geojson = gpd.read_file(geojson_filename)
 
 
+
+
+# Define categories and indicators
+categories = ["One", "Two", "Three"]
+indicators = {
+    "One": ["A", "B", "C"],
+    "Two": ["D", "E", "F", "G"],
+    "Three": ["H", "I", "J"]
+}
+
+# Allow the user to select categories
+selected_categories = st.multiselect("Select Categories", categories)
+
+# Allow the user to select indicators based on the selected categories
+selected_indicators = []
+for category in selected_categories:
+    selected_indicators.extend(st.multiselect(f"Select Indicators for {category}", indicators[category]))
+
+# Display the selected indicators
+st.write("Selected Indicators:", selected_indicators)
