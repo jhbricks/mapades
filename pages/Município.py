@@ -33,7 +33,7 @@ for category in selected_categories:
     available_indicators = indicators[category]
     
     # Allow the user to select up to two indicators for each category
-    selected = st.multiselect(f"Select Indicators for {category}", available_indicators, key=category, default=[], max(2, len(available_indicators)))
+    selected = st.multiselect(f"Select Indicators for {category}", available_indicators, key=category, default=[], max_value=2)
 
     # Ensure that the total selected indicators do not exceed two
     selected_indicators.extend(selected[:2])
@@ -43,4 +43,5 @@ for category in selected_categories:
 
 # Display the selected indicators
 st.write("Selected Indicators:", selected_indicators)
+
 
