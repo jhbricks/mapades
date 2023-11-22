@@ -51,7 +51,7 @@ if area == "Paraná":
                    description="População residente do Paraná",
                    color_name="red-70",)
     #mapa (area, arq, ind, scheme, k, cmap, fields, title)
-    c1,c2 = st.columns([2,0.7])
+    c1,c2 = st.columns([2,1])
     with c1:
       mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
       st.markdown("""**Ano-base:** 2021  
@@ -72,7 +72,7 @@ if area == "Paraná":
   
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'summer_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'winter_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -91,7 +91,7 @@ if area == "Paraná":
     c1,c2 = st.columns([2,1])
     with c1:
  
-      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'wistia', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'summer_r', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
@@ -205,7 +205,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'summer_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'winter_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total)  
@@ -223,7 +223,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'wistia', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
+      mapa('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'summer_r', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** (População censitária urbana*100)/População censitária total  
