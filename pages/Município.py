@@ -14,7 +14,7 @@ op = st.selectbox("Selecione um município:",mun,index=None,placeholder="Selecio
 
 
 import streamlit as st
-import pages.1_Contextualização
+import pages.Contextualização
 
 # Define categories and indicators
 categories = ["One", "Two", "Three"]
