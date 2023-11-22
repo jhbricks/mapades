@@ -260,7 +260,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'PuRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'copper_r', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total)  
