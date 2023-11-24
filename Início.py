@@ -98,7 +98,7 @@ st.sidebar.info(
             """**Realização**
             \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
             \n [Gemaeco](https://gemaeco.ufpr.br/)
-            \n [PPGCG] (https://cienciasgeodesicas.ufpr.br/)
+            \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)
             \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
 with st.sidebar:
     st.sidebar.image(logos)
