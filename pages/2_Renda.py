@@ -19,7 +19,7 @@ renda = "./dados/csv/renda.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
-                ("Índice de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
+                ("Índice de Gini", "Renda média da população", "Rendimento médio da população feminina", "Renda dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   if op == "Índice de Gini":
     colored_header(label="Índice de Gini",
@@ -98,7 +98,7 @@ if area == "Paraná":
 else:
   area == "Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
-                ("Índice de Gini", "Renda média da população", "Renda da população feminina", "Renda dos declarantes do IRPF"))
+                ("Índice de Gini", "Renda média da população", "Rendimento médio da população feminina", "Renda dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   if op == "Índice de Gini":
     colored_header(label="Índice de Gini",
