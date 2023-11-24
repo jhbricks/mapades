@@ -76,7 +76,7 @@ if area == "Paraná":
       conta ('PR',renda,'Rendimento médio da população feminina/masculina (%)',2021,'Percentual do rendimento médio da população feminina em relação à masculina',None,None)
       grafico('PR',renda,'Rendimento médio da população feminina/masculina (%)','%')
 
-  elif op == "Renda dos declarantes":
+  elif op == "Renda dos declarantes do IRPF":
     colored_header(label="Renda dos declarantes do IRPF",
                    description="Renda média dos declarentes do IRPF no Paraná",
                    color_name="red-70",)
