@@ -14,13 +14,13 @@ a1,a2 = st.columns(2)
 with a1:
     cat1 = st.multiselect("Escolha uma categoria:",["Contextualização","Renda","Riqueza"],index=None,placeholder="Selecione uma categoria...")
     if cat1 == "Contextualização":
-        ind1 = st.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
-                          index=None,placeholder="Selecione um indicador...",max_selections = 2)
+        ind1 = st.multiselect("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+                          index=None,placeholder="Selecione um indicador...")
     elif cat1 == "Renda":
-        ind1 = st.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+        ind1 = st.multiselect("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
                            index=None,placeholder="Selecione um indicador...")
     elif cat1 == "Riqueza":
-        ind1 = st.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+        ind1 = st.multiselect("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                            index=None,placeholder="Selecione um indicador...")
 
 b1, b2 = st.columns(2)
