@@ -18,7 +18,7 @@ with a1:
     cat1 = st.multiselect("Escolha uma categoria:",["Contextualização","Renda","Riqueza"],placeholder="Selecione uma categoria...")
     form.form_submit_button(label="Submit")
 
-form = st.form(key="form_settings")
+form = st.form(key="form_settings1")
 if cat1 == "Contextualização":
     ind1 = st.multiselect("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                               placeholder="Selecione um indicador...")
