@@ -24,11 +24,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 #####Arquivos 
 contexto = "./dados/csv/contexto.csv"
-pop = "./dados/csv/pop_2021.csv"
-
-style = lambda x: {'color': 'black', 'fillColor': '#66c2a5', 'weight': 1}  #Brasil (verde)
-style1 = lambda x: {'color': 'black', 'fillColor': '#fc8d62', "weight": 1} #destaque PR  (rosa)
-style2 = lambda x: {'color': 'black', 'fillColor': '#8da0cb', "weight": 1.5, 'fillOpacity':0.7} #destaque NTC  (azul)
+#pop = "./dados/csv/pop_2021.csv"
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
