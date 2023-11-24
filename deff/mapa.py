@@ -30,7 +30,7 @@ import plotly.graph_objects as go
 def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ######encaminha o geojson da area
   if area == 'PR':
-    arq_g = "./dados/geojson/Simplificada.geojson"
+    arq_g = "./dados/geojson/PR.geojson"
   elif area == 'NTC':
     arq_g = "./dados/geojson/NTC.geojson"
   else:
@@ -176,7 +176,7 @@ def local (area):
   
   elif area == 'PR':
     url1= './dados/geojson/BR.geojson'
-    url= './dados/geojson/Simplificada.geojson'
+    url= './dados/geojson/PR.geojson'
     gdf = gpd.read_file(url)
     centroid = gdf.geometry.centroid
     lon, lat = centroid.x[0], centroid.y[0]
@@ -205,7 +205,7 @@ def local (area):
   elif area == 'NTC':
     url = './dados/geojson/NTC.geojson'
     url1= './dados/geojson/BR.geojson'
-    pr= './dados/geojson/Simplificada.geojson'
+    pr= './dados/geojson/PR.geojson'
     a = gpd.read_file(url)
     centroid = a.geometry.centroid
     lon, lat = centroid.x[0], centroid.y[0]
