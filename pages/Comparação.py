@@ -11,11 +11,6 @@ contexto = "./dados/csv/contexto.csv"
 
 a1,a2 = st.columns(2)
 
-options = st.multiselect(
-    'What are your favorite colors',
-    ['Green', 'Yellow', 'Red', 'Blue'],
-    ['Yellow', 'Red'])
-
 with a1:
     cat1 = st.multiselect("Escolha uma categoria:",["Contextualização","Renda","Riqueza"],placeholder="Selecione uma categoria...")
     if cat1 == "Contextualização":
