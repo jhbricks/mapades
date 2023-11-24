@@ -23,10 +23,3 @@ with a1:
         ind1 = st.multiselect("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                               placeholder="Selecione um indicador...")
 
-b1, b2 = st.columns(2)
-with b1:
-    if ind1 == "População":
-        mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
-with b2:
-    if ind1 == "índice Gine":
-        mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
