@@ -17,9 +17,7 @@ with a1:
     form = st.form(key="mapa1")
 
     cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',placeholder="Selecione uma categoria...")
-    #form.form_submit_button(label="Submit")
 
-#form = st.form(key="form_settings1")
 
     if cat1 == "Contextualização":
         ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
@@ -32,6 +30,10 @@ with a1:
                               placeholder="Selecione um indicador...")
 
     form.form_submit_button(label="Submit")
+
+    if ind1 == 'População':
+        mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
+
 
 
 with a2:
@@ -53,3 +55,7 @@ with a2:
                               placeholder="Selecione um indicador...")
 
     form.form_submit_button(label="Submit")
+    if ind1 == 'Índice de Gini':
+        mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
+
+
