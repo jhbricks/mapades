@@ -16,7 +16,7 @@ a1,a2 = st.columns(2)
 with a1:
     form = st.form(key="mapa1")
 
-    cat1 = st.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',placeholder="Selecione uma categoria...")
+    cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',placeholder="Selecione uma categoria...")
     #form.form_submit_button(label="Submit")
 
 #form = st.form(key="form_settings1")
@@ -37,7 +37,7 @@ with a1:
 with a2:
     form = st.form(key="mapa2")
 
-    cat1 = st.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa2',placeholder="Selecione uma categoria...")
+    cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa2',placeholder="Selecione uma categoria...")
     #form.form_submit_button(label="Submit")
 
 #form = st.form(key="form_settings1")
