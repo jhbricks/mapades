@@ -12,7 +12,7 @@ contexto = "./dados/csv/contexto.csv"
 a1,a2 = st.columns(2)
 
 with a1:
-    cat1 = st.multiselect("Escolha uma categoria:",["Contextualização","Renda","Riqueza"],index=None,placeholder="Selecione uma categoria...",max_selections=2)
+    cat1 = st.multiselect("Escolha uma categoria:",["Contextualização","Renda","Riqueza"],index=None,placeholder="Selecione uma categoria..."up)
     if cat1 == "Contextualização":
         ind1 = st.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                           index=None,placeholder="Selecione um indicador...",max_selections = 2)
