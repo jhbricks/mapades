@@ -58,15 +58,10 @@ ind_p = {"População residente":('PR',contexto,'População','FisherJenks',5,'c
 
 if form.form_submit_button("Gerar mapas"):
     with a1:
-    # Get the parameters for the first indicator
-    area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1 = ind_p[ind1]
-
-    # Call the mapa function for the first indicator
-    mapa(area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1)
-
+        if cat1 and ind1:
+            area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1 = ind_p[ind1]
+            mapa(area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1)
     with a2:
-    # Get the parameters for the second indicator
-    area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2 = ind_p[ind2]
-
-    # Call the mapa function for the second indicator
-    mapa(area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2)
+        if cat2 and ind2:
+            area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2 = ind_p[ind2]
+            mapa(area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2)
