@@ -8,8 +8,8 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 a1,a2 = st.columns(2)
 
+form = st.form("mapas")
 with a1:
-    form = st.form("mapas")
     cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',index=None,placeholder="Selecione uma categoria...")
     if cat1 == "Contextualização":
         ind1 = form.selectbox("Escolha um indicador de Contexto:",("População residente","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
@@ -33,7 +33,7 @@ with a2:
         ind2 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                               index=None,placeholder="Selecione um indicador...")
 
-    form.form_submit_button(label="Gerar mapas")
+form.form_submit_button(label="Gerar mapas")
 
 riqueza = "./dados/csv/riqueza.csv"
 renda = "./dados/csv/renda.csv"
