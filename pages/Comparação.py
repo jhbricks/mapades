@@ -10,12 +10,12 @@ renda = "./dados/csv/renda.csv"
 contexto = "./dados/csv/contexto.csv"
 
 categoria_p = {"Contextualização" : {
-"População residente":mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)'),
-"Densidade demográfica":mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)'),
-"Grau de urbanização":mapa('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'summer_r', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)'),
-"População feminina": mapa('PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)'),
-"População preta/parda":mapa('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)'),
-"Razão de dependência":mapa('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+"População residente":('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)'),
+"Densidade demográfica":('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)'),
+"Grau de urbanização":('PR',contexto,'Grau de Urbanização (%)','FisherJenks',4,'summer_r', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)'),
+"População feminina":('PR',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)'),
+"População preta/parda":('PR',contexto, 'População preta ou parda (%)', 'FisherJenks', 5, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)'),
+"Razão de dependência":('PR',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
 },
 "Renda" : {
 "Índice de Gini":mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini'),
