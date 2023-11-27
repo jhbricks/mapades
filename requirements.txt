@@ -19,4 +19,4 @@ classify
 
 fiona
 
-dash
+dash==2.14.1
