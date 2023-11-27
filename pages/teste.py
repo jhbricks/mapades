@@ -1,111 +1,114 @@
-import streamlit as st
-from streamlit_extras.colored_header import colored_header
-import folium
-import leafmap
-import leafmap.foliumap as leafmap
-import geopandas as gpd
-from deff.mapa__ import mapa
-from deff.mapa import grafico
-from deff.calculos import conta
+import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
+import pandas as pd
+from deff.mapa import mapa
 
-op = st.radio("Selecione um indicador:",("A","B", "C", "D", "E", "F", "G"))
-st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+app = dash.Dash(__name__)
 
-contexto = "./dados/csv/contexto.csv"
-pop = "./dados/csv/pop_2021.csv"
+app.layout = html.Div([
+    html.Div([
+        dcc.RadioItems(
+            id='area-selector',
+            options=[
+                {'label': 'Paraná', 'value': 'Parana'},
+                {'label': 'Núcleo Territorial Central de Curitiba', 'value': 'NTC_Curitiba'}
+            ],
+            value='Parana',
+            labelStyle={'display': 'block'}
+        )
+    ], style={'margin-bottom': '20px'}),
+    
+    html.Div([
+        html.Div([
+            dcc.Dropdown(
+                id='category-selector-1',
+                options=[
+                    {'label': 'Contextualização', 'value': 'Contextualizacao'},
+                    {'label': 'Renda', 'value': 'Renda'},
+                    {'label': 'Riqueza', 'value': 'Riqueza'}
+                ],
+                placeholder="Selecione uma categoria..."
+            ),
+            dcc.Dropdown(
+                id='indicator-selector-1',
+                placeholder="Selecione um indicador..."
+            ),
+            html.Button('Submit', id='submit-button-1')
+        ], style={'width': '48%', 'display': 'inline-block'}),
 
-if op == "A":
-      a,b,c,d = st.columns(4)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'Wistia', ['Município','População'],'População residente (hab)')
-            st.text("Wistia")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlGnBu', ['Município','População'],'População residente (hab)')
-            st.text("YlGnBu")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlGn', ['Município','População'],'População residente (hab)')
-            st.text("YlGn")
-      with d:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlOrRd', ['Município','População'],'População residente (hab)')
-            st.text("YlOrRd")
-elif op == "B":
-      a,b,c,d = st.columns(4)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'autumn_r', ['Município','População'],'População residente (hab)')
-            st.text("autumn_r")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'cividis_r', ['Município','População'],'População residente (hab)')
-            st.text("cividis_r")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População residente (hab)')
-            st.text("copper_r")
-      with d:
-            mapa('PR',contexto,'População','FisherJenks',5,'cubehelix_r', ['Município','População'],'População residente (hab)')
-            st.text("cubehelix_r")
-elif op == "C":
-      a,b,c,d = st.columns(4)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'gnuplot_r', ['Município','População'],'População residente (hab)')
-            st.text("gnuplot_r")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'inferno_r', ['Município','População'],'População residente (hab)')
-            st.text("inferno_r")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'magma_r', ['Município','População'],'População residente (hab)')
-            st.text("magma_r")
-      with d:
-            mapa('PR',contexto,'População','FisherJenks',5,'plasma_r', ['Município','População'],'População residente (hab)')
-            st.text("plasma_r")
-elif op == "D":
-      a,b,c = st.columns(3)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'summer_r', ['Município','População'],'População residente (hab)')
-            st.text("summer_r")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'viridis_r', ['Município','População'],'População residente (hab)')
-            st.text("viridis_r")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'winter_r', ['Município','População'],'População residente (hab)')
-            st.text("winter_r")
-elif op == "E":
-      a,b,c,d = st.columns(4)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'BuGn', ['Município','População'],'População residente (hab)')
-            st.text("BuGn")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'GnPu', ['Município','População'],'População residente (hab)')
-            st.text("GnPu")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'OrRd', ['Município','População'],'População residente (hab)')
-            st.text("OrRd")
-      with d:
-            mapa('PR',contexto,'População','FisherJenks',5,'PuBu', ['Município','População'],'População residente (hab)')
-            st.text("PuBu")
-elif op == "F":
-      a,b,c,d = st.columns(4)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'PuBuGn', ['Município','População'],'População residente (hab)')
-            st.text("PuBuGn")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'PuRd', ['Município','População'],'População residente (hab)')
-            st.text("PuRd")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'RdPu', ['Município','População'],'População residente (hab)')
-            st.text("RdPu")
-      with d:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlGn', ['Município','População'],'População residente (hab)')
-            st.text("YlGn")
-elif op == "G":
-      a,b,c,d = st.columns(4)
-      with a:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlGnBu', ['Município','População'],'População residente (hab)')
-            st.text("YlGnBu")
-      with b:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlOrBr', ['Município','População'],'População residente (hab)')
-            st.text("YlOrBr")
-      with c:
-            mapa('PR',contexto,'População','FisherJenks',5,'YlOrRd', ['Município','População'],'População residente (hab)')
-            st.text("YlOrRd")
-      with d:
-            mapa('PR',contexto,'População','FisherJenks',5,'Oranges', ['Município','População'],'População residente (hab)')
-            st.text("Oranges")
+        html.Div([
+            dcc.Dropdown(
+                id='category-selector-2',
+                options=[
+                    {'label': 'Contextualização', 'value': 'Contextualizacao'},
+                    {'label': 'Renda', 'value': 'Renda'},
+                    {'label': 'Riqueza', 'value': 'Riqueza'}
+                ],
+                placeholder="Selecione uma categoria..."
+            ),
+            dcc.Dropdown(
+                id='indicator-selector-2',
+                placeholder="Selecione um indicador..."
+            ),
+            html.Button('Submit', id='submit-button-2')
+        ], style={'width': '48%', 'float': 'right', 'display': 'inline-block'})
+    ], style={'margin-bottom': '20px'}),
+
+    html.Div([
+        dcc.Graph(id='map-1'),
+        dcc.Graph(id='map-2')
+    ])
+])
+
+# Callback to update indicator dropdown options based on selected category
+@app.callback(
+    Output('indicator-selector-1', 'options'),
+    Output('indicator-selector-2', 'options'),
+    Input('category-selector-1', 'value'),
+    prevent_initial_call=True
+)
+def update_indicator_options(category):
+    # Add logic to provide indicator options based on selected category
+    # You may need to replace this with your specific logic
+    if category == 'Contextualizacao':
+        indicators = ['Populacao', 'Densidade demografica', 'Grau de urbanizacao']
+    elif category == 'Renda':
+        indicators = ['Indice Gini', 'Renda media da populacao', 'Renda da populacao feminina']
+    else:
+        indicators = ['Domicilios com bens duraveis', 'Numero de veiculos por pessoas', 'Populacao declarante do IRPF']
+
+    options = [{'label': indicator, 'value': indicator} for indicator in indicators]
+
+    return options, options
+
+# Callback to update the map based on selected area, category, and indicator
+@app.callback(
+    Output('map-1', 'figure'),
+    Output('map-2', 'figure'),
+    Input('area-selector', 'value'),
+    Input('category-selector-1', 'value'),
+    Input('indicator-selector-1', 'value'),
+    Input('submit-button-1', 'n_clicks'),
+    Input('category-selector-2', 'value'),
+    Input('indicator-selector-2', 'value'),
+    Input('submit-button-2', 'n_clicks'),
+)
+def update_maps(area, cat1, ind1, n_clicks1, cat2, ind2, n_clicks2):
+    # Add logic to generate maps based on selected area, category, and indicator
+    # You may need to replace this with your specific logic
+    if n_clicks1 is not None and ind1 == 'Populacao':
+        figure1 = mapa(area, contexto, 'Populacao', 'FisherJenks', 5, 'copper_r', ['Municipio', 'Populacao'], 'Populacao (hab)')
+    else:
+        figure1 = {}  # Provide a default empty figure or handle other cases
+
+    if n_clicks2 is not None and ind2 == 'Indice Gini':
+        figure2 = mapa(area, renda, 'Indice Gini', 'FisherJenks', 3, 'PuBuGn', ['Municipio', 'Indice Gini'], 'Indice Gini')
+    else:
+        figure2 = {}  # Provide a default empty figure or handle other cases
+
+    return figure1, figure2
+
+
+if __name__ == '__main__':
+    app.run_server(debug=True)

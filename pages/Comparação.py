@@ -31,8 +31,7 @@ with a1:
 
     form.form_submit_button(label="Submit")
 
-    if ind1 == 'População':
-        mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
+
 
 
 
@@ -55,11 +54,19 @@ with a2:
                               index=None,placeholder="Selecione um indicador...")
 
     form.form_submit_button(label="Submit")
+
+
+with a1:
+    if ind1 == 'População':
+        mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
+with a2:
     if ind1 == 'Índice de Gini':
         mapa('PR',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
 
 
-form = st.form(key="mapa3")
+
+
+
 
 
 

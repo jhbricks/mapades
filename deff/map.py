@@ -27,74 +27,97 @@ import plotly.graph_objects as go
 #title = título do mapa e da legenda
 
 @st.cache_data
-def mapa (area,arq,ind,scheme,k,cmap,fields,title):
-######encaminha o geojson da area
-  if area == 'PR':
-    arq_g = "./dados/geojson/PR.geojson"
-  elif area == 'NTC':
-    arq_g = "./dados/geojson/NTC.geojson"
-  else:
-    arq_g = area
+def mapa3(area):
+    if area == 'PR':
+        arq_g = "./dados/geojson/PR.geojson"
+    elif area == 'NTC':
+        arq_g = "./dados/geojson/NTC.geojson"
+    else:
+        arq_g = area
 
-#######MERGE geojson e csv
-  arq_csv = pd.read_csv(arq)
-  arq_geojson = gpd.read_file(arq_g)
-  data = arq_geojson.merge(arq_csv, on="Município")
+    style = {"color": "#000000", "weight": 1, "fillOpacity": 0}
 
-#######LAT E LON CENTRAIS
-  ponto_central = arq_geojson.geometry.centroid
-  lat = ponto_central.iloc[0].y
-  lon = ponto_central.iloc[0].x
-    
-  if not isinstance(data,gpd.GeoDataFrame):
-    print("O arquivo não é um GeoDataFrame")
-    exit()
+    arq_csv = pd.read_csv(arq_g)
+    arq_geojson = gpd.read_file(arq_g)
 
-  style = {"color":"#000000","weight":1, "fillOpacity":0}
-##########################MAPA
-########MAPA INICIAL
-  m = leafmap.Map(center=[lat,lon],
-            		  draw_control=False,
-                  measure_control=False,
-                  fullscreen_control=False,
-                  attribution_control=True)
+    ponto_central = arq_geojson.geometry.centroid
+    lat = ponto_central.iloc[0].y
+    lon = ponto_central.iloc[0].x
 
-  m.add_basemap("CartoDB.DarkMatter")  
-  
-#######ADICIONAR O MERGE GDF
+    m = leafmap.Map(center=[lat, lon],
+                   draw_control=False,
+                   measure_control=False,
+                   fullscreen_control=False,
+                   attribution_control=True)
+
+    m.add_basemap("CartoDB.DarkMatter")
+
+    def add_map(area, arq, ind, scheme, k, cmap, fields, title, legend_position):
+        data = arq_geojson.merge(arq_csv, on="Município")
+
+        if not isinstance(data, gpd.GeoDataFrame):
+            print("O arquivo não é um GeoDataFrame")
+            exit()
+
+        m.add_data(data=data,
+                   column=ind,
+                   scheme=scheme,
+                   k=k,
+                   cmap=cmap,
+                   fields=fields,
+                   legend_title=title,
+                   legend_position=legend_position,
+                   layer_name=title)
+
+        geojson_layer = folium.GeoJson(data, name=title,
+                                       style_function=lambda feature: style,
+                                       tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
+    m.to_streamlit()
 
 
-  m.add_data(data = data,
-             column=ind,
-             scheme=scheme,
-             k=k,
-             cmap=cmap,
-             fields=fields,
-             legend_title=title,
-             legend_position='topright',
-             layer_name=title,
-             )
 
-  geojson_layer = folium.GeoJson(
-    data,
-    name = area,
-    style_function=lambda feature: style,
-    tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
-########VALORES DE MX E MN DAS VARIAVEIS
-  max_value = data[ind].max()
-  min_value = data[ind].min()
-  max_municipio = data.loc[data[ind] == max_value, "Município"].iloc[0]
-  min_municipio = data.loc[data[ind] == min_value, "Município"].iloc[0]
-#####ADICIONAR MX E MN NO MAPA
-  folium.Marker([data.loc[data[ind] == max_value, "Y"].iloc[0],
-                 data.loc[data[ind] == max_value, "X"].iloc[0]],
-                popup=f"Maior valor: {max_value}<br>{max_municipio}",
-                icon=folium.Icon(color="darkpurple", icon="arrow-up"),
-               ).add_to(m) 
-  folium.Marker([data.loc[data[ind] == min_value, "Y"].iloc[0],
-	         data.loc[data[ind] == min_value, "X"].iloc[0]],
-                popup=f"Menor valor: {min_value}<br>{min_municipio}",
-                icon=folium.Icon(color="purple", icon="arrow-down"),
-               ).add_to(m)
-#########ADICIONAR NO STREAMLIT
-  m.to_streamlit()
+
+
+
+
+    form = st.form(key="mapa3")
+a1,a2 = form.columns(2)
+
+with a1:
+
+
+    cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa3',index=None,placeholder="Selecione uma categoria...")
+
+
+    if cat1 == "Contextualização":
+        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat1 == "Renda":
+        ind1 = form.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat1 == "Riqueza":
+        ind1 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
+
+    form.form_submit_button(label="Submit")
+
+
+
+
+with a2:
+    cat2 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa4',index=None,placeholder="Selecione uma categoria...")
+    #form.form_submit_button(label="Submit")
+
+#form = st.form(key="form_settings1")
+
+    if cat2 == "Contextualização":
+        ind2 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat2 == "Renda":
+        ind2 = form.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat2 == "Riqueza":
+        ind2 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
+
+    form.form_submit_button(label="Submit")
