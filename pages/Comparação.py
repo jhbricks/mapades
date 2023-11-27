@@ -31,7 +31,7 @@ ind_p = {"População residente":('PR',contexto,'População','FisherJenks',5,'c
 a1,a2 = st.columns(2)
 
 with a1:
-    form1 = st.form(key="mapa1")
+    form = st.form(key="mapa1")
     if cat1 == "Contextualização":
         ind1 = form.selectbox("Escolha um indicador de Contexto:",("População residente","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                               index=None,placeholder="Selecione um indicador...")
@@ -42,23 +42,25 @@ with a1:
         ind1 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                               index=None,placeholder="Selecione um indicador...")
 
-    form1.form_submit_button(label="Submit")
-
 with a2:
-    form2 = st.form(key="mapa2")
-    cat2 = form2.selectbox("Escolha uma categoria:", list(categoria_p.keys()), key='mapa2',
+    form = st.form(key="mapa2")
+    cat2 = form.selectbox("Escolha uma categoria:", list(categoria_p.keys()), key='mapa2',
                            index=None, placeholder="Selecione uma categoria...")
 
-    ind2 = form2.selectbox("Escolha um indicador:", list(categoria_p[cat2].keys()),
+    ind2 = form.selectbox("Escolha um indicador:", list(categoria_p[cat2].keys()),
                            index=None, placeholder="Selecione um indicador...")
 
-    form2.form_submit_button(label="Submit")
+    form.form_submit_button(label="Gerar mapas")
 
 # Assuming your mapa function takes the selected category and indicator as arguments
 with a1:
-    for ind1 in form1:
+    for ind1 in form:
         prs1 = ind_p[ind1]
         mapa(*prs1) 
+with a2:
+    if ind2 in form2:
+        prs2 = ind_p[ind2]
+        mapa(*prs2)
 
 #with a2:
  #   if cat2 in categoria_p and ind2 in categoria_p[cat2]:
