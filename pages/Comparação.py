@@ -55,11 +55,11 @@ with a2:
     form2.form_submit_button(label="Submit")
 
 # Assuming your mapa function takes the selected category and indicator as arguments
-if st.form_submit_button("Generate Map"):
+with a1:
     if cat1 in categoria_p and ind1 in categoria_p[cat1]:
         params1 = categoria_p[cat1][ind1]
-        mapa(*params1)  # Adjust this line according to the signature of the mapa function
-
+        mapa(*params1)  
+with a2:
     if cat2 in categoria_p and ind2 in categoria_p[cat2]:
         params2 = categoria_p[cat2][ind2]
         mapa(*params2)
