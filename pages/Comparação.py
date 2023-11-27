@@ -36,11 +36,15 @@ a1,a2 = st.columns(2)
 
 with a1:
     form1 = st.form(key="mapa1")
-    cat1 = form1.selectbox("Escolha uma categoria:", list(categoria_p.keys()), key='mapa1',
-                           index=None, placeholder="Selecione uma categoria...")
-
-    ind1 = form1.selectbox("Escolha um indicador:", list(categoria_p[cat1].keys()),
-                           index=None, placeholder="Selecione um indicador...")
+    if cat1 == "Contextualização":
+        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat1 == "Renda":
+        ind1 = form.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat1 == "Riqueza":
+        ind1 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
 
     form1.form_submit_button(label="Submit")
 
@@ -56,13 +60,14 @@ with a2:
 
 # Assuming your mapa function takes the selected category and indicator as arguments
 with a1:
-    if cat1 in categoria_p and ind1 in categoria_p[cat1]:
-        params1 = categoria_p[cat1][ind1]
-        mapa(*params1)  
-with a2:
-    if cat2 in categoria_p and ind2 in categoria_p[cat2]:
-        params2 = categoria_p[cat2][ind2]
-        mapa(*params2)
+    for ind1 in cat1:
+        prs1 = categoria_p[cat1][ind1]
+        mapa(*prs1) 
+
+#with a2:
+ #   if cat2 in categoria_p and ind2 in categoria_p[cat2]:
+  #      params2 = categoria_p[cat2][ind2]
+   #     mapa(*params2)
 
 
 
