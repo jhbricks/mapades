@@ -43,6 +43,7 @@ with c1:
     aju = st.button("Ajuda")
     if aju:
         switch_page("Ajuda")
+        
     cont = st.button("Contextualização")
     if cont:
         switch_page("Contextualização")
@@ -67,20 +68,24 @@ with c2:
     edu = st.button("Educação")
     if edu:
         switch_page("Educação")
+
     mais = st.button("Mais temas")
     if mais:
         switch_page("Mais temas")
 
 with c3:
     comp = st.button("Comparar")
-    if mais:
+    if comp:
         switch_page("Comparação")
+
     mun = st.button("Município")
-    if cla:
+    if mun:
         switch_page("Município")
+
     cla = st.button("Classificar")
     if cla:
         switch_page("Classificar")
+
     sob = st.button("Sobre")
     if sob:
         switch_page("Sobre")
