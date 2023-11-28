@@ -35,10 +35,7 @@ i1 = Image.open(km)
 i2 = Image.open(ge)
 a1 = i1.resize((210, 100))
 a2 = i2.resize((200,100))
-c1, c2 = st.columns(2)
-s1 = '[Kurytiba Metropole] (https://www.kurytibametropole.org/)'   
-i1 = '[@kurytibametropole] (https://www.instagram.com/kurytibametropole/)'
-f1 = '[Kurytiba Metropole] (https://www.facebook.com/kurytibametropole)'
+c1, c2, c3 = st.columns(3)
 
 with c1:
     st.image(a1)
@@ -50,20 +47,12 @@ with c1:
     habitam através de projetos de impacto social e
     construção de políticas públicas.
     """)
-    #st.markdown("""**Contato**:   
-    #            email: contato@kurytibametropole.org""")
-    #st.markdown(f'Site:',s1,unsafe_allow_html=True)
-    #st.text('Site:',s1,  unsafe_allow_html=True)  
-    #st.text('Instagram:',i1, unsafe_allow_html=True)
-    #st.text('Facebook:',f1,unsafe_allow_html=True)
     st.markdown("""**Contato:**
-                email: contato@kurytibametropole.org
+                \n email: contato@kurytibametropole.org
                 \n Site: [Kurytiba Metropole](https://www.kurytibametropole.org/) 
-                \n Instagram: [@kurytibametropole](https://gemaeco.ufpr.br/)
-                \n Facebook: [Kurytiba Metropole](https://cienciasgeodesicas.ufpr.br/)""",unsafe_allow_html=True)
+                \n Instagram: [@kurytibametropole](https://www.instagram.com/kurytibametropole/)
+                \n Facebook: [Kurytiba Metropole](https://www.facebook.com/kurytibametropole)""",unsafe_allow_html=True)
 
-#link = '[Library of Congress](https://www.loc.gov/item/2003627063/)'
-#        st.write('Disponível em:', link, unsafe_allow_html=True)
 with c2:
     st.image(a2)
     st.markdown("""O **Grupo de Estudos em MacroEconomia Ecológica
@@ -75,8 +64,20 @@ with c2:
     Economia Ecológica à Teoria Macroeconômica,
     incluindo a proposição de políticas públicas.
     """)
-   # st.markdown("""**Contato**:   
-    #            CNPq Lattes: [Grupo de pesquisa] (https://dgp.cnpq.br/dgp/espelhogrupo/6395737613746571)   
-     #           Site: [GEMAECO] (https://gemaeco.ufpr.br/inicio/inicio/)   
-      #          Instagram: [@ufpr_oficial] (https://www.instagram.com/ufpr_oficial//)   
-       #         Facebook: [UFPR] (https://www.facebook.com/UFPRoficial)""")
+    st.markdown("""**Contato:**
+                \n CNPq Lattes: [Grupo de pesquisa](https://dgp.cnpq.br/dgp/espelhogrupo/6395737613746571) 
+                \n Site: [GAMAECO](https://gemaeco.ufpr.br/) 
+                \n Instagram: [@ufpr_oficial](https://www.instagram.com/ufpr_oficial/)
+                \n Facebook: [UFPR](https://www.facebook.com/UFPRoficial)""",unsafe_allow_html=True)
+
+with c3:
+    st.markdown("""Programa de Pós Graduação em Ciências Geodésicas (PPGCG)   
+                da Universidade Federal do Paraná (UFPR).   
+                Áreas:   
+                • Cartografia e SIG   
+                • Geodésia e Levantamentos   
+                • Sensoriamento Remoto e Fotogrametria
+                """)
+    st.markdown("""**Contato:**
+                \n Site: [PPGCG](https://cienciasgeodesicas.ufpr.br/) 
+                \n Instagram: [@ppgcg_ufpr](https://www.instagram.com/ppgcg_ufpr)""",unsafe_allow_html=True)
