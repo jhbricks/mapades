@@ -18,6 +18,3 @@ libpysal
 classify
 
 fiona
-
-dash==2.14.1
-streamlit dash
