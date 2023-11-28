@@ -50,12 +50,12 @@ with c1:
     habitam através de projetos de impacto social e
     construção de políticas públicas.
     """)
-    st.markdown("""**Contato**:   
-                email: contato@kurytibametropole.org""")
-    st.markdown(f'Site:',s1,unsafe_allow_html=True)
-    st.text('Site:',s1,  unsafe_allow_html=True)  
-    st.text('Instagram:',i1, unsafe_allow_html=True)
-    st.text('Facebook:',f1,unsafe_allow_html=True)
+    #st.markdown("""**Contato**:   
+    #            email: contato@kurytibametropole.org""")
+    #st.markdown(f'Site:',s1,unsafe_allow_html=True)
+    #st.text('Site:',s1,  unsafe_allow_html=True)  
+    #st.text('Instagram:',i1, unsafe_allow_html=True)
+    #st.text('Facebook:',f1,unsafe_allow_html=True)
     st.markdown("""**Contato:**
                 email: contato@kurytibametropole.org
                 \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
