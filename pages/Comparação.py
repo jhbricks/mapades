@@ -8,11 +8,13 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 a1,a2 = st.columns(2)
 
-form = st.form("mapas")
+a1,a2 = st.columns(2)
+
 with a1:
     cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',index=None,placeholder="Selecione uma categoria...")
+
     if cat1 == "Contextualização":
-        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População residente","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                               index=None,placeholder="Selecione um indicador...")
     elif cat1 == "Renda":
         ind1 = form.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
@@ -22,18 +24,17 @@ with a1:
                               index=None,placeholder="Selecione um indicador...")
 
 with a2:
-    cat2 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa2',index=None,placeholder="Selecione uma categoria...")
-    if cat2 == "Contextualização":
-        ind2 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
-                              index=None,placeholder="Selecione um indicador...")
-    elif cat2 == "Renda":
-        ind2 = form.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
-                              index=None,placeholder="Selecione um indicador...")
-    elif cat2 == "Riqueza":
-        ind2 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
-                              index=None,placeholder="Selecione um indicador...")
+    cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa2',index=None,placeholder="Selecione uma categoria...")
 
-form.form_submit_button(label="Gerar mapas")
+    if cat1 == "Contextualização":
+        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat1 == "Renda":
+        ind1 = form.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
+    elif cat1 == "Riqueza":
+        ind1 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+                              index=None,placeholder="Selecione um indicador...")
 
 riqueza = "./dados/csv/riqueza.csv"
 renda = "./dados/csv/renda.csv"
