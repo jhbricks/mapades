@@ -11,29 +11,29 @@ a1,a2 = st.columns(2)
 a1,a2 = st.columns(2)
 
 with a1:
-    cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',index=None,placeholder="Selecione uma categoria...")
+    cat1 = st.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa1',index=None,placeholder="Selecione uma categoria...")
 
     if cat1 == "Contextualização":
-        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+        ind1 = st.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                               index=None,placeholder="Selecione um indicador...")
     elif cat1 == "Renda":
-        ind1 = form.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+        ind1 = st.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
                               index=None,placeholder="Selecione um indicador...")
     elif cat1 == "Riqueza":
-        ind1 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+        ind1 = st.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                               index=None,placeholder="Selecione um indicador...")
 
 with a2:
-    cat1 = form.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa2',index=None,placeholder="Selecione uma categoria...")
+    cat2 = st.selectbox("Escolha uma categoria:",("Contextualização","Renda","Riqueza"),key='mapa2',index=None,placeholder="Selecione uma categoria...")
 
-    if cat1 == "Contextualização":
-        ind1 = form.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
+    if cat2 == "Contextualização":
+        ind2 = st.selectbox("Escolha um indicador de Contexto:",("População","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                               index=None,placeholder="Selecione um indicador...")
-    elif cat1 == "Renda":
-        ind1 = form.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
+    elif cat2 == "Renda":
+        ind2 = st.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Renda da população feminina","Renda dos declarantes do IRPF"),
                               index=None,placeholder="Selecione um indicador...")
-    elif cat1 == "Riqueza":
-        ind1 = form.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
+    elif cat2 == "Riqueza":
+        ind2 = st.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                               index=None,placeholder="Selecione um indicador...")
 
 riqueza = "./dados/csv/riqueza.csv"
@@ -57,12 +57,11 @@ ind_p = {"População residente":('PR',contexto,'População','FisherJenks',5,'c
 "Patrimônio Líquido Médio dos declarantes do IRPF":('PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)','FisherJenks', 5, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],'Patrimônio líquido dos declarantes do IRPF (R$ milhões)'),
 }
 
-if form.form_submit_button("Gerar mapas"):
-    with a1:
-        if cat1 and ind1:
-            area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1 = ind_p[ind1]
-            mapa(area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1)
-    with a2:
-        if cat2 and ind2:
-            area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2 = ind_p[ind2]
-            mapa(area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2)
+with a1:
+    if cat1 and ind1:
+        area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1 = ind_p[ind1]
+        mapa(area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1)
+with a2:
+    if cat2 and ind2:
+        area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2 = ind_p[ind2]
+        mapa(area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2)
