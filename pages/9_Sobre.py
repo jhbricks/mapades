@@ -76,8 +76,8 @@ with c2:
     Economia Ecológica à Teoria Macroeconômica,
     incluindo a proposição de políticas públicas.
     """)
-    st.markdown("""**Contato**:   
-                CNPq Lattes: [Grupo de pesquisa] (https://dgp.cnpq.br/dgp/espelhogrupo/6395737613746571)   
-                Site: [GEMAECO] (https://gemaeco.ufpr.br/inicio/inicio/)   
-                Instagram: [@ufpr_oficial] (https://www.instagram.com/ufpr_oficial//)   
-                Facebook: [UFPR] (https://www.facebook.com/UFPRoficial)""")
+   # st.markdown("""**Contato**:   
+    #            CNPq Lattes: [Grupo de pesquisa] (https://dgp.cnpq.br/dgp/espelhogrupo/6395737613746571)   
+     #           Site: [GEMAECO] (https://gemaeco.ufpr.br/inicio/inicio/)   
+      #          Instagram: [@ufpr_oficial] (https://www.instagram.com/ufpr_oficial//)   
+       #         Facebook: [UFPR] (https://www.facebook.com/UFPRoficial)""")
