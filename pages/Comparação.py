@@ -4,7 +4,7 @@ import geopandas as gpd
 from deff.mapa import mapa
 
 st.set_page_config(layout="wide", page_title="Comparar indicadores")
-st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 1rem;padding-right: 1rem;}</style>""", unsafe_allow_html=True)
+st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 1.5rem;padding-right: 1.5rem;}</style>""", unsafe_allow_html=True)
 
 
 area = st.radio("Selecione uma área:",("Paraná","Núcleo Territorial Central de Curitiba"))
