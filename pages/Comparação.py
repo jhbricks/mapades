@@ -60,11 +60,13 @@ ind_p = {"População residente":('PR',contexto,'População','FisherJenks',5,'c
 "Patrimônio Líquido Médio dos declarantes do IRPF":('PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)','FisherJenks', 5, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],'Patrimônio líquido dos declarantes do IRPF (R$ milhões)'),
 }
 
-with a1:
+b1,b2 = st.columns(2)
+
+with b1:
     if cat1 and ind1:
         area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1 = ind_p[ind1]
         mapa(area1, arq1, ind1_label, scheme1, k1, cmap1, fields1, title1)
-with a2:
+with b2:
     if cat2 and ind2:
         area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2 = ind_p[ind2]
         mapa(area2, arq2, ind2_label, scheme2, k2, cmap2, fields2, title2)
