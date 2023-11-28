@@ -61,7 +61,7 @@ with c1:
                 \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
                 \n [Gemaeco](https://gemaeco.ufpr.br/)
                 \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
-                \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
+                \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""",unsafe_allow_html=True)
 
 #link = '[Library of Congress](https://www.loc.gov/item/2003627063/)'
 #        st.write('Disponível em:', link, unsafe_allow_html=True)
