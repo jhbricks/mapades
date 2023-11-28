@@ -58,10 +58,9 @@ with c1:
     #st.text('Facebook:',f1,unsafe_allow_html=True)
     st.markdown("""**Contato:**
                 email: contato@kurytibametropole.org
-                \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
-                \n [Gemaeco](https://gemaeco.ufpr.br/)
-                \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
-                \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""",unsafe_allow_html=True)
+                \n Site: [Kurytiba Metropole](https://www.kurytibametropole.org/) 
+                \n Instagram: [@kurytibametropole](https://gemaeco.ufpr.br/)
+                \n Facebook: [Kurytiba Metropole](https://cienciasgeodesicas.ufpr.br/)""",unsafe_allow_html=True)
 
 #link = '[Library of Congress](https://www.loc.gov/item/2003627063/)'
 #        st.write('Disponível em:', link, unsafe_allow_html=True)
