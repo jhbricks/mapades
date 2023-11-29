@@ -32,13 +32,13 @@ fig = go.Figure()
 
 fig.add_trace(go.Bar(
     x=s_mun,
-    y=s_ind,
+    y=s_ind['Grau de Urbanização (%)'],
     name='Primary Product',
     marker_color='indianred'
 ))
 fig.add_trace(go.Bar(
     x=s_mun,
-    y=s_ind,
+    y=s_ind['População feminina (%)'],
     name='Secondary Product',
     marker_color='lightsalmon'
 ))
