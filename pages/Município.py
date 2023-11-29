@@ -12,15 +12,30 @@ op = st.selectbox("Selecione um município:",mun,index=None,placeholder="Selecio
 #geojson_filename = "./dados/PR.geojson"
 #gdf_geojson = gpd.read_file(geojson_filename)
 
-s_mun = df_csv[df_csv['Município'] == op]
+import streamlit as st
+import pandas as pd
+import plotly.express as px
 
+# Read the CSV file
+csv = "./dados/csv/contexto.csv"
+df_csv = pd.read_csv(csv)
 
+# Dropdown to select a municipality
+mun = df_csv['Município'].tolist()
+selected_mun = st.selectbox("Selecione um município:", mun, index=None, placeholder="Selecione ou digite o nome do município...")
 
-s_ind = df_csv[df_csv['População'] == op]
+# Filter the dataframe based on the selected municipality
+selected_df = df_csv[df_csv['Município'] == selected_mun]
 
+# List of indicators to plot
+indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)',
+              'População feminina (%)', 'População preta ou parda (%)']
 
+# Create a bar chart using Plotly Express
+fig = px.bar(selected_df, x=indicators, title=f'Indicators for {selected_mun}')
+fig.update_layout(barmode='group')  # Group bars for each indicator
 
-fig = px.bar(s_mun, x=s_mun, y=s_ind, title=f'Indicators for {op}')
+# Show the chart
 st.plotly_chart(fig)
 
 
