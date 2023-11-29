@@ -18,7 +18,7 @@ import geopandas as gpd
 import plotly.express as px
 
 # Read data from GeoJSON file
-geojson_filename = "./dados/PR.geojson"
+geojson_filename = "./dados/geojson/PR.geojson"
 gdf_geojson = gpd.read_file(geojson_filename)
 
 mun = gdf_geojson['Município'].tolist()
