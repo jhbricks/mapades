@@ -28,17 +28,38 @@ selected_mun = st.selectbox("Selecione um município:", mun, index=None, placeho
 selected_df = df_csv[df_csv['Município'] == selected_mun]
 
 # List of indicators to plot
-indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)',
+indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
               'População feminina (%)', 'População preta ou parda (%)']
 
-# Create a bar chart using Plotly Express
-fig = px.bar(selected_df, x=indicators, title=f'Indicators for {selected_mun}')
-fig.update_layout(barmode='group')  # Group bars for each indicator
-
-# Show the chart
-st.plotly_chart(fig)
-
-
-
-
-
+# Create separate bar charts for each indicator
+for indicator in indicators:
+    # Create a bar chart using Plotly Express
+    fig = px.bar(df_csv, x='Município', y=indicator, title=f'{indicator} for all cities')
+    
+    # Add lines for selected city's value, mean, min, and max
+    fig.add_shape(
+        type='line',
+        x0=-0.5,
+        x1=len(df_csv['Município']) - 0.5,
+        y0=selected_df[indicator].values[0],
+        y1=selected_df[indicator].values[0],
+        line=dict(color='red', width=2),
+        name=f'{selected_mun} Value'
+    )
+    fig.add_trace(
+        px.line(x=df_csv['Município'], y=[df_csv[indicator].mean()]*len(df_csv['Município'])).data[0]
+    )
+    fig.add_trace(
+        px.line(x=df_csv['Município'], y=[df_csv[indicator].min()]*len(df_csv['Município'])).data[0]
+    )
+    fig.add_trace(
+        px.line(x=df_csv['Município'], y=[df_csv[indicator].max()]*len(df_csv['Município'])).data[0]
+    )
+    
+    # Update layout for better visualization
+    fig.update_layout(barmode='group', title=f'{indicator} Comparison')
+    fig.update_xaxes(title_text='Municipality')
+    fig.update_yaxes(title_text=indicator)
+    
+    # Show the chart
+    st.plotly_chart(fig)
