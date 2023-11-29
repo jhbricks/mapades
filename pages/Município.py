@@ -20,7 +20,7 @@ s_ind = ['População residente','Grau de Urbanização (%)', 'Razão de Depend�
 
 
 
-fig = px.bar(s_mun, x=s_mun, y=s_ind['Grau de Urbanização (%)'], title=f'Indicators for {op}')
+fig = px.bar(s_mun, x=s_mun, y=s_ind, title=f'Indicators for {op}')
 st.plotly_chart(fig)
 
 
