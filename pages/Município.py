@@ -20,31 +20,10 @@ s_ind = ['População residente','Grau de Urbanização (%)', 'Razão de Depend�
 
 
 
-fig = px.bar(s_mun, x='Município', y=s_ind, title=f'Indicators for {op}')
+fig = px.bar(s_mun, x=s_mun, y=s_ind['Grau de Urbanização (%)'], title=f'Indicators for {op}')
 st.plotly_chart(fig)
 
 
-import plotly.graph_objects as go
 
-s_mun = df_csv[df_csv['Município'] == op]
-
-fig = go.Figure()
-
-fig.add_trace(go.Bar(
-    x=s_mun,
-    y=s_ind['Grau de Urbanização (%)'],
-    name='Primary Product',
-    marker_color='indianred'
-))
-fig.add_trace(go.Bar(
-    x=s_mun,
-    y=s_ind['População feminina (%)'],
-    name='Secondary Product',
-    marker_color='lightsalmon'
-))
-
-# Here we modify the tickangle of the xaxis, resulting in rotated labels.
-fig.update_layout(barmode='group', xaxis_tickangle=-45)
-st.plotly_chart(fig)
 
 
