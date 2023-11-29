@@ -18,37 +18,55 @@ import geopandas as gpd
 import plotly.express as px
 
 # Read data from GeoJSON file
-geojson_filename = "./dados/geojson/PR.geojson"
-gdf_geojson = gpd.read_file(geojson_filename)
+#geojson_filename = "./dados/geojson/PR.geojson"
+#gdf_geojson = gpd.read_file(geojson_filename)
 
-mun = gdf_geojson['Município'].tolist()
-op = st.selectbox("Selecione um município:", mun, index=None, placeholder="Selecione ou digite o nome do município...",)
+import streamlit as st
+import pandas as pd
+import plotly.express as px
 
-# Filter GeoDataFrame based on selected municipality
-selected_city = gdf_geojson[gdf_geojson['Município'] == op]
+# Read the CSV file
+csv = "./dados/csv/contexto.csv"
+df_csv = pd.read_csv(csv)
 
-# Create a map centered on the selected city
-fig = px.scatter_geo(selected_city,
-                     lat='Y', lon='X',
-                     hover_name='Município',
-                     title=f"Map of {op}",
-                     scope='south america')
+# Dropdown to select a municipality
+mun = df_csv['Município'].tolist()
+selected_mun = st.selectbox("Selecione um município:", mun, index=None, placeholder="Selecione ou digite o nome do município...")
 
-# Add all cities in grey
-fig.add_trace(px.scatter_geo(gdf_geojson,
-                             lat='Y', lon='X',
-                             hover_name='Município',
-                             mode='markers',
-                             marker=dict(color='grey'),
-                             opacity=0.7).data[0])
+# Filter the dataframe based on the selected municipality
+selected_df = df_csv[df_csv['Município'] == selected_mun]
 
-# Highlight the selected city in red
-fig.add_trace(px.scatter_geo(selected_city,
-                             lat='Y', lon='X',
-                             hover_name='Município',
-                             mode='markers',
-                             marker=dict(color='red'),
-                             opacity=1).data[0])
+# List of indicators to plot
+indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
+              'População feminina (%)', 'População preta ou parda (%)']
 
-# Show the map
-st.plotly_chart(fig)
+# Create separate bar charts for each indicator
+for indicator in indicators:
+    # Create a bar chart using Plotly Express
+    fig = px.bar(df_csv, x='Município', y=indicator, title=f'{indicator} for all cities')
+    
+    # Add lines for selected city's value, mean, min, and max
+    fig.add_trace(
+        go.Scatter(x=df_csv['Município'], y=[selected_df[indicator].values[0]]*len(df_csv['Município']),
+                   mode='lines', line=dict(color='red', width=2), name=f'{selected_mun} Value')
+    )
+    fig.add_trace(
+        go.Scatter(x=df_csv['Município'], y=[df_csv[indicator].mean()]*len(df_csv['Município']),
+                   mode='lines', line=dict(color='green', width=2), name='Mean')
+    )
+    fig.add_trace(
+        go.Scatter(x=df_csv['Município'], y=[df_csv[indicator].min()]*len(df_csv['Município']),
+                   mode='lines', line=dict(color='blue', width=2), name='Min')
+    )
+    fig.add_trace(
+        go.Scatter(x=df_csv['Município'], y=[df_csv[indicator].max()]*len(df_csv['Município']),
+                   mode='lines', line=dict(color='orange', width=2), name='Max')
+    )
+    
+    # Update layout for better visualization
+    fig.update_layout(barmode='group', title=f'{indicator} Comparison')
+    fig.update_xaxes(title_text='Municipality')
+    fig.update_yaxes(title_text=indicator)
+    
+    # Show the chart
+    st.plotly_chart(fig)
