@@ -16,7 +16,7 @@ s_mun = df_csv[df_csv['Município'] == op]
 
 
 
-s_ind = ['População residente','Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)','População feminina (%)', 'População preta ou parda (%)']
+s_ind = df_csv[df_csv['População residente'] == op]
 
 
 
