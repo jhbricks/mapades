@@ -3,7 +3,7 @@ import geopandas as gpd
 import pandas as pd
 
 arq_g = "./dados/geojson/PR.geojson"
-arq_csv = "./dados/csv/contexto.csv"
+arq = "./dados/csv/contexto.csv"
 
 arq_csv = pd.read_csv(arq)
 arq_geojson = gpd.read_file(arq_g)
