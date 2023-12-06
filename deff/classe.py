@@ -82,6 +82,7 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
         print("O arquivo não é um GeoDataFrame")
         exit()
 
+    style = {"color":"#000000","weight":1, "fillOpacity":0}
 ##########################MAPA
 ########MAPA INICIAL
     m = leafmap.Map(
@@ -90,21 +91,21 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
         measure_control=False,
         fullscreen_control=False,
         attribution_control=True)
-
-    style_style = {
-        "stroke": True,           #linha da borda vai ser desenhada
-        "color": "#000000",       #cor da linha (preto)
-         }
     
+    m.add_basemap("CartoDB.Positron")
+    m.add_basemap("CartoDB.DarkMatter")  
+    m.add_basemap("Esri.WorldGrayCanvas")
+
+   
     m.add_data(data = gdf,
                column=ind,
                scheme=scheme,
                k=k,
                cmap=cmap,
                fields=fields,
-               style = style_style,
                legend_position='topright',
                )
+    geojson_layer = folium.GeoJson(gdf,name = 'Classificação: {k} classes {scheme}',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
 
 #########ADICIONAR NO STREAMLIT
     m.to_streamlit()

@@ -11,10 +11,9 @@ from deff.classe import gvf
 
 st.set_page_config(layout="wide",page_title='Classificação dos dados')
 st.markdown("""<style>.block-container {padding-top: 1rem;}</style>""", unsafe_allow_html=True)
+st.header(':grey[Classificação de dados]', divider='rainbow')
+st.markdown("*Demonstração da classificação de dados em um Mapa Coroplético utilizando a biblioteca python Leafmap.*")
 
-st.markdown("<h3><font size='8'  color='gray'>Classificação dos dados</font></font></h3>", unsafe_allow_html=True)
-st.markdown(""" **Classificação de dados**   
-            Demonstração da classificação de dados em um Mapa Coroplético utilizando a biblioteca python Leafmap.""")
 
 c1,c2 = st.columns(2)
 with c1:
