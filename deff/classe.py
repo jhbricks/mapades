@@ -4,6 +4,7 @@ import geopandas as gpd
 import numpy as np
 import libpysal
 import mapclassify
+import folium
 import leafmap
 import leafmap.foliumap as leafmap
 
