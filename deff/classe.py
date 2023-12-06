@@ -106,7 +106,7 @@ def gvf (area,arq,comum,ind,scheme,k,cmap):
                fields=fields,
                legend_position='topright',
                )
-    geojson_layer = folium.GeoJson(gdf,name = 'Classificação: {k} classes {scheme}',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
+    geojson_layer = folium.GeoJson(gdf,name = 'Classificação',style_function=lambda feature: style,tooltip=folium.GeoJsonTooltip(fields=fields)).add_to(m)
 
 #########ADICIONAR NO STREAMLIT
     m.to_streamlit()
