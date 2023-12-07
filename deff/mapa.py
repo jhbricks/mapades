@@ -54,14 +54,14 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
 ##########################MAPA
 ########MAPA INICIAL
   m = leafmap.Map(center=[lat,lon],
-            		  draw_control=False,
+            		  draw_control=True,
                   measure_control=False,
                   fullscreen_control=False,
                   attribution_control=True)
 
-  #m.add_basemap("CartoDB.Positron")  
-  m.add_basemap("Esri.WorldGrayCanvas")  
-  #m.add_basemap("CartoDB.PositronOnlyLabels")  
+  m.add_basemap("CartoDB.Positron")
+  m.add_basemap("CartoDB.DarkMatter")  
+  m.add_basemap("Esri.WorldGrayCanvas") 
   
 #######ADICIONAR O MERGE GDF
 

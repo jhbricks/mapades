@@ -41,32 +41,7 @@ indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densid
               'População feminina (%)', 'População preta ou parda (%)']
 
 # Create separate bar charts for each indicator
-for indicator in indicators:
-    # Create a bar chart using Plotly Express
-    fig = px.bar(df_csv, x='Município', y=indicator, title=f'{indicator} for all cities')
-    
-    # Add lines for selected city's value, mean, min, and max
-    fig.add_trace(
-        go.Scatter(x=df_csv['Município'], y=[selected_df[indicator].values[0]]*len(df_csv['Município']),
-                   mode='lines', line=dict(color='red', width=2), name=f'{selected_mun} Value')
-    )
-    fig.add_trace(
-        go.Scatter(x=df_csv['Município'], y=[df_csv[indicator].mean()]*len(df_csv['Município']),
-                   mode='lines', line=dict(color='green', width=2), name='Mean')
-    )
-    fig.add_trace(
-        go.Scatter(x=df_csv['Município'], y=[df_csv[indicator].min()]*len(df_csv['Município']),
-                   mode='lines', line=dict(color='blue', width=2), name='Min')
-    )
-    fig.add_trace(
-        go.Scatter(x=df_csv['Município'], y=[df_csv[indicator].max()]*len(df_csv['Município']),
-                   mode='lines', line=dict(color='orange', width=2), name='Max')
-    )
-    
-    # Update layout for better visualization
-    fig.update_layout(barmode='group', title=f'{indicator} Comparison')
-    fig.update_xaxes(title_text='Municipality')
-    fig.update_yaxes(title_text=indicator)
+
     
     # Show the chart
     st.plotly_chart(fig)
