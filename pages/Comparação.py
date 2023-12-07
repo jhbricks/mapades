@@ -101,21 +101,21 @@ elif area == "Núcleo Territorial Central de Curitiba":
             ind2 = st.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
                                   index=None,placeholder="Selecione um indicador...")
 
-    ind_p = {"População residente":mapa('NTC',contexto,'População','FisherJenks',4,'copper_r', ['Município','População'],'População (hab)'),
-    "Densidade demográfica":mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)'),
-    "Grau de urbanização":mapa('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'summer_r', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)'),
-    "População feminina": mapa('NTC',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)'),
-    "População preta/parda":mapa('NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)'),
-    "Razão de dependência":mapa('NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)'),
-    "Índice de Gini":mapa('NTC',renda,'Índice de Gini','FisherJenks',4,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini'),
-    "Renda média da população":mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)'),
-    "Rendimento médio da população feminina":mapa('NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina (%)'),
-    "Renda dos declarantes do IRPF":mapa('NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)'),
-    "Domicílios com bens duráveis":mapa('NTC', riqueza, 'Domicílios com bens duráveis (%)','FisherJenks', 4, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],'Domicílios com bens duráveis (%)'),
-    "Número de veículos por pessoas":mapa('NTC', riqueza, 'Veículos por pessoa','FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],'Número de veículos por pessoas'),
-    "População declarante do IRPF":mapa('NTC', riqueza, 'Declarantes do IRPF (%)','FisherJenks',4, 'BuPu', ['Município','Declarantes do IRPF (%)'],'População declarante do IRPF (%)'),
-    "Patrimônio Líquido Médio da População":mapa('NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões)','FisherJenks', 4, 'YlOrBr', ['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)'),
-    "Patrimônio Líquido Médio dos declarantes do IRPF":mapa('NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)','FisherJenks', 4, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
+    ind_p = {"População residente":('NTC',contexto,'População','FisherJenks',4,'copper_r', ['Município','População'],'População (hab)'),
+    "Densidade demográfica":('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)'),
+    "Grau de urbanização":('NTC',contexto,'Grau de Urbanização (%)','FisherJenks',3,'summer_r', ['Município','Grau de Urbanização (%)'],'Grau de Urbanização (%)'),
+    "População feminina": ('NTC',contexto, 'População feminina (%)', 'FisherJenks',3,'Reds', ['Município','População feminina (%)'],'População feminina (%)'),
+    "População preta/parda":('NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)'),
+    "Razão de dependência":('NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)'),
+    "Índice de Gini":('NTC',renda,'Índice de Gini','FisherJenks',4,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini'),
+    "Renda média da população":('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)'),
+    "Rendimento médio da população feminina":('NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina (%)'),
+    "Renda dos declarantes do IRPF":('NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)'),
+    "Domicílios com bens duráveis":('NTC', riqueza, 'Domicílios com bens duráveis (%)','FisherJenks', 4, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],'Domicílios com bens duráveis (%)'),
+    "Número de veículos por pessoas":('NTC', riqueza, 'Veículos por pessoa','FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],'Número de veículos por pessoas'),
+    "População declarante do IRPF":('NTC', riqueza, 'Declarantes do IRPF (%)','FisherJenks',4, 'BuPu', ['Município','Declarantes do IRPF (%)'],'População declarante do IRPF (%)'),
+    "Patrimônio Líquido Médio da População":('NTC', riqueza, 'Patrimônio líquido médio da população (R$ milhões)','FisherJenks', 4, 'YlOrBr', ['Município','Patrimônio líquido médio da população (R$ milhões)'],'Patrimônio líquido médio da população (R$ milhões)'),
+    "Patrimônio Líquido Médio dos declarantes do IRPF":('NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)','FisherJenks', 4, 'GnBu', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
     }
 
     b1,b2 = st.columns(2)
