@@ -25,7 +25,7 @@ s,d,f = st.columns(3)
 with s:
 # Use st.markdown para exibir a imagem como um link clicável
     img0 = "./dados/imagem/icon/aju.png"
-    img_b0 = base64.b64encode(open(img1, "rb").read()).decode()
+    img_b0 = base64.b64encode(open(img0, "rb").read()).decode()
     link0 = "https://mapadesigualdade.streamlit.app/Ajuda"
     st.markdown(f"""<a href="{link0}" target="_self"><img src="data:image/png;base64,{img_b0}" width="200"></a>""",unsafe_allow_html=True)
     
@@ -35,7 +35,7 @@ with s:
     st.markdown(f"""<a href="{link1}" target="_self"><img src="data:image/png;base64,{img_b1}" width="200"></a>""",unsafe_allow_html=True)
     
     img2 = "./dados/imagem/icon/renda.png"
-    img_b2 = base64.b64encode(open(img1, "rb").read()).decode()
+    img_b2 = base64.b64encode(open(img2, "rb").read()).decode()
     link2 = "https://mapadesigualdade.streamlit.app/Renda"
     st.markdown(f"""<a href="{link2}" target="_self"><img src="data:image/png;base64,{img_b2}" width="200"></a>""",unsafe_allow_html=True)
     
@@ -46,7 +46,7 @@ with s:
 
 with d:
     img4 = "./dados/imagem/icon/seg.png"
-    img_b4 = base64.b64encode(open(img1, "rb").read()).decode()
+    img_b4 = base64.b64encode(open(img4, "rb").read()).decode()
     link4 = "https://mapadesigualdade.streamlit.app/Segurança"
     st.markdown(f"""<a href="{link4}" target="_self"><img src="data:image/png;base64,{img_b4}" width="200"></a>""",unsafe_allow_html=True)
     
@@ -56,7 +56,7 @@ with d:
     st.markdown(f"""<a href="{link5}" target="_self"><img src="data:image/png;base64,{img_b5}" width="200"></a>""",unsafe_allow_html=True)
     
     img6 = "./dados/imagem/icon/edu.png"
-    img_b6 = base64.b64encode(open(img1, "rb").read()).decode()
+    img_b6 = base64.b64encode(open(img6, "rb").read()).decode()
     link6 = "https://mapadesigualdade.streamlit.app/Educação"
     st.markdown(f"""<a href="{link6}" target="_self"><img src="data:image/png;base64,{img_b6}" width="200"></a>""",unsafe_allow_html=True)
     
