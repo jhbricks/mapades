@@ -7,7 +7,7 @@ from PIL import Image
 
 a = "./dados/imagem/icon/renda.png"
 
-img = Image.open(a)
+#img = Image.open(a)
 #st.button(st.image(img))
 
 
@@ -17,11 +17,10 @@ imagem_botao = "./dados/imagem/icon/renda.png"
 # Adicione um link para outra página quando a imagem for clicada
 link_para_outra_pagina = "https://mapadesigualdade.streamlit.app/Renda"
 
-# Use st.markdown para exibir a imagem como um link
-st.markdown(f'[![Botão]({imagem_botao})]({link_para_outra_pagina})')
+# Use st.image para exibir a imagem como um botão clicável
+if st.button(""):
+    # Redireciona para a outra página quando o botão é clicado
+    st.markdown(f'[Clique aqui para acessar a outra página]({link_para_outra_pagina})')
 
-# Carregue a imagem usando a biblioteca PIL
-imagem = Image.open(imagem_botao)
-
-# Exiba a imagem usando st.image
-st.image(imagem, use_column_width=True)
+# Exibe a imagem normalmente
+st.image(imagem_botao, use_column_width=True)
