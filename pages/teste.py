@@ -12,11 +12,19 @@ a = "./dados/imagem/icon/renda.png"
 
 
 
-st.sidebar.markdown(
-    """<a href="https://mapadesigualdade.streamlit.app/Renda">
-    <img src="data:image/png;base64,{}" width="50">
-    </a>""".format(
-        base64.b64encode(open(a, "rb").read()).decode()
-    ),
-    unsafe_allow_html=True,
-)
+import streamlit as st
+
+# Carregue a imagem que você deseja usar como botão
+imagem_botao = "./dados/imagem/icon/renda.png"
+
+# Exiba a imagem como um botão
+if st.button(""):
+    # Esta parte será executada quando o botão for clicado
+    st.write("Você clicou no botão!")
+
+# Exiba a imagem como uma imagem normal
+st.image(imagem_botao, use_column_width=True)
+
+# Adicione um link para outra página quando a imagem for clicada
+link_para_outra_pagina = "https://mapadesigualdade.streamlit.app/Renda"
+st.markdown(f'<a href="{link_para_outra_pagina}"><img src="{imagem_botao}"></a>', unsafe_allow_html=True)
