@@ -35,7 +35,7 @@ ge = "./dados/imagem/ufprge.png"
 cg = "./dados/imagem/cg.png"
 i1 = Image.open(km)
 i2 = Image.open(ge)
-i3 = Image.open(cg)
+#i3 = Image.open(cg)
 a1 = i1.resize((210, 100))
 a2 = i2.resize((200,100))
 #a3 = i3.resize((210,100))
@@ -76,12 +76,11 @@ with c2:
 
 with c3:
     st.image(cg)
-    st.markdown("""O Programa de Pós Graduação em Ciências Geodésicas (PPGCG)   
-                da Universidade Federal do Paraná (UFPR)   
-                está inserido na área das Ciências Geodésicas, que se   
-                constitui de um ramo das geociências incumbido da medição,   
-                representação e modelagem da superfície da Terra, incluindo   
-                o campo gravitacional e suas variações espaço-temporais.   
+    st.markdown("""O **Programa de Pós Graduação em Ciências Geodésicas (PPGCG)** da Universidade Federal do Paraná (UFPR)   
+                está inserido na área das Ciências Geodésicas, que se
+                constitui de um ramo das geociências incumbido da medição,
+                representação e modelagem da superfície da Terra, incluindo
+                o campo gravitacional e suas variações espaço-temporais.
                 As áreas de concentração do PPGCG são:   
                 • Cartografia e SIG   
                 • Geodésia e Levantamentos   
