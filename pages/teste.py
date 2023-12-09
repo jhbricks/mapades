@@ -7,20 +7,7 @@ from PIL import Image
 
 a = "./dados/imagem/icon/renda.png"
 
-img = Image.open(a)
-st.button(st.image(img))
 
-button_style = f"""
-                        <style>
-                        div.stButton > button {{
-                            background: url(data:a;base64,{encoded_image}) no-repeat;
-                            background-size: cover;
-                            background-position: center;
-                            height: 16em;
-                            width: 24em;
-                            box-shadow: 10px 10px 5px grey;
-                            margin: 15px;
-                        }}
-                        </style>
-                        """
-st.markdown(button_style, unsafe_allow_html=True)
+
+html = f"<a href='{'https://mapadesigualdade.streamlit.app/Renda'}'><img src='data:./dados/imagem/icon/renda.png;base64,{image_base64}'></a>"
+st.markdown(html, unsafe_allow_html=True)
