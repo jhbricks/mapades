@@ -11,21 +11,11 @@ st.write("# Mapa da Desigualdade")
 
 #st.sidebar.success("Selecione uma das páginas acima")
 
-st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à   
-            diversos fatores que influenciam a qualidade de vida da população, destacando as   
+st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
+            diversos fatores que influenciam a qualidade de vida da população, destacando as
             diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*""")   
 st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado**")
 
-logos = "./dados/imagem/3.png"
-
-st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
-            text-align: center;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 80%;}</style>""", unsafe_allow_html=True)
-with st.sidebar:
-    st.sidebar.image(logos)
 
 #####Estilo dos botões
 m = st.markdown("""
@@ -123,7 +113,7 @@ st.sidebar.info(
             \n [Gemaeco](https://gemaeco.ufpr.br/)
             \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
             \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
-#with st.sidebar:
-#    st.sidebar.image(logos)
+with st.sidebar:
+    st.sidebar.image(logos)
 
        
