@@ -24,6 +24,8 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             margin-left: auto;
             margin-right: auto;
             width: 80%;}</style>""", unsafe_allow_html=True)
+with st.sidebar:
+    st.sidebar.image(logos)
 
 #####Estilo dos botões
 m = st.markdown("""
@@ -121,7 +123,7 @@ st.sidebar.info(
             \n [Gemaeco](https://gemaeco.ufpr.br/)
             \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
             \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
-with st.sidebar:
-    st.sidebar.image(logos)
+#with st.sidebar:
+#    st.sidebar.image(logos)
 
        
