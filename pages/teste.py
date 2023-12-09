@@ -25,7 +25,7 @@ link_para_outra_pagina = "https://mapadesigualdade.streamlit.app/Renda"
 # Use st.markdown para exibir a imagem como um link clicável
 st.markdown(
     f"""<a href="{link_para_outra_pagina}">
-    <img src="data:image/png;base64,{imagem_base64}" width="50">
+    <img src="data:image/png;base64,{imagem_base64}" width="100">
     </a>""",
     unsafe_allow_html=True,
 )
