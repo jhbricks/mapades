@@ -32,7 +32,7 @@ colored_header(
 )
 km = "./dados/imagem/km.png"
 ge = "./dados/imagem/ufprge.png"
-cg = "https://cienciasgeodesicas.ufpr.br/wp-content/uploads/2021/03/PPGCG-assinatura-horizontal-colorida-1-priorit%C3%A1ria.png"
+cg = "./dados/imagem/cg.png"
 i1 = Image.open(km)
 i2 = Image.open(ge)
 i3 = Image.open(cg)
