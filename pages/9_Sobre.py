@@ -32,10 +32,13 @@ colored_header(
 )
 km = "./dados/imagem/km.png"
 ge = "./dados/imagem/ufprge.png"
+cg = "https://cienciasgeodesicas.ufpr.br/wp-content/uploads/2021/03/PPGCG-assinatura-horizontal-colorida-1-priorit%C3%A1ria.png"
 i1 = Image.open(km)
 i2 = Image.open(ge)
+i3 = Image.open(cg)
 a1 = i1.resize((210, 100))
 a2 = i2.resize((200,100))
+a3 = i3.resize((210,100))
 c1, c2, c3 = st.columns(3)
 
 with c1:
@@ -72,9 +75,14 @@ with c2:
                 \n Facebook: [UFPR](https://www.facebook.com/UFPRoficial)""",unsafe_allow_html=True)
 
 with c3:
-    st.markdown("""Programa de Pós Graduação em Ciências Geodésicas (PPGCG)   
-                da Universidade Federal do Paraná (UFPR).   
-                Áreas:   
+    st.image(a3)
+    st.markdown("""O Programa de Pós Graduação em Ciências Geodésicas (PPGCG)   
+                da Universidade Federal do Paraná (UFPR)   
+                está inserido na área das Ciências Geodésicas, que se   
+                constitui de um ramo das geociências incumbido da medição,   
+                representação e modelagem da superfície da Terra, incluindo   
+                o campo gravitacional e suas variações espaço-temporais.   
+                As áreas de concentração do PPGCG são:   
                 • Cartografia e SIG   
                 • Geodésia e Levantamentos   
                 • Sensoriamento Remoto e Fotogrametria
