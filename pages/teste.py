@@ -11,6 +11,7 @@ a = "./dados/imagem/icon/renda.png"
 #st.button(st.image(img))
 
 
+
 # Carregue a imagem que você deseja usar como botão
 imagem_botao = "./dados/imagem/icon/renda.png"
 
@@ -18,9 +19,7 @@ imagem_botao = "./dados/imagem/icon/renda.png"
 link_para_outra_pagina = "https://mapadesigualdade.streamlit.app/Renda"
 
 # Use st.image para exibir a imagem como um botão clicável
-if st.button(""):
-    # Redireciona para a outra página quando o botão é clicado
+if st.image(imagem_botao, use_column_width=True, caption="Clique para acessar a outra página"):
+    # Redireciona para a outra página quando a imagem é clicada
     st.markdown(f'[Clique aqui para acessar a outra página]({link_para_outra_pagina})')
 
-# Exibe a imagem normalmente
-st.image(imagem_botao, use_column_width=True)
