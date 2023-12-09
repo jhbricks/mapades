@@ -21,5 +21,16 @@ img = Image.open(a)
 #st.image(imagem_botao, use_column_width=True)
 
 # Adicione um link para outra página quando a imagem for clicada
+#link_para_outra_pagina = "https://mapadesigualdade.streamlit.app/Renda"
+#st.markdown(f'<a href="{link_para_outra_pagina}"><img src="{img}"></a>', unsafe_allow_html=True)
+
+#import streamlit as st
+
+# Carregue a imagem que você deseja usar como botão
+imagem_botao = "./dados/imagem/icon/renda.png"
+
+# Adicione um link para outra página quando a imagem for clicada
 link_para_outra_pagina = "https://mapadesigualdade.streamlit.app/Renda"
-st.markdown(f'<a href="{link_para_outra_pagina}"><img src="{img}"></a>', unsafe_allow_html=True)
+
+# Use st.markdown para exibir a imagem como um link
+st.markdown(f'[![Botão]({imagem_botao})]({link_para_outra_pagina})')
