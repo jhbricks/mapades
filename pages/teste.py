@@ -7,8 +7,16 @@ from PIL import Image
 
 a = "./dados/imagem/icon/renda.png"
 
-img = Image.open(a)
-st.button(st.image(img))
+#img = Image.open(a)
+#st.button(st.image(img))
 
-html = f"<a href='{'https://mapadesigualdade.streamlit.app/Renda'}'><img src='data:image/png;base64,{a}'></a>"
-st.markdown(html, unsafe_allow_html=True)
+
+
+st.sidebar.markdown(
+    """<a href="https://mapadesigualdade.streamlit.app/Renda">
+    <img src="data:image/png;base64,{}" width="50">
+    </a>""".format(
+        base64.b64encode(open(a, "rb").read()).decode()
+    ),
+    unsafe_allow_html=True,
+)
