@@ -82,9 +82,9 @@ with c3:
                 representação e modelagem da superfície da Terra, incluindo
                 o campo gravitacional e suas variações espaço-temporais.
                 As áreas de concentração do PPGCG são:   
-                • Cartografia e SIG   
-                • Geodésia e Levantamentos   
-                • Sensoriamento Remoto e Fotogrametria
+                    • Cartografia e SIG   
+                    • Geodésia e Levantamentos   
+                    • Sensoriamento Remoto e Fotogrametria
                 """)
     st.markdown("""**Contato:**
                 \n Site: [PPGCG](https://cienciasgeodesicas.ufpr.br/) 
