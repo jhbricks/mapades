@@ -11,7 +11,19 @@ st.write("# Mapa da Desigualdade")
 
 #st.sidebar.success("Selecione uma das páginas acima")
 
-st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado** ")
+st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à   
+            diversos fatores que influenciam a qualidade de vida da população, destacando as   
+            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*""")   
+st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado**")
+
+logos = "./dados/imagem/3.png"
+
+st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;}</style>""", unsafe_allow_html=True)
 
 #####Estilo dos botões
 m = st.markdown("""
@@ -102,11 +114,6 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             margin-left: auto;
             margin-right: auto;
             width: 80%;}</style>""", unsafe_allow_html=True)
-
-#with st.sidebar:
-    #st.sidebar.markdown("**Realização**")
-    #st.write("[Kurytiba Metropole] (http://https://www.kurytibametropole.org/)e [Gemaeco] (https://gemaeco.ufpr.br/)")
-    #st.sidebar.image(logos)
 
 st.sidebar.info(
             """**Realização**
