@@ -78,7 +78,7 @@ with st.sidebar:
 
 r = "./dados/imagem/realiz.png"
 i1 = Image.open(r)
-st.image(i1, width=600, use_column_width=True, style={"bottom": True})
+st.image(i1, width=600)
 
 
 
