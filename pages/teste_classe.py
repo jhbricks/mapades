@@ -20,9 +20,10 @@ st.write(texto_centralizado, unsafe_allow_html=True)
 
 #st.sidebar.success("Selecione uma das páginas acima")
 
-st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
+st.markdown("""<div style="display: flex; justify-content: center; align-items: center">
+            <h1>*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
             diversos fatores que influenciam a qualidade de vida da população, destacando as
-            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*""")   
+            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*</h1></div>""")   
 st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado**")
 
 def criar_botao(link, imagem, texto, largura=150):
