@@ -1,6 +1,11 @@
 import streamlit as st
 import base64
 
+st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
+st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
+st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
+
+
 def criar_botao(link, imagem, texto, largura=150):
     img_base64 = base64.b64encode(open(imagem, "rb").read()).decode()
     return f'<a href="{link}" target="_self"><img src="data:image/png;base64,{img_base64}" width="{largura}" alt="{texto}"></a>'
