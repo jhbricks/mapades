@@ -78,8 +78,13 @@ with st.sidebar:
 d1,d2 = st.columns(2)
 
 
-
 with d1:
+    st.markdown("""<style>[data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;}</style>""", unsafe_allow_html=True)
     i1 = Image.open(logos)
     st.image(i1)
 
