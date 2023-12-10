@@ -23,6 +23,6 @@ botoes = [
     ("https://mapadesigualdade.streamlit.app/Sobre", "./dados/imagem/icon/sobre.png", "Sobre"),
 ]
 
-colunas = st.columns(len(botoes) // 2)
+colunas = st.columns(len(botoes) // 5)
 for coluna, (link, imagem, texto) in zip(colunas, botoes):
     criar_botao(link, imagem, texto)
