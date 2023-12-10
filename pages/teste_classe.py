@@ -87,7 +87,7 @@ st.markdown(
             [data-testid="stSidebarNav"] {
                 background-image: url("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/3.png");
                 background-repeat: no-repeat;
-                padding-top: 120px;
+                padding-top: 50px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
