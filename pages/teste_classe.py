@@ -84,29 +84,10 @@ logo = Image.open(logos)
 a = logo.resize((50,60))
 
 #my_logo = add_logo(logos, width=50, height=60)
-st.sidebar.image(a)
-st.markdown(
-        """
-        <style>
-            [data-testid="stSidebarNav"] {
-                background-image: url(a);
-                background-repeat: no-repeat;
-                padding-top: 120px;
-                background-position: 20px 20px;
-            }
-            [data-testid="stSidebarNav"]::before {
-                content: "My Company Name";
-                margin-left: 20px;
-                margin-top: 20px;
-                font-size: 30px;
-                position: relative;
-                top: 100px;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
+with st.sidebar.container():
+    st.title('Cartografia para os ODS')
+    image = Image.open(logos)
+    st.image(image, width=50, use_column_width = False)
 
 #pé da página
 st.write("##")
