@@ -2,7 +2,7 @@ import streamlit as st
 import base64
 
 st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
-st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
+st.markdown("""<style>.block-container {padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
 st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 
 
