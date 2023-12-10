@@ -25,9 +25,9 @@ botoes = [
 
 num_colunas = 5  # Defina o número de colunas desejado
 num_botoes = len(botoes)
-num_linhas = (num_botoes + num_colunas - 1) // num_colunas
+num_linhas = 3
 
-colunas = st.columns(num_colunas)
+colunas = st.columns(5)
 for linha in range(num_linhas):
     with colunas:
         for coluna in range(num_colunas):
