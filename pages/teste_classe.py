@@ -76,31 +76,16 @@ with st.sidebar:
     st.sidebar.image(logos)
 
 
-import streamlit as st
 
-caminho_imagem = "./dados/imagem/realiz.png"
-
-# Adicionando o estilo CSS para centralizar e posicionar no final da página
-estilo_css = """
-<style>
-    [data-testid=stImage] {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-        position: fixed;
-        bottom: 0;
-        left: 10%;
-    }
-</style>
-"""
-
-# Adicionando o estilo ao Streamlit
-st.markdown(caminho_imagem,estilo_css, unsafe_allow_html=True)
-
-# Exibindo a imagem
-#st.image(caminho_imagem)
-
+i4 = "./dados/imagem/realiz.png"
+st.markdown("""<style> [data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            bottom:0;
+            width: 80%;}</style>""", unsafe_allow_html=True)
+st.image(i4)
 
 
 
