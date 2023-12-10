@@ -3,7 +3,8 @@ import base64
 
 def criar_botao(link, imagem, texto, largura=150):
     img_base64 = base64.b64encode(open(imagem, "rb").read()).decode()
-    return f'<a href="{link}" target="_self"><img src="data:image/png;base64,{img_base64}" width="{largura}" alt="{texto}"></a>'
+    return f'<a href="{link}" target="_self" style="margin: 10px;"><img src="data:image/png;base64,{img_base64}" width="{largura}" alt="{texto}"></a>'
+
 
 botoes = [
     ("https://mapadesigualdade.streamlit.app/Contextualização", "./dados/imagem/icon/contx.png", "Contextualização"),
