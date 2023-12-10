@@ -6,24 +6,15 @@ st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
 
 #Remove os espaços em branco no topo
 st.markdown("""<style> .block-container {padding-top: 3rem;}</style> """, unsafe_allow_html=True)
-
-#st.write("# Mapa da Desigualdade")
-
-texto_centralizado = """
-    <div style="display: flex; justify-content: center; align-items: center">
-        <h1>Mapa da Desigualdade</h1>
-    </div>
-"""
-
 # Exibir o texto centralizado
+texto_centralizado = """<div style="display: flex; justify-content: center; align-items: center"><h1>Mapa da Desigualdade</h1></div>"""
 st.write(texto_centralizado, unsafe_allow_html=True)
 
 #st.sidebar.success("Selecione uma das páginas acima")
 
-st.markdown("""<div style="display: flex; justify-content: center; align-items: center">
-            <h1>*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
+st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
             diversos fatores que influenciam a qualidade de vida da população, destacando as
-            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*</h1></div>""", unsafe_allow_html=True)   
+            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*""")   
 st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado**")
 
 def criar_botao(link, imagem, texto, largura=150):
@@ -51,7 +42,7 @@ botoes = [
 num_colunas = 5
 num_linhas = 3
 
-espacamento_colunas = 10  # Ajuste conforme necessário
+espacamento_colunas = 10  # Espaço entre colunas
 
 # Criar a estrutura em HTML com os botões
 html_colunas = ""
@@ -62,3 +53,23 @@ for linha in range(num_linhas):
 
 # Exibir a estrutura HTML
 st.write(html_colunas, unsafe_allow_html=True)
+
+
+#sidebar
+logos = "./dados/imagem/3.png"
+
+st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;}</style>""", unsafe_allow_html=True)
+
+st.sidebar.info(
+            """**Realização**
+            \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
+            \n [Gemaeco](https://gemaeco.ufpr.br/)
+            \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
+            \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
+with st.sidebar:
+    st.sidebar.image(logos)
