@@ -76,6 +76,10 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             margin-right: auto;
             width: 80%;}</style>""", unsafe_allow_html=True)
 
+st.sidebar.image(logos)
+
+
+
 #pé da página
 st.write("##")
 st.write("##")
