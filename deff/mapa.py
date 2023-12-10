@@ -59,8 +59,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
                   fullscreen_control=False,
                   attribution_control=True)
 
-  m.add_basemap("CartoDB.Positron")
-  m.add_basemap("CartoDB.DarkMatter")  
+  
   m.add_basemap("Esri.WorldGrayCanvas") 
   
 #######ADICIONAR O MERGE GDF
