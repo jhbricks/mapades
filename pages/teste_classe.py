@@ -6,7 +6,7 @@ st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
 
 #Remove os espaços em branco no topo
 st.markdown("""<style> .block-container {padding-top: 3rem;}</style> """, unsafe_allow_html=True)
-# Exibir o texto centralizado
+# Exibir o título centralizado
 texto_centralizado = """<div style="display: flex; justify-content: center; align-items: center"><h1>Mapa da Desigualdade</h1></div>"""
 st.write(texto_centralizado, unsafe_allow_html=True)
 
@@ -14,8 +14,14 @@ st.write(texto_centralizado, unsafe_allow_html=True)
 
 st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
             diversos fatores que influenciam a qualidade de vida da população, destacando as
-            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*""")   
-st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado**")
+            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba. 
+            O Mapa da Desigualdade está em construção, por enquanto apenas as categorias Contextualização,
+            Renda e Riqueza estão com indicadores.*""")   
+
+
+texto = """<div style="display: flex; justify-content: center; align-items: center"><h1><b>Selecione um dos temas abaixo ou abra o menu ao lado</b></h1></div>"""
+st.write(texto, unsafe_allow_html=True)
+
 
 def criar_botao(link, imagem, texto, largura=150):
     img_base64 = base64.b64encode(open(imagem, "rb").read()).decode()
@@ -65,11 +71,21 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             margin-right: auto;
             width: 80%;}</style>""", unsafe_allow_html=True)
 
-st.sidebar.info(
+with st.sidebar:
+    st.sidebar.image(logos)
+
+d1,d2 - st.columns(2)
+
+
+
+with d1:
+    i1 = Image.open(logos)
+    st.image(i1)
+
+with d2:
+    st.markdown(
             """**Realização**
             \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
             \n [Gemaeco](https://gemaeco.ufpr.br/)
             \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
             \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
-with st.sidebar:
-    st.sidebar.image(logos)
