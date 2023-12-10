@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from PIL import Image
-;
+
 a = "./dados/imagem/icon/renda.png"
 
 #img = Image.open(a)
