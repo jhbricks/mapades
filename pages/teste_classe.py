@@ -1,10 +1,20 @@
 import streamlit as st
 import base64
 
-st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
-st.markdown("""<style>.block-container {padding-top: 2rem,padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
-st.markdown("<h3><font size='7'  color='red'>Contextualização</font></font></h3>", unsafe_allow_html=True)
 
+st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
+
+#Remove os espaços em branco no topo
+st.markdown("""<style> .block-container {padding-top: 1rem;}</style> """, unsafe_allow_html=True)
+
+st.write("# Mapa da Desigualdade")
+
+#st.sidebar.success("Selecione uma das páginas acima")
+
+st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
+            diversos fatores que influenciam a qualidade de vida da população, destacando as
+            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.*""")   
+st.markdown("**Selecione um dos temas abaixo ou abra o menu ao lado**")
 
 def criar_botao(link, imagem, texto, largura=150):
     img_base64 = base64.b64encode(open(imagem, "rb").read()).decode()
