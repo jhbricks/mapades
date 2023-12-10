@@ -84,7 +84,7 @@ with d1:
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 80%;}</style>""", unsafe_allow_html=True)
+            width: 40%;}</style>""", unsafe_allow_html=True)
     i1 = Image.open(logos)
     st.image(i1)
 
