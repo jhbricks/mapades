@@ -181,8 +181,6 @@ def local (area):
     lon, lat = centroid.x[0], centroid.y[0]
     m = leafmap.Map(center=(lat, lon), zoom=10, draw_control=False, measure_control=False, fullscreen_control=False, attribution_control=True)
     m.add_basemap("Google Terrain")
-    m.add_basemap("Esri.WorldGrayCanvas") 
-
     m.add_geojson(url1, layer_name='Brasil', style_function=style_function)
     m.add_geojson(url, fields=['Município'], layer_name='Paraná', style_function=style1)
     legend_dict = {'Brasil': '#66c2a5','Paraná' : '#fc8d62'}
