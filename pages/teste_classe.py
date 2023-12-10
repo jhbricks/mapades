@@ -109,7 +109,7 @@ estilo_css = """
 st.markdown(estilo_css, unsafe_allow_html=True)
 
 # Exibindo a imagem com a classe CSS
-st.markdown(f"""<a href="{link}" target="_self"><img class="centralizar-imagem" src="data:image/png;base64,{img}" width="200"></a>""",unsafe_allow_html=True)
+st.markdown(f"""<a href="{link}" target="_self"><img class="centralizar-imagem" src="data:image/png;base64,{img}" width="300"></a>""",unsafe_allow_html=True)
 
 
 
