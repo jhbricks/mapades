@@ -99,7 +99,7 @@ i4 = "./dados/imagem/realiz.png"
 img = base64.b64encode(open(i4, "rb").read()).decode()
 link = "https://mapadesigualdade.streamlit.app/Sobre"
 
-# Adicionando o estilo CSS para centralizar a imagem
+#centralizar a imagem
 estilo_css = """
 <style>
     .centralizar-imagem {
@@ -109,28 +109,10 @@ estilo_css = """
     }
 </style>
 """
-
-# Adicionando o estilo ao Streamlit
 st.markdown(estilo_css, unsafe_allow_html=True)
-
-# Exibindo a imagem com a classe CSS
 st.markdown(f"""<a href="{link}" target="_self"><img class="centralizar-imagem" src="data:image/png;base64,{img}" width="400"></a>""",unsafe_allow_html=True)
 
 
 
-from streamlit_option_menu import option_menu
-import streamlit.components.v1 as html
-
-with st.sidebar:
-    choose = option_menu("Mapa da Desigualdade", ["Início", "Contextualização", "Renda", "Riqueza", "Segurança"],
-                         icons=['house', 'camera fill', 'kanban', 'book','person lines fill'],
-                         menu_icon="app-indicator", default_index=0,
-                         styles={
-        "container": {"padding": "5!important", "background-color": "#fafafa"},
-        "icon": {"color": "orange", "font-size": "25px"}, 
-        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "#02ab21"},
-    }
-    )
 
 
