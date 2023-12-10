@@ -3,7 +3,7 @@ import base64
 
 def criar_botao(link, imagem, texto, largura=150):
     img_base64 = base64.b64encode(open(imagem, "rb").read()).decode()
-    return f'<a href="{link}" target="_self"><img src="data:image/png;base64,{img_base64}" width="{largura}"></a>'
+    return f'<a href="{link}" target="_self"><img src="data:image/png;base64,{img_base64}" width="{largura}" alt="{texto}"></a>'
 
 botoes = [
     ("https://mapadesigualdade.streamlit.app/Contextualização", "./dados/imagem/icon/contx.png", "Contextualização"),
@@ -27,5 +27,8 @@ num_colunas = 5
 num_linhas = 3
 
 for linha in range(num_linhas):
-    botoes_linha = botoes[linha * num_colunas: (linha + 1) * num_colunas]
-    st.markdown(" ".join([criar_botao(*botao) for botao in botoes_linha]), unsafe_allow_html=True)
+    colunas_botao = st.columns(num_colunas)
+    for coluna in colunas_botao:
+        indice = linha * num_colunas + colunas_botao.index(coluna)
+        if indice < len(botoes):
+            coluna.markdown(criar_botao(*botoes[indice]), unsafe_allow_html=True)
