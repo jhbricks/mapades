@@ -80,6 +80,32 @@ with st.sidebar:
     st.sidebar.image(logos)
 
 
+
+st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url("./dados/imagem/3.png");
+                background-repeat: no-repeat;
+                padding-top: 120px;
+                background-position: 20px 20px;
+            }
+            [data-testid="stSidebarNav"]::before {
+                content: "Mapa da Desigualdade";
+                margin-left: 1px;
+                margin-top: 1px;
+                font-size: 10px;
+                position: relative;
+                top: 100px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,)
+
+
+
+
+#pé da página
 st.write("##")
 st.write("##")
 
