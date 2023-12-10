@@ -96,10 +96,10 @@ estilo_css = """
 """
 
 # Adicionando o estilo ao Streamlit
-st.markdown(estilo_css, unsafe_allow_html=True)
+st.markdown(caminho_imagem,estilo_css, unsafe_allow_html=True)
 
 # Exibindo a imagem
-st.image(caminho_imagem, use_container_width=True)
+st.image(caminho_imagem)
 
 
 
