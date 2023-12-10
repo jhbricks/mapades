@@ -74,7 +74,7 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     st.sidebar.image(logos)
 
-d1,d2 - st.columns(2)
+d1,d2 = st.columns(2)
 
 
 
