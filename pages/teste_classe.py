@@ -75,7 +75,27 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     st.sidebar.image(logos)
 
-km = "./dados/imagem/realiz.png"
-i1 = Image.open(km)
+#r = "./dados/imagem/realiz.png"
+#i1 = Image.open(r)
 
-st.image(i1)
+#st.image(i1)
+
+
+# Caminho da imagem
+caminho_imagem = "./dados/imagem/realiz.png"
+
+# Carregar a imagem
+imagem = Image.open(caminho_imagem)
+
+# Redimensionar a imagem
+nova_largura = 200  # Defina o tamanho desejado
+nova_altura = int(imagem.size[1] * (nova_largura / float(imagem.size[0])))
+imagem_redimensionada = imagem.resize((nova_largura, nova_altura))
+
+# Exibir a imagem no final da página
+st.markdown(
+    f'<div style="position: fixed; bottom: 0; width: 100%; display: flex; justify-content: flex-end;">'
+    f'<img src="data:image/png;base64,{Image.to_b64(imagem_redimensionada)}" alt="imagem">'
+    f'</div>',
+    unsafe_allow_html=True
+)
