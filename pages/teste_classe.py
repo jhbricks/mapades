@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+from PIL import Image
 
 
 st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
@@ -14,7 +15,7 @@ st.write(texto_centralizado, unsafe_allow_html=True)
 
 st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
             diversos fatores que influenciam a qualidade de vida da população, destacando as
-            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba. 
+            diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.    
             O Mapa da Desigualdade está em construção, por enquanto apenas as categorias Contextualização,
             Renda e Riqueza estão com indicadores.*""")   
 
