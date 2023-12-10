@@ -77,8 +77,16 @@ with st.sidebar:
 
 
 r = "./dados/imagem/realiz.png"
-i1 = Image.open(r)
-st.image(i1, width=600)
+#i1 = Image.open(r)
+#st.image(i1, width=600)
+st.markdown("""<style> [data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;}</style>""", unsafe_allow_html=True)
+with st.image:
+    st.image(r)
 
 
 
