@@ -75,23 +75,21 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     st.sidebar.image(logos)
 
-d1,d2 = st.columns(2)
+d1,d2,d3 = st.columns(3)
+km = "./dados/imagem/km.png"
+ge = "./dados/imagem/ufprge.png"
+cg = "./dados/imagem/cg.png"
+i1 = Image.open(km)
+i2 = Image.open(ge)
+i3 = Image.open(cg)
+a1 = i1.resize((210, 100))
+a2 = i2.resize((200,100))
+#a3 = i3.resize((210,100))
+c1, c2, c3 = st.columns(3)
 
-
-with d1:
-    st.markdown("""<style>[data-testid=stImage]{
-            text-align: center;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 40%;}</style>""", unsafe_allow_html=True)
-    i1 = Image.open(logos)
-    st.image(i1)
-
-with d2:
-    st.markdown(
-            """**Realização**
-            \n [Kurytiba Metropole](https://www.kurytibametropole.org/) 
-            \n [Gemaeco](https://gemaeco.ufpr.br/)
-            \n [PPGCG](https://cienciasgeodesicas.ufpr.br/)
-            \n [Mais informações](https://mapadesigualdade.streamlit.app/Sobre)""")
+with c1:
+    st.image(a1)
+with c2:
+    st.image(a2)
+with c3:
+    st.image(a3)
