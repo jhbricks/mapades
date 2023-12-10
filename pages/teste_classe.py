@@ -81,7 +81,7 @@ with st.sidebar:
 
 
 logo = Image.open(logos)
-a = logo.resize(50)
+a = logo.resize((50,60))
 
 #my_logo = add_logo(logos, width=50, height=60)
 st.sidebar.image(a)
