@@ -86,7 +86,7 @@ st.markdown("""<style> [data-testid=stImage]{
             margin-left: auto;
             margin-right: auto;
             bottom:0;
-            width: 70%;}</style>""", unsafe_allow_html=True)
+            width: 50%;}</style>""", unsafe_allow_html=True)
 st.image(i4)
 
 
