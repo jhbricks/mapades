@@ -34,7 +34,7 @@ for linha in range(num_linhas):
     html_colunas += '<div style="display: flex; flex-direction: row; gap: 20px; justify-content: center;">'
     html_colunas += " ".join([criar_botao(*botoes[linha * num_colunas + i]) for i in range(num_colunas)])
     html_colunas += '</div>'
-    html_colunas += '<hr style="margin: 20px;">'  # Adicionar espaçamento entre linhas
+    html_colunas += '<hr style="margin: 10px;">'  # Adicionar espaçamento entre linhas
 
 # Exibir a estrutura HTML
 st.write(html_colunas, unsafe_allow_html=True)
