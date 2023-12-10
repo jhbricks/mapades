@@ -75,34 +75,9 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     st.sidebar.image(logos)
 
-#r = "./dados/imagem/realiz.png"
-#i1 = Image.open(r)
+r = "./dados/imagem/realiz.png"
+i1 = Image.open(r)
 
-#st.image(i1)
+st.image(i1,width='70%')
 
 
-import streamlit as st
-from PIL import Image
-import base64
-
-# Caminho da imagem
-caminho_imagem = "./dados/imagem/realiz.png"
-
-# Carregar a imagem
-imagem = Image.open(caminho_imagem)
-
-# Redimensionar a imagem
-nova_largura = 200  # Defina o tamanho desejado
-nova_altura = int(imagem.size[1] * (nova_largura / float(imagem.size[0])))
-imagem_redimensionada = imagem.resize((nova_largura, nova_altura))
-
-# Converter a imagem para base64
-imagem_base64 = base64.b64encode(imagem_redimensionada.tobitmap()).decode()
-
-# Exibir a imagem no final da página
-st.markdown(
-    f'<div style="position: fixed; bottom: 0; width: 100%; display: flex; justify-content: flex-end;">'
-    f'<img src="data:image/png;base64,{imagem_base64}" alt="imagem">'
-    f'</div>',
-    unsafe_allow_html=True
-)
