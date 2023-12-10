@@ -10,7 +10,7 @@ st.markdown("""<style> .block-container {padding-top: 3rem;}</style> """, unsafe
 #st.write("# Mapa da Desigualdade")
 
 texto_centralizado = """
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="display: flex; justify-content: center; align-items: center">
         <h1>Mapa da Desigualdade</h1>
     </div>
 """
