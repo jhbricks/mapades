@@ -4,25 +4,11 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from PIL import Image
-
-a = "./dados/imagem/icon/renda.png"
-
-#img = Image.open(a)
-#st.button(st.image(img))
-
-
-
-import streamlit as st
 import base64
 
-# Carregue a imagem que você deseja usar como botão
-img = "./dados/imagem/icon/renda.png"
-img_b1 = base64.b64encode(open(img, "rb").read()).decode()
-link = "https://mapadesigualdade.streamlit.app/Renda"
+c1,c2,c3,c4,c5 = st.columns(5)
 
-s,d,f,g,h = st.columns(5)
-
-with s:
+with c1:
     img1 = "./dados/imagem/icon/contx.png"
     img_b1 = base64.b64encode(open(img1, "rb").read()).decode()
     link1 = "https://mapadesigualdade.streamlit.app/Contextualização"
@@ -38,7 +24,7 @@ with s:
     link3 = "https://mapadesigualdade.streamlit.app/Riqueza"
     st.markdown(f"""<a href="{link3}" target="_self"><img src="data:image/png;base64,{img_b3}" width="150"></a>""",unsafe_allow_html=True)
 
-with d:
+with c2:
     img4 = "./dados/imagem/icon/seg.png"
     img_b4 = base64.b64encode(open(img4, "rb").read()).decode()
     link4 = "https://mapadesigualdade.streamlit.app/Segurança"
@@ -51,11 +37,10 @@ with d:
     
     img6 = "./dados/imagem/icon/saude.png"
     img_b6 = base64.b64encode(open(img6, "rb").read()).decode()
-    link6 = "https://mapadesigualdade.streamlit.app/Saude"
+    link6 = "https://mapadesigualdade.streamlit.app/Saúde"
     st.markdown(f"""<a href="{link6}" target="_self"><img src="data:image/png;base64,{img_b6}" width="150"></a>""",unsafe_allow_html=True)
     
-with f:
-# Use st.markdown para exibir a imagem como um link clicável
+with c3:
     img8 = "./dados/imagem/icon/mob.png"
     img_b8 = base64.b64encode(open(img8, "rb").read()).decode()
     link4 = "https://mapadesigualdade.streamlit.app/Mobilidade"
@@ -71,7 +56,7 @@ with f:
     link7 = "https://mapadesigualdade.streamlit.app/Cultura"
     st.markdown(f"""<a href="{link7}" target="_self"><img src="data:image/png;base64,{img_b7}" width="150"></a>""",unsafe_allow_html=True)
 
-with g:
+with c4:
     img0 = "./dados/imagem/icon/mais.png"
     img_b0 = base64.b64encode(open(img0, "rb").read()).decode()
     link0 = "https://mapadesigualdade.streamlit.app/Mais_temas"
@@ -87,7 +72,7 @@ with g:
     link11 = "https://mapadesigualdade.streamlit.app/Município"
     st.markdown(f"""<a href="{link11}" target="_self"><img src="data:image/png;base64,{img_b6}" width="150"></a>""",unsafe_allow_html=True)
 
-with h:
+with c5:
     img12 = "./dados/imagem/icon/aju.png"
     img_b12 = base64.b64encode(open(img12, "rb").read()).decode()
     link12 = "https://mapadesigualdade.streamlit.app/Ajuda"
