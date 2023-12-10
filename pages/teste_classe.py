@@ -75,21 +75,7 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     st.sidebar.image(logos)
 
-d1,d2,d3 = st.columns(3)
-km = "./dados/imagem/km.png"
-ge = "./dados/imagem/ufprge.png"
-cg = "./dados/imagem/cg.png"
+km = "./dados/imagem/realiz.png"
 i1 = Image.open(km)
-i2 = Image.open(ge)
-i3 = Image.open(cg)
-a1 = i1.resize((210, 100))
-a2 = i2.resize((200,100))
-#a3 = i3.resize((210,100))
-c1, c2, c3 = st.columns(3)
 
-with c1:
-    st.image(a1)
-with c2:
-    st.image(a2)
-with c3:
-    st.image(i3)
+st.image(i1)
