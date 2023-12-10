@@ -81,26 +81,8 @@ with st.sidebar:
 
 
 
-st.markdown(
-        """
-        <style>
-            [data-testid="stSidebarNav"] {
-                background-image: url("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/3.png");
-                background-repeat: no-repeat;
-                padding-top: 100px;
-                background-position: 10px 10px;
-            }
-            [data-testid="stSidebarNav"]::before {
-                content: "Mapa da Desigualdade";
-                margin-left: 1px;
-                margin-top: 1px;
-                font-size: 20px;
-                position: relative;
-                top: 100px;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,)
+st.sidebar.image(logos, width=50, height=60)) 
+
 
 
 
