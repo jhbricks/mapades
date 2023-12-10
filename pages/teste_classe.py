@@ -20,7 +20,7 @@ st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores
             Renda e Riqueza estão com indicadores.*""")   
 
 
-texto = """<div style="display: flex; justify-content: center; align-items: center"><h1 style="font-size: 20px;"><b>Selecione um dos temas abaixo ou abra o menu ao lado</b></h1></div>"""
+texto = """<div style="display: flex; justify-content: center; align-items: center"><h1 style="font-size: 15px;"><b>Selecione um dos temas abaixo ou abra o menu ao lado:</b></h1></div>"""
 st.write(texto, unsafe_allow_html=True)
 
 
