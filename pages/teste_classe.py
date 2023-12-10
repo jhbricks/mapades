@@ -12,7 +12,7 @@ botoes = [
     ("https://mapadesigualdade.streamlit.app/Mais_temas", "./dados/imagem/icon/mais.png", "Mais Temas"),
     ("https://mapadesigualdade.streamlit.app/Ajuda", "./dados/imagem/icon/aju.png", "Ajuda"),
     ("https://mapadesigualdade.streamlit.app/Renda", "./dados/imagem/icon/renda.png", "Renda"),
-    ("https://mapadesigualdade.streamlit.app/Meio_ambiente", "./dados/imagem/icon/amb.png", "Meio Ambiente"),
+    ("https://mapadesigualdade.streamlit.app/Meio_Ambiente", "./dados/imagem/icon/amb.png", "Meio Ambiente"),
     ("https://mapadesigualdade.streamlit.app/Educação", "./dados/imagem/icon/edu.png", "Educação"),
     ("https://mapadesigualdade.streamlit.app/Município", "./dados/imagem/icon/mun.png", "Município"),
     ("https://mapadesigualdade.streamlit.app/Classificar", "./dados/imagem/icon/class.png", "Classificar"),
@@ -28,8 +28,7 @@ num_linhas = 3
 
 colunas = st.columns(num_colunas)
 for linha in range(num_linhas):
-    with colunas:
-        for coluna in range(num_colunas):
-            indice = linha * num_colunas + coluna
-            if indice < len(botoes):
-                criar_botao(*botoes[indice])
+    for coluna in range(num_colunas):
+        indice = linha * num_colunas + coluna
+        if indice < len(botoes):
+            criar_botao(*botoes[indice])
