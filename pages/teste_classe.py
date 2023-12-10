@@ -75,14 +75,10 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
 with st.sidebar:
     st.sidebar.image(logos)
 
-
-st.markdown("""   
-               
-               
-               
-               
-               """)
-
+st.write("##")
+st.write("##")
+st.write("##")
+st.write("##")
 r = "./dados/imagem/realiz.png"
 i1 = Image.open(r)
 st.image(i1,width=600)
