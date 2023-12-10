@@ -5,7 +5,7 @@ import base64
 st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
 
 #Remove os espaços em branco no topo
-st.markdown("""<style> .block-container {padding-top: 2rem;}</style> """, unsafe_allow_html=True)
+st.markdown("""<style> .block-container {padding-top: 3rem;}</style> """, unsafe_allow_html=True)
 
 st.write("# Mapa da Desigualdade")
 
