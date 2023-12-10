@@ -6,7 +6,7 @@ from PIL import Image
 st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
 
 #Remove os espaços em branco no topo
-st.markdown("""<style> .block-container {padding-top: 3rem;}</style> """, unsafe_allow_html=True)
+st.markdown("""<style> .block-container {padding-top: 3rem;padding-bottom: 1rem;}</style> """, unsafe_allow_html=True)
 # Exibir o título centralizado
 texto_centralizado = """<div style="display: flex; justify-content: center; align-items: center"><h1>Mapa da Desigualdade</h1></div>"""
 st.write(texto_centralizado, unsafe_allow_html=True)
@@ -76,6 +76,8 @@ with st.sidebar:
     st.sidebar.image(logos)
 
 
+st.write("##")
+st.write("##")
 
 i4 = "./dados/imagem/realiz.png"
 st.markdown("""<style> [data-testid=stImage]{
@@ -84,7 +86,7 @@ st.markdown("""<style> [data-testid=stImage]{
             margin-left: auto;
             margin-right: auto;
             bottom:0;
-            width: 80%;}</style>""", unsafe_allow_html=True)
+            width: 70%;}</style>""", unsafe_allow_html=True)
 st.image(i4)
 
 
