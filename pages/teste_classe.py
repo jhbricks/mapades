@@ -29,6 +29,11 @@ num_linhas = 3
 
 espacamento_colunas = 10  # Ajuste conforme necessário
 
+# Criar a estrutura em HTML com os botões
+html_colunas = ""
 for linha in range(num_linhas):
-    colunas_botao = st.markdown(" ".join([criar_botao(*botoes[linha * num_colunas + i]) for i in range(num_colunas)]), unsafe_allow_html=True)
-    colunas_botao.empty()  # Adiciona um espaçamento entre as linhas
+    html_colunas += " ".join([criar_botao(*botoes[linha * num_colunas + i]) for i in range(num_colunas)])
+    html_colunas += '<div style="width: 100%; height: 10px;"></div>'  # Adicionar espaçamento entre linhas
+
+# Exibir a estrutura HTML
+st.markdown(html_colunas, unsafe_allow_html=True)
