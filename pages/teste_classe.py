@@ -76,7 +76,13 @@ with st.sidebar:
     st.sidebar.image(logos)
 
 
-st.write("##")
+st.markdown("""   
+               
+               
+               
+               
+               """)
+
 r = "./dados/imagem/realiz.png"
 i1 = Image.open(r)
 st.image(i1,width=600)
