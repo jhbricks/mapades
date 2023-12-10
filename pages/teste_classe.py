@@ -99,7 +99,7 @@ estilo_css = """
 st.markdown(caminho_imagem,estilo_css, unsafe_allow_html=True)
 
 # Exibindo a imagem
-st.image(caminho_imagem)
+#st.image(caminho_imagem)
 
 
 
