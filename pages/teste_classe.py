@@ -86,19 +86,26 @@ a = logo.resize((50,60))
 #my_logo = add_logo(logos, width=50, height=60)
 st.sidebar.image(a)
 st.markdown(
-        f"""
+        """
         <style>
-            [data-testid="stSidebarNav"] {{
-                background-image: url('data:image/png;base64,{a}');
+            [data-testid="stSidebarNav"] {
+                background-image: url(a);
                 background-repeat: no-repeat;
-                padding-top: 50px;
-                background-position: 100px 50px;
-            }}
+                padding-top: 120px;
+                background-position: 20px 20px;
+            }
+            [data-testid="stSidebarNav"]::before {
+                content: "My Company Name";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 30px;
+                position: relative;
+                top: 100px;
+            }
         </style>
         """,
         unsafe_allow_html=True,
     )
-
 
 
 #pé da página
