@@ -49,42 +49,42 @@ with d:
     link5 = "https://mapadesigualdade.streamlit.app/Meio_Ambiente"
     st.markdown(f"""<a href="{link5}" target="_self"><img src="data:image/png;base64,{img_b5}" width="150"></a>""",unsafe_allow_html=True)
     
-    img6 = "./dados/imagem/icon/edu.png"
+    img6 = "./dados/imagem/icon/saude.png"
     img_b6 = base64.b64encode(open(img6, "rb").read()).decode()
-    link6 = "https://mapadesigualdade.streamlit.app/Educação"
+    link6 = "https://mapadesigualdade.streamlit.app/Saude"
     st.markdown(f"""<a href="{link6}" target="_self"><img src="data:image/png;base64,{img_b6}" width="150"></a>""",unsafe_allow_html=True)
     
 with f:
 # Use st.markdown para exibir a imagem como um link clicável
-    img8 = "./dados/imagem/icon/seg.png"
+    img8 = "./dados/imagem/icon/mob.png"
     img_b8 = base64.b64encode(open(img1, "rb").read()).decode()
-    link4 = "https://mapadesigualdade.streamlit.app/Segurança"
+    link4 = "https://mapadesigualdade.streamlit.app/Mobilidade"
     st.markdown(f"""<a href="{link4}" target="_self"><img src="data:image/png;base64,{img_b4}" width="150"></a>""",unsafe_allow_html=True)
     
-    img5 = "./dados/imagem/icon/amb.png"
+    img5 = "./dados/imagem/icon/edu.png"
     img_b5 = base64.b64encode(open(img5, "rb").read()).decode()
-    link5 = "https://mapadesigualdade.streamlit.app/Meio_Ambiente"
+    link5 = "https://mapadesigualdade.streamlit.app/Educação"
     st.markdown(f"""<a href="{link5}" target="_self"><img src="data:image/png;base64,{img_b5}" width="150"></a>""",unsafe_allow_html=True)
     
-    img7 = "./dados/imagem/icon/mais.png"
+    img7 = "./dados/imagem/icon/cult.png"
     img_b7 = base64.b64encode(open(img7, "rb").read()).decode()
-    link7 = "https://mapadesigualdade.streamlit.app/Riqueza"
+    link7 = "https://mapadesigualdade.streamlit.app/Cultura"
     st.markdown(f"""<a href="{link7}" target="_self"><img src="data:image/png;base64,{img_b7}" width="150"></a>""",unsafe_allow_html=True)
 
 with g:
-    img0 = "./dados/imagem/icon/aju.png"
+    img0 = "./dados/imagem/icon/mais.png"
     img_b0 = base64.b64encode(open(img0, "rb").read()).decode()
-    link0 = "https://mapadesigualdade.streamlit.app/Ajuda"
+    link0 = "https://mapadesigualdade.streamlit.app/Mais_temas"
     st.markdown(f"""<a href="{link0}" target="_self"><img src="data:image/png;base64,{img_b0}" width="150"></a>""",unsafe_allow_html=True)
 
-    img7 = "./dados/imagem/icon/mais.png"
+    img7 = "./dados/imagem/icon/comp.png"
     img_b7 = base64.b64encode(open(img7, "rb").read()).decode()
-    link7 = "https://mapadesigualdade.streamlit.app/Mais_temas"
+    link7 = "https://mapadesigualdade.streamlit.app/Comparar"
     st.markdown(f"""<a href="{link7}" target="_self"><img src="data:image/png;base64,{img_b7}" width="150"></a>""",unsafe_allow_html=True)
 
-    img6 = "./dados/imagem/icon/edu.png"
+    img6 = "./dados/imagem/icon/mun.png"
     img_b6 = base64.b64encode(open(img1, "rb").read()).decode()
-    link6 = "https://mapadesigualdade.streamlit.app/Educação"
+    link6 = "https://mapadesigualdade.streamlit.app/Município"
     st.markdown(f"""<a href="{link6}" target="_self"><img src="data:image/png;base64,{img_b6}" width="150"></a>""",unsafe_allow_html=True)
 
 with h:
@@ -93,12 +93,12 @@ with h:
     link0 = "https://mapadesigualdade.streamlit.app/Ajuda"
     st.markdown(f"""<a href="{link0}" target="_self"><img src="data:image/png;base64,{img_b0}" width="150"></a>""",unsafe_allow_html=True)
 
-    img7 = "./dados/imagem/icon/mais.png"
+    img7 = "./dados/imagem/icon/class.png"
     img_b7 = base64.b64encode(open(img7, "rb").read()).decode()
-    link7 = "https://mapadesigualdade.streamlit.app/Mais_temas"
+    link7 = "https://mapadesigualdade.streamlit.app/Classificar"
     st.markdown(f"""<a href="{link7}" target="_self"><img src="data:image/png;base64,{img_b7}" width="150"></a>""",unsafe_allow_html=True)
 
-    img6 = "./dados/imagem/icon/edu.png"
+    img6 = "./dados/imagem/icon/sobre.png"
     img_b6 = base64.b64encode(open(img1, "rb").read()).decode()
-    link6 = "https://mapadesigualdade.streamlit.app/Educação"
+    link6 = "https://mapadesigualdade.streamlit.app/Sobre"
     st.markdown(f"""<a href="{link6}" target="_self"><img src="data:image/png;base64,{img_b6}" width="150"></a>""",unsafe_allow_html=True)
