@@ -85,8 +85,7 @@ st.markdown("""<style> [data-testid=stImage]{
             margin-left: auto;
             margin-right: auto;
             width: 80%;}</style>""", unsafe_allow_html=True)
-with st.image:
-    st.image(r)
+st.image(r)
 
 
 
