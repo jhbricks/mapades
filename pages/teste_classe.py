@@ -79,15 +79,39 @@ with st.sidebar:
 st.write("##")
 st.write("##")
 
+#i4 = "./dados/imagem/realiz.png"
+#st.markdown("""<style> [data-testid=stImage]{
+#            text-align: center;
+#            display: block;
+#            margin-left: auto;
+#            margin-right: auto;
+#            bottom:0;
+#            width: 40%;}</style>""", unsafe_allow_html=True)
+#st.image(i4)
+
+
 i4 = "./dados/imagem/realiz.png"
-st.markdown("""<style> [data-testid=stImage]{
-            text-align: center;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            bottom:0;
-            width: 50%;}</style>""", unsafe_allow_html=True)
-st.image(i4)
+img = base64.b64encode(open(i4, "rb").read()).decode()
+link = "https://mapadesigualdade.streamlit.app/Sobre"
+
+# Adicionando o estilo CSS para centralizar a imagem
+estilo_css = """
+<style>
+    .centralizar-imagem {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+"""
+
+# Adicionando o estilo ao Streamlit
+st.markdown(estilo_css, unsafe_allow_html=True)
+
+# Exibindo a imagem com a classe CSS
+st.markdown(f"""<a href="{link}" target="_self"><img class="centralizar-imagem" src="data:image/png;base64,{img}" width="40"></a>""",unsafe_allow_html=True)
+
+
 
 
 
