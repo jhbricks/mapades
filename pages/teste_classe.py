@@ -87,8 +87,8 @@ st.markdown(
             [data-testid="stSidebarNav"] {
                 background-image: url("https://raw.githubusercontent.com/jhbricks/mapades/main/dados/imagem/3.png");
                 background-repeat: no-repeat;
-                padding-top: 50px;
-                background-position: 20px 20px;
+                padding-top: 100px;
+                background-position: 10px 10px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "Mapa da Desigualdade";
