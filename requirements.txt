@@ -18,3 +18,5 @@ libpysal
 classify
 
 fiona
+
+streamlit-option-menu
