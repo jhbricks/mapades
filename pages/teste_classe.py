@@ -85,7 +85,19 @@ a = logo.resize((50,60))
 
 #my_logo = add_logo(logos, width=50, height=60)
 st.sidebar.image(a)
-
+st.markdown(
+        f"""
+        <style>
+            [data-testid="stSidebarNav"] {{
+                background-image: url('data:image/png;base64,{a}');
+                background-repeat: no-repeat;
+                padding-top: 50px;
+                background-position: 100px 50px;
+            }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 
