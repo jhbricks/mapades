@@ -26,6 +26,4 @@ botoes = [
 num_colunas = 5
 num_linhas = 3
 
-for linha in range(num_linhas):
-    botoes_linha = botoes(3)
-    st.markdown(" ".join([criar_botao(*botao) for botao in botoes_linha]), unsafe_allow_html=True)
+st.markdown(" ".join([criar_botao(*botao) for botao in num_linhas]), unsafe_allow_html=True)
