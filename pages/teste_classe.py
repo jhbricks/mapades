@@ -81,8 +81,8 @@ with st.sidebar:
 
 
 
-st.sidebar.image(logos, width=50, height=60)
-
+my_logo = add_logo(logos, width=50, height=60)
+st.sidebar.image(my_logo)
 
 
 
