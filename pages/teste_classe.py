@@ -76,19 +76,6 @@ st.markdown("""<style>[data-testid=stSidebar] [data-testid=stImage]{
             margin-right: auto;
             width: 80%;}</style>""", unsafe_allow_html=True)
 
-with st.sidebar:
-    st.sidebar.image(logos)
-
-
-logo = Image.open(logos)
-a = logo.resize((50,60))
-
-#my_logo = add_logo(logos, width=50, height=60)
-with st.sidebar.container():
-    st.title('Cartografia para os ODS')
-    image = Image.open(logos)
-    st.image(image, width=50, use_column_width = False)
-
 #pé da página
 st.write("##")
 st.write("##")
