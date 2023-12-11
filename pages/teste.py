@@ -78,20 +78,38 @@ else:
         # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
         fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],
                              name='City Indicator', marker_color='indianred'),
-                      row=row, col=col, text=[selected_df[column].values[0]], textposition='auto')
+                      row=row, col=col)
 
         # Adicionar barras para o valor médio (com a cor cinza)
         fig.add_trace(go.Bar(x=['Mean'], y=[mean_values[column]],
                              name='Mean', marker_color='gray'),
-                      row=row, col=col, text=[mean_values[column]], textposition='auto')
+                      row=row, col=col)
 
         # Adicionar barras de erro para os valores mínimo e máximo (com a cor cinza)
         fig.add_trace(go.Bar(x=['Min'], y=[min_values[column]],
                              name='Min', marker_color='lightgray'),
-                      row=row, col=col, text=[min_values[column]], textposition='auto')
+                      row=row, col=col)
         fig.add_trace(go.Bar(x=['Max'], y=[max_values[column]],
                              name='Max', marker_color='darkgray'),
-                      row=row, col=col, text=[max_values[column]], textposition='auto')
+                      row=row, col=col)
+
+        # Adicionar anotações aos gráficos
+        fig.add_annotation(text=f"{selected_df[column].values[0]:,.2f}",
+                           x=[selected_df['Município'].values[0]],
+                           y=[selected_df[column].values[0]],
+                           showarrow=False, row=row, col=col)
+        fig.add_annotation(text=f"{mean_values[column]:,.2f}",
+                           x=['Mean'],
+                           y=[mean_values[column]],
+                           showarrow=False, row=row, col=col)
+        fig.add_annotation(text=f"{min_values[column]:,.2f}",
+                           x=['Min'],
+                           y=[min_values[column]],
+                           showarrow=False, row=row, col=col)
+        fig.add_annotation(text=f"{max_values[column]:,.2f}",
+                           x=['Max'],
+                           y=[max_values[column]],
+                           showarrow=False, row=row, col=col)
 
         # Definir rótulos dos eixos
         fig.update_xaxes(title_text='Município', row=row, col=col)
