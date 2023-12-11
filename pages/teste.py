@@ -66,7 +66,7 @@ else:
     # Configurar a layout do gráfico para organizar em 3 colunas
     cols = 3
     rows = (len(indicators) // cols) + (len(indicators) % cols)
-    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators, horizontal_spacing=0.2)
+    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators)
 
     for i, column in enumerate(indicators):
         if column == 'Município':
@@ -77,20 +77,20 @@ else:
 
         # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
         fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],
-                             name='City Indicator', marker_color='indianred'),
+                             name= selected_df['Município'], marker_color='indianred'),
                       row=row, col=col)
 
         # Adicionar barras para o valor médio (com a cor cinza)
-        fig.add_trace(go.Bar(x=['Mean'], y=[mean_values[column]],
-                             name='Mean', marker_color='gray'),
+        fig.add_trace(go.Bar(x=['Média'], y=[mean_values[column]],
+                             name='Média do Paraná', marker_color='gray'),
                       row=row, col=col)
 
         # Adicionar barras de erro para os valores mínimo e máximo (com a cor cinza)
-        fig.add_trace(go.Bar(x=['Min'], y=[min_values[column]],
-                             name='Min', marker_color='lightgray'),
+        fig.add_trace(go.Bar(x=['Menor'], y=[min_values[column]],
+                             name='Menor valor do Paraná', marker_color='lightgray'),
                       row=row, col=col)
-        fig.add_trace(go.Bar(x=['Max'], y=[max_values[column]],
-                             name='Max', marker_color='darkgray'),
+        fig.add_trace(go.Bar(x=['Maior'], y=[max_values[column]],
+                             name='Maior valor do Paraná', marker_color='darkgray'),
                       row=row, col=col)
 
         # Adicionar anotações aos gráficos
@@ -99,15 +99,15 @@ else:
                            y=[selected_df[column].values[0]],
                            showarrow=False, row=row, col=col)
         fig.add_annotation(text=f"{mean_values[column]:,.2f}",
-                           x=['Mean'],
+                           x=['Média'],
                            y=[mean_values[column]],
                            showarrow=False, row=row, col=col)
         fig.add_annotation(text=f"{min_values[column]:,.2f}",
-                           x=['Min'],
+                           x=['Menor'],
                            y=[min_values[column]],
                            showarrow=False, row=row, col=col)
         fig.add_annotation(text=f"{max_values[column]:,.2f}",
-                           x=['Max'],
+                           x=['Maior'],
                            y=[max_values[column]],
                            showarrow=False, row=row, col=col)
 
@@ -116,7 +116,7 @@ else:
         fig.update_yaxes(title_text='Indicator Value', row=row, col=col)
 
     # Definir título geral
-    fig.update_layout(title_text="Indicators for Selected Municipality", showlegend=False)
+    fig.update_layout(title_text="Indicadores de Contextualização", showlegend=False)
 
     # Mostrar o gráfico usando Streamlit
     st.plotly_chart(fig)
