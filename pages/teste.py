@@ -3,6 +3,7 @@ import pandas as pd
 import geopandas as gpd
 import plotly.express as px
 from plotly.subplots import make_subplots
+import plotly.graph_objs as go
 
 # Read the CSV file
 csv = "./dados/csv/contexto.csv"
@@ -19,9 +20,7 @@ selected_df = df_csv[df_csv['Município'] == selected_mun]
 indicators = ['População','Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
               'População feminina (%)', 'População preta ou parda (%)']
 
-
-import plotly.graph_objs as go
-import pandas as pd
+unidade = {'População':'Habitantes','Razão de Dependência (%)':'%','Densidade Demográfica (hab/km²)':'hab/km²','População feminina (%)':'%','População preta ou parda (%)':'%','%'}
 
 # Load the CSV file
 df = pd.read_csv('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/contexto.csv')
@@ -75,7 +74,7 @@ else:
         # Definir rótulos dos eixos
         fig.update_xaxes(title_text='Município', row=row, col=col)
 
-        fig.update_yaxes(title_text=column, row=row, col=col)
+        fig.update_yaxes(title_text=f'({unidade[column]})', row=row, col=col)  # Adicionar a unidade correspondente
 
 
 
