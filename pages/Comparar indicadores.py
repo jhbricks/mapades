@@ -25,7 +25,7 @@ if area == "Paraná":
             ind1 = st.selectbox("Escolha um indicador de Contexto:",("População residente","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
                                   index=None,placeholder="Selecione um indicador...")
         elif cat1 == "Renda":
-            ind1 = st.selectbox("Escolha um indicador de Renda:",("Índice Gini","Renda média da população","Rendimento médio da população feminina","Renda dos declarantes do IRPF"),
+            ind1 = st.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Rendimento médio da população feminina","Renda dos declarantes do IRPF"),
                                   index=None,placeholder="Selecione um indicador...")
         elif cat1 == "Riqueza":
             ind1 = st.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
@@ -36,13 +36,13 @@ if area == "Paraná":
 
         if cat2 == "Contextualização":
             ind2 = st.selectbox("Escolha um indicador de Contexto:",("População residente","Densidade demográfica","Grau de urbanização","População feminina","População preta/parda","Razão de dependência"),
-                                  index=None,placeholder="Selecione um indicador...")
+                                  key='mapa2',index=None,placeholder="Selecione um indicador...")
         elif cat2 == "Renda":
             ind2 = st.selectbox("Escolha um indicador de Renda:",("Índice de Gini","Renda média da população","Rendimento médio da população feminina","Renda dos declarantes do IRPF"),
-                                  index=None,placeholder="Selecione um indicador...")
+                                  key='mapa2',index=None,placeholder="Selecione um indicador...")
         elif cat2 == "Riqueza":
             ind2 = st.selectbox("Escolha um indicador de Riqueza:",("Domicílios com bens duráveis","Número de veículos por pessoas","População declarante do IRPF","Patrimônio líquido médio da população","Patrimônio líquido médio dos declarantes do IRPF"),
-                                  index=None,placeholder="Selecione um indicador...")
+                                  key='mapa2',index=None,placeholder="Selecione um indicador...")
 
     ind_p = {"População residente":('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)'),
     "Densidade demográfica":('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)'),
