@@ -45,6 +45,8 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   ponto_central = arq_geojson.geometry.centroid
   lat = ponto_central.iloc[0].y
   lon = ponto_central.iloc[0].x
+
+  st.markdown(f"<p><font size='+7' color='darkpurple'> lat ={lat} long = {lon}</font></p>", unsafe_allow_html=True)
     
   if not isinstance(data,gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
