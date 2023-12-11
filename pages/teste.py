@@ -50,34 +50,34 @@ df = pd.read_csv('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/
 # Filter the dataframe based on the selected city
 selected_df = df[df['Município'] == selected_mun]
 
-# Check if the selected city exists in the dataframe
 if len(selected_df) == 0:
-    print("Selected city not found in the dataset.")
+    st.warning("Cidade selecionada não encontrada no conjunto de dados.")
 else:
-    # Calculate mean, minimum, and maximum values for each indicator (excluding 'Nome_Município' column)
+    # Calculate mean, minimum, and maximum values for each indicator (excluding 'Município' column)
     mean_values = df.drop('Município', axis=1).mean()
     min_values = df.drop('Município', axis=1).min()
     max_values = df.drop('Município', axis=1).max()
 
-for column in mean_values.index:
-  if column == 'Município':
-    continue
+    for column in mean_values.index:
+        if column == 'Município':
+            continue
 
-  fig = go.Figure()
+        # Create a bar chart using Plotly
+        fig = go.Figure()
 
         # Add a bar for the selected city's indicator value
-  fig.add_trace(go.Bar(x=['Indicator'], y=[selected_df[column].values[0]], name='City Indicator'))
+        fig.add_trace(go.Bar(x=['City Indicator'], y=[selected_df[column].values[0]], name='City Indicator'))
 
         # Add a bar for the mean value
-  fig.add_trace(go.Bar(x=['Mean'], y=[mean_values[column]], name='Mean'))
+        fig.add_trace(go.Bar(x=['Mean'], y=[mean_values[column]], name='Mean'))
 
         # Add error bars for minimum and maximum values
-  fig.add_trace(go.Bar(x=['Min'], y=[min_values[column]], name='Min'))
-  fig.add_trace(go.Bar(x=['Max'], y=[max_values[column]], name='Max'))
+        fig.add_trace(go.Bar(x=['Min'], y=[min_values[column]], name='Min'))
+        fig.add_trace(go.Bar(x=['Max'], y=[max_values[column]], name='Max'))
 
         # Set chart title and axis labels
-  fig.update_layout(title=f"Indicator: {column}", xaxis_title="Statistic", yaxis_title="Indicator Value")
+        fig.update_layout(title=f"Indicator: {column}", xaxis_title="Statistic", yaxis_title="Indicator Value")
 
-        # Show the chart
-  fig.show()
+        # Show the chart using Streamlit
+        st.plotly_chart(fig)
 
