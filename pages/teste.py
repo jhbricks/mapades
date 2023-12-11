@@ -5,6 +5,9 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 
+
+st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
+
 # Read the CSV file
 csv = "./dados/csv/contexto.csv"
 df_csv = pd.read_csv(csv)
