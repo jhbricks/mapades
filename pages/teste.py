@@ -1,48 +1,44 @@
 import streamlit as st
-import folium
+import pandas as pd
 import geopandas as gpd
+import plotly.express as px
+
+#csv = "./dados/csv/contexto.csv"
+#df_csv = pd.read_csv(csv)
+#mun = df_csv['Município'].tolist()
+#op = st.selectbox("Selecione um município:",mun,index=None,placeholder="Selecione ou digite o nome do município...",)
+
+# Read data from GeoJSON file
+#geojson_filename = "./dados/PR.geojson"
+#gdf_geojson = gpd.read_file(geojson_filename)
+
+import streamlit as st
+import pandas as pd
+import geopandas as gpd
+import plotly.express as px
+
+# Read data from GeoJSON file
+#geojson_filename = "./dados/geojson/PR.geojson"
+#gdf_geojson = gpd.read_file(geojson_filename)
+
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-PR = "./dados/geojson/PR.geojson"
+# Read the CSV file
 csv = "./dados/csv/contexto.csv"
+df_csv = pd.read_csv(csv)
+
+# Dropdown to select a municipality
+mun = df_csv['Município'].tolist()
+selected_mun = st.selectbox("Selecione um município:", mun, index=None, placeholder="Selecione ou digite o nome do município...")
+
+# Filter the dataframe based on the selected municipality
+selected_df = df_csv[df_csv['Município'] == selected_mun]
+
+# List of indicators to plot
+indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
+              'População feminina (%)', 'População preta ou parda (%)']
 
 
 
-# Carregar dados do GeoJSON
-geojson_path = PR
-gdf = gpd.read_file(geojson_path)
-
-# Carregar dados do CSV
-csv_path = csv
-df = pd.read_csv(csv_path)
-
-# Interface do Streamlit
-st.title('Mapa e Indicadores Municipais')
-
-# Mostrar o mapa
-st.subheader('Mapa do Estado com Divisões Municipais')
-
-# Criar gráfico de dispersão com Plotly Express
-fig = px.scatter_mapbox(gdf, lat='Y', lon='X', hover_name='Município', zoom=8)
-fig.update_layout(mapbox_style="carto-positron")
-
-# Adicionar camada do GeoJSON para tornar os municípios clicáveis
-fig.add_trace(px.choropleth_mapbox(gdf, geojson=gdf.geometry, locations=gdf.index,
-                                   color_discrete_sequence=['blue'], opacity=0.5).data[0])
-
-st.plotly_chart(fig)
-
-# Selecionar município
-selected_municipality = st.selectbox('Selecione um município:', gdf['Município'])
-
-# Filtrar dados para o município selecionado
-selected_data = df[df['Município'] == selected_municipality]
-
-# Mostrar gráficos
-st.subheader(f'Indicadores para {selected_municipality}')
-st.write(selected_data)
-
-# Adicione gráficos adicionais usando o Plotly Express
-fig_indicadores = px.bar(selected_data, x='indicador', y='valor', title=f'Indicadores para {selected_municipality}')
-st.plotly_chart(fig_indicadores)
