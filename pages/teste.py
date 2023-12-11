@@ -4,28 +4,6 @@ import geopandas as gpd
 import plotly.express as px
 from plotly.subplots import make_subplots
 
-#csv = "./dados/csv/contexto.csv"
-#df_csv = pd.read_csv(csv)
-#mun = df_csv['Município'].tolist()
-#op = st.selectbox("Selecione um município:",mun,index=None,placeholder="Selecione ou digite o nome do município...",)
-
-# Read data from GeoJSON file
-#geojson_filename = "./dados/PR.geojson"
-#gdf_geojson = gpd.read_file(geojson_filename)
-
-import streamlit as st
-import pandas as pd
-import geopandas as gpd
-import plotly.express as px
-
-# Read data from GeoJSON file
-#geojson_filename = "./dados/geojson/PR.geojson"
-#gdf_geojson = gpd.read_file(geojson_filename)
-
-import streamlit as st
-import pandas as pd
-import plotly.express as px
-
 # Read the CSV file
 csv = "./dados/csv/contexto.csv"
 df_csv = pd.read_csv(csv)
@@ -76,9 +54,9 @@ else:
         col = i % cols + 1
 
         # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
-        fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],
-                             name= selected_df['Município'], marker_color='indianred'),
-                      row=row, col=col)
+        # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
+        fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],name=selected_df['Município'].iloc[0],  # Extrair o valor desejado
+                             marker_color='indianred'), row=row, col=col)
 
         # Adicionar barras para o valor médio (com a cor cinza)
         fig.add_trace(go.Bar(x=['Média'], y=[mean_values[column]],
