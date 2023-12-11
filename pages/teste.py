@@ -20,7 +20,7 @@ st.title('Mapa e Indicadores Municipais')
 
 # Mostrar o mapa
 st.subheader('Mapa do Estado com Divisões Municipais')
-st.map(gdf)
+st.map(gdf, lat='Y', lon='X')
 
 # Selecionar município
 selected_municipality = st.selectbox('Selecione um município:', gdf['Município'])
