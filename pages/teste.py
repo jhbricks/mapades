@@ -1,6 +1,7 @@
 import streamlit as st
 import folium
 import geopandas as gpd
+import pandas as pd
 
 PR = "./dados/geojson/PR.geojson"
 csv = "./dados/csv/contexto.csv"
