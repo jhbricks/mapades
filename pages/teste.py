@@ -22,6 +22,7 @@ indicators = ['População','Grau de Urbanização (%)', 'Razão de Dependência
 
 unidade = {
     'População': 'Habitantes',
+    'Grau de Urbanização (%)': '%',
     'Razão de Dependência (%)': '%',
     'Densidade Demográfica (hab/km²)': 'hab/km²',
     'População feminina (%)': '%',
