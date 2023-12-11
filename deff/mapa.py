@@ -42,11 +42,11 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   data = arq_geojson.merge(arq_csv, on="Município")
 
 #######LAT E LON CENTRAIS
-  ponto_central = arq_geojson.geometry.centroid
-  abc = ponto_central.iloc[0].y
-  lon = ponto_central.iloc[0].x
-  lat = (abc + 55)
-  st.markdown(f"<p><font size='+2' color='darkpurple'> lat ={lat} long = {lon}</font></p>", unsafe_allow_html=True)
+  #ponto_central = arq_geojson.geometry.centroid
+  #lat = ponto_central.iloc[0].y
+  #lon = ponto_central.iloc[0].x
+  #lat = (abc + 55)
+  #st.markdown(f"<p><font size='+2' color='darkpurple'> lat ={lat} long = {lon}</font></p>", unsafe_allow_html=True)
     
   if not isinstance(data,gpd.GeoDataFrame):
     print("O arquivo não é um GeoDataFrame")
@@ -55,7 +55,7 @@ def mapa (area,arq,ind,scheme,k,cmap,fields,title):
   style = {"color":"#000000","weight":1, "fillOpacity":0}
 ##########################MAPA
 ########MAPA INICIAL
-  m = leafmap.Map(center=[(lat+15),lon],
+  m = leafmap.Map(#center=[lat,lon],
             		  draw_control=False,
                   measure_control=False,
                   fullscreen_control=False,
