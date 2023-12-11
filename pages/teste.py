@@ -37,7 +37,7 @@ selected_mun = st.selectbox("Selecione um município:", mun, index=None, placeho
 selected_df = df_csv[df_csv['Município'] == selected_mun]
 
 # List of indicators to plot
-indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
+indicators = ['População','Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
               'População feminina (%)', 'População preta ou parda (%)']
 
 
@@ -53,31 +53,33 @@ selected_df = df[df['Município'] == selected_mun]
 if len(selected_df) == 0:
     st.warning("Cidade selecionada não encontrada no conjunto de dados.")
 else:
-    # Calculate mean, minimum, and maximum values for each indicator (excluding 'Município' column)
-    mean_values = df.drop('Município', axis=1).mean()
-    min_values = df.drop('Município', axis=1).min()
-    max_values = df.drop('Município', axis=1).max()
+    # Filtrar o DataFrame para incluir apenas as colunas dos indicadores desejados
+    df_filtered = df[['Município'] + indicators]
+
+    # Calcular média, valor mínimo e valor máximo para cada indicador
+    mean_values = df_filtered.drop('Município', axis=1).mean()
+    min_values = df_filtered.drop('Município', axis=1).min()
+    max_values = df_filtered.drop('Município', axis=1).max()
 
     for column in mean_values.index:
         if column == 'Município':
             continue
 
-        # Create a bar chart using Plotly
+        # Criar um gráfico de barras usando Plotly
         fig = go.Figure()
 
-        # Add a bar for the selected city's indicator value
-        fig.add_trace(go.Bar(x=['City Indicator'], y=[selected_df[column].values[0]], name='City Indicator'))
+        # Adicionar uma barra para o valor do indicador da cidade selecionada
+        fig.add_trace(go.Bar(x=[column], y=[selected_df[column].values[0]], name='City Indicator'))
 
-        # Add a bar for the mean value
-        fig.add_trace(go.Bar(x=['Mean'], y=[mean_values[column]], name='Mean'))
+        # Adicionar uma barra para o valor médio
+        fig.add_trace(go.Bar(x=[column], y=[mean_values[column]], name='Mean'))
 
-        # Add error bars for minimum and maximum values
-        fig.add_trace(go.Bar(x=['Min'], y=[min_values[column]], name='Min'))
-        fig.add_trace(go.Bar(x=['Max'], y=[max_values[column]], name='Max'))
+        # Adicionar barras de erro para os valores mínimo e máximo
+        fig.add_trace(go.Bar(x=[column], y=[min_values[column]], name='Min'))
+        fig.add_trace(go.Bar(x=[column], y=[max_values[column]], name='Max'))
 
-        # Set chart title and axis labels
+        # Definir título do gráfico e rótulos dos eixos
         fig.update_layout(title=f"Indicator: {column}", xaxis_title="Statistic", yaxis_title="Indicator Value")
 
-        # Show the chart using Streamlit
+        # Mostrar o gráfico usando Streamlit
         st.plotly_chart(fig)
-
