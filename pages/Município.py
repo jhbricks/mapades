@@ -35,7 +35,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 
 
-st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
+#st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
 st.set_page_config(layout="wide", page_title="Indicadores por Município")
 st.header('Indicadores por município', divider='rainbow')
 texto_centralizado = """<div style="display: flex; justify-content: center; align-items: center"><h1><font size='+5'>Em construção </font></h1></div>"""
