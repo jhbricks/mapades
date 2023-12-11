@@ -44,4 +44,4 @@ indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densid
 
     
     # Show the chart
-    st.plotly_chart(fig)
+
