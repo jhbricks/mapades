@@ -40,8 +40,5 @@ selected_df = df_csv[df_csv['Município'] == selected_mun]
 indicators = ['Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
               'População feminina (%)', 'População preta ou parda (%)']
 
-# Create separate bar charts for each indicator
 
-    
-    # Show the chart
 
