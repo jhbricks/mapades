@@ -20,8 +20,9 @@ st.title('Mapa e Indicadores Municipais')
 
 # Mostrar o mapa
 st.subheader('Mapa do Estado com Divisões Municipais')
-st.map(gdf, lat='Y', lon='X')
-
+fig = px.scatter_mapbox(gdf, lat='Y', lon='X', hover_name='Município', zoom=8)
+fig.update_layout(mapbox_style="carto-positron")
+st.plotly_chart(fig)
 # Selecionar município
 selected_municipality = st.selectbox('Selecione um município:', gdf['Município'])
 
