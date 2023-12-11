@@ -43,10 +43,10 @@ botoes = [
 
     ("https://mapadesigualdade.streamlit.app/Mais_temas", "./dados/imagem/icon/mais.png", "Mais Temas"),
     ("https://mapadesigualdade.streamlit.app/Comparar_indicadores", "./dados/imagem/icon/comp.png", "Comparar"),
-    ("https://mapadesigualdade.streamlit.app/Município", "./dados/imagem/icon/mun.png", "Município"),
+    ("https://mapadesigualdade.streamlit.app/Indicadores_por_município", "./dados/imagem/icon/mun.png", "Município"),
 
     ("https://mapadesigualdade.streamlit.app/Ajuda", "./dados/imagem/icon/aju.png", "Ajuda"),
-    ("https://mapadesigualdade.streamlit.app/Classificar", "./dados/imagem/icon/class.png", "Classificar"),
+    ("https://mapadesigualdade.streamlit.app/Criar_mapa", "./dados/imagem/icon/class.png", "Classificar"),
         ("https://mapadesigualdade.streamlit.app/Sobre", "./dados/imagem/icon/sobre.png", "Sobre"),
 ]
 
