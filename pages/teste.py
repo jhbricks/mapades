@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import geopandas as gpd
 import plotly.express as px
+from plotly.subplots import make_subplots
 
 #csv = "./dados/csv/contexto.csv"
 #df_csv = pd.read_csv(csv)
