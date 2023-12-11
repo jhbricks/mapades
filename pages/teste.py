@@ -72,11 +72,11 @@ else:
         fig.add_trace(go.Bar(x=[column], y=[selected_df[column].values[0]], name='City Indicator'))
 
         # Adicionar uma barra para o valor médio
-        fig.add_trace(go.Bar(x=[column], y=[mean_values[column]], name='Mean'))
+        fig.add_trace(go.Bar(x=[column], y=[mean_values[column]], name='Média do Paraná'))
 
         # Adicionar barras de erro para os valores mínimo e máximo
-        fig.add_trace(go.Bar(x=[column], y=[min_values[column]], name='Min'))
-        fig.add_trace(go.Bar(x=[column], y=[max_values[column]], name='Max'))
+        fig.add_trace(go.Bar(x=[column], y=[min_values[column]], name='Menor valor do Paraná'))
+        fig.add_trace(go.Bar(x=[column], y=[max_values[column]], name='Maior valor do Paraná'))
 
         # Definir título do gráfico e rótulos dos eixos
         fig.update_layout(title=f"Indicator: {column}", xaxis_title="Statistic", yaxis_title="Indicator Value")
