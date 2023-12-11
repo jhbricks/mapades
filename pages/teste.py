@@ -50,6 +50,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/
 # Filter the dataframe based on the selected city
 selected_df = df[df['Município'] == selected_mun]
 
+# Check if the selected city exists in the dataframe
 if len(selected_df) == 0:
     st.warning("Cidade selecionada não encontrada no conjunto de dados.")
 else:
@@ -61,25 +62,42 @@ else:
     min_values = df_filtered.drop('Município', axis=1).min()
     max_values = df_filtered.drop('Município', axis=1).max()
 
-    for column in mean_values.index:
+    # Configurar a layout do gráfico para organizar em 3 colunas
+    cols = 3
+    rows = (len(indicators) // cols) + (len(indicators) % cols)
+    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators, horizontal_spacing=0.2)
+
+    for i, column in enumerate(indicators):
         if column == 'Município':
             continue
 
-        # Criar um gráfico de barras usando Plotly
-        fig = go.Figure()
+        row = i // cols + 1
+        col = i % cols + 1
 
-        # Adicionar uma barra para o valor do indicador da cidade selecionada
-        fig.add_trace(go.Bar(x=[column], y=[selected_df[column].values[0]], name='City Indicator'))
+        # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
+        fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],
+                             name='City Indicator', marker_color='indianred'),
+                      row=row, col=col, text=[selected_df[column].values[0]], textposition='auto')
 
-        # Adicionar uma barra para o valor médio
-        fig.add_trace(go.Bar(x=[column], y=[mean_values[column]], name='Média do Paraná'))
+        # Adicionar barras para o valor médio (com a cor cinza)
+        fig.add_trace(go.Bar(x=['Mean'], y=[mean_values[column]],
+                             name='Mean', marker_color='gray'),
+                      row=row, col=col, text=[mean_values[column]], textposition='auto')
 
-        # Adicionar barras de erro para os valores mínimo e máximo
-        fig.add_trace(go.Bar(x=[column], y=[min_values[column]], name='Menor valor do Paraná'))
-        fig.add_trace(go.Bar(x=[column], y=[max_values[column]], name='Maior valor do Paraná'))
+        # Adicionar barras de erro para os valores mínimo e máximo (com a cor cinza)
+        fig.add_trace(go.Bar(x=['Min'], y=[min_values[column]],
+                             name='Min', marker_color='lightgray'),
+                      row=row, col=col, text=[min_values[column]], textposition='auto')
+        fig.add_trace(go.Bar(x=['Max'], y=[max_values[column]],
+                             name='Max', marker_color='darkgray'),
+                      row=row, col=col, text=[max_values[column]], textposition='auto')
 
-        # Definir título do gráfico e rótulos dos eixos
-        fig.update_layout(title=f"Indicator: {column}", xaxis_title="Statistic", yaxis_title="Indicator Value")
+        # Definir rótulos dos eixos
+        fig.update_xaxes(title_text='Município', row=row, col=col)
+        fig.update_yaxes(title_text='Indicator Value', row=row, col=col)
 
-        # Mostrar o gráfico usando Streamlit
-        st.plotly_chart(fig)
+    # Definir título geral
+    fig.update_layout(title_text="Indicators for Selected Municipality", showlegend=False)
+
+    # Mostrar o gráfico usando Streamlit
+    st.plotly_chart(fig)
