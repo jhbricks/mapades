@@ -54,7 +54,7 @@ else:
         col = i % cols + 1
 
         # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
-        # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
+
         fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],name=selected_df['Município'].iloc[0],  # Extrair o valor desejado
                              marker_color='indianred'), row=row, col=col)
 
@@ -71,27 +71,10 @@ else:
                              name='Maior valor do Paraná', marker_color='darkgray'),
                       row=row, col=col)
 
-        # Adicionar anotações aos gráficos
-        fig.add_annotation(text=f"{selected_df[column].values[0]:,.2f}",
-                           x=[selected_df['Município'].values[0]],
-                           y=[selected_df[column].values[0]],
-                           showarrow=False, row=row, col=col)
-        fig.add_annotation(text=f"{mean_values[column]:,.2f}",
-                           x=['Média'],
-                           y=[mean_values[column]],
-                           showarrow=False, row=row, col=col)
-        fig.add_annotation(text=f"{min_values[column]:,.2f}",
-                           x=['Menor'],
-                           y=[min_values[column]],
-                           showarrow=False, row=row, col=col)
-        fig.add_annotation(text=f"{max_values[column]:,.2f}",
-                           x=['Maior'],
-                           y=[max_values[column]],
-                           showarrow=False, row=row, col=col)
 
         # Definir rótulos dos eixos
         fig.update_xaxes(title_text='Município', row=row, col=col)
-        fig.update_yaxes(title_text='Indicator Value', row=row, col=col)
+        fig.update_yaxes(title_text=[selected_df[column].values[0]], row=row, col=col)
 
     # Definir título geral
     fig.update_layout(title_text="Indicadores de Contextualização", showlegend=False)
