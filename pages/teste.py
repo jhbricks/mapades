@@ -2,35 +2,37 @@ import streamlit as st
 import folium
 import geopandas as gpd
 import pandas as pd
+import plotly.express as px
 
 PR = "./dados/geojson/PR.geojson"
 csv = "./dados/csv/contexto.csv"
-# Carregar o arquivo GeoJSON com os limites dos municípios
-municipios = gpd.read_file(PR)
 
-# Carregar o arquivo CSV com os dados dos municípios
-municipio_data = pd.read_csv(csv)
+# Carregar dados do GeoJSON
+geojson_path = PR
+gdf = gpd.read_file(geojson_path)
 
-# Exibir o mapa do estado
-m = folium.Map(zoom_start=5)
+# Carregar dados do CSV
+csv_path = csv
+df = pd.read_csv(csv_path)
 
-# Adicionar camadas de municípios e divisórias ao mapa
-m.add_geos(municipios.geometry, crs=municipios.crs, alpha=0.5, color='gray')
-m.add_geos(municipios.boundary, crs=municipios.crs, alpha=0.5, color='black')
+# Interface do Streamlit
+st.title('Mapa e Indicadores Municipais')
 
-# Função para exibir os gráficos dos municípios
-def show_municipio_graphs(municipio):
-    # Selecionar os dadosunicípio
-    municipio_data_filtered = municipio_data[municipio_data['Município'] == municipio]
-    
-    # Exibir os gráficos
-    st.write(municipio_data_filtered.head())
-    st.plotly_chart(municipio_data_filtered['População'].plot)
+# Mostrar o mapa
+st.subheader('Mapa do Estado com Divisões Municipais')
+st.map(gdf)
 
-# Adicionarão para cada município
-for municipality in municipios.values():
-    st.write(f'{municipio["Município"]}')
-    st.markdown(f'{municipio["Município"]}', callback= lambda: show_municipio_graphs(municipio["Município"]))
+# Selecionar município
+selected_municipality = st.selectbox('Selecione um município:', gdf['Município'])
 
-# Exibir o mapa
-st.write(m)
+# Filtrar dados para o município selecionado
+selected_data = df[df['Município'] == selected_municipality]
+
+# Mostrar gráficos
+st.subheader(f'Indicadores para {selected_municipality}')
+st.write(selected_data)
+
+# Adicione gráficos adicionais usando o Plotly Express
+fig = px.bar(selected_data, x='População', y='valor', title=f'Indicadores para {selected_municipality}')
+st.plotly_chart(fig)
+
