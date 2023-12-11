@@ -74,7 +74,9 @@ else:
 
         # Definir rótulos dos eixos
         fig.update_xaxes(title_text='Município', row=row, col=col)
-        fig.update_yaxes(title_text=str(selected_df[column].values[0]), row=row, col=col)
+
+        fig.update_yaxes(title_text=str(selected_df[column].iloc[0]), row=row, col=col)
+
 
 
     # Definir título geral
