@@ -20,7 +20,13 @@ selected_df = df_csv[df_csv['Município'] == selected_mun]
 indicators = ['População','Grau de Urbanização (%)', 'Razão de Dependência (%)', 'Densidade Demográfica (hab/km²)',
               'População feminina (%)', 'População preta ou parda (%)']
 
-unidade = {'População':'Habitantes','Razão de Dependência (%)':'%','Densidade Demográfica (hab/km²)':'hab/km²','População feminina (%)':'%','População preta ou parda (%)':'%','%'}
+unidade = {
+    'População': 'Habitantes',
+    'Razão de Dependência (%)': '%',
+    'Densidade Demográfica (hab/km²)': 'hab/km²',
+    'População feminina (%)': '%',
+    'População preta ou parda (%)': '%',
+}
 
 # Load the CSV file
 df = pd.read_csv('https://raw.githubusercontent.com/jhbricks/mapades/main/dados/csv/contexto.csv')
