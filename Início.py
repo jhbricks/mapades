@@ -3,7 +3,7 @@ import base64
 from PIL import Image
 
 
-st.set_page_config(layout="wide",page_title="Mapa da Desigualdade")
+st.set_page_config(layout="wide",page_title="Mapa da Desigualdade",page_icon="🗺")
 
 #Remove os espaços em branco no topo
 st.markdown("""<style> .block-container {padding-top: 3rem;padding-bottom: 1rem;}</style> """, unsafe_allow_html=True)

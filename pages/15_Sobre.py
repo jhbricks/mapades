@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from PIL import Image
 
-st.set_page_config(layout="wide", page_title="Sobre")
+st.set_page_config(layout="wide", page_title="Sobre",page_icon="ℹ")
 st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
 
 colored_header(

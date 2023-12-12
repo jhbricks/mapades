@@ -5,7 +5,7 @@ from deff.mapa import grafico
 from deff.calculos import conta
 
 
-st.set_page_config(layout="wide", page_title="Riqueza - Mapa da Desigualdade")
+st.set_page_config(layout="wide", page_title="Riqueza - Mapa da Desigualdade", page_icon="💰")
 st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
 st.markdown("<h3><font size='7'  color='red'>Riqueza</font></font></h3>", unsafe_allow_html=True)
 

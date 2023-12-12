@@ -3,7 +3,7 @@ import pandas as pd
 import geopandas as gpd
 from deff.mapa import mapa
 
-st.set_page_config(layout="wide", page_title="Comparar indicadores")
+st.set_page_config(layout="wide", page_title="Comparar indicadores",page_icon="🌎")
 st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 1.5rem;padding-right: 1.5rem;}</style>""", unsafe_allow_html=True)
 st.header('Comparar indicadores', divider='rainbow')
 

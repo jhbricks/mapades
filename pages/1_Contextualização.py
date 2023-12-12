@@ -13,7 +13,7 @@ from deff.local import local_3
 from deff.local import estado
 
 
-st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade")
+st.set_page_config(layout="wide", page_title="Contextualização - Mapa da Desigualdade",page_icon="🏘")
 st.markdown("""<style>.block-container {padding-top: 1rem;padding-left: 2rem;padding-right: 2rem;}</style>""", unsafe_allow_html=True)
 
 #Selecionar a área 
