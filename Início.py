@@ -13,7 +13,7 @@ st.write(texto_centralizado, unsafe_allow_html=True)
 
 #st.sidebar.success("Selecione uma das páginas acima")
 
-st.markdown("""*Mapa da Desigualdade é uma ferramenta que apresenta indicadores relacionados à
+st.markdown("""*Mapa da Desigualdade apresenta indicadores relacionados à
             diversos fatores que influenciam a qualidade de vida da população, destacando as
             diferenças entre as regiões do Estado do Paraná e do Núcleo Territorial Central de Curitiba.    
             O Mapa da Desigualdade está em construção, por enquanto apenas as categorias Contextualização,
