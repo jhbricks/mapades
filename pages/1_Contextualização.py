@@ -175,7 +175,7 @@ else:
     c1,c2 = st.columns ([1.5,2])
     with c1:
       local('BR - NTC')
-      st.markdown("**Fonte:**IBGE, 2022.")
+      st.markdown("""**Fonte(s):** IBGE, 2022.""")
     with c2:
       local('NTC')
 
