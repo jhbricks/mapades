@@ -32,7 +32,7 @@ if area == "Paraná":
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
   if op ==  "Localização":
-    colored_header(label= "Localização da região",
+    colored_header(label= "Localização",
                    description= "Localização do Estado do Paraná",
                    color_name="red-70",)
 
@@ -168,7 +168,7 @@ else:
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
  
   if op == "Localização":
-    colored_header(label= "Localização da região",
+    colored_header(label= "Localização",
                    description= "Localização do Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
 
