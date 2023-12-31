@@ -123,7 +123,8 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
         RD = (((soma65 + soma14)*100)/somaPT).round(2)
         st.markdown(f"<h3><font size='+5'> Razão de dependência no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> {RD} </font> %</font></h3>", unsafe_allow_html=True)
- #################################################RENDA
+ 
+ ############################RENDA
     elif ind == "Rendimento médio da população feminina/masculina (%)":
         somaF = data['RMF'].sum()
         somaM = data['RMM'].sum()
@@ -136,6 +137,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     elif ind == 'Renda Média dos Declarantes (R$ mil)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> R$ {media} mil </font></h3>", unsafe_allow_html=True)
+
  ###################################################RIQUEZA   
     #elif ind == 'Declarantes do IRPF (%)':
      #   st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
@@ -146,6 +148,7 @@ def conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None):
     elif ind == 'Patrimônio líquido médio dos declarantes (R$ milhões)':
         st.markdown(f"<h3><font size='+5'> {calc} no {nome} em {ano}:</font></h3>", unsafe_allow_html=True)
         st.markdown(f"<h3><font style='font-weight: bold;><font size:'+5'> R$ {media} milhões </font></h3>", unsafe_allow_html=True)
+ 
     else:
         if tipo == "md_int":
             media = int(data[ind].mean())
