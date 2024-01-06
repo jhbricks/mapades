@@ -251,7 +251,7 @@ else:
       conta ('NTC',contexto, 'População feminina (%)', 2010, None, None, None)
       grafico('NTC',contexto,'População feminina (%)','%')
 
-  elif op == "População preta ou parda":
+  elif op == "População preta/parda":
     colored_header(label="População preta ou parda",
                    description="Percentual da população preta ou parda no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
