@@ -257,7 +257,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa ('NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 4, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
+      mapa ('NTC',contexto, 'População preta ou parda (%)', 'FisherJenks', 3, 'YlGnBu', ['Município','População preta ou parda (%)'],'População preta ou parda (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IBGE, 2010; IPARDES,2023  
                   **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
