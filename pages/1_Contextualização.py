@@ -269,8 +269,7 @@ else:
       conta ('NTC',contexto, 'População preta ou parda (%)', 2010, None, None, None)
       grafico('NTC',contexto,'População preta ou parda (%)','%')
 
-  else:
-    op == "Razão de dependência"
+  elif op == "Razão de dependência":
     colored_header(label="Razão de dependência",
                    description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
