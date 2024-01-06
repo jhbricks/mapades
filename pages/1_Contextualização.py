@@ -70,11 +70,11 @@ if area == "Paraná":
     c1,c2 = st.columns([2,1])
     with c1:
       mapa('PR',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',5,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
-      st.markdown("""**Ano-base:** 2010  
-                  **Fonte(s):** IBGE, 2010; IPARDES,2023  
-                  **Fórmula:** (População censitária urbana*100)/População censitária total  
-                  **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
-                  """)
+      st.markdown("""**Ano-base:** 2021  
+                  **Fonte(s):** IBGE  
+                  **Fórmula:** (População total/Área total)  
+                  **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
+                  """)    
     with c2:
       conta ('PR',contexto,'Densidade Demográfica (hab/km²)',2021)
       grafico('PR',contexto,'Densidade Demográfica (hab/km²)','hab/km²')
