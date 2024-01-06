@@ -263,13 +263,14 @@ else:
                   **Fórmula:** ([População censitária preta + população censitária parda]*100)/População censitária total  
                   **Observações:** Dados do Censo Demográfico de 2010 do IBGE, obtidos no banco de dados do IPARDES.
                   """)
-      #mx_mn ('NTC',contexto,'População preta ou parda (%)','%')
+
     with c2:
       st.markdown("**Participação percentual da população preta ou parda na população total segundo dados do Censo Demográfico de 2010.**")  
       conta ('NTC',contexto, 'População preta ou parda (%)', 2010, None, None, None)
       grafico('NTC',contexto,'População preta ou parda (%)','%')
 
-  elif op == "Razão de dependência":
+  else:
+    op == "Razão de dependência":
     colored_header(label="Razão de dependência",
                    description="Percentual da população fora da idade de trabalhar em relação a população em idade de trabalhar no  Núcleo Territorial Central de Curitiba",
                    color_name="red-70",)
