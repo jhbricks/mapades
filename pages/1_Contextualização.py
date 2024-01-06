@@ -278,7 +278,7 @@ else:
     with c1:
       mapa ('NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
       st.caption('*População projetada para o ano de 2021') 
-      st.markdown("""**Ano-base:** 2021 ('PR'ojeção)  
+      st.markdown("""**Ano-base:** 2021 (Projeção)  
                   **Fonte(s):** IPARDES,2023  
                   **Fórmula:** ([População projetada de até 14 anos + população projetada com mais de 65 anos]*100)/População projetada total  
                   **Observações:** População projetada para o ano de 2021 disponibilizada pelo IPARDES.
