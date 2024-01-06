@@ -276,7 +276,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa ('NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 4, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
+      mapa ('NTC',contexto, 'Razão de Dependência (%)', 'FisherJenks', 3, 'Purples', ['Município','Razão de Dependência (%)'],'Razão de Dependência (%)')
       st.caption('*População projetada para o ano de 2021') 
       st.markdown("""**Ano-base:** 2021 ('PR'ojeção)  
                   **Fonte(s):** IPARDES,2023  
