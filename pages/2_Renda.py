@@ -163,7 +163,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'YlGn', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+      mapa('NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'copper_r', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** Fundação Getúlio Vargas (FGV)  
                   **Fórmula:** (Renda Média dos declarantes R$/1000)  
