@@ -83,7 +83,7 @@ if area == "Paraná":
     
     d1,d2 = st.columns([2,1])
     with d1:
-      mapa('PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'summer_r', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+      mapa('PR',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',5,'copper_r', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** Fundação Getúlio Vargas (FGV)  
                   **Fórmula:** (Renda Média dos declarantes R$/1000)  
