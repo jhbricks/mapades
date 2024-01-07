@@ -201,7 +201,7 @@ else:
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('NTC', riqueza, 'Declarantes do IRPF (%)',
-           'FisherJenks',4, 'BuPu', ['Município','Declarantes do IRPF (%)'],
+           'FisherJenks',3, 'BuPu', ['Município','Declarantes do IRPF (%)'],
            'População declarante do IRPF (%)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
