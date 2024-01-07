@@ -24,7 +24,8 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 
 if area == "Paraná":
   op = st.radio("Selecione um indicador:",
-                ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
+                  ("Domicílios com bens duráveis", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
+#                ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   if op == "Domicílios com bens duráveis":
     colored_header(label="Domicílios com bens duráveis",
@@ -49,28 +50,28 @@ if area == "Paraná":
              'Percentual de domicílios com bens duráveis','media', '%')
       grafico ('PR',riqueza,'Domicílios com bens duráveis (%)','%')
  
-  elif op == "Número de veículos por pessoas":
-    colored_header(label="Número de veículos por pessoas",
-                   description="Número de veículos automotores por pessoa no Paraná",
-                   color_name="red-70",)
+#  elif op == "Número de veículos por pessoas":
+#    colored_header(label="Número de veículos por pessoas",
+#                   description="Número de veículos automotores por pessoa no Paraná",
+#                   color_name="red-70",)
 
     
-    d1,d2 = st.columns([2,1])
-    with d1:
-      mapa('PR', riqueza, 'Veículos por pessoa',
-         'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
-         'Número de veículos por pessoas')
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IPARDES, 2023  
-                  **Fórmula:** Número de veículos por pessoas  
-                  **Observações:** Dados disponibilizados pelo IPARDES
-                  """)
+#    d1,d2 = st.columns([2,1])
+#    with d1:
+#      mapa('PR', riqueza, 'Veículos por pessoa',
+#         'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
+#         'Número de veículos por pessoas')
+#      st.markdown("""**Ano-base:** 2021  
+#                  **Fonte(s):** IPARDES, 2023  
+#                  **Fórmula:** Número de veículos por pessoas  
+#                  **Observações:** Dados disponibilizados pelo IPARDES
+#                  """)
 
-    with d2:
-      st.markdown("**Indica o número de veículos automotores por pessoa disponibilizado pelo Instituto Paranaense de Desenvolvimento Econômico e Social (Ipardes) para o ano de 2021**") 
-      conta ('PR',riqueza,'Veículos por pessoa',2021,
-             'Número de veículos por pessoas','media', 'veículo/hab')
-      grafico ('PR',riqueza,'Veículos por pessoa','Veículo/hab')
+#    with d2:
+#      st.markdown("**Indica o número de veículos automotores por pessoa disponibilizado pelo Instituto Paranaense de Desenvolvimento Econômico e Social (Ipardes) para o ano de 2021**") 
+#      conta ('PR',riqueza,'Veículos por pessoa',2021,
+#             'Número de veículos por pessoas','media', 'veículo/hab')
+#      grafico ('PR',riqueza,'Veículos por pessoa','Veículo/hab')
 
     
   elif op == "População declarante do IRPF":
@@ -144,7 +145,8 @@ if area == "Paraná":
 else:
   area == "Núcleo Territorial Central de Curitiba"
   op = st.radio("Selecione um indicador:",
-                ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
+                  ("Domicílios com bens duráveis", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
+  #              ("Domicílios com bens duráveis", "Número de veículos por pessoas", "População declarante do IRPF", "Patrimônio Líquido Médio da População", "Patrimônio Líquido Médio dos declarantes do IRPF"))
   st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
   if op == "Domicílios com bens duráveis":
     colored_header(label="Domicílios com bens duráveis",
@@ -169,27 +171,27 @@ else:
              'Percentual de domicílios com bens duráveis','media', '%')
       grafico ('NTC',riqueza,'Domicílios com bens duráveis (%)','%')
   
-  elif op == "Número de veículos por pessoas":
-    colored_header(label="Número de veículos por pessoas",
-                   description="Número de veículos automotores por pessoa no Núcleo Territorial Central de Curitiba",
-                   color_name="red-70",)
-
-    d1,d2 = st.columns([2,1])
-    with d1:
-      mapa('NTC', riqueza, 'Veículos por pessoa',
-           'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
-           'Número de veículos por pessoas')
-      st.markdown("""**Ano-base:** 2021  
-                  **Fonte(s):** IPARDES, 2023    
-                  **Fórmula:** Número de veículos por pessoas  
-                  **Observações:** Dados disponibilizados pelo IPARDES
-                  """)
-
-    with d2:
-      st.markdown("**Indica o número de veículos automotores por pessoa disponibilizado pelo Instituto Paranaense de Desenvolvimento Econômico e Social (Ipardes) para o ano de 2021**") 
-      conta ('NTC',riqueza,'Veículos por pessoa',2021,
-             'Número de veículos por pessoas','media', 'veículo/hab')
-      grafico ('NTC',riqueza,'Veículos por pessoa','Veículo/hab')
+ # elif op == "Número de veículos por pessoas":
+  #  colored_header(label="Número de veículos por pessoas",
+#                   description="Número de veículos automotores por pessoa no Núcleo Territorial Central de Curitiba",
+#                   color_name="red-70",)
+#
+#    d1,d2 = st.columns([2,1])
+#    with d1:
+#      mapa('NTC', riqueza, 'Veículos por pessoa',
+#           'FisherJenks', 4, 'BuGn', ['Município','Veículos por pessoa'],
+#           'Número de veículos por pessoas')
+#      st.markdown("""**Ano-base:** 2021  
+#                  **Fonte(s):** IPARDES, 2023    
+#                  **Fórmula:** Número de veículos por pessoas  
+#                  **Observações:** Dados disponibilizados pelo IPARDES
+#                  """)
+#
+#    with d2:
+#      st.markdown("**Indica o número de veículos automotores por pessoa disponibilizado pelo Instituto Paranaense de Desenvolvimento Econômico e Social (Ipardes) para o ano de 2021**") 
+#      conta ('NTC',riqueza,'Veículos por pessoa',2021,
+#             'Número de veículos por pessoas','media', 'veículo/hab')
+#      grafico ('NTC',riqueza,'Veículos por pessoa','Veículo/hab')
 
   elif op == "População declarante do IRPF":
     colored_header(label="População declarante do IRPF",
