@@ -245,7 +245,7 @@ else:
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('NTC', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
-           'FisherJenks', 3, 'Reds', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
+           'FisherJenks', 3, 'summer_r', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido médio dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
