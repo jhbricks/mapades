@@ -154,7 +154,7 @@ else:
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('NTC', riqueza, 'Domicílios com bens duráveis (%)',
-           'FisherJenks', 4, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
+           'FisherJenks', 3, 'OrRd', ['Município','Domicílios com bens duráveis (%)'],
            'Domicílios com bens duráveis (%)')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, 2023; IBGE, 2010  
