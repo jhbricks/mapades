@@ -126,7 +126,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',3,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** Fundação Getúlio Vargas (FGV)  
                   **Fórmula:** (Renda Média da população R$/1000)  
