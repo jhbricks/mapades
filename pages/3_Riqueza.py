@@ -127,7 +127,7 @@ if area == "Paraná":
     d1,d2 = st.columns([2,1])
     with d1:
       mapa('PR', riqueza, 'Patrimônio líquido médio dos declarantes (R$ milhões)',
-           'FisherJenks', 5, 'Reds', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
+           'FisherJenks', 5, 'summer_r', ['Município','Patrimônio líquido médio dos declarantes (R$ milhões)'],
            'Patrimônio líquido dos declarantes do IRPF (R$ milhões)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** FGV  
