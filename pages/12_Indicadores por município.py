@@ -91,40 +91,34 @@ else:
     fig.update_layout(barmode='group', bargap=0.5)
 
 
-# ... (seu código anterior)
-
 
     for i, column in enumerate(indicators):
         if column == 'Município':
             continue
 
-        row = i // cols + 1
-        col = i % cols + 1
+    row = i // cols + 1
+    col = i % cols + 1
 
-        # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
+    # Adicionar barras para o valor do indicador da cidade selecionada (com a cor 'indianred')
+    fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]], name=selected_df['Município'].iloc[0],  # Extrair o valor desejado
+                         marker_color='indianred'), row=row, col=col)
 
-        fig.add_trace(go.Bar(x=[selected_df['Município'].values[0]], y=[selected_df[column].values[0]],name=selected_df['Município'].iloc[0],  # Extrair o valor desejado
-                             marker_color='indianred'), row=row, col=col)
+    # Adicionar barras para o valor médio (com a cor cinza)
+    fig.add_trace(go.Bar(x=['Média'], y=[mean_values[column]],
+                         name='Média do Paraná', marker_color='gray'),
+                  row=row, col=col)
 
-        # Adicionar barras para o valor médio (com a cor cinza)
-        fig.add_trace(go.Bar(x=['Média'], y=[mean_values[column]],
-                             name='Média do Paraná', marker_color='gray'),
-                      row=row, col=col)
+    # Adicionar barras de erro para os valores mínimo e máximo (com a cor cinza)
+    fig.add_trace(go.Bar(x=['Menor'], y=[min_values[column]],
+                         name='Menor valor do Paraná', marker_color='lightgray'),
+                  row=row, col=col)
+    fig.add_trace(go.Bar(x=['Maior'], y=[max_values[column]],
+                         name='Maior valor do Paraná', marker_color='darkgray'),
+                  row=row, col=col)
 
-        # Adicionar barras de erro para os valores mínimo e máximo (com a cor cinza)
-        fig.add_trace(go.Bar(x=['Menor'], y=[min_values[column]],
-                             name='Menor valor do Paraná', marker_color='lightgray'),
-                      row=row, col=col)
-        fig.add_trace(go.Bar(x=['Maior'], y=[max_values[column]],
-                             name='Maior valor do Paraná', marker_color='darkgray'),
-                      row=row, col=col)
-
-
-        # Definir rótulos dos eixos
-        fig.update_xaxes(title_text='Município', row=row, col=col)
-
-        fig.update_yaxes(title_text=f'({unidade[column]})', row=row, col=col)  # Adicionar a unidade correspondente
-
+    # Definir rótulos dos eixos
+    fig.update_xaxes(title_text='Município', row=row, col=col, tickangle=-45)  # Girar os rótulos do eixo x
+    fig.update_yaxes(title_text=f'({unidade[column]})', row=row, col=col)  # Adicionar a unidade correspondente
 
 
     # Definir título geral
