@@ -88,7 +88,7 @@ else:
     fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators, horizontal_spacing=0.3, vertical_spacing=0.2)
 
 # Adicionar espaçamento entre as barras
-    fig.update_layout(barmode='group', bargap=0.4)
+    fig.update_layout(barmode='group', bargap=1.0)
 
 
 # ... (seu código anterior)
