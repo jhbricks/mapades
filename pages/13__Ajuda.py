@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_extras.colored_header import colored_header
-from PIL import Image
+
 
 st.set_page_config(layout="wide",page_icon="❓")
 st.markdown("""
@@ -24,9 +24,8 @@ with t1:
     nomes = "./dados/imagem/nomes e valores.gif"
     leg = "./dados/imagem/ajuda/legenda.png"
     mapa = "./dados/imagem/ajuda/mapa.png"
-    i3 = Image.open(mapa)
-    a1 = i3.resize((510, 400))
-    st.image(a1)
+
+    st.image(mapa)
     
     st.markdown("""**Funções**""")
     c1,c2,c3,c4=st.columns([1,2,1,2])
