@@ -85,10 +85,10 @@ else:
     # Configurar a layout do gráfico para organizar em 3 colunas
     cols = 3
     rows = (len(indicators) // cols) + (len(indicators) % cols)
-    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators, horizontal_spacing=0.3, vertical_spacing=0.2)
+    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators, horizontal_spacing=0.6, vertical_spacing=0.5)
 
 # Adicionar espaçamento entre as barras
-    fig.update_layout(barmode='group', bargap=0.5)
+    fig.update_layout(barmode='group', bargap=0.8)
 
 
 # ... (seu código anterior)
