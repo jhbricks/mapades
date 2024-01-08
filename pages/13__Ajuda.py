@@ -23,7 +23,9 @@ with t1:
     nomes = "./dados/imagem/nomes e valores.gif"
     leg = "./dados/imagem/ajuda/legenda.png"
     mapa = "./dados/imagem/ajuda/mapa.png"
-    st.image(mapa)
+    i3 = Image.open(mapa)
+    a1 = i3.resize((510, 400))
+    st.image(a1)
     
     st.markdown("""**Funções**""")
     c1,c2,c3,c4=st.columns([1,2,1,2])
