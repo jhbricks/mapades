@@ -85,7 +85,7 @@ else:
     # Configurar a layout do gráfico para organizar em 3 colunas
     cols = 3
     rows = (len(indicators) // cols) + (len(indicators) % cols)
-    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators,horizontal_spacing=0.7,vertical_spacing=0.7)
+    fig = make_subplots(rows=rows, cols=cols, subplot_titles=indicators,horizontal_spacing=0.5,vertical_spacing=0.5)
 
 
 # ... (seu código anterior)
