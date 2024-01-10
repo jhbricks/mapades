@@ -1,7 +1,6 @@
 <h1 align="center">Mapa da desigualdade</h1>
 
-[![Streamlit App]
-(https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://mapadesigualdade.streamlit.app/]
+[![Streamlit App(https://static.streamlit.io/badges/streamlit_badge_black_white.svg)([https://mapadesigualdade.streamlit.app/]
 
 **Mapa da Desigualdade do Paraná e do Núcleo Territorial Central de Curitiba**
 
