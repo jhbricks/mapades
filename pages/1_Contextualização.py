@@ -185,7 +185,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'População','FisherJenks',4,'copper_r', ['Município','População'],'População (hab)')
+      mapa('NTC',contexto,'População','FisherJenks',3,'copper_r', ['Município','População'],'População (hab)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
@@ -203,7 +203,7 @@ else:
                    color_name="red-70",)
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',4,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
+      mapa('NTC',contexto,'Densidade Demográfica (hab/km²)','FisherJenks',3,'YlOrRd', ['Município','Densidade Demográfica (hab/km²)'],'Densidade Demográfica (hab/km²)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** (População total/Área total)  
