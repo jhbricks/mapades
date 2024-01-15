@@ -107,7 +107,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Índice de Gini','FisherJenks',4,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
+      mapa('NTC',renda,'Índice de Gini','FisherJenks',3,'PuBuGn', ['Município','Índice de Gini'],'Índice de Gini')
       st.markdown("""**Ano-base:** 2010  
                   **Fonte(s):** IPARDES, IBGE  
                   **Fórmula:** Índice de Gini da Renda Domiciliar per Capita  
@@ -126,7 +126,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',4,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
+      mapa('NTC',renda,'Renda Média da População (R$ mil)','FisherJenks',3,'YlOrRd', ['Município','Renda Média da População (R$ mil)'],'Renda Média da População (R$ mil)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** Fundação Getúlio Vargas (FGV)  
                   **Fórmula:** (Renda Média da população R$/1000)  
@@ -144,7 +144,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',4,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina (%)')
+      mapa('NTC',renda,'Rendimento médio da população feminina/masculina (%)','FisherJenks',3,'RdPu', ['Município','Rendimento médio da população feminina/masculina (%)'],'Rendimento médio da população feminina (%)')
       st.markdown("""**Ano-base:** 2021
                   **Fonte(s):** IPARDES, RAIS  
                   **Fórmula:** (Rendimento médio da população feminina*100) /Rendimento média da população masculina   
@@ -163,7 +163,7 @@ else:
     
     c1,c2 = st.columns([2,1])
     with c1:
-      mapa('NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',4,'copper_r', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
+      mapa('NTC',renda,'Renda Média dos Declarantes (R$ mil)','FisherJenks',3,'copper_r', ['Município','Renda Média dos Declarantes (R$ mil)'],'Renda Média dos Declarantes (R$ mil)')
       st.markdown("""**Ano-base:** 2020  
                   **Fonte(s):** Fundação Getúlio Vargas (FGV)  
                   **Fórmula:** (Renda Média dos declarantes R$/1000)  
