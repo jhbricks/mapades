@@ -47,21 +47,24 @@ if area == "Paraná":
     colored_header(label="População residente",
                    description="População residente do Paraná",
                    color_name="red-70",)
-    #mapa (area, arq, ind, scheme, k, cmap, fields, title)
+    
     c1,c2 = st.columns([2,1])
     with c1:
+      #mapa (area, arq, ind, scheme, k, cmap, fields, title)
       mapa('PR',contexto,'População','FisherJenks',5,'copper_r', ['Município','População'],'População (hab)')
       st.markdown("""**Ano-base:** 2021  
                   **Fonte(s):** IBGE  
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)   
-
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
+      #conta (area,arq,ind,ano,calc=None,tipo=None,unidade=None)
       conta ('PR',contexto,'População',2021,'População total','soma','habitantes')
+      #grafico (area,arq,ind,un)
       grafico('PR',contexto,'População','Habitantes')
       
+
   elif op == "Densidade demográfica":
     colored_header(label="Densidade demográfica",
                    description="Número de habitantes por km² no Paraná",
@@ -191,7 +194,7 @@ else:
                   **Fórmula:** População total por município  
                   **Observações:** Prévia da população por município do Censo Demográfico 2022 do IBGE.
                   """)    
-     # mx_mn ('NTC',contexto,'População','habitantes')
+
     with c2:
       st.markdown("**População residente estimada pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para o ano de 2021.**")  
       conta ('NTC',contexto,'População',2021,'População total','soma','habitantes')
